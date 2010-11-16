@@ -1,0 +1,435 @@
+@charset "UTF-8";
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #000000;
+	line-height: 18px;
+	margin: 0px 0px 10px;
+}
+small {
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #999999;
+	line-height: 14px;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+h1 {
+	font-size: 25px;
+	
+}
+
+h1, h2 {font-family: Georgia, "Times New Roman", Times, serif;color: #CC0000;font-weight: normal;text-align: center;}
+h2 {
+	font-size: 20px;
+	padding-bottom: 15px;
+	margin: 0px;
+}
+h3 {
+	size:15px;
+	font-size: 15px;
+	margin-bottom: 5px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+.h3 {
+	size:15px;
+	font-size: 15px;
+	font-weight:bold;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+select{
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #000000;
+	padding-left: 4px;
+}
+input{
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #000000;
+	padding-left: 4px;
+}
+textarea {
+	font-family: Tahoma;
+	font-size: 12px;
+	color: #000000;
+	height: 70px;
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+p {
+	margin-top: 5px;
+	margin-bottom: 0px;
+	line-height: 22px;
+}
+.analiza #denumire {
+	width: 850px;
+}
+.analiza textarea {
+	height: 70px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+.analiza #rec, .analiza #obj {
+	width: 200px;
+	height: 100px;
+}
+.analiza #elem, .analiza #risc {
+	width: 200px;
+	height: 70px;
+}
+.analiza {
+	margin-top: 10px;
+}
+#options {
+	margin-top: 10px;
+}
+.blue {
+	color: #000099;
+}
+.help {
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #CC0000;
+	margin: 15px;
+	border: 1px solid #CC0000;
+}
+#elemente {
+	font-family: Arial;
+	font-size: 11px;
+	line-height: 1.6;
+}
+#elemente .sector {
+	font-weight: bold;
+	color: #CC0000;
+	width: 120px;
+	vertical-align: top;
+}
+#elemente tr {
+	background-color: #efefef;
+}
+#elemente label {
+	display: block;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	vertical-align: middle;
+}
+#elemente input {
+	margin-right: 5px;
+}
+#elemente a {
+	font-size: 13px;
+}
+.help ul {
+	margin-left: 0px;
+}
+.rez input {
+	font-size: 14px;
+	color: #CC0000;
+	background-color: #ededed;
+	border-width: 2px;
+	border-style: solid;
+	border-top-color: #CCCCCC;
+	border-right-color: #888888;
+	border-bottom-color: #888888;
+	border-left-color: #CCCCCC;
+}
+.analiza input {
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+}
+a:link, a:visited {
+	color: #CC0000;
+	text-decoration: underline;
+}
+a:hover {
+	color: #CC0000;
+	text-decoration: none;
+}
+a img {
+	border: 0;
+}
+.inactive input, .inactive select{
+	background-color: #dedede;
+}
+.bej{ background-color:#fff7e5;}
+.bej #tl {	background: url(reportsimages/1.gif) no-repeat left top;}
+.bej #tr {	background: url(reportsimages/2.gif) no-repeat right top;}
+.bej #bl {	background: url(reportsimages/4.gif) no-repeat left bottom;}
+.bej #br {	background: url(reportsimages/3.gif) no-repeat right bottom; padding:20px;}
+
+.gri{ background-color:#ededed;}
+.gri #tl {	background: url(reportsimages/tl.gif) no-repeat left top;}
+.gri #tr {	background: url(reportsimages/tr.gif) no-repeat right top;}
+.gri #bl {	background: url(reportsimages/bl.gif) no-repeat left bottom;}
+.gri #br {	background: url(reportsimages/br.gif) no-repeat right bottom; padding:20px;}
+
+#br div{padding:10px 0 10px 0;}
+.review {	padding: 4px;
+	background-color: #e5dece;
+	text-align: center;
+	margin-bottom: 5px;
+}
+#border {	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CC0000;
+}
+.digit {
+	font-size: 20px;
+	color: #CC0000;
+}
+.caption {
+	font-size: 11px;
+	color: #FF0000;
+	line-height: 15px;
+}
+.analiza th {
+	background-image: url(reportsimages/bg.gif);
+	text-align: left;
+}
+.head textarea{width:400px;}
+#line {
+	background: url(reportsimages/line_bg.gif)  repeat-x;
+	height: 55px;
+	position: absolute;
+	top: 80px;
+	width: 100%;
+}
+#Session{
+	position:absolute;
+	top:25px;
+	right:2%;
+	text-align:right;
+	color:#FF6600;
+	background: url(reportsimages/user.png)  no-repeat left top;
+	padding:4px 0 0 28px;
+	height: 24px;
+}
+#Session a{color:#ff6600;}
+#Session a:hover{text-decoration:none}
+#info {
+	background: url(reportsimages/info.png) no-repeat;
+	font-family: "Lucida Grande", Arial;
+	color: #FFFFFF;
+	font-size: 14px;
+	position: absolute;
+	left: 2%;
+	padding: 10px 0px 14px 50px;
+	top: 6px;
+}
+#add {
+	position: absolute;
+	right: 2%;
+	top: 6px;
+}
+#add a {
+	float: left;
+}
+#top {
+	background-color: #f5c978;
+	height: 85px;
+}
+#logo {
+	font-size: 24px;
+	color: #CC0000;
+	background: url(reportsimages/small_logo.gif) no-repeat;
+	margin-left: 2%;
+	padding-left: 70px;
+	padding-bottom: 25px;
+	padding-top: 16px;
+	top: 10px;
+	position: absolute;
+}
+#legend {
+	background-color: #dedede;
+	margin-top: 20px;
+}
+#legend ul {
+	color: #666666;
+	font-size: 12px;
+	padding: 10px;
+}
+#legend li {
+	list-style-type: none;
+	margin: 10px;
+	display: inline;
+}
+#legend img {
+	vertical-align: -7px;
+	padding-right: 3px;
+}
+#listcontent {
+	top: 140px;
+	position: absolute;
+	width: 96%;
+	margin-right: 2%;
+	margin-left: 2%;
+	color: #666666;
+	font-size: 12px;
+}
+#listcontent th{	font-family: Tahoma;
+	font-size: 12px; height:25px; padding-top:10px;
+	color: #000000;
+	font-weight: normal;
+
+}
+#red tr {
+	background-color: #fde0d3;
+}
+#red th {
+	background-color: #fbc4af;
+}
+#red tr:hover {
+	background-color: #fbc4af;
+}
+#red a:link {
+	color: #000000;
+	text-decoration: underline;
+}
+#red a:visited {
+	color: #000000;
+	text-decoration: underline;
+}
+#red a:hover {
+	color: #000000;
+	text-decoration: none;
+}
+#green tr {
+	background-color: #e0f0de;
+}
+#green th {
+	background-color: #c3e2c1;
+}
+#green tr:hover {
+	background-color: #c3e2c1;
+}
+#green a:link {
+	color: #000000;
+	text-decoration: underline;
+}
+#green a:visited {
+	color: #000000;
+	text-decoration: underline;
+}
+#green a:hover {
+	color: #000000;
+	text-decoration: none;
+}
+#orange tr {
+	background-color: #fef4e5;
+}
+#orange th {
+	background-color: #fcecd1;
+}
+#orange tr:hover {
+	background-color: #fcecd1;
+}
+#orange a:link {
+	color: #000000;
+	text-decoration: underline;
+}
+#orange a:visited {
+	color: #000000;
+	text-decoration: underline;
+}
+#orange a:hover {
+	color: #000000;
+	text-decoration: none;
+}
+#caption {
+	font-size: 18px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.red {color: #CC0000}
+.orange {color: #FF6600}
+.green {color: #009900}
+#pages {
+	font-family: Tahoma;
+	font-size: 14px;
+	color: #666666;
+	text-align: center;
+	padding: 10px;
+}
+#pages a {
+	text-decoration: none;
+	margin:0px 4px;
+	color: #666666;
+}
+#pages .active {
+	color: #FFFFFF;
+	background-color: #666666;
+	padding: 4px 7px;
+}
+
+#menulink {
+	position: absolute;
+	right: 2%;
+}
+#menulink a {
+	float: left;
+}
+#menulink a{color:#ffffff;}
+#menulink a:hover{text-decoration:none}
+
+#Form{	width: 730px; margin-top: 20px; padding-top:20px; border-top: 1px dotted #999999;}
+#Form ul li{margin-bottom:10px; font-family: Arial, Helvetica, sans-serif; font-size: 16px}
+#Form label{	text-align:right; display:block;	width:30%; float:left;	padding-right:10px}
+#Form .Input{width:70%; border: 1px solid #ccc; font-family: Arial, Helvetica, sans-serif; font-size: 15px; margin-bottom:5px; padding:3px;}
+#Form .Submit{clear:left; margin:10px 0 0 25%; text-align:left}
+#Form .Submit input{width:auto; padding:5px}
+#Form ul, #Form ul li, #SiteContainer{margin:5; padding:0}
+
+ul{list-style:none}
+.error-message {
+	padding-left: 27%;
+	padding-bottom: 10px;
+	font-size: 80%;
+	color: #CC0000;
+}
+.errormessage { color: #CC0000;}
+.statistic_table td {
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+.statistic_table_head {
+	font-size: 100%;
+	font-weight: bold;
+}
+.statistic_table_td {
+	font-size: 112%;
+	font-weight: bold;
+}
+#avizHead {
+	font-family:Arial;
+	background-color:#ededed;
+	padding:10px;
+	color:#777;
+	font-size:10px;
+	line-height:14px;
+	border-bottom:solid 2px #dedede;
+	margin-bottom:15px;
+	height: 50px;
+}
+.connectedsortable {
+	padding:5px;
+	width:300px;
+	min-height:1em;
+	background-color:#eee;
+}
+.sortableitems {
+	height:1.5em;
+	line-height:1.2em;
+}
+.connectedsortablehighlight {
+	border: 1px solid #fed22f;
+	background: #ffe45c;
+	height:1.5em;
+	line-height:1.2em;
+}

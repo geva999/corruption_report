@@ -1,0 +1,241 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #000000;
+	line-height: 18px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+	margin-left: 0px;
+}
+small {
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #999999;
+	line-height: 14px;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+h1 {
+	font-size: 25px;
+	line-height: 30px;
+}
+
+h1, h2 {font-family: Georgia, "Times New Roman", Times, serif;color: #CC0000;font-weight: normal;text-align: center;}
+h2 {
+	font-size: 20px;
+	padding-bottom: 15px;
+	margin: 0px;
+}
+h3 {
+	size:15px;
+	font-size: 15px;
+	margin-bottom: 5px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+.h3 {
+	size:15px;
+	font-size: 15px;
+	font-weight:bold;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+select{
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #000000;
+	padding-left: 4px;
+}
+input{
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #000000;
+	padding-left: 4px;
+}
+textarea {
+	font-family: Tahoma;
+	font-size: 12px;
+	color: #000000;
+	height: 70px;
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+p {
+	margin-top: 5px;
+	margin-bottom: 0px;
+	line-height: 22px;
+}
+strong {
+	font-weight:bold;
+}
+#options {
+	margin-top: 10px;
+}
+.blue {color: #000099}
+.red {color: #CC0000}
+.orange {color: #FF6600}
+.green {color: #007500}
+.evidentiat {font-weight:bold}
+#elemente {
+	font-family: Arial;
+	font-size: 11px;
+	line-height: 1.6;
+}
+#elemente .sector {
+	font-weight: bold;
+	color: #CC0000;
+	width: 120px;
+	vertical-align: top;
+}
+#elemente tr {
+	background-color: #efefef;
+}
+#elemente label {
+	display: block;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	vertical-align: middle;
+}
+#elemente label:hover{
+	background-color: #c4c4c4;
+}
+#elemente input {
+	margin-right: 5px;
+	float: left;
+}
+#elemente a {
+	font-size: 13px;
+}
+#elementehover {
+	font-family: Arial;
+	font-size: 11px;
+	line-height: 1.6;
+}
+#elementehover .sector {
+	font-weight: bold;
+	color: #CC0000;
+	width: 120px;
+	vertical-align: top;
+}
+#elementehover tr {
+	background-color: #efefef;
+}
+#elementehover tr:hover {
+	background-color: #c4c4c4;
+}
+#elementehover div {
+	display: block;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	vertical-align: middle;
+}
+#elementehover div:hover {
+	background-color: #efefef;
+}
+a:link, a:visited {
+	color: #CC0000;
+	text-decoration: underline;
+}
+a:hover {
+	color: #CC0000;
+	text-decoration: none;
+}
+.bej{ background-color:#fff7e5; padding:20px;}
+.gri{ background-color:#ededed; padding:20px;}
+.head textarea{width:400px;}
+.digit {
+	font-size: 20px;
+	color: #CC0000;
+}
+#top {
+	background-color: #f5c978;
+	height: 85px;
+}
+#logo {
+	font-size: 24px;
+	color: #CC0000;
+	background: url(reportsimages/small_logo.gif) no-repeat;
+	margin-left: 2%;
+	padding-left: 70px;
+	padding-bottom: 25px;
+	padding-top: 16px;
+	top: 10px;
+	position: absolute;
+}
+#line {
+	background: url(reportsimages/line_bg.gif)  repeat-x;
+	height: 55px;
+	position: absolute;
+	top: 80px;
+	width: 100%;
+}
+#Session{
+	position:absolute;
+	top:25px;
+	right:2%;
+	text-align:right;
+	color:#FF6600;
+	background: url(reportsimages/user.png)  no-repeat left top;
+	padding:4px 0 0 28px;
+	height: 24px;
+}
+#Session a{color:#ff6600;}
+#Session a:hover{text-decoration:none}
+#info {
+	background: url(reportsimages/info.png) no-repeat;
+	font-family: "Lucida Grande", Arial;
+	color: #FFFFFF;
+	font-size: 14px;
+	position: absolute;
+	left: 2%;
+	padding: 10px 0px 14px 50px;
+	top: 6px;
+}#listcontent {
+	top: 140px;
+	position: absolute;
+	width: 96%;
+	margin-right: 2%;
+	margin-left: 2%;
+	color: #000000;
+	font-size: 12px;
+}
+#listcontent th{	font-family: Tahoma;
+	font-size: 12px; height:25px; padding-top:10px;
+	color: #000000;
+	font-weight: normal;
+}
+#menulink {
+	position: absolute;
+	right: 2%;
+	top: 16px;
+}
+#menulink a {
+	float: left;
+}
+#menulink a{color:#ffffff;}
+#menulink a:hover{text-decoration:none}
+.error-message {
+	color: #CC0000;
+}
+.errormessage { color: #CC0000;}
+.hidden{
+	display:none;
+}
+.sortable {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	width: 98%;
+}
+.ui-state-highlight { height: 60px; }
+#avizHead {
+	font-family:Arial;
+	background-color:#ededed;
+	padding:10px;
+	color:#777;
+	font-size:10px;
+	line-height:14px;
+	border-bottom:solid 2px #dedede;
+	margin-bottom:15px;
+	height: 50px;
+}

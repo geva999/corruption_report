@@ -1,0 +1,1 @@
+jQuery.datepicker.setDefaults(jQuery.extend({}, jQuery.datepicker.regional['ro'], { duration: '', changeFirstDay: false, showStatus: true, showOn: 'button', buttonImage: '/img/calendar.gif', buttonImageOnly: true, changeMonth: true, changeYear: true, showButtonPanel: true }));

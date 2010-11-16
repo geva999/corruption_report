@@ -1,0 +1,46 @@
+body{background:#f8eed8; color:#111; text-align:center; font:400 80% "lucida grande","lucida sans unicode","trebuchet ms","lucida sans",Verdana,sans-serif}
+input{margin-bottom:5px; padding:3px}
+.SiteContainer{margin:100px auto 10px; padding:2% 0 0 2%; text-align:left; background:#FFF url('reportsimages/top-corner.gif') no-repeat 0 0}
+/* Various page widths */
+.SignIn{width:400px; padding:2% 0 0 2%}
+/* Banner */
+h1{padding:25px 0 20px 80px; margin:0 20px 15px 0; height:33px; color:#cc0000; background:#F9F9F9 url('reportsimages/welcome.gif') no-repeat 0 0; font:180% Arial,Helvetica,sans-serif; letter-spacing:-1px;}
+/* Forms */
+#Form{background:#FFF url('reportsimages/bottom-corner.gif') no-repeat right bottom}
+fieldset{border:0; margin:0; padding:0 6px 6px}
+fieldset p{margin:0; padding:0 2px 8px}
+#Form form{margin:0; padding:6px 1px 6px}
+#Form ul li{padding-bottom:6px}
+#Form label{text-align:right; display:block; width:35%; float:left; margin-right:10px}
+#Form .Input{border:1px solid #ccc}
+#Form input{width:50%}
+#Form .Submit{clear:left; padding:6px 0 0 88px; text-align:left}
+#Form .Button{width:auto; padding:5px}
+/* Sign-In Page */
+#Form.SignInForm fieldset{padding:0 6px}
+#Form.SignInForm .Submit{padding-left:142px}
+/* MISC */
+body, .About h2, #Form ul, #Form ul li, .MembershipOptionLinks li, .ApplyForm, #SiteContainer{margin:0; padding:0}
+ul{list-style:none}
+a:link, a:visited {
+	color: #CC0000;
+	text-decoration: underline;
+}
+a:hover {
+	color: #CC0000;
+	text-decoration: none;
+}
+.error-message, .message {
+	color: #CC0000;
+}
+#avizHead {
+	font-family:Arial;
+	background-color:#ededed;
+	padding:10px;
+	color:#777;
+	font-size:10px;
+	line-height:14px;
+	border-bottom:solid 2px #dedede;
+	margin-bottom:15px;
+	height: 50px;
+}
