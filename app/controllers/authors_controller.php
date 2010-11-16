@@ -25,25 +25,25 @@ class AuthorsController extends AppController {
 		if (!empty($this->data)) {
 			$this->Author->create();
 			if ($this->Author->save($this->data)) {
-				$this->Session->setFlash(__('Autorul nemijlocit a fost salvat.', true), 'jgrowl');
+				$this->Session->setFlash(__('Непосредственный автор был сохранен.', true), 'jgrowl');
 				$this->redirect('/admin/authors');
 			} else {
-				$this->Session->setFlash(__('Autorul nemijlocit nu poate fi salvat. Posibil există deja un expert cu acelaşi login. Verificaţi datele introduse şi mai incercaţi încă o data.', true));
+				$this->Session->setFlash(__('Непосредственный автор не может быть сохранен. Наверно уже существует автор под тем же именем. Проверьте введенные данные и попробуйте еще раз.', true));
 			}
 		}
 	}
 	
 	function admin_edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('ID invalid pentru autor nemijlocit.', true), 'jgrowl');
+			$this->Session->setFlash(__('ID invalid для непосредственного автора.', true), 'jgrowl');
 			$this->redirect('/admin/experts');
 		}
 		if (!empty($this->data)) {
 			if ($this->Author->save($this->data)) {
-				$this->Session->setFlash(__('Autorul nemijlocit a fost salvat.', true), 'jgrowl');
+				$this->Session->setFlash(__('Непосредственный автор был сохранен.', true), 'jgrowl');
 				$this->redirect('/admin/authors');
 			} else {
-				$this->Session->setFlash(__('Autorul nemijlocit nu poate fi salvat. Posibil există deja un expert cu acelaşi login. Verificaţi datele introduse şi mai incercaţi încă o data.', true));
+				$this->Session->setFlash(__('Непосредственный автор не может быть сохранен. Наверно существует автор под тем же именем. Проверьте введенные данные и попробуйте еще раз.', true));
 			}
 		}
 		if (empty($this->data)) {
@@ -54,11 +54,11 @@ class AuthorsController extends AppController {
 
 	function admin_delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('ID invalid pentru autor nemijlocit.', true), 'jgrowl');
+			$this->Session->setFlash(__('ID invalid для непосредственного автора.', true), 'jgrowl');
 			$this->redirect('/admin/authors');
 		}
 		if ($this->Author->del($id)) {
-			$this->Session->setFlash(__('Autorul nemijlocit a fost şters.', true), 'jgrowl');
+			$this->Session->setFlash(__('Непосредственный автор был удален.', true), 'jgrowl');
 			$this->redirect('/admin/authors');
 		}
 	}

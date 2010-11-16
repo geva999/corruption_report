@@ -31,12 +31,12 @@ class CelemsController extends AppController {
 				$this->data['Pelem']['celem_id']=$this->Celem->id;
 				$this->data['Pelem']['number']=$this->data['Celem']['number'];
 				if ($this->Celem->Pelem->save($this->data)) {
-					$this->Session->setFlash(__('Elementul de coruptibilitate a fost salvat.', true), 'jgrowl');
+					$this->Session->setFlash(__('Элемент коррупциогенности был сохранен.', true), 'jgrowl');
 					$this->redirect('/admin/celems');
 				}
-				else $this->Session->setFlash(__('Elementul de coruptibilitate nu poate fi salvat. Posibil există deja un element cu acelaşi număr sau nume. Verificaţi datele introduse şi mai incercati încă o dată.', true), 'jgrowl');
+				else $this->Session->setFlash(__('Элемент коррупциогенности не может быть сохранен. Наверное уже существует элемент под тем же номером или именем. Проверьте введенные данные и попробуйте еще раз.', true), 'jgrowl');
 			}
-			else $this->Session->setFlash(__('Elementul de coruptibilitate nu poate fi salvat. Posibil există deja un element cu acelaşi număr sau nume. Verificaţi datele introduse şi mai incercati încă o dată.', true), 'jgrowl');
+			else $this->Session->setFlash(__('Элемент коррупциогенности не может быть сохранен. Наверное уже существует элемент под тем же номером или названием. Проверьте введенные данные и попробуйте еще раз.', true), 'jgrowl');
 		}
 	}
 

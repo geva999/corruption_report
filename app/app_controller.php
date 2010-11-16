@@ -40,7 +40,7 @@ class AppController extends Controller {
 		//$this->Auth->logoutRedirect = array('admin' => false, 'controller' => 'reports', 'action' => 'indexall');
 		$this->Auth->authorize = 'controller';
 		$this->Auth->ajaxLogin = null;
-		$this->Auth->loginError = 'Logarea a eşuat!  Nume utilizator sau parola incorecte!';
+		$this->Auth->loginError = 'Logarea a eşuat! Nume utilizator sau parola incorecte!';
 		$this->Auth->authError = 'Nu sunteţi autorizat să accesaţi această locaţie!';
 		$this->Auth->allow('view');
 		//$this->Auth->allow('*');
