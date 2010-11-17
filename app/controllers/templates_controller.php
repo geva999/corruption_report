@@ -25,24 +25,24 @@ class TemplatesController extends AppController {
 		if (!empty($this->data)) {
 			$this->Template->create();
 			if ($this->Template->save($this->data)) {
-				$this->Session->setFlash(__('Template-ul a fost salvat.', true), 'jgrowl');
+				$this->Session->setFlash(__('Шаблон был сохранен.', true), 'jgrowl');
 				$this->redirect('/admin/templates');
 			} 
-			else $this->Session->setFlash(__('Template-ul nu poate fi salvat. Posibil există deja un template cu acelaşi nume. Verificaţi datele introduse şi mai incercaţi incă o dată.', true), 'jgrowl');
+			else $this->Session->setFlash(__('Невозможно сохранить шаблон. Наверное уже существует шаблон под тем же названием. Проверьте введенные данные и попробуйте еще раз.', true), 'jgrowl');
 		}
 	}
 
 	function admin_edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Неверный ID pentru template.', true), 'jgrowl');
+			$this->Session->setFlash(__('Неверный ID для шаблона.', true), 'jgrowl');
 			$this->redirect('/admin/templates');
 		}
 		if (!empty($this->data)) {
 			if ($this->Template->save($this->data)) {
-				$this->Session->setFlash(__('Template-ul a fost salvat.', true), 'jgrowl');
+				$this->Session->setFlash(__('Шаблон был сохранен.', true), 'jgrowl');
 				$this->redirect('/admin/templates');
 			}
-			else $this->Session->setFlash(__('Template-ul nu poate fi salvat. Posibil există deja un template cu acelaşi nume. Verificaţi datele introduse şi mai incercaţi incă o dată.', true), 'jgrowl');
+			else $this->Session->setFlash(__('Невозможно сохранить шаблон. Наверное уже существует шаблон под тем же названием. Проверьте введенные данные и попробуйте еще раз.', true), 'jgrowl');
 		}
 		if (empty($this->data)) {
 			$this->Template->recursive = -1;
@@ -52,11 +52,11 @@ class TemplatesController extends AppController {
 
 	function admin_delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Неверный ID pentru template.', true), 'jgrowl');
+			$this->Session->setFlash(__('Неверный ID для шаблона.', true), 'jgrowl');
 			$this->redirect('/admin/templates');
 		}
 		if ($this->Template->del($id)) {
-			$this->Session->setFlash(__('Template-ul a fost şters.', true), 'jgrowl');
+			$this->Session->setFlash(__('Шаблон был удален.', true), 'jgrowl');
 			$this->redirect('/admin/templates');
 		}
 	}

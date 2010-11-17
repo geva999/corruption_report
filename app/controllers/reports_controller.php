@@ -252,7 +252,7 @@ class ReportsController extends AppController {
 		}
 		elseif ($action == 'editaremultipla') {
 			$conditions = array('Project.reportmultipleedit'=>1);
-			$viewtext = 'Rapoarte cu posibilitatea editării de către mai mulţi experţi';
+			$viewtext = 'Заключения  с возможностью редактирования несколькими экспертами';
 		}
 		if ($this->data['Project']['search'] !='') {
 			if ($this->data['Project']['searchtype'] == 1)
@@ -261,7 +261,7 @@ class ReportsController extends AppController {
 				$conditions = array('Project.projectnumber LIKE'=>'%'.$this->data['Project']['search'].'%');
 			elseif ($this->data['Project']['searchtype'] == 3)
 				$conditions = array('Project.name LIKE'=>'%'.$this->data['Project']['search'].'%');
-			$viewtext = 'Rapoarte găsite';
+			$viewtext = 'Найденные заключения';
 			$action = null;
 		}
 		$this->Report->recursive = 0;
@@ -291,7 +291,7 @@ class ReportsController extends AppController {
 			$filter = array_merge($filter, array('Project.projectstate'=>$this->data['Project']['projectstate']));
 		if ($this->data['Project']['initiative'] != '')
 			if ($this->data['Project']['initiative'] == 'deputaţi în Parlament')
-				$filter = array_merge($filter, array('Project.initiative'=>array('deputat în Parlament', 'un grup de deputaţi în Parlament')));
+				$filter = array_merge($filter, array('Project.initiative'=>array('депутат', 'группа депутатов')));
 			else $filter = array_merge($filter, array('Project.initiative'=>$this->data['Project']['initiative']));
 		if ($this->data['Report']['p06radio1'] != '')
 			$filter = array_merge($filter, array('Report.p06radio1'=>$this->data['Report']['p06radio1']));
@@ -384,13 +384,13 @@ class ReportsController extends AppController {
 			$result['Experts'][$project['expert_id']]['total_numberpages'] = $result['Experts'][$project['expert_id']]['total_numberpages'] + $project['numberpages'];
 			$result[$project['projecttype']]['Experts'][$project['expert_id']]['projects']++;
 			$result[$project['projecttype']]['Experts'][$project['expert_id']]['numberpages'] = $result[$project['projecttype']]['Experts'][$project['expert_id']]['numberpages'] + $project['numberpages'];
-			if ($project['initiative'] == 'Guvernul RM' || $project['projecttype'] == 'solicitare expresă') {
+			if ($project['initiative'] == 'Правительство' || $project['projecttype'] == 'по запросу') {
 				$result['Authors']['total']++;
 				$result['Authors'][$project['author_id']]['total']++;
 				$result[$project['projecttype']]['Authors']['total']++;
 				$result[$project['projecttype']]['Authors'][$project['author_id']]['projects']++;
 			}
-			if ($project['projecttype'] == 'proiect de lege') {
+			if ($project['projecttype'] == 'проект закона') {
 				$result[$project['projecttype']]['bydomain'][$project['projectdomain']]['total']++;
 				$result[$project['projecttype']]['bydomain'][$project['initiative']]['total']++;
 				$result[$project['projecttype']]['bydomain'][$project['projectdomain']][$project['initiative']]['total']++;
@@ -494,16 +494,16 @@ class ReportsController extends AppController {
 			$result[$domain]['total_reports_bydomain']++;
 			$result['total_reports']++;
 			//00
-			$criterias = array('integrală', 'de modificare', 'de completare', 'de modificare şi completare', 'de abrogare');
+			$criterias = array('общий', 'о внесении изменений', 'о внесении дополнений', 'о внесении изменений и дополнений', 'о признании утратившим силу');
 			$result = $this->__statistic_reports_total_list($domain, $result, $criterias, null, 'projecttypevizat', $project['projecttypevizat']);
 			//02
-			$criterias = array('lege organică', 'lege ordinară', 'lege constituţională', 'hotărîre a Parlamentului', 'nu este determinată');
+			$criterias = array('органический закон', 'ординарный закон', 'конституционный закон', 'постановление Парламента', 'не указана');
 			$result = $this->__statistic_reports_total_list($domain, $result, $criterias, $report['p02list2'], 'p02list', $report['p02list1']);
 			//03
 			$criterias = array(1, 2);
 			$result = $this->__statistic_reports_total_list($domain, $result, $criterias, null, 'p03radio', $report['p03radio1']);
 			//05
-			$criterias = array('este plasată pe site-ul Parlamentului', 'nu este plasată pe site-ul Parlamentului');
+			$criterias = array('опубликована на сайте Парламента', 'не опубликована на сайте Парламента');
 			$result = $this->__statistic_reports_total_list($domain, $result, $criterias, null, 'p05list', $report['p05list1']);
 			//06
 			$criterias = array(1, 2);
