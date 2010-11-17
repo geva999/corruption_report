@@ -53,7 +53,7 @@
 			<th width="200"><?php echo $paginator->sort('Nume expert', 'Expert.fullname', array('title'=>'sortare după Nume expert'));?></th>
 			<th width="70"><?php echo $paginator->sort('Data limită expert', 'Project.datelimitexpert', array('title'=>'sortare după Data limită expert'));?></th>
 			<th width="70"><?php echo $paginator->sort('Data limită autoritate', 'Project.datelimitparlament', array('title'=>'sortare după Data limită autoritate'));?></th>
-			<th width="100">Nume fişier</th>
+			<th width="100">Имя файла</th>
 			<th width="50">Editare</th>
 			<th width="50">Ştergere</th>
 		</tr>

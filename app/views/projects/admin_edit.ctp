@@ -69,7 +69,7 @@
 						echo $form->input('Project.initiative', array(
 								'label' => 'Iniţiativa legislativă',
 								'div' => false,
-								'empty' => 'alegeţi',
+								'empty' => 'выберите',
 								'options' => array(	'Правительство'=>'Правительство',
 													'депутат'=>'депутат',
 													'группа депутатов'=>'группа депутатов',
@@ -104,7 +104,7 @@
 				</li>
 				<li>
 					<?php
-						echo $form->label('Project.filename', 'Nume fişier');
+						echo $form->label('Project.filename', 'Имя файла');
 						if (isset($this->data['Project']['filename']) && $this->data['Project']['filename'] != '')
 							echo $html->link($this->data['Project']['filename'], '/uploaded/projects/'.$this->data['Project']['filename']);
 						else echo 'Nu există document pentru acest proiect.';
@@ -112,7 +112,7 @@
 				</li>
 				<li>
 					<?php
-						echo $form->input('Project.file', array('type'=>'file', 'label'=>'Alegeţi fişier', 'style'=>'width: 50%;'));
+						echo $form->input('Project.file', array('type'=>'file', 'label'=>'Выберите файл', 'style'=>'width: 50%;'));
 					?>
 				</li>
 				<li>

@@ -16,7 +16,7 @@
 			<th width="80">Număr proiect</th>
 			<th width="70">Data limită expert</th>
 			<th width="70">Data limită autoritate</th>
-			<th width="100">Nume fişier</th>
+			<th width="100">Имя файла</th>
 			<th width="50">Acceptare</th>
 			<th width="50">Respingere</th>
 		</tr>
@@ -62,7 +62,7 @@
 			<th width="80"><?php echo $paginator->sort('Număr proiect', 'Project.projectnumber', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'sortare după Număr proiect'));?></th>
 			<th width="70"><?php echo $paginator->sort('Data limită expert', 'Project.datelimitexpert', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'sortare după Data limită expert'));?></th>
 			<th width="70"><?php echo $paginator->sort('Data limită autoritate', 'Project.datelimitparlament', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'sortare după Data limită autoritate'));?></th>
-			<th width="100">Nume fişier</th>
+			<th width="100">Имя файла</th>
 		</tr>
 		<?php
 		$i = intval($paginator->counter(array('format'=>'%start%')));

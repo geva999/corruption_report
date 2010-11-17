@@ -106,7 +106,7 @@
                     'class' => 'required_dependent',
                     'label' => false,
                     'div' => false,
-                    'empty' => 'alegeţi',
+                    'empty' => 'выберите',
                     'options' => array( 'органический закон'=>'органический закон',
                               'ординарный закон'=>'ординарный закон',
                               'конституционный закон'=>'конституционный закон',
@@ -117,7 +117,7 @@
                     'class' => 'required_dependent',
                     'label' => false,
                     'div' => false,
-                    'empty' => 'alegeţi',
+                    'empty' => 'выберите',
                     'options' => array(	'corespunde'=>'corespunde',
                               'nu corespunde'=>'nu corespunde'))).
                   '</span><span class="green"></span> art.72 din Constituţie şi art. 6-11, 27, 35 şi 39 din Legea privind actele legislative, nr.780-XV din 27.12.2001.',
@@ -175,7 +175,7 @@
                     'class' => 'required_dependent',
                     'label' => false,
                     'div' => false,
-                    'empty' => 'alegeţi',
+                    'empty' => 'выберите',
                     'options' => array(	'опубликована на сайте Парламента'=>'опубликована на сайте Парламента',
                               'не опубликована на сайте Парламента'=>'не опубликована на сайте Парламента'))).
                   '</span><span class="green"></span>'.
