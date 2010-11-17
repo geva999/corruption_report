@@ -35,7 +35,7 @@ class AuthorsController extends AppController {
 	
 	function admin_edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('ID invalid для непосредственного автора.', true), 'jgrowl');
+			$this->Session->setFlash(__('Неверный ID для непосредственного автора.', true), 'jgrowl');
 			$this->redirect('/admin/experts');
 		}
 		if (!empty($this->data)) {
@@ -54,7 +54,7 @@ class AuthorsController extends AppController {
 
 	function admin_delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('ID invalid для непосредственного автора.', true), 'jgrowl');
+			$this->Session->setFlash(__('Неверный ID для непосредственного автора.', true), 'jgrowl');
 			$this->redirect('/admin/authors');
 		}
 		if ($this->Author->del($id)) {

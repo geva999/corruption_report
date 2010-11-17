@@ -34,7 +34,7 @@ class TemplatesController extends AppController {
 
 	function admin_edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('ID invalid pentru template.', true), 'jgrowl');
+			$this->Session->setFlash(__('Неверный ID pentru template.', true), 'jgrowl');
 			$this->redirect('/admin/templates');
 		}
 		if (!empty($this->data)) {
@@ -52,7 +52,7 @@ class TemplatesController extends AppController {
 
 	function admin_delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('ID invalid pentru template.', true), 'jgrowl');
+			$this->Session->setFlash(__('Неверный ID pentru template.', true), 'jgrowl');
 			$this->redirect('/admin/templates');
 		}
 		if ($this->Template->del($id)) {

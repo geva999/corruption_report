@@ -40,25 +40,25 @@ class ExpertsController extends AppController {
 		if (!empty($this->data)) {
 			$this->Expert->create();
 			if ($this->Expert->save($this->data)) {
-				$this->Session->setFlash(__('Expertul a fost salvat.', true), 'jgrowl');
+				$this->Session->setFlash(__('Эксперт был сохранен.', true), 'jgrowl');
 				$this->redirect('/admin/experts');
 			} else {
-				$this->Session->setFlash(__('Expertul nu poate fi salvat. Posibil există deja un expert cu acelaşi login. Verificaţi datele introduse şi mai incercaţi încă o data.', true), 'jgrowl');
+				$this->Session->setFlash(__('Эксперт не может быть сохранен. Наверное уже существует эксперт под тем же именем. Проверьте введенные данные и попробуйте еще раз.', true), 'jgrowl');
 			}
 		}
 	}
 
 	function admin_edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('ID invalid pentru expert.', true), 'jgrowl');
+			$this->Session->setFlash(__('Неверный ID для эксперта.', true), 'jgrowl');
 			$this->redirect('/admin/experts');
 		}
 		if (!empty($this->data)) {
 			if ($this->Expert->save($this->data)) {
-				$this->Session->setFlash(__('Expertul a fost salvat.', true), 'jgrowl');
+				$this->Session->setFlash(__('Эксперт был сохранен.', true), 'jgrowl');
 				$this->redirect('/admin/experts');
 			} else {
-				$this->Session->setFlash(__('Expertul nu poate fi salvat. Posibil există deja un expert cu acelaşi login. Verificaţi datele introduse şi mai incercaţi încă o data.', true), 'jgrowl');
+				$this->Session->setFlash(__('Эксперт не может быть сохранен. Наверное уже существует эксперт под тем же именем. Проверьте введенные данные и попробуйте еще раз.', true), 'jgrowl');
 			}
 		}
 		if (empty($this->data)) {
@@ -69,11 +69,11 @@ class ExpertsController extends AppController {
 
 	function admin_delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('ID invalid pentru expert.', true), 'jgrowl');
+			$this->Session->setFlash(__('Неверный ID для эксперта.', true), 'jgrowl');
 			$this->redirect('/admin/experts');
 		}
 		if ($this->Expert->del($id)) {
-			$this->Session->setFlash(__('Expertul a fost şters.', true), 'jgrowl');
+			$this->Session->setFlash(__('Эксперт был удален.', true), 'jgrowl');
 			$this->redirect('/admin/experts');
 		}
 	}

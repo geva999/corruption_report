@@ -33,13 +33,13 @@ class ProjectsController extends AppController {
 				$project = $this->Project->read(null, $id);
 				$this->data = array();
 				$this->data['Report']['project_id'] = $project['Project']['id'];
-				$this->data['Report']['p08text1'] = 'Potrivit lit. c) a  articolului 20 al Legii 780/2001privind actele legislative, nota informativă trebuie să includă referinţe la reglementările corespondente ale legislaţiei comunitare şi nivelul compatibilităţii proiectului de act legislativ cu reglementările în cauză.';
-				$this->data['Report']['p09text1'] = 'Potrivit lit. d) a art.20 din Legea 780/2001 privind actele legislative, nota informativă trebuie să conţină informaţii  privind „fundamentarea economico-financiară în cazul în care realizarea noilor reglementări necesită cheltuieli financiare şi de altă natură”. Potrivit art.47 alin.(6) din Regulamentul Parlamentului, În cazul în care realizarea noilor reglementări necesită cheltuieli financiare, materiale şi de altă natură, se anexează fundamentarea economico-financiară.';
-				$this->data['Report']['p11text1'] = 'Din textul proiectului nu rezultă stabilirea şi promovarea expresă a unor interese/beneficii de grup sau individuale, necorelate/contrare interesului public general.';
-				$this->data['Report']['p12text1'] = 'Din textul proiectului şi aplicarea ulterioară a acestuia nu rezultă expres prejudicierea intereselor (drepturilor, libertăţilor) anumitor categorii de persoane sau prejudicierea interesului public.';
-				$this->data['Report']['p13text1'] = 'Prevederile proiectului nu sînt concurente cu alte prevederi ale legislaţiei.';
-				$this->data['Report']['p14text1'] = 'Formulările conţinute în proiect sînt suficient de clare şi concise, exprimările întrunind rigorile tehnicii legislative, ale limbajului juridic, respectă regulile de ortografie şi punctuaţie.';
-				$this->data['Report']['p15text1'] = 'Proiectul nu stabileşte atribuţii ale autorităţilor publice, nici proceduri administrative noi sau alte chestiuni vizînd activitatea acestora.';
+				$this->data['Report']['p08text1'] = 'Согласно п. c) статьи 20 Закона 780/2001 о законодательных актах, пояснительная записка должна содержать ссылки на соответствующие нормы законодательства Сообщества и степень совместимости проекта законодательного акта с этими нормами.';
+				$this->data['Report']['p09text1'] = 'Согласно п. d) статьи 20 Закона 780/2001 о законодательных актах, пояснительная записка должна содержать информацию о "финансово-экономическом обосновании в случае, когда реализация новых норм потребует финансовых и иных затрат". Согласно ст. 47 часть (6) Регламента Парламента, если релизация новых положений сопряжена с финансовыми, материальными и иными затратами, прилагается финансово-экономическое обоснование.';
+				$this->data['Report']['p11text1'] = 'Из текста проекта не вытекает установление или прямое продвижение груповых или личных интересов/выгод, несовместимые/противоречащие общим интересам общества.';
+				$this->data['Report']['p12text1'] = 'Из текста проекта и его последующего применения не вытекает прямое ущемление интересов (прав, свобод) определенной категории лиц или ущемление общих интересов общества.';
+				$this->data['Report']['p13text1'] = 'Предписания проекта не противоречат предписаниям другого законодательства.';
+				$this->data['Report']['p14text1'] = 'Формулировки, содержащиеся в проекте, являются достаточно четкими и сжатыми, а изложение текста соответствует правилам законодательной техники, юридического языка, соблюдают правила орфографии и пунктуации.';
+				$this->data['Report']['p15text1'] = 'Проект не регулирует полномочия государственных органов, новые административные процедуры ил другие аспекты, касающиеся их деятельности.';
 				$this->Project->Report->create();
 				$this->Project->Report->save($this->data);
 			}	
@@ -63,27 +63,27 @@ class ProjectsController extends AppController {
 		switch ($action) {
 			case 'examinare':
 				$conditions = array('Project.projectstate'=>1);
-				$viewtext = 'Proiecte în curs de examinare';
+				$viewtext = 'Проекты в процессе расмотрения';
 				break;
 			case 'adoptate':
 				$conditions = array('Project.projectstate'=>2);
-				$viewtext = 'Proiecte adoptate';
+				$viewtext = 'Принятые проекты';
 				break;
 			case 'retrase':
 				$conditions = array('Project.projectstate'=>3);
-				$viewtext = 'Proiecte retrase';
+				$viewtext = 'Отозванные проекты';
 				break;
 			case 'spreaprobare':
 				$conditions = array('Project.projectreportstate'=>2);
-				$viewtext = 'Proiecte trimise spre aprobare către expert';
+				$viewtext = 'Проекты направленные на утверждение эксперту';
 				break;
 			case 'acceptate':
 				$conditions = array('Project.projectreportstate'=>3);
-				$viewtext = 'Proiecte acceptate de expert';
+				$viewtext = 'Проекты принятые экспертом к рассмотрению';
 				break;
 			case 'respinse':
 				$conditions = array('Project.projectreportstate'=>4);
-				$viewtext = 'Proiecte respinse de expert';
+				$viewtext = 'Проекты отклоненные экспертом';
 				break;
 		}
 		if ($this->data['Project']['search'] !='') {
@@ -98,7 +98,7 @@ class ProjectsController extends AppController {
 				$experts = $this->Project->Expert->find('list', array('fields'=>array('Expert.id'), 'conditions'=>array('Expert.isadmin'=>0, 'Expert.fullname LIKE'=>'%'.$this->data['Project']['search'].'%')));
 				$conditions = array('Project.expert_id'=>$experts);
 			}
-			$viewtext = 'Proiecte găsite';
+			$viewtext = 'Найденные проекты';
 			$action = null;
 		}
 		$this->Project->recursive = 0;
@@ -115,7 +115,7 @@ class ProjectsController extends AppController {
 				move_uploaded_file($this->data['Project']['file']['tmp_name'], 'uploaded/projects/'.$filename);
 				$this->data['Project']['filename'] = $filename;
 			}
-			if ($this->data['Project']['initiative'] != 'Guvernul RM' && $this->data['Project']['projecttype'] == 'proiect de lege') $this->data['Project']['author_id'] = 0;
+			if ($this->data['Project']['initiative'] != 'Правительство' && $this->data['Project']['projecttype'] == 'проект закона') $this->data['Project']['author_id'] = 0;
 			$this->Project->create();
 			$this->Project->set($this->data);
 			if ($this->Project->validates()) {
@@ -125,10 +125,10 @@ class ProjectsController extends AppController {
 							$this->data['Projectexpert'][$projectexpertkey]['project_id'] = $this->Project->id;
 						$this->Project->Projectexpert->saveAll($this->data['Projectexpert']);
 					}
-					$this->Session->setFlash(__('Proiectul a fost salvat.', true), 'jgrowl');
+					$this->Session->setFlash(__('Проект был сохранен.', true), 'jgrowl');
 					$this->redirect('/admin/projects');
 				}
-				else $this->Session->setFlash(__('Proiectul nu poate fi salvat. Verificaţi datele introduse şi mai incercaţi incă o dată.', true), 'jgrowl');
+				else $this->Session->setFlash(__('Проект не может быть сохранен. Проверьте введенные данные и попробуйте еще раз.', true), 'jgrowl');
 			}
 		}
 		$this->Project->Expert->recursive = -1;
@@ -141,7 +141,7 @@ class ProjectsController extends AppController {
 
 	function admin_edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('ID invalid pentru proiect.', true), 'jgrowl');
+			$this->Session->setFlash(__('Неверный ID для проекта.', true), 'jgrowl');
 			$this->redirect('/admin/projects');
 		}
 		if (!empty($this->data)) {
@@ -151,11 +151,11 @@ class ProjectsController extends AppController {
 				move_uploaded_file($this->data['Project']['file']['tmp_name'], 'uploaded/projects/'.$filename);
 				$this->data['Project']['filename'] = $filename;
 			}
-			if ($this->data['Project']['initiative'] != 'Guvernul RM' && $this->data['Project']['projecttype'] == 'proiect de lege') $this->data['Project']['author_id'] = 0;
+			if ($this->data['Project']['initiative'] != 'Правительство' && $this->data['Project']['projecttype'] == 'проект закона') $this->data['Project']['author_id'] = 0;
 			$this->Project->set($this->data);
 			if ($this->Project->validates()) {
 				if ($this->Project->save($this->data, false)) {
-					if ($this->data['Project']['projecttype'] == 'solicitare expresă')
+					if ($this->data['Project']['projecttype'] == 'по запросу')
 						$reportupdate = array('Report.p02list1'=>NULL, 'Report.p02list2'=>NULL, 'Report.p02text1'=>NULL, 'Report.p02option1'=>0, 'Report.p02option2'=>0, 'Report.p05list1'=>NULL, 'Report.p05text1'=>NULL);
 					else $reportupdate = array();
 					if ($this->data['Project']['reporttrasnparenta'] != 1)
@@ -171,10 +171,10 @@ class ProjectsController extends AppController {
 							$this->data['Projectexpert'][$projectexpertkey]['project_id'] = $this->Project->id;
 						$this->Project->Projectexpert->saveAll($this->data['Projectexpert']);
 					}
-					$this->Session->setFlash(__('Proiectul a fost salvat.', true), 'jgrowl');
+					$this->Session->setFlash(__('Проект был сохранен.', true), 'jgrowl');
 					$this->redirect('/admin/projects');
 				}
-				else $this->Session->setFlash(__('Proiectul nu poate fi salvat. Verificaţi datele introduse şi mai incercaţi incă o dată.', true), 'jgrowl');
+				else $this->Session->setFlash(__('Проект не может быть сохранен. Проверьте введенные данные и попробуйте еще раз.', true), 'jgrowl');
 			}
 		}
 		if (empty($this->data)) {
@@ -195,11 +195,11 @@ class ProjectsController extends AppController {
 
 	function admin_delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('ID invalid pentru proiect.', true), 'jgrowl');
+			$this->Session->setFlash(__('Неверный ID для проекта.', true), 'jgrowl');
 			$this->redirect('/admin/projects');
 		}
 		if ($this->Project->del($id)) {
-			$this->Session->setFlash(__('Proiectul a fost şters.', true), 'jgrowl');
+			$this->Session->setFlash(__('Проект был удален.', true), 'jgrowl');
 			$this->redirect('/admin/projects');
 		}
 	}

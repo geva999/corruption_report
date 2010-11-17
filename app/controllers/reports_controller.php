@@ -54,7 +54,7 @@ class ReportsController extends AppController {
 		if ($isadmin == 1) $backlink = '/admin/reports/index';
 			else $backlink = '/reports/index';
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('ID invalid pentru raport.', true), 'jgrowl');
+			$this->Session->setFlash(__('Неверный ID pentru raport.', true), 'jgrowl');
 			$this->redirect($backlink);
 		}
 		if (!empty($this->data)) {
@@ -167,7 +167,7 @@ class ReportsController extends AppController {
 		if ($isadmin == 1) $backlink = '/admin/reports/index';
 			else $backlink = '/reports/index';
 		if (!$id) {
-			$this->Session->setFlash(__('ID invalid pentru raport.', true), 'jgrowl');
+			$this->Session->setFlash(__('Неверный ID pentru raport.', true), 'jgrowl');
 			$this->redirect($backlink);
 		}
 		App::import('Model','Template');
