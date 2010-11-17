@@ -13,7 +13,7 @@
 					<table border="0" cellpadding="5" cellspacing="0">
 						<?php
 							$links = array(
-								'în curs de examinare de către administrator'=>'examinare',
+								'в процессе расмотрения администратором'=>'examinare',
 								'publicate cu postare pe site'=>'publicate',
 								'la proiecte adoptate'=>'adoptate',
 								'cu editare multiplă'=>'editaremultipla');
@@ -64,7 +64,7 @@
 					$projectname = $report['Project']['name'];
 					echo 'Raport de expertiză la '.$projectname;
 					if (substr($projectname, 0, 9) == 'proiectul') $projectname = substr($projectname, 9, strlen($projectname)-9);
-					if ($report['Project']['projecttype'] == 'solicitare expresă')
+					if ($report['Project']['projecttype'] == 'по запросу')
 						echo ', la solicitarea '.nl2br($report['Project']['namesolicitare']);
 				?>
 			</td>

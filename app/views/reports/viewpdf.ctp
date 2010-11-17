@@ -64,7 +64,7 @@
 	$htmlcontent = $htmlcontent.'<h1 style="color: #CC0000; text-align: center;">RAPORT DE EXPERTIZĂ</h1>';
 	$htmlcontent = $htmlcontent.'<h3 align="center">la '.nl2br($projectname).'</h3>';
 	if (substr($projectname, 0, 9) == 'proiectul') $projectname = substr($projectname, 9, strlen($projectname)-9);
-	if ($projecttype == 'proiect de lege')
+	if ($projecttype == 'проект закона')
 		$htmlcontent = $htmlcontent.'<p align="center">(înregistrat în Parlament cu numărul '.$this->data['Project']['projectnumber'].
 			' din '.$this->data['Project']['projectdatetext'].')</p>'.
 			'<p>În temeiul Concepţiei de cooperare dintre Parlament şi societatea civilă, '.
@@ -76,9 +76,9 @@
 	$pdf->writeHTML($htmlcontent, true, 0, true, 0);
 
 	$htmlcontent = '<br><h2 align="center" color="#ff6600">Evaluarea generală</h2>';
-	if ($projecttype == 'proiect de lege') {
+	if ($projecttype == 'проект закона') {
 		$htmlcontent = $htmlcontent.'<p><strong>1. Autor al iniţiativei legislative </strong> este '.$this->data['Project']['initiative'];
-		if ($this->data['Project']['initiative'] == 'Guvernul RM') $htmlcontent = $htmlcontent.', autor nemijlocit - '.$author;
+		if ($this->data['Project']['initiative'] == 'Правительство') $htmlcontent = $htmlcontent.', autor nemijlocit - '.$author;
 		$htmlcontent = $htmlcontent.', ceea ce corespunde art. 73 din Constituţie şi art. 44 din Regulamentul Parlamentului.</p>'.
 			'<p><strong>2. Categoria actului legislativ</strong> propus este '.$this->data['Report']['p02list1'].
 			', ceea ce '.$this->data['Report']['p02list2'].' art.72 din Constituţie şi art. 6-11, 27, 35 şi 39 din Legea privind actele legislative, nr.780-XV din 27.12.2001. '.
@@ -98,11 +98,11 @@
 
 	$htmlcontent = '<br><h2 align="center" color="#ff6600">Fundamentarea proiectului</h2>';
 
-	if ($projecttype == 'proiect de lege') {
+	if ($projecttype == 'проект закона') {
 		$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Nota informativă</strong> a proiectului de act legislativ supus expertizei '.$this->data['Report']['p05list1'].'.</p>'.
 			'<p>Considerăm că în acest fel Parlamentul ';
-		if ($this->data['Report']['p05list1'] == 'este plasată pe site-ul Parlamentului') $htmlcontent = $htmlcontent.'respectă';
-			elseif ($this->data['Report']['p05list1'] == 'nu este plasată pe site-ul Parlamentului') $htmlcontent = $htmlcontent.'nu respectă';
+		if ($this->data['Report']['p05list1'] == 'опубликована на сайте Парламента') $htmlcontent = $htmlcontent.'respectă';
+			elseif ($this->data['Report']['p05list1'] == 'не опубликована на сайте Парламента') $htmlcontent = $htmlcontent.'nu respectă';
 		$htmlcontent = $htmlcontent.' principiul transparenţei procesului legislativ şi principiile de cooperare cu societatea civilă.</p>'.
 			'<p>'.nl2br($this->data['Report']['p05text1']).'</p>';
 		$pointdigit++;

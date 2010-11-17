@@ -14,21 +14,21 @@
 		$totalnumberprojectsstandard  = $statistic['examinare'][0][0]['numberprojectsstandard'] + $statistic['adoptate'][0][0]['numberprojectsstandard'] + $statistic['retrase'][0][0]['numberprojectsstandard'];
 	?>
 	<tr align="center">
-		<td align="left" width="200"> - proiecte în curs de examinare</td>
+		<td align="left" width="200"> - проекты в процессе расмотрения</td>
 		<td><?php echo $statistic['examinare'][0][0]['countproject'];?></td>
 		<td><?php echo number_format($statistic['examinare'][0][0]['countproject']/$total*100, 2);?></td>
 		<td><?php echo isset($statistic['examinare'][0][0]['numberpages'])?$statistic['examinare'][0][0]['numberpages']:0;?></td>
 		<td><?php echo isset($statistic['examinare'][0][0]['numberprojectsstandard'])?$statistic['examinare'][0][0]['numberprojectsstandard']:0;?></td>
 	</tr>
 	<tr align="center">
-		<td align="left"> - proiecte adoptate</td>
+		<td align="left"> - принятые проекты</td>
 		<td><?php echo $statistic['adoptate'][0][0]['countproject'];?></td>
 		<td><?php echo number_format($statistic['adoptate'][0][0]['countproject']/$total*100, 2);?></td>
 		<td><?php echo isset($statistic['adoptate'][0][0]['numberpages'])?$statistic['adoptate'][0][0]['numberpages']:0;?></td>
 		<td><?php echo isset($statistic['adoptate'][0][0]['numberprojectsstandard'])?$statistic['adoptate'][0][0]['numberprojectsstandard']:0;?></td>
 	</tr>
 	<tr align="center">
-		<td align="left"> - proiecte retrase</td>
+		<td align="left"> - отозванные проекты</td>
 		<td><?php echo $statistic['retrase'][0][0]['countproject'];?></td>
 		<td><?php echo number_format($statistic['retrase'][0][0]['countproject']/$total*100, 2);?></td>
 		<td><?php echo isset($statistic['retrase'][0][0]['numberpages'])?$statistic['retrase'][0][0]['numberpages']:0;?></td>

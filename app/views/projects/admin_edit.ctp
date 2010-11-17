@@ -17,16 +17,16 @@
 				<li>
 					<?php
 						if ($this->data['Project']['projecttype'] != '') $projecttype = $this->data['Project']['projecttype'];
-						else $projecttype = 'proiect de lege';
+						else $projecttype = 'проект закона';
 						echo $form->input('Project.projecttype', array(
 								'label' => 'Tip proiect',
-								'options' => array(	'proiect de lege'=>'proiect de lege',
-													'solicitare expresă'=>'solicitare expresă')));
+								'options' => array(	'проект закона'=>'проект закона',
+													'по запросу'=>'по запросу')));
 					?>
 				</li>
 				<li><?php echo $form->input('Project.expert_id', array('label'=>'Nume expert'));?></li>
 				<li><?php echo $form->input('Project.name', array('label'=>'Denumirea proiectului', 'type'=>'textarea', 'style'=>'width: 65%;'));?></li>
-				<li class="option2"<?php if ($projecttype != 'solicitare expresă') echo ' style="display:none;"';?>>
+				<li class="option2"<?php if ($projecttype != 'по запросу') echo ' style="display:none;"';?>>
 					<?php echo $form->input('Project.namesolicitare', array('label'=>'La solicitarea', 'type'=>'textarea', 'style'=>'width: 65%;'));?>
 				</li>
 				<li>
@@ -34,11 +34,11 @@
 
 						echo $form->input('Project.projecttypevizat', array(
 								'label' => 'Tipul actului vizat de proiect',
-								'options' => array(	'integrală'=>'integrală',
-													'de modificare'=>'de modificare',
-													'de completare'=>'de completare',
-													'de modificare şi completare'=>'de modificare şi completare',
-													'de abrogare'=>'de abrogare')));
+								'options' => array(	'общий'=>'общий',
+													'о внесении изменений'=>'о внесении изменений',
+													'о внесении дополнений'=>'о внесении дополнений',
+													'о внесении изменений и дополнений'=>'о внесении изменений и дополнений',
+													'о признании утратившим силу'=>'о признании утратившим силу')));
 					?>
 				</li>
 				<li>
@@ -52,33 +52,33 @@
 													'V. Legislaţia muncii, asigurarea socială şi ocrotirea sănătăţii'=>'V. Legislaţia muncii, asigurarea socială şi ocrotirea sănătăţii')));
 					?>
 				</li>
-				<li class="option1"<?php if ($projecttype != 'proiect de lege') echo ' style="display:none;"';?>>
+				<li class="option1"<?php if ($projecttype != 'проект закона') echo ' style="display:none;"';?>>
 					<?php echo $form->input('Project.projectnumber', array('label'=>'Număr de înregistrare în Parlament'));?>
 				</li>
 				<br/>
 				<li>
-					<label class="option1"<?php if ($projecttype != 'proiect de lege') echo ' style="display:none;"';?>>Data înregistrării în Parlament</label>
-					<label class="option2"<?php if ($projecttype != 'solicitare expresă') echo ' style="display:none;"';?>>Data solicitării</label>
+					<label class="option1"<?php if ($projecttype != 'проект закона') echo ' style="display:none;"';?>>Data înregistrării în Parlament</label>
+					<label class="option2"<?php if ($projecttype != 'по запросу') echo ' style="display:none;"';?>>Data solicitării</label>
 					<?php
 						echo $form->input('Project.projectdatetext', array('label'=>false, 'readonly'=>'readonly'));
 						echo $form->hidden('Project.projectdate');
 					?>
 				</li>
-				<li class="option1"<?php if ($projecttype != 'proiect de lege') echo ' style="display:none;"';?>>
+				<li class="option1"<?php if ($projecttype != 'проект закона') echo ' style="display:none;"';?>>
 					<?php
 						echo $form->input('Project.initiative', array(
 								'label' => 'Iniţiativa legislativă',
 								'div' => false,
 								'empty' => 'alegeţi',
-								'options' => array(	'Guvernul RM'=>'Guvernul RM',
-													'deputat în Parlament'=>'deputat în Parlament',
-													'un grup de deputaţi în Parlament'=>'un grup de deputaţi în Parlament',
+								'options' => array(	'Правительство'=>'Правительство',
+													'депутат'=>'депутат',
+													'группа депутатов'=>'группа депутатов',
 													'Preşedintele RM'=>'Preşedintele RM',
 													'Adunarea Populară a UTA Gagauzia'=>'Adunarea Populară a UTA Gagauzia')));
 
 					?>
 				</li>
-				<li class="option3"<?php if ($this->data['Project']['initiative'] != 'Guvernul RM' && $projecttype == 'proiect de lege') echo ' style="display:none;"';?>>
+				<li class="option3"<?php if ($this->data['Project']['initiative'] != 'Правительство' && $projecttype == 'проект закона') echo ' style="display:none;"';?>>
 					<?php echo $form->input('Project.author_id', array('label'=>'Autor nemijlocit'));?>
 				</li>
 				<li><?php echo $form->input('Project.reportnumber', array('label'=>'Număr raport'));?></li>

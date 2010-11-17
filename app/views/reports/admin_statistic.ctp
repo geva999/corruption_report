@@ -28,7 +28,7 @@
 								'label'=>'Tipul proiectului: ',
 								'div'=>false,
 								'empty'=>'toate',
-								'options'=>array('proiect de lege'=>'proiect de lege', 'solicitare expresă'=>'solicitare expresă'))).'</td>'.
+								'options'=>array('проект закона'=>'проект закона', 'по запросу'=>'по запросу'))).'</td>'.
 						'<td rowspan="4">'.$ajax->submit('Filtrare', array('div'=>false, 'update'=>'content', 'indicator'=>'spinner')).'</td>'.
 						'<tr><td colspan="2">Perioada de afişare - '.$form->input('Report.date1text', array('label'=>'&nbsp;&nbsp;&nbsp;de la: ', 'div'=>false, 'size'=>'17', 'maxlength'=>'18', 'readonly'=>'readonly')).
 						$form->hidden('Report.date1').
@@ -44,7 +44,7 @@
 								'label'=>'Iniţiativa legislativă: ',
 								'div'=>false,
 								'empty'=>'toţi',
-								'options'=>array(	'Guvernul RM'=>'Guvernul RM',
+								'options'=>array(	'Правительство'=>'Правительство',
 													'deputaţi în Parlament'=>'deputaţi în Parlament',
 													'Preşedintele RM'=>'Preşedintele RM',
 													'Adunarea Populară a UTA Gagauzia'=>'Adunarea Populară a UTA Gagauzia'))).
@@ -71,7 +71,7 @@
 
 	<div id="caption" class="red" align="center">Autori ai iniţiativelor legislative ai proiectelor supuse expertizei anticorupţie</div>
 	<?php
-		echo $this->element('admin_statistic_initiative_bydomain', array('statistic'=>$statisticexpertsauthors['proiect de lege']));
+		echo $this->element('admin_statistic_initiative_bydomain', array('statistic'=>$statisticexpertsauthors['проект закона']));
 	?>
 	<br/><br/>
 

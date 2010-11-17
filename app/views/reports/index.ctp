@@ -30,7 +30,7 @@
 					$projectname = $report['Project']['name'];
 					echo 'Raport de expertiză la '.$projectname;
 					if (substr($projectname, 0, 9) == 'proiectul') $projectname = substr($projectname, 9, strlen($projectname)-9);
-					if ($report['Project']['projecttype'] == 'solicitare expresă')
+					if ($report['Project']['projecttype'] == 'по запросу')
 						echo ', la solicitarea '.nl2br($report['Project']['namesolicitare']);
 				?>
 			</td>
@@ -66,7 +66,7 @@
 					$projectname = $report['Project']['name'];
 					echo 'Raport de expertiză la '.$projectname;
 					if (substr($projectname, 0, 9) == 'proiectul') $projectname = substr($projectname, 9, strlen($projectname)-9);
-					if ($report['Project']['projecttype'] == 'solicitare expresă')
+					if ($report['Project']['projecttype'] == 'по запросу')
 						echo ', la solicitarea '.nl2br($report['Project']['namesolicitare']);
 				?>
 			</td>
@@ -100,7 +100,7 @@
 					$projectname = $report['Project']['name'];
 					echo 'Raport de expertiză la '.$projectname;
 					if (substr($projectname, 0, 9) == 'proiectul') $projectname = substr($projectname, 9, strlen($projectname)-9);
-					if ($report['Project']['projecttype'] == 'solicitare expresă')
+					if ($report['Project']['projecttype'] == 'по запросу')
 						echo ', la solicitarea '.nl2br($report['Project']['namesolicitare']);
 				?>
 			</td>
@@ -133,7 +133,7 @@
 					$projectname = $report['Project']['name'];
 					echo 'Raport de expertiză la '.$projectname;
 					if (substr($projectname, 0, 9) == 'proiectul') $projectname = substr($projectname, 9, strlen($projectname)-9);
-					if ($report['Project']['projecttype'] == 'solicitare expresă')
+					if ($report['Project']['projecttype'] == 'по запросу')
 						echo ', la solicitarea '.nl2br($report['Project']['namesolicitare']);
 				?>
 			</td>
@@ -167,7 +167,7 @@
 					$projectname = $report['Project']['name'];
 					echo 'Raport de expertiză la '.$projectname;
 					if (substr($projectname, 0, 9) == 'proiectul') $projectname = substr($projectname, 9, strlen($projectname)-9);
-					if ($report['Project']['projecttype'] == 'solicitare expresă')
+					if ($report['Project']['projecttype'] == 'по запросу')
 						echo ', la solicitarea '.nl2br($report['Project']['namesolicitare']);
 				?>
 			</td>

@@ -51,7 +51,7 @@
       <h3>
         <?php
           if (substr($projectname, 0, 9) == 'proiectul') $projectname = substr($projectname, 9, strlen($projectname)-9);
-          if ($projecttype == 'proiect de lege')
+          if ($projecttype == 'проект закона')
             echo	'<p align="center" class="evidentiat">(înregistrat în Parlament cu numărul '.$this->data['Project']['projectnumber'].
                 ' din '.$this->data['Project']['projectdatetext'].')</p>';
           else echo	'<p align="center">La solicitarea '.nl2br($this->data['Project']['namesolicitare']).'</p>';
@@ -70,7 +70,7 @@
               <td valign="top"><?php echo 'Domeniul: '.$this->data['Project']['projectdomain'];?></td>
             </tr>
             <?php
-              if ($projecttype == 'proiect de lege') {
+              if ($projecttype == 'проект закона') {
                 echo '<tr><td valign="top" width="390">Înregistrat în Parlament cu nr. '.$this->data['Project']['projectnumber'].'</td>'.
                   '<td valign="top">din: '.$this->data['Project']['projectdatetext'].'</td></tr>';
               }
@@ -87,10 +87,10 @@
         <h2>Evaluarea generală</h2>
 
         <?php
-          if ($projecttype == 'proiect de lege') {
+          if ($projecttype == 'проект закона') {
             //<!--- Punctul 1 --->
             $headcontent = ' este '.$this->data['Project']['initiative'];
-            if ($this->data['Project']['initiative'] == 'Guvernul RM') $headcontent = $headcontent.', autor nemijlocit - '.$author;
+            if ($this->data['Project']['initiative'] == 'Правительство') $headcontent = $headcontent.', autor nemijlocit - '.$author;
             echo $this->element('report_edit_pointhead', array(
                 'letter'=>$pointdigit,
                 'headtext'=>'Autor al iniţiativei legislative',
@@ -107,11 +107,11 @@
                     'label' => false,
                     'div' => false,
                     'empty' => 'alegeţi',
-                    'options' => array( 'lege organică'=>'lege organică',
-                              'lege ordinară'=>'lege ordinară',
-                              'lege constituţională'=>'lege constituţională',
-                              'hotărîre a Parlamentului'=>'hotărîre a Parlamentului',
-                              'nu este determinată'=>'nu este determinată'))).
+                    'options' => array( 'органический закон'=>'органический закон',
+                              'ординарный закон'=>'ординарный закон',
+                              'конституционный закон'=>'конституционный закон',
+                              'постановление Парламента'=>'постановление Парламента',
+                              'не указана'=>'не указана'))).
                   '</span><span class="green"></span>, ceea ce <span>'.
                   $form->input('Report.p02list2', array(
                     'class' => 'required_dependent',
@@ -165,7 +165,7 @@
           <h2>Fundamentarea proiectului</h2>
 
           <?php
-            if ($projecttype == 'proiect de lege') {
+            if ($projecttype == 'проект закона') {
               //<!--- Punctul 5 --->
               echo $this->element('report_edit_pointhead', array(
                 'letter'=>$pointdigit,
@@ -176,8 +176,8 @@
                     'label' => false,
                     'div' => false,
                     'empty' => 'alegeţi',
-                    'options' => array(	'este plasată pe site-ul Parlamentului'=>'este plasată pe site-ul Parlamentului',
-                              'nu este plasată pe site-ul Parlamentului'=>'nu este plasată pe site-ul Parlamentului'))).
+                    'options' => array(	'опубликована на сайте Парламента'=>'опубликована на сайте Парламента',
+                              'не опубликована на сайте Парламента'=>'не опубликована на сайте Парламента'))).
                   '</span><span class="green"></span>'.
                   '<br/>Considerăm că în acest fel Parlamentul <b><span id="ReportP05list2">...</span></b> principiul transparenţei procesului legislativ şi principiile de cooperare cu societatea civilă.',
                 'headsmalltext'=>'Indicaţi şi alte idei / păreri.',

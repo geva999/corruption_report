@@ -252,7 +252,7 @@ class ReportsController extends AppController {
 		}
 		elseif ($action == 'editaremultipla') {
 			$conditions = array('Project.reportmultipleedit'=>1);
-			$viewtext = 'Заключения  с возможностью редактирования несколькими экспертами';
+			$viewtext = 'Заключения с возможностью редактирования несколькими экспертами';
 		}
 		if ($this->data['Project']['search'] !='') {
 			if ($this->data['Project']['searchtype'] == 1)

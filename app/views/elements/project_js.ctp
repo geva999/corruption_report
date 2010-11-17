@@ -2,12 +2,12 @@
 	jQuery(document).ready(function($){
 		$('#ProjectProjecttype').change(function () {
 			tempval = $(this).val();
-			if (tempval == 'proiect de lege') {
+			if (tempval == 'проект закона') {
 				$('#ProjectNamesolicitare').val('');
 				$('.option2').hide();
 				$('.option1').show();
 			}
-			else if (tempval == 'solicitare expresă') {
+			else if (tempval == 'по запросу') {
 				$('#ProjectInitiative, #ProjectProjectnumber').val('');
 				$('.option1').hide();
 				$('.option2, .option3').show();
@@ -15,7 +15,7 @@
 		});
 
 		$('#ProjectInitiative').change(function () {
-			if ($(this).val() != 'Guvernul RM') $('.option3').hide();
+			if ($(this).val() != 'Правительство') $('.option3').hide();
 			else $('.option3').show();
 		});
 

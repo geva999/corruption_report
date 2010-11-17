@@ -11,7 +11,7 @@
 			<h3 align="center">la <?php echo $projectname;?></h3>
 			<?php
 				if (substr($projectname, 0, 9) == 'proiectul') $projectname = substr($projectname, 9, strlen($projectname)-9);
-				if ($projecttype == 'proiect de lege')
+				if ($projecttype == 'проект закона')
 					echo	'<p align="center" class="evidentiat">(înregistrat în Parlament cu numărul '.$this->data['Project']['projectnumber'].
 							' din '.$this->data['Project']['projectdatetext'].')</p>'.
 							'<p>În temeiul Concepţiei de cooperare dintre Parlament şi societatea civilă, '.
@@ -24,9 +24,9 @@
 			<br/><br/>
 			<h2>Evaluarea generală</h2>
 			<?php
-				if ($projecttype == 'proiect de lege') {
+				if ($projecttype == 'проект закона') {
 					echo	'<br/><p align="justify"><span class="h3">1. Autor al iniţiativei legislative</span> este '.$this->data['Project']['initiative'];
-					if ($this->data['Project']['initiative'] == 'Guvernul RM') echo ', autor nemijlocit - '.$author;
+					if ($this->data['Project']['initiative'] == 'Правительство') echo ', autor nemijlocit - '.$author;
 					echo ', ceea ce corespunde art. 73 din Constituţie şi art. 44 din Regulamentul Parlamentului.</p>'.
 							'<br/><p align="justify"><span class="h3">2. Categoria actului legislativ</span> propus este '.
 							$this->data['Report']['p02list1'].', ceea ce '.$this->data['Report']['p02list2'].
@@ -52,12 +52,12 @@
 			<h2>Fundamentarea proiectului</h2>
 
 			<?php
-				if ($projecttype == 'proiect de lege') {
+				if ($projecttype == 'проект закона') {
 					echo '<p align="justify"><span class="h3">'.$pointdigit.'. '.
 						'Nota informativă</span> a proiectului de act legislativ supus expertizei '.$this->data['Report']['p05list1'].'.</p>'.
 						'<p align="justify">Considerăm că în acest fel Parlamentul ';
-					if ($this->data['Report']['p05list1'] == 'este plasată pe site-ul Parlamentului') echo 'respectă';
-						elseif ($this->data['Report']['p05list1'] == 'nu este plasată pe site-ul Parlamentului') echo 'nu respectă';
+					if ($this->data['Report']['p05list1'] == 'опубликована на сайте Парламента') echo 'respectă';
+						elseif ($this->data['Report']['p05list1'] == 'не опубликована на сайте Парламента') echo 'nu respectă';
 					echo ' principiul transparenţei procesului legislativ şi principiile de cooperare cu societatea civilă.</p>'.
 					'<p align="justify">'.nl2br($this->data['Report']['p05text1']).'</p>';
 					$pointdigit++;

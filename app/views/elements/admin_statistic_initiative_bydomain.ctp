@@ -16,9 +16,9 @@
 	</tr>
 
 	<?php
-		$criteriasvertical = array(	'Guvernul RM'=>'Guvernul RM',
-									'deputat în Parlament'=>'deputat în Parlament',
-									'un grup de deputaţi în Parlament'=>'un grup de deputaţi în Parlament',
+		$criteriasvertical = array(	'Правительство'=>'Правительство',
+									'депутат'=>'депутат',
+									'группа депутатов'=>'группа депутатов',
 									'Preşedintele RM'=>'Preşedintele RM',
 									'Adunarea Populară a UTA Gagauzia'=>'Adunarea Populară a UTA Gagauzia');
 		foreach ($criteriasvertical as $criteriasverticalvalue) {

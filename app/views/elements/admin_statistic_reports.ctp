@@ -7,7 +7,7 @@
 	</tr>
 	<?php
 		//00
-		$criterias = array('integrală', 'de modificare', 'de completare', 'de modificare şi completare', 'de abrogare');
+		$criterias = array('общий', 'о внесении изменений', 'о внесении дополнений', 'о внесении изменений и дополнений', 'о признании утратившим силу');
 		echo $this->element('admin_statistic_reports_rows', array(
 			'title'=>'Tipul actului legislativ vizat de proiect',
 			'criterias'=>$criterias,
@@ -16,7 +16,7 @@
 			'bgcolor'=>'#DDDDDD'
 		));
 		//02
-		$criterias = array('lege organică', 'lege ordinară', 'lege constituţională', 'hotărîre a Parlamentului', 'nu este determinată');
+		$criterias = array('органический закон', 'ординарный закон', 'конституционный закон', 'постановление Парламента', 'не указана');
 		echo $this->element('admin_statistic_reports_advanced_rows', array(
 			'title'=>'Categoria actului legislativ determinată corespunzător',
 			'criterias'=>$criterias,
@@ -44,7 +44,7 @@
 			'bgcolor'=>'#DDDDDD'
 		));
 		//05
-		$criterias = array('este plasată pe site-ul Parlamentului', 'nu este plasată pe site-ul Parlamentului');
+		$criterias = array('опубликована на сайте Парламента', 'не опубликована на сайте Парламента');
 		echo $this->element('admin_statistic_reports_rows', array(
 			'title'=>'Nota informativă',
 			'criterias'=>$criterias,
