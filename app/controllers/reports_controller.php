@@ -54,7 +54,7 @@ class ReportsController extends AppController {
 		if ($isadmin == 1) $backlink = '/admin/reports/index';
 			else $backlink = '/reports/index';
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Неверный ID pentru raport.', true), 'jgrowl');
+			$this->Session->setFlash(__('Неверный ID для заключения.', true), 'jgrowl');
 			$this->redirect($backlink);
 		}
 		if (!empty($this->data)) {
@@ -111,10 +111,10 @@ class ReportsController extends AppController {
 				}
 			}
 			if ($savecontrol1 && $savecontrol2) {
-				$this->Session->setFlash(__('Raportul a fost salvat.', true), 'jgrowl');
+				$this->Session->setFlash(__('Заключение было сохранено.', true), 'jgrowl');
 				$this->redirect($backlink);
 			}
-			else $this->Session->setFlash(__('Raportul nu poate fi salvat. Verificaţi datele introduse şi mai incercaţi încă o data.', true), 'jgrowl');
+			else $this->Session->setFlash(__('Заключение не может быть сохранено. Проверьте введенные данные и попробуйте еще раз.', true), 'jgrowl');
 		}
 		if (empty($this->data)) {
 			$this->Report->recursive = 1;
@@ -167,7 +167,7 @@ class ReportsController extends AppController {
 		if ($isadmin == 1) $backlink = '/admin/reports/index';
 			else $backlink = '/reports/index';
 		if (!$id) {
-			$this->Session->setFlash(__('Неверный ID pentru raport.', true), 'jgrowl');
+			$this->Session->setFlash(__('Неверный ID для заключения.', true), 'jgrowl');
 			$this->redirect($backlink);
 		}
 		App::import('Model','Template');
@@ -240,15 +240,15 @@ class ReportsController extends AppController {
 		$viewtext = 'Rapoarte';
 		if ($action == 'examinare') {
 			$conditions = array('Report.reportstate'=>1);
-			$viewtext = 'Rapoarte în curs de examinare de către administrator';
+			$viewtext = 'Заключения в процессе рассмотрения администратором';
 		}
 		elseif ($action == 'publicate') {
 			$conditions = array('Report.reportstate'=>3);
-			$viewtext = 'Rapoarte publicate cu postare pe site';
+			$viewtext = 'Заключения опубликованные на сайте';
 		}
 		elseif ($action == 'adoptate') {
 			$conditions = array('Project.projectstate'=>2);
-			$viewtext = 'Rapoarte la proiecte adoptate';
+			$viewtext = 'Заключения по принятым проектам';
 		}
 		elseif ($action == 'editaremultipla') {
 			$conditions = array('Project.reportmultipleedit'=>1);
