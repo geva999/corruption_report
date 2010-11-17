@@ -3,7 +3,7 @@ class Author extends AppModel {
 
 	var $name = 'Author';
 	var $validate = array(
-		'name' => array('rule' => 'notempty', 'message' => 'Numele nu poate sa fie nul')
+		'name' => array('rule' => 'notempty', 'message' => 'Имя не может быть пустым')
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed

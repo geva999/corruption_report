@@ -3,7 +3,7 @@ class Project extends AppModel {
 
 	var $name = 'Project';
 	var $validate = array(
-		'name' => array('rule' => 'notempty', 'message' => 'Numele nu poate să fie nul'),
+		'name' => array('rule' => 'notempty', 'message' => 'Имя не может быть пустым'),
 		'reportnumber' => array('rule' => 'numeric', 'message' => 'Numarul nu poate să fie nul sau există deja un raport cu acelaşi număr'),
 		'projectdatetext' => array('rule' => 'notempty', 'message' => 'Data nu poate să fie nulă'),
 		'numberpages' => array('rule' => 'numeric', 'message' => 'Numarul de pagini nu poate să fie nul'),

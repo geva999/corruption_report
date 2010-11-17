@@ -3,8 +3,8 @@ class Celem extends AppModel {
 
 	var $name = 'Celem';
 	var $validate = array(
-		'name' => array('rule' => 'notempty', 'message' => 'Numele nu poate să fie nul'),
-		'number' => array('rule' => 'notempty', 'message' => 'Numărul nu poate să fie nul')
+		'name' => array('rule' => 'notempty', 'message' => 'Имя не может быть пустым'),
+		'number' => array('rule' => 'notempty', 'message' => 'Число не может быть пустым')
 	);
 	
 	//The Associations below have been created with all possible keys, those that are not needed can be removed

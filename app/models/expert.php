@@ -3,9 +3,9 @@ class Expert extends AppModel {
 
 	var $name = 'Expert';
 	var $validate = array(
-		'username' => array('rule' => 'notempty', 'message' => 'Login-ul nu poate să fie nul'),
-		'password' => array('rule' => 'notempty', 'message' => 'Parola nu poate să fie nulă'),
-		'fullname' => array('rule' => 'notempty', 'message' => 'Numele nu poate să fie nul')
+		'username' => array('rule' => 'notempty', 'message' => 'Логин не может быть пустым'),
+		'password' => array('rule' => 'notempty', 'message' => 'Пароль не может быть пустым'),
+		'fullname' => array('rule' => 'notempty', 'message' => 'Имя не может быть пустым')
 	);
 
 	var $hasMany = array(

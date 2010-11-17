@@ -4,7 +4,7 @@ class Pelem extends AppModel {
 	var $name = 'Pelem';
 	var $validate = array(
 		'celem_id' => array('numeric'),
-		'pelem' => array('rule' => 'notempty', 'message' => 'Numele nu poate să fie nul')
+		'pelem' => array('rule' => 'notempty', 'message' => 'Имя не может быть пустым')
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
