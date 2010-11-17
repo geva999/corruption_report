@@ -1,7 +1,7 @@
 <?php echo $this->element('top_menu', array('top_menu_title'=>'Administrare utilizatori'));?>
 
 <div id="line">
-	<?php echo $this->element('backlink_menu', array('backlink'=>'/admin/experts', 'backlinktitle'=>'Înapoi la lista utilizatori'));?>
+	<?php echo $this->element('backlink_menu', array('backlink'=>'/admin/experts', 'backlinktitle'=>'Назад к списку utilizatori'));?>
 </div>
 
 <div id="listcontent">
@@ -24,7 +24,7 @@
 	</div>
 
 	<?php
-		echo $this->element('backlink', array('backlink'=>'/admin/experts', 'backlinktitle'=>'Înapoi la lista utilizatori'));
+		echo $this->element('backlink', array('backlink'=>'/admin/experts', 'backlinktitle'=>'Назад к списку utilizatori'));
 		echo $this->element('error_messages');
 		echo $this->element('sponsor');
 		echo $this->element('admin_expert_edit_js');

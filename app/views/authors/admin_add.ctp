@@ -1,7 +1,7 @@
 <?php echo $this->element('top_menu', array('top_menu_title'=>'Administrare autori nemijlociţi'));?>
 
 <div id="line">
-	<?php echo $this->element('backlink_menu', array('backlink'=>'/admin/authors', 'backlinktitle'=>'Înapoi la lista autori nemijlociţi'));?>
+	<?php echo $this->element('backlink_menu', array('backlink'=>'/admin/authors', 'backlinktitle'=>'Назад к списку autori nemijlociţi'));?>
 </div>
 
 <div id="listcontent">
@@ -20,7 +20,7 @@
 	</div>
 
 	<?php
-		echo $this->element('backlink', array('backlink'=>'/admin/authors', 'backlinktitle'=>'Înapoi la lista autori nemijlociţi'));
+		echo $this->element('backlink', array('backlink'=>'/admin/authors', 'backlinktitle'=>'Назад к списку autori nemijlociţi'));
 		echo $this->element('error_messages');
 		echo $this->element('sponsor');
 	?>

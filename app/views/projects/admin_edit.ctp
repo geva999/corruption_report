@@ -1,7 +1,7 @@
 <?php echo $this->element('top_menu', array('top_menu_title'=>'Administrare proiecte'));?>
 
 <div id="line">
-	<?php echo $this->element('backlink_menu', array('backlink'=>'/admin/projects', 'backlinktitle'=>'Înapoi la lista proiecte'));?>
+	<?php echo $this->element('backlink_menu', array('backlink'=>'/admin/projects', 'backlinktitle'=>'Назад к списку proiecte'));?>
 </div>
 
 <div id="listcontent">
@@ -151,7 +151,7 @@
 	</div>
 
 	<?php
-		echo $this->element('backlink', array('backlink'=>'/admin/projects', 'backlinktitle'=>'Înapoi la lista proiecte'));
+		echo $this->element('backlink', array('backlink'=>'/admin/projects', 'backlinktitle'=>'Назад к списку proiecte'));
 		echo $this->element('error_messages');
 		echo $this->element('sponsor');
 		echo $this->element('project_js');

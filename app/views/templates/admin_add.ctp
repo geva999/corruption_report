@@ -1,7 +1,7 @@
 <?php echo $this->element('top_menu', array('top_menu_title'=>'Administrare finanţatori'));?>
 
 <div id="line">
-	<?php echo $this->element('backlink_menu', array('backlink'=>'/admin/templates', 'backlinktitle'=>'Înapoi la lista finanţatori'));?>
+	<?php echo $this->element('backlink_menu', array('backlink'=>'/admin/templates', 'backlinktitle'=>'Назад к списку finanţatori'));?>
 </div>
 
 <div id="listcontent">
@@ -37,7 +37,7 @@
 	</div>
 	
 	<?php
-		echo $this->element('backlink', array('backlink'=>'/admin/templates', 'backlinktitle'=>'Înapoi la lista finanţatori'));
+		echo $this->element('backlink', array('backlink'=>'/admin/templates', 'backlinktitle'=>'Назад к списку finanţatori'));
 		echo $this->element('error_messages');
 		echo $this->element('sponsor');
 		echo $this->element('template_js');

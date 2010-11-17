@@ -1,7 +1,7 @@
 <?php echo $this->element('top_menu', array('top_menu_title'=>'Administrare elemente de coruptibilitate'));?>
 
 <div id="line">
-	<?php echo $this->element('backlink_menu', array('backlink'=>'/admin/celems', 'backlinktitle'=>'Înapoi la lista elemente de coruptibilitate'));?>
+	<?php echo $this->element('backlink_menu', array('backlink'=>'/admin/celems', 'backlinktitle'=>'Назад к списку elemente de coruptibilitate'));?>
 </div>
 
 <div id="listcontent">
@@ -37,7 +37,7 @@
 	</div>
 	
 	<?php
-		echo $this->element('backlink', array('backlink'=>'/admin/celems', 'backlinktitle'=>'Înapoi la lista elemente de coruptibilitate'));
+		echo $this->element('backlink', array('backlink'=>'/admin/celems', 'backlinktitle'=>'Назад к списку elemente de coruptibilitate'));
 		echo $this->element('error_messages');
 		echo $this->element('sponsor');
 	?>
