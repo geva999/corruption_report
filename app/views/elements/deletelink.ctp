@@ -1,8 +1,8 @@
 <?php
 	echo $ajax->link(
-		$html->image('/images/delete.png', array('title' => 'Şterge')),
+		$html->image('/images/delete.png', array('title' => 'Удалить')),
 		$deletelink,
 		array('update'=>'content', 'indicator' => 'spinner'),
-		'Sînteţi sigur că doriţi să ştergeţi acest '.$deletelinkquestion.' ?',
+		'Вы уверены, что хотите удалить этот '.$deletelinkquestion.' ?',
 		false);
 ?>

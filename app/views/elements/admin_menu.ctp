@@ -8,7 +8,7 @@
 				<?php echo $ajax->link('Заключения', '/admin/reports', array('update'=>'content', 'indicator' => 'spinner'), null, false);?>
 			</td>
 			<td>
-				<?php echo $ajax->link('Статистика'/admin/reports/statistic', array('update'=>'content', 'indicator' => 'spinner'), null, false);?>
+				<?php echo $ajax->link('Статистика', '/admin/reports/statistic', array('update'=>'content', 'indicator' => 'spinner'), null, false);?>
 			</td>
 			<td>
 				<?php echo $ajax->link('Пользователи', '/admin/experts', array('update'=>'content', 'indicator' => 'spinner'), null, false);?>

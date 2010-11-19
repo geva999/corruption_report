@@ -1,7 +1,7 @@
 <div id="legend" align="center">
 	<ul>
-		Legendă:
-		<li><img src="/images/aproved.png"/>Acceptă</li>
-		<li><img src="/images/returned.png"/>Respinge</li>
+		Легенда:
+		<li><img src="/images/aproved.png"/>Принять</li>
+		<li><img src="/images/returned.png"/>Отклонить</li>
 	</ul>
 </div>

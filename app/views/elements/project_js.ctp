@@ -21,7 +21,7 @@
 
 		$('#ProjectProjectdomain').change(function () {
 			tempval = $(this).val();
-			if (tempval == 'II. economie şi comerţ') {
+			if (tempval == 'II. экономика и торговля') {
 				$('#ProjectReportimpact').val(['1']);
 			}
 			else {

@@ -1,15 +1,15 @@
 <table border="1" cellpadding="0" cellspacing="0" align="center" width="100%" class="statistic_table">
-	<!--- Lista domeniilor --->
+	<!--- Список областей --->
 	<tr align="center" bgcolor="#BBBBBB" class="statistic_table_head">
 		<td width="260">&nbsp;</td>
-		<?php foreach ($this->domains as $domainvalue) echo '<td width="120" colspan="2">Domeniul '.$domainvalue.'</td>';?>
-		<td width="120" colspan="2">Total</td>
+		<?php foreach ($this->domains as $domainvalue) echo '<td width="120" colspan="2">Область '.$domainvalue.'</td>';?>
+		<td width="120" colspan="2">Итого</td>
 	</tr>
 	<?php
 		//00
 		$criterias = array('общий', 'о внесении изменений', 'о внесении дополнений', 'о внесении изменений и дополнений', 'о признании утратившим силу');
 		echo $this->element('admin_statistic_reports_rows', array(
-			'title'=>'Tipul actului legislativ vizat de proiect',
+			'title'=>'Вид законодательного акта предусмотренный проектом',
 			'criterias'=>$criterias,
 			'statistic'=>$statistic,
 			'element_name'=>'projecttypevizat',
@@ -18,26 +18,26 @@
 		//02
 		$criterias = array('органический закон', 'ординарный закон', 'конституционный закон', 'постановление Парламента', 'не указана');
 		echo $this->element('admin_statistic_reports_advanced_rows', array(
-			'title'=>'Categoria actului legislativ determinată corespunzător',
+			'title'=>'Категория законодательного акта установлена правильно',
 			'criterias'=>$criterias,
-			'criteria_by'=>'corespunde',
+			'criteria_by'=>'соответствует',
 			'statistic'=>$statistic,
 			'element_name'=>'p02list'
 		));
 		echo $this->element('admin_statistic_reports_advanced_rows', array(
-			'title'=>'Categoria actului legislativ determinată necorespunzător',
+			'title'=>'Категория законодательного акта установлена неправильно',
 			'criterias'=>$criterias,
-			'criteria_by'=>'nu corespunde',
+			'criteria_by'=>'не соответствует',
 			'statistic'=>$statistic,
 			'element_name'=>'p02list'
 		));
 		//03
 		$criterias = array(
-			'Transparenţa decizională a fost respectată',
-			'Transparenţa decizională nu a fost respectată'
+			'Принцип прозрачности принятия решений был соблюден',
+			'Принцип прозрачности принятия решений не был соблюден'
 		);
 		echo $this->element('admin_statistic_reports_rows', array(
-			'title'=>'Transparenţa decizională',
+			'title'=>'Прозрачность принятия решений',
 			'criterias'=>$criterias,
 			'statistic'=>$statistic,
 			'element_name'=>'p03radio',
@@ -46,18 +46,18 @@
 		//05
 		$criterias = array('опубликована на сайте Парламента', 'не опубликована на сайте Парламента');
 		echo $this->element('admin_statistic_reports_rows', array(
-			'title'=>'Nota informativă',
+			'title'=>'Пояснительная записка',
 			'criterias'=>$criterias,
 			'statistic'=>$statistic,
 			'element_name'=>'p05list'
 		));
 		//06
 		$criterias = array(
-			'Termenul de cooperare cu societatea civilă a fost respectat',
-			'Termenul de cooperare cu societatea civilă nu a fost respectat'
+			'Срок сотрудничества с гражданским обществом был соблюден',
+			'Срок сотрудничества с гражданским обществом не был соблюден'
 		);
 		echo $this->element('admin_statistic_reports_rows', array(
-			'title'=>'Respectarea termenului de cooperare cu societatea civilă',
+			'title'=>'Соблюдение срока сотрудничества с гражданским обществом',
 			'criterias'=>$criterias,
 			'statistic'=>$statistic,
 			'element_name'=>'p06radio',
@@ -65,24 +65,24 @@
 		));
 		//07
 		$criterias = array(
-			'Argumentarea e suficientă',
-			'Argumentarea nu e suficientă'
+			'Обоснование достаточное',
+			'Обоснование недостаточное'
 		);
 		echo $this->element('admin_statistic_reports_rows', array(
-			'title'=>'Suficienţa argumentării',
+			'title'=>'Обоснование достаточное',
 			'criterias'=>$criterias,
 			'statistic'=>$statistic,
 			'element_name'=>'p07radio'
 		));
 		//08
 		$criterias = array(
-			'Nota informativă / proiectul conţine referinţe la acquis-ul comunitar',
-			'Nota informativă / proiectul conţine referinţe la alte standarde internaţionale relevante',
-			'Nota informativă / proiectul conţine referinţe la acquis-ul comunitar şi la alte standarde internaţionale',
-			'Nota informativă / proiectul NU conţine referinţe nici la acquis-ul comunitar, nici la alte standarde internaţionale'
+			'Пояснительная записка / проект содержит ссылки на законодательство Сообщества',
+			'Пояснительная записка / проект содержит ссылки на другие релевантные международные стандарты',
+			'Пояснительная записка / проект содержит ссылки на законодательство Сообщества и на другие релевантные международные стандарты',
+			'Пояснительная записка / проект НЕ содержит ссылки на законодательство Сообщества и на другие релевантные международные стандарты'
 		);
 		echo $this->element('admin_statistic_reports_rows', array(
-			'title'=>'Compatibilitatea cu legislaţia comunitară şi alte standarde internaţionale',
+			'title'=>'Совместимость с законодательством Сообщества и другими международными стандартами',
 			'criterias'=>$criterias,
 			'statistic'=>$statistic,
 			'element_name'=>'p08radio',
@@ -90,13 +90,13 @@
 		));
 		//09
 		$criterias = array(
-			'Implementarea proiectului presupune cheltuieli financiare',
-			'Nota informativă conţine fundamentarea economico-financiară',
-			'Implementarea proiectului presupune cheltuieli, dar nota nu conţine fundamentarea economico-financiară',
-			'Implementarea proiectului nu presupune cheltuieli financiare'
+			'Имплементация проекта предполагает финансовых затрат',
+			'Пояснительная записка содержит финансово-экономическое обоснование',
+			'Имплементация проекта предполагает финансовые затраты, но пояснительная записка не содержит финансово-экономическое обоснование',
+			'Имплементация проекта не предполагает финансовых затрат'
 		);
 		echo $this->element('admin_statistic_reports_rows', array(
-			'title'=>'Fundamentarea economico-financiară',
+			'title'=>'Финансово-экономическое обоснование',
 			'criterias'=>$criterias,
 			'statistic'=>$statistic,
 			'element_name'=>'p09radio',
@@ -104,11 +104,11 @@
 		));
 		//10
 		$criterias = array(
-			'Proiectul a fost supus analizei impactului de reglementare',
-			'Proiectul nu a fost supus analizei impactului de reglementare'
+			'Проект был подвергнут анализу последствий регулирования',
+			'Проект не был подвергнут анализу последствий регулирования'
 		);
 		echo $this->element('admin_statistic_reports_rows', array(
-			'title'=>'Analiza impactului de reglementare a proiectului',
+			'title'=>'Анализ последствий регулирования проекта',
 			'criterias'=>$criterias,
 			'statistic'=>$statistic,
 			'element_name'=>'p10radio',
@@ -116,13 +116,13 @@
 		));
 		//11
 		$criterias = array(
-			'Proiectul promovează interese, beneficii',
-			'Promovarea se face conform interesului public',
-			'Promovarea se face contrar interesului public',
-			'Proiectul nu promovează interese, beneficii'
+			'Проект продвигает интересы, выгоды',
+			'Продвижение осуществляется в соответсвии с общими интересами общества',
+			'Продвижение осуществляется с нарушением общих интересов общества',
+			'Проект не продвигает интересы, выгоды'
 		);
 		echo $this->element('admin_statistic_reports_rows', array(
-			'title'=>'Stabilirea şi promovarea unor interese / beneficii',
+			'title'=>'Установление и продвижение интересов / выгод',
 			'criterias'=>$criterias,
 			'statistic'=>$statistic,
 			'element_name'=>'p11radio',
@@ -130,13 +130,13 @@
 		));
 		//12
 		$criterias = array(
-			'La aplicare, proiectul va aduce prejudicii',
-			'Prejudicierea intereselor respectă criteriul interesului public',
-			'Prejudicierea intereselor nu respectă criteriul interesului public',
-			'La aplicare, proiectul nu va aduce prejudicii'
+			'В процессе применения, проект будет ущемлять интересы',
+			'Ущемление интересов соблюдает критерий общего интереса общества',
+			'Ущемление интересов не соблюдает критерий общего интереса общества',
+			'В процессе применения, проект не будет ущемлять интересы'
 		);
 		echo $this->element('admin_statistic_reports_rows', array(
-			'title'=>'Prejudicii aduse prin aplicarea actului',
+			'title'=>'Ущемление интересов посредством применения акта',
 			'criterias'=>$criterias,
 			'statistic'=>$statistic,
 			'element_name'=>'p12radio',
@@ -145,22 +145,22 @@
 		));
 		//13
 		$criterias = array(
-			'Proiectul este compatibil cu legislaţia în vigoare',
-			'Proiectul nu este compatibil cu legislaţia în vigoare'
+			'Проект не противоречит предписаниям действующего законодательства',
+			'Проект противоречит предписаниям действующего законодательства'
 		);
 		echo $this->element('admin_statistic_reports_rows', array(
-			'title'=>'Compatibilitatea proiectului cu prevederile legislaţiei naţionale',
+			'title'=>'Совместимость проекта с предписаниями действующего законодательства',
 			'criterias'=>$criterias,
 			'statistic'=>$statistic,
 			'element_name'=>'p13radio'
 		));
 		//14
 		$criterias = array(
-			'Expertul are obiecţii substanţiale la formularea lingvistică',
-			'Expertul nu are obiecţii substanţiale la formularea lingvistică'
+			'У эксперта существенные замечания относительно лингвистических формулировок',
+			'У эксперта нет существенных замечаний относительно лингвистических формулировок'
 		);
 		echo $this->element('admin_statistic_reports_rows', array(
-			'title'=>'Formularea lingvistică a prevederilor proiectului',
+			'title'=>'Лингвистические формулировки предписаний проекта',
 			'criterias'=>$criterias,
 			'statistic'=>$statistic,
 			'element_name'=>'p14radio',
@@ -168,21 +168,21 @@
 		));
 		//15
 		$criterias = array(
-			'Proiectul reglementează activitatea AP',
-			'Expertul are obiecţii la modul reglementării activităţii AP',
-			'Expertul nu are obiecţii la modul reglementării activităţii AP',
-			'Proiectul nu reglementează activitatea AP'
+			'Проект регулирует деятельность государственных органов',
+			'У эксперта есть замечания относительно порядка регулирования деятельности государственных органов',
+			'У эксперта нет замечаний относительно порядка регулирования деятельности государственных органов',
+			'Проект не регулирует деятельность государственных органов'
 		);
 		echo $this->element('admin_statistic_reports_rows', array(
-			'title'=>'Reglementarea activităţii autorităţilor publice',
+			'title'=>'Регулирование деятельности государственных органов',
 			'criterias'=>$criterias,
 			'statistic'=>$statistic,
 			'element_name'=>'p15radio',
 			'advanced'=>true
 		));
-		//total
+		//Итого
 		echo $this->element('admin_statistic_reports_total', array(
-			'title'=>'Total rapoarte pe domenii',
+			'title'=>'Итого заключений согласно областям',
 			'statistic'=>$statistic,
 			'bgcolor'=>'#BBBBBB'
 		));
