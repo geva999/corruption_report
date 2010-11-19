@@ -4,12 +4,12 @@ class Project extends AppModel {
 	var $name = 'Project';
 	var $validate = array(
 		'name' => array('rule' => 'notempty', 'message' => 'Имя не может быть пустым'),
-		'reportnumber' => array('rule' => 'numeric', 'message' => 'Numarul nu poate să fie nul sau există deja un raport cu acelaşi număr'),
-		'projectdatetext' => array('rule' => 'notempty', 'message' => 'Data nu poate să fie nulă'),
-		'numberpages' => array('rule' => 'numeric', 'message' => 'Numarul de pagini nu poate să fie nul'),
-		'numberprojectsstandard' => array('rule' => 'numeric', 'message' => 'Numarul de proiecte standart nu poate să fie nul'),
-		'datelimitexperttext' => array('rule' => 'notempty', 'message' => 'Data limită pentru expert nu poate să fie nulă'),
-		'datelimitparlamenttext' => array('rule' => 'notempty', 'message' => 'Data limită pentru parlament nu poate să fie nulă')
+		'reportnumber' => array('rule' => 'numeric', 'message' => 'Номер не может быть пустым или уже существует заключение под тем же номером'),
+		'projectdatetext' => array('rule' => 'notempty', 'message' => 'Дата не может быть пустой'),
+		'numberpages' => array('rule' => 'numeric', 'message' => 'Число страниц не может быть пустым'),
+		'numberprojectsstandard' => array('rule' => 'numeric', 'message' => 'Номер стандартных проектов не может быть пустым'),
+		'datelimitexperttext' => array('rule' => 'notempty', 'message' => 'Предельный срок для эксперта не может быть пустым'),
+		'datelimitparlamenttext' => array('rule' => 'notempty', 'message' => 'Предельный срок для Парламента не может быть пустым')
 	);
 
 	var $belongsTo = array(

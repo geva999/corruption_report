@@ -11,10 +11,10 @@
 	<table width="100%" border="0" cellspacing="1" cellpadding="5" id="green">
 	<tr>
 		<th width="5">Nr.</th>
-		<th><?php echo $paginator->sort('Nume', 'Template.name', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'sortare după Nume'));?></th>
-		<th><?php echo $paginator->sort('Data', 'Template.date', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'sortare după Dată'));?></th>
-		<th width="60">Editare</th>
-		<th width="60">Ştergere</th>
+		<th><?php echo $paginator->sort('Nume', 'Template.name', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка după Nume'));?></th>
+		<th><?php echo $paginator->sort('Data', 'Template.date', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка după Dată'));?></th>
+		<th width="60">Редактирование</th>
+		<th width="60">Удаление</th>
 	</tr>
 	<?php
 		$i = intval($paginator->counter(array('format'=>'%start%')));		

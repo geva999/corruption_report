@@ -1,15 +1,15 @@
 <table border="1" cellpadding="0" cellspacing="0" align="center" width="100%" class="statistic_table">
-	<!--- Lista domeniilor --->
+	<!--- Список областей --->
 	<tr align="center" bgcolor="#BBBBBB" class="statistic_table_head">
-		<td rowspan="3">Categorii de elemente</td>
-		<?php foreach ($this->domains as $domainvalue) echo '<td width="148" colspan="4">Domeniul '.$domainvalue.'</td>';?>
-		<td width="148" colspan="4">Total</td>
-		<td width="74" rowspan="2" colspan="2">Ponderea elementului în interiorul categoriei din care face parte</td>
+		<td rowspan="3">Категории элементов</td>
+		<?php foreach ($this->domains as $domainvalue) echo '<td width="148" colspan="4">Область '.$domainvalue.'</td>';?>
+		<td width="148" colspan="4">Итого</td>
+		<td width="74" rowspan="2" colspan="2">Уровень распространения элемента в категории в которую он включен</td>
 	</tr>
 	<tr align="center" bgcolor="#BBBBBB" class="statistic_table_head">
 		<?php
 			for ($i = 1; $i <= 6; $i++) {
-				echo '<td colspan="2">ponderea</td><td colspan="2">frecvenţa</td>';
+				echo '<td colspan="2">распространение</td><td colspan="2">частота</td>';
 			}
 		?>
 	</tr>
@@ -22,10 +22,10 @@
 	</tr>
 	<?php
 		$domains = $this->domains;
-		//elemente
+		//элементы
 		foreach ($elemgroups as $elemgroupkey => $elemgroupvalue) {
 
-			//afisare grup
+			//вывешивание группы
 			$bgcolor = '#BBBBBB';
 			echo '<tr align="center"  class="statistic_table_head" bgcolor="'.$bgcolor.'"><td align="left">'.$elemgroupvalue.'</td>';
 			$total_group_elems = 0;
@@ -51,7 +51,7 @@
 			echo '<td>'.$total_group_elems.'</td><td>100%</td>';
 			echo '</tr>';
 
-			//afisare elemente din grup
+			//вывешивание элементов из группы
 			foreach ($elems as $elemkey => $elemvalue) {
 				$bgcolor = '#DDDDDD';
 				if ($elemgroupvalue == $elemvalue['celemgroup']) {
@@ -83,10 +83,10 @@
 				}
 			}
 		}
-		//alte elemente
+		//другие элементы
 		$total_other_elements = 0;
 		$total_other_elements_fenomen = 0;
-		echo '<tr align="center" bgcolor="'.$bgcolor.'"><td align="left" class="statistic_table_head">Alte elemente ale coruptibilităţii</td>';
+		echo '<tr align="center" bgcolor="'.$bgcolor.'"><td align="left" class="statistic_table_head">Другие элементы коррупциогенности</td>';
 		foreach ($domains as $domain) {
 			if (isset($statistic[$domain]['total_other_elements_bydomain'])) {
 				echo '<td>'.$statistic[$domain]['total_other_elements_bydomain'].'</td><td>'
@@ -110,7 +110,7 @@
 
 		//total elemente
 		$bgcolor = '#BBBBBB';
-		echo '<tr align="center" class="statistic_table_td"'.(isset($bgcolor)?' bgcolor="'.$bgcolor.'"':'').'><td align="left">Total elemente pe domenii</td>';
+		echo '<tr align="center" class="statistic_table_td"'.(isset($bgcolor)?' bgcolor="'.$bgcolor.'"':'').'><td align="left">Итого элементов согласно областям</td>';
 		foreach ($domains as $domain) {
 			if (isset($statistic[$domain]['total_celems_bydomain']))
 				echo '<td width="37">'.$statistic[$domain]['total_celems_bydomain'].'</td><td>'

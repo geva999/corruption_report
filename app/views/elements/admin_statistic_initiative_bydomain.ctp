@@ -1,26 +1,30 @@
 <?php $criteriashorizontal = $this->domains;?>
 <table border="1" cellpadding="0" cellspacing="0" align="center" class="statistic_table">
 	<tr align="center" bgcolor="#BBBBBB" class="statistic_table_head">
-		<td rowspan="2">Tip act</td>
+		<td rowspan="2">Вид акта</td>
 		<?php
 			foreach ($criteriashorizontal as $criteriavalue) {
 				echo '<td width="150" colspan="2">'.$criteriavalue.'</td>';
 			}
 		?>
-		<td colspan="2">Total</td>
+		<td colspan="2">Итого</td>
 	</tr>
 	<tr align="center" bgcolor="#BBBBBB" class="statistic_table_head">
-		<td>nr. proiecte</td><td>%</td><td>nr. proiecte</td><td>%</td>
-		<td>nr. proiecte</td><td>%</td><td>nr. proiecte</td><td>%</td>
-		<td>nr. proiecte</td><td>%</td><td>nr. proiecte</td><td>%</td>
+		<td>число проектов</td><td>%</td>
+		<td>число проектов</td><td>%</td>
+		<td>число проектов</td><td>%</td>
+		<td>число проектов</td><td>%</td>
+		<td>число проектов</td><td>%</td>
+		<td>число проектов</td><td>%</td>
 	</tr>
 
 	<?php
-		$criteriasvertical = array(	'Правительство'=>'Правительство',
-									'депутат'=>'депутат',
-									'группа депутатов'=>'группа депутатов',
-									'Preşedintele RM'=>'Preşedintele RM',
-									'Adunarea Populară a UTA Gagauzia'=>'Adunarea Populară a UTA Gagauzia');
+		$criteriasvertical = array(
+			'Правительство'=>'Правительство',
+			'депутат'=>'депутат',
+			'группа депутатов'=>'группа депутатов',
+			'Президент'=>'Президент',
+			'Народное Собрание АТО Гагаузии'=>'Народное Собрание АТО Гагаузии');
 		foreach ($criteriasvertical as $criteriasverticalvalue) {
 			echo '<tr align="center"><td align="left" width="150">'.$criteriasverticalvalue.'</td>';
 			foreach ($criteriashorizontal as $criteriashorizontalvalue) {
@@ -36,7 +40,7 @@
 		}
 	?>
 	<tr align="center" bgcolor="#BBBBBB" class="statistic_table_head">
-		<td align="left">Total</td>
+		<td align="left">Итого</td>
 		<?php
 			foreach ($criteriashorizontal as $criteriashorizontalvalue) {
 				if (isset($statistic['bydomain'][$criteriashorizontalvalue]['total']))

@@ -1,16 +1,16 @@
 <table border="1" cellpadding="0" cellspacing="0" align="center" width="100%" class="statistic_table">
-	<!--- Lista domeniilor --->
+	<!--- Список областей --->
 	<tr align="center" bgcolor="#BBBBBB" class="statistic_table_head">
-		<td width="300">Categorii de elemente</td>
+		<td width="300">Категории элементов</td>
 		<?php foreach ($this->domains as $domainvalue) echo '<td width="110" colspan="3">Domeniul '.$domainvalue.'</td>';?>
-		<td width="110" colspan="3">Total<br/>obiecţii acceptate pe categorii de elemente şi elemente concrete</td>
+		<td width="110" colspan="3">Итого<br/>Принятые замечания согласно категориям элементов и конкретных элементов</td>
 	</tr>
 	<?php
 		$domains = $this->domains;
-		//elemente
+		//элементы
 		foreach ($elemgroups as $elemgroupkey => $elemgroupvalue) {
 
-			//afisare grup
+			//вывешивание группы
 			$bgcolor = '#BBBBBB';
 			echo '<tr align="center"  class="statistic_table_head" bgcolor="'.$bgcolor.'"><td align="left">'.$elemgroupvalue.'</td>';
 			$total_group_celems = 0;
@@ -32,7 +32,7 @@
 			echo '<td>'.$total_group_celems.'</td>';
 			echo '<td>'.number_format($total_group_pelems/$total_group_celems*100, 2).'%</td>';
 
-			//afisare elemente din grup
+			//вывешивание элементов из группы
 			foreach ($elems as $elemkey => $elemvalue) {
 				$bgcolor = '#DDDDDD';
 				if ($elemgroupvalue == $elemvalue['celemgroup']) {
@@ -60,10 +60,10 @@
 				}
 			}
 		}
-		//alte elemente
+		//другие элементы
 		$total_other_elements = 0;
 		$total_other_pelements = 0;
-		echo '<tr align="center" bgcolor="'.$bgcolor.'"><td align="left" class="statistic_table_head">Alte elemente ale coruptibilităţii</td>';
+		echo '<tr align="center" bgcolor="'.$bgcolor.'"><td align="left" class="statistic_table_head">Другие элементы коррупциогенности</td>';
 		foreach ($domains as $domain) {
 			if (isset($statistic[$domain]['total_other_elements_bydomain'])) {
 				echo '<td>';
@@ -82,7 +82,7 @@
 
 		//total elemente
 		$bgcolor = '#BBBBBB';
-		echo '<tr align="center" class="statistic_table_td"'.(isset($bgcolor)?' bgcolor="'.$bgcolor.'"':'').'><td align="left">Total obiecţii acceptate pe domenii</td>';
+		echo '<tr align="center" class="statistic_table_td"'.(isset($bgcolor)?' bgcolor="'.$bgcolor.'"':'').'><td align="left">Итого принятых замечаний согласно областям</td>';
 		foreach ($domains as $domain) {
 			if (isset($statistic[$domain]['total_celems_bydomain'])) {
 				echo '<td>';

@@ -6,7 +6,7 @@
 
 <div id="listcontent">
 
-	<div id="caption" class="red">Editare finanţator</div>
+	<div id="caption" class="red">Редактирование finanţator</div>
 	
 	<div id="Form">
 		<?php

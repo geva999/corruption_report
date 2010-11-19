@@ -1,17 +1,18 @@
 <?php $criteriashorizontal = array('проект закона', 'по запросу');?>
 <table border="1" cellpadding="0" cellspacing="0" align="center" class="statistic_table">
 	<tr align="center" bgcolor="#BBBBBB" class="statistic_table_head">
-		<td rowspan="2">Experţi</td>
+		<td rowspan="2">Эксперты</td>
 		<?php
 			foreach ($criteriashorizontal as $criteriavalue) {
 				echo '<td width="150" colspan="2">'.$criteriavalue.'</td>';
 			}
 		?>
-		<td colspan="2">Total</td>
+		<td colspan="2">Итого</td>
 	</tr>
 	<tr align="center" bgcolor="#BBBBBB" class="statistic_table_head">
-		<td>nr. proiecte</td><td>nr. pagini</td><td>nr. proiecte</td><td>nr. pagini</td>
-		<td>nr. proiecte</td><td>nr. pagini</td>
+		<td>число проектов</td><td>число страниц</td>
+		<td>число проектов</td><td>число страниц</td>
+		<td>число проектов</td><td>число страниц</td>
 	</tr>
 
 	<?php
@@ -34,7 +35,7 @@
 		}
 	?>
 	<tr align="center" bgcolor="#BBBBBB" class="statistic_table_head">
-		<td align="left">Total</td>
+		<td align="left">Итого</td>
 		<?php
 			foreach ($criteriashorizontal as $criteriashorizontalvalue) {
 				if (isset($statistic[$criteriashorizontalvalue]['total']))
