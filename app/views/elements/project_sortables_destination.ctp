@@ -1,5 +1,5 @@
 <br/>
-Lista utilizatorilor cu drept de lucru in echipa la acest proiect
+Список пользователей с правом совместного редактирования по данному проекту
 <div id="expertslist">
 	<div id="sortabledestination" class="connectedsortable">
 		<?php

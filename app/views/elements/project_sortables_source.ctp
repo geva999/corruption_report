@@ -1,5 +1,5 @@
 <br/>
-Lista utilizatorilor din sistem
+Список пользователей из системы
 <form>
 	<div id="sortablesource" class="connectedsortable">
 			<?php

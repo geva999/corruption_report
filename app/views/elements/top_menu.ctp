@@ -3,9 +3,9 @@
 </div>
 <div id="Session">
 	<?php
-		if ($isadmin == 1) echo 'Administrator: ';
-		else echo 'Expert: ';
+		if ($isadmin == 1) echo 'Администратор: ';
+		else echo 'Эксперт: ';
 		echo $logineduserfullname;
 	?>
-	(<a href="/experts/logout">ieşire</a>)
+	(<a href="/experts/logout">выйти</a>)
 </div>
