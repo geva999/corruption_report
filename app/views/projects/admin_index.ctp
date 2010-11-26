@@ -1,4 +1,4 @@
-<?php echo $this->element('top_menu', array('top_menu_title'=>'Administrare proiecte'));?>
+<?php echo $this->element('top_menu', array('top_menu_title'=>'Администрирование проектов'));?>
 
 <div id="line">
 	<?php echo $this->element('admin_menu');?>
@@ -20,7 +20,7 @@
 								'отклоненные экспертом'=>'отклоненные',
 								'одобренные экспертом'=>'одобренные'
 							);
-							echo '<tr><td>Proiecte:</td>';
+							echo '<tr><td>Проекты:</td>';
 							foreach ($links as $linktitle=>$linkaction)
 								echo '<td>'.$this->element('ajaxlink', array('link'=>'/admin/projects/index/'.$linkaction, 'linktitle'=>$linktitle)).'</td>';
 							echo '</tr>';
@@ -30,9 +30,10 @@
 				<td align="right" valign="top" width="25%">
 					<?php
 						echo $form->create('Project', array('action'=>'index')).
-							$form->input('Project.searchtype', array('label'=>'Criteriu de căutare: ', 'div'=>false, 'options'=>array(1=>'nr. raport', 2=>'nr. proiect', 3=>'nume proiect', 4=>'nume expert'))).
+							$form->input('Project.searchtype', array('label'=>'Критерий поиска: ', 'div'=>false,
+								'options'=>array(1=>'№ заключения', 2=>'№ проекта', 3=>'название проекта', 4=>'имя эксперта'))).
 							$form->input('Project.search', array('label'=>false, 'div'=>false)).
-							$ajax->submit('Caută', array('update'=>'content', 'indicator'=>'spinner', 'div'=>false)).
+							$ajax->submit('Поиск', array('update'=>'content', 'indicator'=>'spinner', 'div'=>false)).
 							$form->end();
 					?>
 				</td>
@@ -46,16 +47,16 @@
 
 	<table width="100%" border="0" cellspacing="1" cellpadding="5" id="green">
 		<tr>
-			<th width="5">Nr.</th>
-			<th width="80"><?php echo $paginator->sort('Număr raport', 'Project.reportnumber', array('title'=>'sortare după Număr raport'));?></th>
-			<th><?php echo $paginator->sort('Denumire proiect', 'Project.name', array('title'=>'sortare după Denumire proiect'));?></th>
-			<th width="80"><?php echo $paginator->sort('Număr proiect', 'Project.projectnumber', array('title'=>'sortare după Număr proiect'));?></th>
-			<th width="200"><?php echo $paginator->sort('Nume expert', 'Expert.fullname', array('title'=>'sortare după Nume expert'));?></th>
-			<th width="70"><?php echo $paginator->sort('Data limită expert', 'Project.datelimitexpert', array('title'=>'sortare după Data limită expert'));?></th>
-			<th width="70"><?php echo $paginator->sort('Data limită autoritate', 'Project.datelimitparlament', array('title'=>'sortare după Data limită autoritate'));?></th>
+			<th width="5">№</th>
+			<th width="80"><?php echo $paginator->sort('Номер заключения', 'Project.reportnumber', array('title'=>'сортировка по Номеру заключения'));?></th>
+			<th><?php echo $paginator->sort('Название проекта', 'Project.name', array('title'=>'сортировка по Названию проекта'));?></th>
+			<th width="80"><?php echo $paginator->sort('Номер проекта', 'Project.projectnumber', array('title'=>'сортировка по Номеру проекта'));?></th>
+			<th width="200"><?php echo $paginator->sort('Имя эксперта', 'Expert.fullname', array('title'=>'сортировка по Имени эксперта'));?></th>
+			<th width="70"><?php echo $paginator->sort('Предельный срок для эксперта', 'Project.datelimitexpert', array('title'=>'сортировка по Предельному сроку для эксперта'));?></th>
+			<th width="70"><?php echo $paginator->sort('Предельный срок для государственного органа', 'Project.datelimitparlament', array('title'=>'сортировка по Предельному сроку для государственного органа'));?></th>
 			<th width="100">Имя файла</th>
-			<th width="50">Editare</th>
-			<th width="50">Ştergere</th>
+			<th width="50">Редактирование</th>
+			<th width="50">Удалить</th>
 		</tr>
 		<?php
 		$i = intval($paginator->counter(array('format'=>'%start%')));
@@ -81,18 +82,18 @@
 				<?php
 					if (isset($project['Project']['filename']) && $project['Project']['filename'] != '')
 						echo $html->link($project['Project']['filename'], '/uploaded/projects/'.$project['Project']['filename']);
-					else echo 'Nu există';
+					else echo 'Не существует';
 				?>
 			</td>
 			<td><?php echo $this->element('editlink', array('editlink'=>'/admin/projects/edit/'.$project['Project']['id']));?></td>
-			<td><?php echo $this->element('deletelink', array('deletelink'=>'/admin/projects/delete/'.$project['Project']['id'], 'deletelinkquestion'=>'proiect'));?></td>
+			<td><?php echo $this->element('deletelink', array('deletelink'=>'/admin/projects/delete/'.$project['Project']['id'], 'deletelinkquestion'=>'проект'));?></td>
 		</tr>
 		<?php }?>
 	</table>
 
 	<?php
 		echo $this->element('paginator');
-		echo $this->element('addlink', array('addlink'=>'/admin/projects/add', 'addtitle'=>' Adaugă proiect'));
+		echo $this->element('addlink', array('addlink'=>'/admin/projects/add', 'addtitle'=>' Добавить проект'));
 		echo $this->element('simple_legend');
 		echo $this->element('error_messages');
 		echo $this->element('sponsor');

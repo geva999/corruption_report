@@ -23,8 +23,7 @@
 			'Правительство'=>'Правительство',
 			'депутат'=>'депутат',
 			'группа депутатов'=>'группа депутатов',
-			'Президент'=>'Президент',
-			'Народное Собрание АТО Гагаузии'=>'Народное Собрание АТО Гагаузии');
+			'Президент'=>'Президент');
 		foreach ($criteriasvertical as $criteriasverticalvalue) {
 			echo '<tr align="center"><td align="left" width="150">'.$criteriasverticalvalue.'</td>';
 			foreach ($criteriashorizontal as $criteriashorizontalvalue) {

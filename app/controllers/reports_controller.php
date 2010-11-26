@@ -290,7 +290,7 @@ class ReportsController extends AppController {
 		if ($this->data['Project']['projectstate'] != '')
 			$filter = array_merge($filter, array('Project.projectstate'=>$this->data['Project']['projectstate']));
 		if ($this->data['Project']['initiative'] != '')
-			if ($this->data['Project']['initiative'] == 'deputaţi în Parlament')
+			if ($this->data['Project']['initiative'] == 'депутаты Парламента')
 				$filter = array_merge($filter, array('Project.initiative'=>array('депутат', 'группа депутатов')));
 			else $filter = array_merge($filter, array('Project.initiative'=>$this->data['Project']['initiative']));
 		if ($this->data['Report']['p06radio1'] != '')

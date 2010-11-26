@@ -1,4 +1,4 @@
-<?php echo $this->element('top_menu', array('top_menu_title'=>'Administrare proiecte'))?>
+<?php echo $this->element('top_menu', array('top_menu_title'=>'Администрирование проектов'));?>
 
 <div id="line">
 	<?php echo $this->element('expert_menu');?>
@@ -6,19 +6,19 @@
 
 <div id="listcontent">
 
-	<div id="caption" class="green">Proiecte spre acceptare - <?php echo $countsaved;?></div>
+	<div id="caption" class="green">Проекты для одобрения - <?php echo $countsaved;?></div>
 
 	<table width="100%" border="0" cellspacing="1" cellpadding="5" id="green">
 		<tr>
-			<th width="5">Nr.</th>
-			<th width="80">Număr raport</th>
-			<th>Denumire proiect</th>
-			<th width="80">Număr proiect</th>
-			<th width="70">Data limită expert</th>
-			<th width="70">Data limită autoritate</th>
+			<th width="5">№</th>
+			<th width="80">Номер заключения</th>
+			<th>Название проекта</th>
+			<th width="80">Номер проекта</th>
+			<th width="70">Предельный срок для эксперта</th>
+			<th width="70">Предельный срок для государственного органа</th>
 			<th width="100">Имя файла</th>
-			<th width="50">Acceptare</th>
-			<th width="50">Respingere</th>
+			<th width="50">Одобрение</th>
+			<th width="50">Отклонить</th>
 		</tr>
 		<?php
 		$i = 1;
@@ -43,7 +43,7 @@
 				<?php
 					if (isset($projectsaved['Project']['filename']) && $projectsaved['Project']['filename'] != '')
 						echo $html->link($projectsaved['Project']['filename'], '/uploaded/projects/'.$projectsaved['Project']['filename']);
-					else echo 'Nu există';
+					else echo 'Не существует';
 				?>
 			</td>
 			<td align="center"><?php echo $this->element('aprove_link', array('aprovelink'=>'/projects/accept/'.$projectsaved['Project']['id']));?></td>
@@ -52,16 +52,16 @@
 		<?php }?>
 	</table>
 
-	<div id="caption" class="orange">Proiecte acceptate - <?php echo $countaccepted;?></div>
+	<div id="caption" class="orange">Одобренные проекты - <?php echo $countaccepted;?></div>
 
 	<table width="100%" border="0" cellspacing="1" cellpadding="5" id="orange">
 		<tr>
-			<th width="5">Nr.</th>
-			<th width="80"><?php echo $paginator->sort('Număr raport', 'Project.reportnumber', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'sortare după Număr raport'));?></th>
-			<th><?php echo $paginator->sort('Denumire proiect', 'Project.name', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'sortare după Denumire proiect'));?></th>
-			<th width="80"><?php echo $paginator->sort('Număr proiect', 'Project.projectnumber', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'sortare după Număr proiect'));?></th>
-			<th width="70"><?php echo $paginator->sort('Data limită expert', 'Project.datelimitexpert', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'sortare după Data limită expert'));?></th>
-			<th width="70"><?php echo $paginator->sort('Data limită autoritate', 'Project.datelimitparlament', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'sortare după Data limită autoritate'));?></th>
+			<th width="5">№</th>
+			<th width="80"><?php echo $paginator->sort('Номер заключения', 'Project.reportnumber', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка по Номеру заключения'));?></th>
+			<th><?php echo $paginator->sort('Название проекта', 'Project.name', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка по Названию проекта'));?></th>
+			<th width="80"><?php echo $paginator->sort('Номер проекта', 'Project.projectnumber', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка по Номеру проекта'));?></th>
+			<th width="70"><?php echo $paginator->sort('Предельный срок для эксперта', 'Project.datelimitexpert', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка по Предельному сроку для эксперта'));?></th>
+			<th width="70"><?php echo $paginator->sort('Предельный срок для государственного органа', 'Project.datelimitparlament', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка по Предельному сроку для государственного органа'));?></th>
 			<th width="100">Имя файла</th>
 		</tr>
 		<?php
@@ -87,7 +87,7 @@
 				<?php
 					if (isset($projectaccepted['Project']['filename']) && $projectaccepted['Project']['filename'] != '')
 						echo $html->link($projectaccepted['Project']['filename'], '/uploaded/projects/'.$projectaccepted['Project']['filename']);
-					else echo 'Nu există';
+					else echo 'Не существует';
 				?>
 			</td>
 		</tr>
