@@ -24,7 +24,7 @@
 				ed.save();
 			});
 		},
-		language : 'ro',
+		language : 'ru',
 		width: 740,
 		height: 100
 	});

@@ -4,7 +4,7 @@
 ?>
 <tr class="<?php echo $trclass;?>" style="<?php echo $trstyle;?>">
 	<td width="100%"><?php echo $tdtext;?></td>
-	<td width="1"><strong>DA</strong></td>
+	<td width="1"><strong>Да</strong></td>
 	<td width="1">
 		<?php
 			if ($this->data['Report'][$radioname] >0 ) $pvalue = $this->data['Report'][$radioname];
@@ -15,7 +15,7 @@
 						'label' => false,
 						'div' => false,
 						'type' => 'radio',
-						'separator' => '</td><td width="1"><strong>NU</strong></td><td width="1">',
+						'separator' => '</td><td width="1"><strong>Нет</strong></td><td width="1">',
 						'options' => array('1'=>'','2'=>''),
 						'value' => $pvalue
 				));

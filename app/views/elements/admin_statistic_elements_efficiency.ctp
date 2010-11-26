@@ -1,5 +1,5 @@
 <table border="1" cellpadding="0" cellspacing="0" align="center" width="100%" class="statistic_table">
-	<!--- Список областей --->
+	<!-- Список областей -->
 	<tr align="center" bgcolor="#BBBBBB" class="statistic_table_head">
 		<td width="300">Категории элементов</td>
 		<?php foreach ($this->domains as $domainvalue) echo '<td width="110" colspan="3">Domeniul '.$domainvalue.'</td>';?>
@@ -10,7 +10,7 @@
 		//элементы
 		foreach ($elemgroups as $elemgroupkey => $elemgroupvalue) {
 
-			//вывешивание группы
+			//отображение группы
 			$bgcolor = '#BBBBBB';
 			echo '<tr align="center"  class="statistic_table_head" bgcolor="'.$bgcolor.'"><td align="left">'.$elemgroupvalue.'</td>';
 			$total_group_celems = 0;
@@ -32,7 +32,7 @@
 			echo '<td>'.$total_group_celems.'</td>';
 			echo '<td>'.number_format($total_group_pelems/$total_group_celems*100, 2).'%</td>';
 
-			//вывешивание элементов из группы
+			//отображение элементов из группы
 			foreach ($elems as $elemkey => $elemvalue) {
 				$bgcolor = '#DDDDDD';
 				if ($elemgroupvalue == $elemvalue['celemgroup']) {
@@ -80,7 +80,7 @@
 		echo '<td>'.$total_other_pelements.'</td><td>'.$total_other_elements.'</td><td class="statistic_table_head">'.number_format($total_other_pelements/$total_other_elements*100, 2).'%</td>';
 		echo '</tr>';
 
-		//total elemente
+		//всего элементов
 		$bgcolor = '#BBBBBB';
 		echo '<tr align="center" class="statistic_table_td"'.(isset($bgcolor)?' bgcolor="'.$bgcolor.'"':'').'><td align="left">Итого принятых замечаний согласно областям</td>';
 		foreach ($domains as $domain) {
