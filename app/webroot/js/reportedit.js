@@ -3,7 +3,7 @@ tinyMCE.init({
 	theme : 'advanced',
 	//editor_selector : 'tinymceeditor',
 	plugins : 'spellchecker,inlinepopups,paste',
-	spellchecker_languages : '+Romana=ro',
+	spellchecker_languages : '+Русский=ru',
 	theme_advanced_buttons1 : 'bold,italic,underline,separator,bullist,numlist,separator,code,cleanup,separator,spellchecker,separator,pasteword,separator,undo,redo',
 	theme_advanced_buttons2 : '',
 	theme_advanced_buttons3 : '',
@@ -23,7 +23,7 @@ tinyMCE.init({
 			ed.save();
 		});
 	},
-	language : 'ro',
+	language : 'ru',
 	width: 850,
 	height: 150
 });
@@ -41,14 +41,15 @@ function hideelements(rowid) {
 }
 
 function showdivelementecoruptibilitate(control) {
-	if (control == 2) tb_show('Lista detaliată a altor elemente de coruptibilitate detectate de experţi', '/reports/viewotherelements?KeepThis=true&TB_iframe=true&height=500&width=520', false);
-	else tb_show('Lista detaliată a elementelor de coruptibilitate', '/reports/viewelements?KeepThis=true&TB_iframe=true&height=550&width=950', false);
-		//tb_show('Lista detaliată a elementelor de coruptibilitate','#TB_inline?height=500&width=950&inlineId=divelementecoruptibilitate',false);
+	if (control == 2)
+		tb_show('Подробный список элементов коррупциогенности установленных экспертами', '/reports/viewotherelements?KeepThis=true&TB_iframe=true&height=500&width=520', false);
+	else
+		tb_show('Подробный список элементов коррупциогенности', '/reports/viewelements?KeepThis=true&TB_iframe=true&height=550&width=950', false);
 	return false;
 }
 
 function confirmDelete(delobj) {
-	if (confirm('Doriţi să ştergeţi ?')) {
+	if (confirm('Хотите удалить ?')) {
 		tinyMCE.execCommand('mceRemoveControl', false, 'subraport'+delobj+'SubreportText');
 		tinyMCE.execCommand('mceRemoveControl', false, 'subraport'+delobj+'SubreportObiectia');
 		jQuery('#subraport'+delobj+'SubreportTodelete').val(1);
@@ -92,7 +93,7 @@ function addrow()
 }
 
 function confirmDeleteattachment(delobj) {
-	if (confirm('Doriţi să ştergeţi ?'))
+	if (confirm('Хотите удалить ?'))
 	{
 		$('#'+delobj+'todelete').val(1);
 		$('#'+delobj+'Attachmentfile').remove();
@@ -105,11 +106,11 @@ function addattachment(){
 	attachmentkey = countattachment;
 	$('#attachmentsdiv').append($(
 		'<tr id="Attachment'+attachmentkey+'">'+
-			'<td valign="top">Denumire anexă: <input name="data[Attachment]['+attachmentkey+'][name]" id="Attachment'+attachmentkey+'Name" style="width: 350px;">'+
+			'<td valign="top">Название приложения: <input name="data[Attachment]['+attachmentkey+'][name]" id="Attachment'+attachmentkey+'Name" style="width: 350px;">'+
 			'<input type="hidden" name="data[Attachment]['+attachmentkey+'][todelete]" id="Attachment'+attachmentkey+'todelete" value="0"/></td>'+
 			'<td width="180" valign="top"></td>'+
 			'<td width="200" valign="top"><input name="data[Attachment]['+attachmentkey+'][attachmentfile]" type="file" id="Attachment'+attachmentkey+'Attachmentfile"/></td>'+
-			'<td width="30" valign="top"><a href="javascript:void(0);" onclick="return confirmDeleteattachment(\'Attachment'+attachmentkey+'\');"><img src="/images/delete.png" width="20" height="20" border="0" title="şterge anexă"/></a></td>'+
+			'<td width="30" valign="top"><a href="javascript:void(0);" onclick="return confirmDeleteattachment(\'Attachment'+attachmentkey+'\');"><img src="/images/delete.png" width="20" height="20" border="0" title="стереть приложение"/></a></td>'+
 		'</tr>'
 	));
 	countattachment++;
@@ -125,7 +126,7 @@ function processResponse(data)
 		location.href = backlink + '/reports';
 	}
 	else
-		jQuery('#submit-message-append').html('<br/>Raportul nu poate fi salvat. Posibil exista deja un raport cu acelaşi număr. Verificaţi datele introduse şi mai incercaţi încă o data.<br/>');
+		jQuery('#submit-message-append').html('<br/>Заключение не может быть сохранено. Наверное уже существует заключение под тем же номером. Проверьте введенные данные и проверьте еще раз.<br/>');
 }
 
 jQuery(document).ready(function($){
@@ -134,7 +135,7 @@ jQuery(document).ready(function($){
 	//ajaxStop($.unblockUI).
 	$().ajaxError(function(a, b, e) {
 		throw e;
-		alert('Eroare de conectare! Verificaţi conexiunea internet!');
+		alert('Ошибка соединения! Проверьте подключение к серверу!');
 	});
 
 	$.metadata.setType('attr', 'validate');
@@ -151,8 +152,8 @@ jQuery(document).ready(function($){
 		showErrors: function(errorMap, errorList) {
 			var errors = this.numberOfInvalids();
 			if (($('#ReportReportstate:checked').length == 1 || $('#ReportReportstate option:selected').length == 1) && (errors)) {
-				var message = errors == 1 ? '1 eroare' : errors + ' erori';
-				$('#submit-message-append').html('<br/>Raportul conţine ' + message + ', verificaţi datele introduse.<br/>');
+				var message = errors == 1 ? '1 ошибку' : errors + ' ошибок';
+				$('#submit-message-append').html('<br/>Заключение содержит ' + message + ', проверьте введенные данные.<br/>');
 			}
 			else $('#submit-message-append').html('');
 			this.defaultShowErrors();
@@ -264,10 +265,10 @@ jQuery(document).ready(function($){
 
 	$('#ReportP05list1').change(function(){
 		tempval = $(this).val();
-		if (tempval == 'este plasată pe site-ul Parlamentului')
-			$('#ReportP05list2').text('respectă');
-		else if (tempval == 'nu este plasată pe site-ul Parlamentului')
-			$('#ReportP05list2').text('nu respectă');
+		if (tempval == 'опубликована на сайте Парламента')
+			$('#ReportP05list2').text('соблюдает');
+		else if (tempval == 'не опубликована на сайте Парламента')
+			$('#ReportP05list2').text('не соблюдает');
 	});
 
 	$('#ReportReportdatetext').datepicker({

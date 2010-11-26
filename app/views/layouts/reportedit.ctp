@@ -12,12 +12,12 @@
 
 			echo $javascript->link('plugins/jquery.min');
 			echo $javascript->link('plugins/jquery-ui.min');
-			echo $javascript->link('plugins/localization/ui.datepicker-ro');
+			echo $javascript->link('plugins/localization/ui.datepicker-ru');
 			echo $javascript->link('datepicker');
 			echo $javascript->link('plugins/jquery.form');
 			echo $javascript->link('plugins/jquery.metadata');
 			echo $javascript->link('plugins/jquery.validate.pack');
-			echo $javascript->link('plugins/localization/jquery.validate.messages_ro');
+			echo $javascript->link('plugins/localization/jquery.validate.messages_ru');
 			echo $javascript->link('plugins/jquery.blockUI');
 			echo $javascript->link('plugins/jquery.jgrowl.pack');
 			echo $javascript->link('plugins/jquery.corner');

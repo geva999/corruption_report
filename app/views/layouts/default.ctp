@@ -8,7 +8,7 @@
 			echo $html->css('ui.all');
 			echo $html->css('jquery.jgrowl');
 			echo $html->css('default');
-			
+
 			echo $javascript->link('plugins/prototype');
 			echo $javascript->link('plugins/jquery.min');
 		?>
@@ -17,12 +17,12 @@
 		</script>
 		<?php
 			echo $javascript->link('plugins/jquery-ui.min');
-			echo $javascript->link('plugins/localization/ui.datepicker-ro');
+			echo $javascript->link('plugins/localization/ui.datepicker-ru');
 			echo $javascript->link('datepicker');
 			echo $javascript->link('plugins/jquery.jgrowl.pack');
 			echo $javascript->link('plugins/jquery.alphanumeric.pack');
 			echo $javascript->link('tiny_mce/tiny_mce');
-			
+
 			echo $scripts_for_layout;
 		?>
 	</head>
