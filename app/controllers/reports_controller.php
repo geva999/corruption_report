@@ -4,7 +4,7 @@ class ReportsController extends AppController {
 	var $name = 'Reports';
 	var $helpers = array('Html', 'Form', 'Javascript', 'Ajax');
 	var $components = array('RequestHandler');
-	
+
 	function isAuthorized() {
 		$adminrights = array('admin_index', 'admin_statistic', 'edit', 'save', 'view', 'viewpdf', 'viewelements', 'viewotherelements', 'generatesubreportcode');
 		$expertrights = array('index', 'edit', 'save', 'view', 'viewpdf', 'viewelements', 'viewotherelements', 'generatesubreportcode');
@@ -15,7 +15,7 @@ class ReportsController extends AppController {
 
 	function index() {
 		$loginedexpertid = $this->Auth->user('id');
-	
+
 		$this->Report->recursive = -1;
 		$fields = array('Report.id', 'Project.author_id', 'Project.projecttype', 'Project.name', 'Project.reportnumber');
 		$conditions = array(
@@ -24,10 +24,10 @@ class ReportsController extends AppController {
 				'Project.reportmultipleedit'=>1,
 				'Projectexpert.expert_id'=>$loginedexpertid);
 		$joins = array('LEFT JOIN `projects` AS `Project` ON ( `Report`.`project_id` = `Project`.`id` ) LEFT JOIN `projectexperts` AS `Projectexpert` ON ( `Project`.`id` = `Projectexpert`.`project_id` )');
-		
+
 		$countmultipleedit = $this->Report->find('count', array('conditions'=>$conditions, 'joins'=>$joins));
 		$reportmultipleedit = $this->Report->find('all', array('fields'=>$fields, 'conditions'=>$conditions, 'joins'=>$joins, 'order'=>'Project.reportnumber ASC'));
-		
+
 		$this->Report->recursive = 0;
 		$this->Report->Project->recursive = -1;
 		$countprojects = $this->Report->Project->find('count', array('conditions'=>array('Project.projectreportstate'=>2, 'Project.expert_id'=>$loginedexpertid)));
@@ -35,17 +35,17 @@ class ReportsController extends AppController {
 		$countrejected = $this->Report->find('count', array('conditions'=>array('Report.reportstate'=>2, 'Project.expert_id'=>$loginedexpertid)));
 		$countsaved = $this->Report->find('count', array('conditions'=>array('Report.reportstate'=>0, 'Project.expert_id'=>$loginedexpertid)));
 		$countpublished = $this->Report->find('count', array('conditions'=>array('Report.reportstate'=>3, 'Project.expert_id'=>$loginedexpertid)));
-		
+
 		$reportssenttoadmin = $this->Report->find('all', array('fields'=>$fields, 'conditions'=>array('Report.reportstate'=>1, 'Project.expert_id'=>$loginedexpertid)));
 		$reportsrejected = $this->Report->find('all', array('fields'=>$fields, 'conditions'=>array('Report.reportstate'=>2, 'Project.expert_id'=>$loginedexpertid)));
 		$reportssaved = $this->Report->find('all', array('fields'=>$fields, 'conditions'=>array('Report.reportstate'=>0, 'Project.expert_id'=>$loginedexpertid)));
 		$reportspublished = $this->paginate('Report', array('Report.reportstate'=>3, 'Project.expert_id'=>$loginedexpertid));
-		
+
 		$this->Report->Project->Author->recursive = -1;
 		$authors = $this->Report->Project->Author->find('list', array('fields'=>array('Author.id', 'Author.name'), 'order'=>'Author.name ASC'));
 		$this->set(compact('countprojects', 'countsenttoadmin', 'countrejected', 'countsaved', 'countmultipleedit', 'countpublished', 'reportssenttoadmin', 'reportsrejected', 'reportssaved', 'reportmultipleedit', 'reportspublished', 'authors'));
 	}
-	
+
 	function edit($id = null) {
 		$this->layout='reportedit';
 		$isadmin = $this->Auth->user('isadmin');
@@ -157,10 +157,10 @@ class ReportsController extends AppController {
 		if ($multipleedit == 0 || ($multipleedit == 1 && $isadmin == 1) || ($multipleedit == 1 && $loginedexpertid == $this->data['Project']['expert_id']))
 			$multipleeditcontrol = true;
 		else $multipleeditcontrol = false;
-		
+
 		$this->set(compact('celems', 'pelems', 'author', 'isadmin', 'loginedexpertid', 'celemsacceptance', 'backlink', 'experts', 'multipleedit', 'multipleeditcontrol'));
 	}
-	
+
 	function view($id = null, $type = null) {
 		Configure::write('debug',0);
 		$isadmin = $this->Auth->user('isadmin');
@@ -195,12 +195,12 @@ class ReportsController extends AppController {
 		$author = $this->Report->Project->Author->find('list');
 		$author = $author[$this->data['Project']['author_id']];
 		$this->set(compact('subreports', 'author', 'template', 'backlink'));
-		
+
 		if ($type == 'pdf') $this->layout = 'pdf';
 		if ($type == 'ajax') $this->layout='ajaxlayout';
 		$this->render('view'.$type);
 	}
-	
+
 	function viewelements() {
 		Configure::write('debug', '0');
 		$this->layout='viewelements';
@@ -209,7 +209,7 @@ class ReportsController extends AppController {
 		$celems = $this->Report->Subreport->Celem->find('all', array('order'=>'Celem.number ASC'));
 		$this->set(compact('celemgroups', 'celems'));
     }
-	
+
 	function viewotherelements() {
 		Configure::write('debug', '0');
 		$this->layout='viewelements';
@@ -219,38 +219,38 @@ class ReportsController extends AppController {
 			'conditions'=>array('Subreport.alteelemente <>'=>''), 'group'=>'Subreport.alteelemente', 'order'=>'countalteelemente DESC'));
 		$this->set(compact('otherelements'));
     }
-	
+
 	function generatesubreportcode($rowid = null, $celemsacceptance = null, $celemgroup = null) {
 		Configure::write('debug', '0');
 		$this->layout='ajaxlayout';
-		
+
 		$this->Report->Subreport->create();
 		$this->Report->Subreport->save();
 		$subreportid = $this->Report->Subreport->id;
-		
+
 		$this->Report->Subreport->Celem->recursive = -1;
 		$this->Report->Subreport->Pelem->recursive = -1;
 		$celems = $this->Report->Subreport->Celem->find('list', array('fields'=>array('Celem.id', 'Celem.celem')));
 		$pelems = $this->Report->Subreport->Pelem->find('list', array('fields'=>array('Pelem.id', 'Pelem.number')));
 		$this->set(compact('celems', 'pelems', 'rowid', 'celemsacceptance', 'subreportid'));
 	}
-	
+
 	function admin_index($action = null) {
 		$conditions = array('Report.reportstate'=>array(1, 3));
 		$viewtext = 'Rapoarte';
-		if ($action == 'examinare') {
+		if ($action == 'рассмотрение') {
 			$conditions = array('Report.reportstate'=>1);
 			$viewtext = 'Заключения в процессе рассмотрения администратором';
 		}
-		elseif ($action == 'publicate') {
+		elseif ($action == 'опубликованные') {
 			$conditions = array('Report.reportstate'=>3);
 			$viewtext = 'Заключения опубликованные на сайте';
 		}
-		elseif ($action == 'adoptate') {
+		elseif ($action == 'принятые') {
 			$conditions = array('Project.projectstate'=>2);
 			$viewtext = 'Заключения по принятым проектам';
 		}
-		elseif ($action == 'editaremultipla') {
+		elseif ($action == 'несколькоэкспертов') {
 			$conditions = array('Project.reportmultipleedit'=>1);
 			$viewtext = 'Заключения с возможностью редактирования несколькими экспертами';
 		}
@@ -273,7 +273,7 @@ class ReportsController extends AppController {
 		$authors = $this->Report->Project->Author->find('list', array('fields'=>array('Author.id', 'Author.name'), 'order'=>'Author.name ASC'));
 		$this->set(compact('countreports', 'reports', 'viewtext', 'experts', 'authors', 'action'));
 	}
-	
+
 	function admin_statistic() {
 		$safeMode = ( @ini_get("safe_mode") == 'On' || @ini_get("safe_mode") === 1 ) ? TRUE : FALSE;
 		if ( $safeMode === FALSE ) {
@@ -306,42 +306,42 @@ class ReportsController extends AppController {
 			$filterprojects = array_merge($filterprojects, array('Project.projectdate <= '=>$this->data['Report']['date2']));
 		}
 		$filterreports = array_merge(array('Report.reportstate'=>3), $filterreports);
-		
+
 		$this->Report->Project->recursive = 0;
 		$statisticprojectsall = array();
 		$fields = array('COUNT(projectnumber) AS countproject', 'SUM(numberpages) AS numberpages', 'SUM(numberprojectsstandard) AS numberprojectsstandard');
 		$statisticprojectsall['examinare'] = $this->Report->Project->find('all', array('fields'=>$fields, 'conditions'=>array_merge($filterprojects, array('Project.projectstate'=>1))));
 		$statisticprojectsall['adoptate'] = $this->Report->Project->find('all', array('fields'=>$fields, 'conditions'=>array_merge($filterprojects, array('Project.projectstate'=>2))));
 		$statisticprojectsall['retrase'] = $this->Report->Project->find('all', array('fields'=>$fields, 'conditions'=>array_merge($filterprojects, array('Project.projectstate'=>3))));
-		
+
 		$fields = array('Project.expert_id', 'Project.author_id', 'Project.initiative', 'Project.projecttype', 'Project.projectdomain', 'Project.numberpages');
 		$statisticexpertsauthors = $this->Report->Project->find('all', array('fields'=>$fields, 'conditions'=>$filterprojects));
 		$statisticexpertsauthors = $this->__statistic_experts_authors_total($statisticexpertsauthors);
-		
+
 		$this->Report->recursive = 0;
 		$fields = array('Report.id', 'Project.projecttype', 'Project.projecttypevizat', 'Project.projectdomain',
 						'Report.p02list1', 'Report.p02list2', 'Report.p03radio1', 'Report.p05list1', 'Report.p06radio1',
 						'Report.p07radio1', 'Report.p08radio1', 'Report.p08radio2', 'Report.p09radio1', 'Report.p09radio2',
 						'Report.p10radio1', 'Report.p11radio1', 'Report.p11radio2', 'Report.p12radio1', 'Report.p12radio2',
 						'Report.p13radio1', 'Report.p14radio1', 'Report.p15radio1', 'Report.p15radio2');
-		
+
 		$statisticreportsall = $this->Report->find('all', array('fields'=>$fields, 'conditions'=>$filterreports));
 		$statisticreportsall = $this->__statistic_reports_total($statisticreportsall);
-		
+
 		$this->Report->Subreport->Celem->recursive = -1;
 		$this->Report->Subreport->Pelem->recursive = -1;
 		$celemgroups = $this->Report->Subreport->Celem->find('all', array('fields'=>array('DISTINCT Celem.celemgroup')));
 		$celemgroups = Set::extract('/Celem/celemgroup', $celemgroups);
 		$celems = $this->Report->Subreport->Celem->find('all', array('order'=>'Celem.number ASC'));
 		$celems = Set::combine($celems, '{n}.Celem.id', '{n}.Celem');
-		
+
 		$this->Report->recursive = 2;
 		$fields = array('Report.id', 'Project.projectdomain');
 		$this->Report->unbindModel(array('hasMany'=>array('Attachment')));
 		$this->Report->Subreport->unbindModel(array('belongsTo'=>array('Report'), 'hasAndBelongsToMany'=>array('Pelem')));
 		$statisticelementsall = $this->Report->find('all', array('fields'=>$fields, 'conditions'=>$filterreports));
 		$statisticelementsall = $this->__statistic_elements_all_total($statisticelementsall, $celems);
-		
+
 		$fields = array('Report.id', 'Project.projectdomain', 'Project.projectstate');
 		if ($this->data['Project']['projectstate'] == '')
 			$filterreports = array_merge(array('Project.projectstate'=>array(2, 3)), $filterreports);
@@ -349,7 +349,7 @@ class ReportsController extends AppController {
 		$this->Report->Subreport->unbindModel(array('belongsTo'=>array('Report')));
 		$statisticelementsefficiency = $this->Report->find('all', array('fields'=>$fields, 'conditions'=>$filterreports));
 		$statisticelementsefficiency = $this->__statistic_elements_efficiency_total($statisticelementsefficiency, $celems);
-		
+
 		$this->Report->recursive = 0;
 		$this->Report->Subreport->Pelem->recursive = 1;
 		$reportsnumbers = $this->Report->find('all', array('fields'=>array('Report.id', 'Project.reportnumber')));
@@ -361,17 +361,17 @@ class ReportsController extends AppController {
 			}
 		}
 		$statisticpelems = Set::combine($statisticpelems, '{n}.Pelem.celem_id', '{n}.Report');
-		
+
 		$this->Report->Project->Expert->recursive = -1;
 		$experts = $this->Report->Project->Expert->find('list', array('fields'=>array('Expert.id', 'Expert.fullname'), 'conditions'=>array('Expert.isadmin'=>0), 'order'=>'Expert.fullname ASC'));
-		
+
 		$this->Report->Project->Author->recursive = -1;
 		$authors = $this->Report->Project->Author->find('list', array('fields'=>array('Author.id', 'Author.name'), 'order'=>'Author.name ASC'));
-			
+
 		$this->set(compact('statisticprojectsall', 'statisticexpertsauthors', 'statisticreportsall', 'statisticelementsall',
 			'statisticelementsefficiency', 'statisticpelems', 'celems', 'celemgroups', 'experts', 'authors'));
 	}
-	
+
 	function __statistic_experts_authors_total($table) {
 		$result = array();
 		foreach ($table as $tablevalue) {
@@ -398,7 +398,7 @@ class ReportsController extends AppController {
 		}
 		return $result;
 	}
-	
+
 	function __statistic_elements_efficiency_total($reports, $celems) {
 		$result = array();
 		$result['total_reports'] = 0;
@@ -438,7 +438,7 @@ class ReportsController extends AppController {
 		}
 		return $result;
 	}
-	
+
 	function __statistic_elements_all_total($reports, $celems) {
 		$result = array();
 		$result['total_reports'] = 0;
@@ -483,7 +483,7 @@ class ReportsController extends AppController {
 		}
 		return $result;
 	}
-	
+
 	function __statistic_reports_total($table) {
 		$result = array();
 		$result['total_reports'] = 0;
@@ -529,7 +529,7 @@ class ReportsController extends AppController {
 		}
 		return $result;
 	}
-	
+
 	function __statistic_reports_total_list($domain, $result, $criterias, $criterias_by = null, $element_name, $element_value) {
 		foreach ($criterias as $criteriakey => $criteriavalue) {
 			if ($element_value == $criteriavalue) {
@@ -543,7 +543,7 @@ class ReportsController extends AppController {
 		}
 		return $result;
 	}
-	
+
 	function __statistic_reports_total_radio($domain, $result, $element_name, $radio1, $radio2) {
 		if ($radio1 == 1 && $radio2 == 2) $result[$domain][$element_name][1]++;
 		elseif ($radio1 == 2 && $radio2 == 1) $result[$domain][$element_name][2]++;
@@ -551,7 +551,7 @@ class ReportsController extends AppController {
 		elseif ($radio1 == 2 && $radio2 == 2) $result[$domain][$element_name][4]++;
 		return $result;
 	}
-	
+
 	function __statistic_reports_total_advanced_radio($domain, $result, $element_name, $radio1, $radio2) {
 		if ($radio1 == 1) $result[$domain][$element_name][1]++;
 		elseif ($radio1 == 2) $result[$domain][$element_name][4]++;
@@ -559,6 +559,6 @@ class ReportsController extends AppController {
 		elseif ($radio1 == 1 && $radio2 == 2) $result[$domain][$element_name][3]++;
 		return $result;
 	}
-	
+
 }
 ?>

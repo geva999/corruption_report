@@ -12,7 +12,7 @@ class ProjectsController extends AppController {
 		elseif ($this->Auth->user('isadmin') == 0 && in_array($this->action, $expertrights)) return true;
 		else return false;
     }
-	
+
 	function index() {
 		$this->Project->recursive = -1;
 		$loginedexpertid = $this->Auth->user('id');
@@ -22,7 +22,7 @@ class ProjectsController extends AppController {
 		$projectsaccepted = $this->paginate('Project', array('Project.projectreportstate'=>3, 'Project.expert_id'=>$loginedexpertid));
 		$this->set(compact('countsaved', 'countaccepted', 'countrejected', 'projectssaved', 'projectsaccepted', 'projectsrejected'));
 	}
-	
+
 	function accept($id = null) {
 		Configure::write('debug', '0');
 		$this->layout = 'ajaxlayout';
@@ -42,11 +42,11 @@ class ProjectsController extends AppController {
 				$this->data['Report']['p15text1'] = 'Проект не регулирует полномочия государственных органов, новые административные процедуры ил другие аспекты, касающиеся их деятельности.';
 				$this->Project->Report->create();
 				$this->Project->Report->save($this->data);
-			}	
+			}
 		}
 		$this->redirect('/projects');
 	}
-	
+
 	function reject($id = null) {
 		Configure::write('debug', '0');
 		$this->layout = 'ajaxlayout';
@@ -61,27 +61,27 @@ class ProjectsController extends AppController {
 		$conditions = array();
 		$viewtext = 'Proiecte';
 		switch ($action) {
-			case 'examinare':
+			case 'рассмотрение':
 				$conditions = array('Project.projectstate'=>1);
 				$viewtext = 'Проекты в процессе расмотрения';
 				break;
-			case 'adoptate':
+			case 'принятые':
 				$conditions = array('Project.projectstate'=>2);
 				$viewtext = 'Принятые проекты';
 				break;
-			case 'retrase':
+			case 'отозванные':
 				$conditions = array('Project.projectstate'=>3);
 				$viewtext = 'Отозванные проекты';
 				break;
-			case 'spreaprobare':
+			case 'дляободрения':
 				$conditions = array('Project.projectreportstate'=>2);
 				$viewtext = 'Проекты направленные на утверждение эксперту';
 				break;
-			case 'acceptate':
+			case 'одобренные':
 				$conditions = array('Project.projectreportstate'=>3);
 				$viewtext = 'Проекты принятые экспертом к рассмотрению';
 				break;
-			case 'respinse':
+			case 'отклоненные':
 				$conditions = array('Project.projectreportstate'=>4);
 				$viewtext = 'Проекты отклоненные экспертом';
 				break;

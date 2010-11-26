@@ -13,11 +13,11 @@
 					<table border="0" cellpadding="5" cellspacing="0">
 						<?php
 							$links = array(
-								'в процессе расмотрения администратором'=>'examinare',
-								'publicate cu postare pe site'=>'publicate',
-								'la proiecte adoptate'=>'adoptate',
-								'cu editare multiplă'=>'editaremultipla');
 							echo '<tr><td>Rapoarte:</td>';
+								'в процессе расмотрения администратором'=>'рассмотрение',
+								'опубликованные с размещением на сайте'=>'опубликованные',
+								'по принятым проекта'=>'принятые',
+								'редактированные несколькими экспертами'=>'несколькоэкспертов');
 							foreach ($links as $linktitle=>$linkaction)
 								echo '<td>'.$this->element('ajaxlink', array('link'=>'/admin/reports/index/'.$linkaction, 'linktitle'=>$linktitle)).'</td>';
 							echo '</tr>';

@@ -13,12 +13,12 @@
 					<table border="0" cellpadding="5" cellspacing="0">
 						<?php
 							$links = array (
-								'în curs de examinare'=>'examinare',
-								'adoptate'=>'adoptate',
-								'retrase'=>'retrase',
-								'trimise spre acceptare către expert'=>'spreaprobare',
-								'respinse de expert'=>'respinse',
-								'acceptate de expert'=>'acceptate'
+								'в процессе рассмотрения'=>'рассмотрение',
+								'принятые'=>'принятые',
+								'отозванные'=>'отозванные',
+								'отправленые эксперту для одобрения'=>'дляободрения',
+								'отклоненные экспертом'=>'отклоненные',
+								'одобренные экспертом'=>'одобренные'
 							);
 							echo '<tr><td>Proiecte:</td>';
 							foreach ($links as $linktitle=>$linkaction)
