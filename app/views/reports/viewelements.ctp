@@ -1,8 +1,8 @@
 <div style="padding:20px;">
 	<table align="center" id="elementehover" width="100%" border="0" cellspacing="1" cellpadding="4">
 		<tr style="font-weight:bold;font-size:120%;background-color:#c4c4c4;">
-			<td>Grup</td>
-			<td>Element de coruptibilitate</td>
+			<td>Группа</td>
+			<td>Элемент коррупциогенности</td>
 		</tr>
 		<?php
 			foreach ($celemgroups as $celemgroup)
@@ -16,7 +16,7 @@
 						echo '<label>'.$celem['Celem']['celem'].'</label>';
 						if ($celem['Celem']['description'] !='')
 						{
-							echo '<div style="padding-left: 20px;">Descriere:<br/>'.nl2br($celem['Celem']['description']).'<br/></div>';
+							echo '<div style="padding-left: 20px;">Описание:<br/>'.nl2br($celem['Celem']['description']).'<br/></div>';
 						}
 						echo '</div>';
 					}
