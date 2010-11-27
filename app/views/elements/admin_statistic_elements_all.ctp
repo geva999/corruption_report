@@ -2,7 +2,7 @@
 	<!-- Список областей -->
 	<tr align="center" bgcolor="#BBBBBB" class="statistic_table_head">
 		<td rowspan="3">Категории элементов</td>
-		<?php foreach ($this->domains as $domainvalue) echo '<td width="148" colspan="4">Область '.$domainvalue.'</td>';?>
+		<?php foreach ($domains as $domainvalue) echo '<td width="148" colspan="4">Область: '.$domainvalue.'</td>';?>
 		<td width="148" colspan="4">Итого</td>
 		<td width="74" rowspan="2" colspan="2">Уровень распространения элемента в категории в которую он включен</td>
 	</tr>
@@ -21,7 +21,6 @@
 		?>
 	</tr>
 	<?php
-		$domains = $this->domains;
 		//элементы
 		foreach ($elemgroups as $elemgroupkey => $elemgroupvalue) {
 

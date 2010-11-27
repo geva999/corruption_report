@@ -1,4 +1,4 @@
-<?php $criteriashorizontal = $this->domains;?>
+<?php $criteriashorizontal = $domains;?>
 <table border="1" cellpadding="0" cellspacing="0" align="center" class="statistic_table">
 	<tr align="center" bgcolor="#BBBBBB" class="statistic_table_head">
 		<td rowspan="2">Вид акта</td>

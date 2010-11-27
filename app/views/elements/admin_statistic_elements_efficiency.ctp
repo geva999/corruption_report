@@ -2,11 +2,10 @@
 	<!-- Список областей -->
 	<tr align="center" bgcolor="#BBBBBB" class="statistic_table_head">
 		<td width="300">Категории элементов</td>
-		<?php foreach ($this->domains as $domainvalue) echo '<td width="110" colspan="3">Domeniul '.$domainvalue.'</td>';?>
+		<?php foreach ($domains as $domainvalue) echo '<td width="110" colspan="3">Область: '.$domainvalue.'</td>';?>
 		<td width="110" colspan="3">Итого<br/>Принятые замечания согласно категориям элементов и конкретных элементов</td>
 	</tr>
 	<?php
-		$domains = $this->domains;
 		//элементы
 		foreach ($elemgroups as $elemgroupkey => $elemgroupvalue) {
 

@@ -1,5 +1,4 @@
 <?php
-	$domains = $this->domains;
 	echo '<tr align="center" class="statistic_table_td"'.(isset($bgcolor)?' bgcolor="'.$bgcolor.'"':'')
 			.'><td align="left">'.$title.'</td>';
 	foreach ($domains as $domain) {

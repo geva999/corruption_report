@@ -40,8 +40,8 @@ class AppController extends Controller {
 		//$this->Auth->logoutRedirect = array('admin' => false, 'controller' => 'reports', 'action' => 'indexall');
 		$this->Auth->authorize = 'controller';
 		$this->Auth->ajaxLogin = null;
-		$this->Auth->loginError = 'Logarea a eşuat! Nume utilizator sau parola incorecte!';
-		$this->Auth->authError = 'Nu sunteţi autorizat să accesaţi această locaţie!';
+		$this->Auth->loginError = 'Авторизация не произведена! Неправильные имя пользователя или пароль!';
+		$this->Auth->authError = 'Вы не авторизированны чтобы войти в систему!';
 		$this->Auth->allow('view');
 		//$this->Auth->allow('*');
 		if ($this->Auth->user()) {
@@ -50,6 +50,21 @@ class AppController extends Controller {
 			$isadmin = $this->Auth->user('isadmin');
 			$this->set(compact('loginedexpertid', 'logineduserfullname', 'isadmin'));
 		}
+
+		//set domains
+		$domains = array(
+			'I. Юстиция и внутренние дела, права и свободы человека',
+			'II. Экономика и торговля',
+			'III. Бюджет и финансы',
+			'IV. Образование, культура, культы и СМИ',
+			'V. Законодательство о труде, социальном обеспечении и об охране здоровья');
+		$domainsforselect = array(
+			$domains[0]=>$domains[0],
+			$domains[1]=>$domains[1],
+			$domains[2]=>$domains[2],
+			$domains[3]=>$domains[3],
+			$domains[4]=>$domains[4]);
+		$this->set(compact('domains', 'domainsforselect'));
 	}
 }
 ?>

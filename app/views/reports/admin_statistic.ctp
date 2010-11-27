@@ -1,11 +1,4 @@
-<?php
-	echo $this->element('top_menu', array('top_menu_title'=>'Statistica'));
-	$this->domains = array(	'I. Justiţie şi afaceri interne, drepturile şi libertăţile omului',
-						'II. Economie şi comerţ',
-						'III. Buget şi finanţe',
-						'IV. Educaţie, cultură, culte şi mass-media',
-						'V. Legislaţia muncii, asigurarea socială şi ocrotirea sănătăţii');
-?>
+<?php echo $this->element('top_menu', array('top_menu_title'=>'Статистика'));?>
 
 <div id="line">
 	<?php echo $this->element('admin_menu');?>

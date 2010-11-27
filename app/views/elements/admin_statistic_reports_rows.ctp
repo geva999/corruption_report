@@ -2,7 +2,6 @@
 	<td align="left" colspan="13" class="statistic_table_td"><?php echo $title?></td>
 </tr>
 <?php
-	$domains = $this->domains;
 	foreach ($criterias as $criteriakey => $criteriavalue) {
 		echo '<tr align="center"'.(isset($bgcolor)?' bgcolor="'.$bgcolor.'"':'').'><td align="left">'.$criteriavalue.'</td>';
 		$criteriakey++;

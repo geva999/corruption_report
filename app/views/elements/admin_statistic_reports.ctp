@@ -2,7 +2,7 @@
 	<!-- Список областей -->
 	<tr align="center" bgcolor="#BBBBBB" class="statistic_table_head">
 		<td width="260">&nbsp;</td>
-		<?php foreach ($this->domains as $domainvalue) echo '<td width="120" colspan="2">Область '.$domainvalue.'</td>';?>
+		<?php foreach ($domains as $domainvalue) echo '<td width="120" colspan="2">Область: '.$domainvalue.'</td>';?>
 		<td width="120" colspan="2">Итого</td>
 	</tr>
 	<?php
