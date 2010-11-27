@@ -1,10 +1,7 @@
 <?php
 class TemplatesController extends AppController {
-
 	var $name = 'Templates';
-	var $helpers = array('Html', 'Form', 'Javascript', 'Ajax');
-	var $components = array('RequestHandler');
-	
+
 	function isAuthorized() {
 		$adminrights = array('admin_index', 'admin_add', 'admin_edit', 'admin_delete');
 		if ($this->Auth->user('isadmin') == 1 && in_array($this->action, $adminrights)) return true;
@@ -13,7 +10,7 @@ class TemplatesController extends AppController {
 
 	function index() {
 	}
-	
+
 	function admin_index() {
 		$this->Template->recursive = -1;
 		$counttemplates = $this->Template->find('count');
@@ -27,7 +24,7 @@ class TemplatesController extends AppController {
 			if ($this->Template->save($this->data)) {
 				$this->Session->setFlash(__('Шаблон был сохранен.', true), 'jgrowl');
 				$this->redirect('/admin/templates');
-			} 
+			}
 			else $this->Session->setFlash(__('Невозможно сохранить шаблон. Наверное уже существует шаблон под тем же названием. Проверьте введенные данные и попробуйте еще раз.', true), 'jgrowl');
 		}
 	}

@@ -5,9 +5,9 @@
 </div>
 
 <div id="listcontent">
-	
+
 	<div id="caption" class="red">Редактирование элемента коррупциогенности</div>
-	
+
 	<div id="Form">
 		<?php
 			echo $form->create('Celem');
@@ -20,7 +20,7 @@
 					<?php
 						//echo $form->input('Celem.celemgroup', array('label'=>'Grup', 'size'=>85));
 						echo $form->input('Celem.celemgroup', array(
-								'label' => 'Grup: ',
+								'label' => 'Группа: ',
 								'options' => array(	'I. Взаимодействие законопроекта с другими законодательными или нормативными актами'=>'I. Взаимодействие законопроекта с другими законодательными или нормативными актами',
 													'II. Порядок реализации полномочий органов публичной власти'=>'II. Порядок реализации полномочий органов публичной власти',
 													'III. Порядок реализации прав и обязанностей'=>'III. Порядок реализации прав и обязанностей',
@@ -35,11 +35,11 @@
 			</ul>
 			<?php echo $this->element('submit_button');?>
 	</div>
-	
+
 	<?php
 		echo $this->element('backlink', array('backlink'=>'/admin/celems', 'backlinktitle'=>'Назад к списку элементов коррупциогенности'));
 		echo $this->element('error_messages');
 		echo $this->element('sponsor');
 	?>
-	
+
 </div>

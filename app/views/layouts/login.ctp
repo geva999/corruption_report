@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Autentificare sistem rapoarte online - Centrul de Analiză şi Prevenire a Corupţiei</title>
+		<title>Система он-лайн заключений - Аутентификация</title>
 		<?php echo $html->css('login');?>
 	</head>
 	<body>

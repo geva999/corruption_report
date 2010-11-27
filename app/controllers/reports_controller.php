@@ -1,9 +1,6 @@
 <?php
 class ReportsController extends AppController {
-
 	var $name = 'Reports';
-	var $helpers = array('Html', 'Form', 'Javascript', 'Ajax');
-	var $components = array('RequestHandler');
 
 	function isAuthorized() {
 		$adminrights = array('admin_index', 'admin_statistic', 'edit', 'save', 'view', 'viewpdf', 'viewelements', 'viewotherelements', 'generatesubreportcode');

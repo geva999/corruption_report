@@ -1,9 +1,6 @@
 <?php
 class ExpertsController extends AppController {
-
 	var $name = 'Experts';
-	var $helpers = array('Html', 'Form', 'Javascript', 'Ajax');
-	var $components = array('RequestHandler');
 
 	function isAuthorized() {
 		$adminrights = array('admin_index', 'admin_add', 'admin_edit', 'admin_delete', 'logout');
@@ -12,7 +9,7 @@ class ExpertsController extends AppController {
 		elseif ($this->Auth->user('isadmin') == 0 && in_array($this->action, $expertrights)) return true;
 		else return false;
     }
-	
+
 	function login() {
 		$this->layout='login';
 		if ($this->Auth->user()) {
@@ -20,11 +17,11 @@ class ExpertsController extends AppController {
 			else if ($this->Auth->user('isadmin') == 0) $this->redirect('/reports');
 		}
 	}
-	
+
 	function logout() {
 		$this->redirect($this->Auth->logout());
 	}
-	
+
 	function index() {
 	}
 
@@ -33,9 +30,9 @@ class ExpertsController extends AppController {
 		$countexperts = $this->Expert->find('count');
 		$experts = $this->paginate('Expert');
 		$this->set(compact('experts', 'countexperts'));
-		
+
 	}
-	
+
 	function admin_add() {
 		if (!empty($this->data)) {
 			$this->Expert->create();

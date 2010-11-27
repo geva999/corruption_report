@@ -1,9 +1,6 @@
 <?php
 class AuthorsController extends AppController {
-
 	var $name = 'Authors';
-	var $helpers = array('Html', 'Form', 'Javascript', 'Ajax');
-	var $components = array('RequestHandler');
 
 	function isAuthorized() {
 		$adminrights = array('admin_index', 'admin_add', 'admin_edit', 'admin_delete');
@@ -32,7 +29,7 @@ class AuthorsController extends AppController {
 			}
 		}
 	}
-	
+
 	function admin_edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Неверный ID для непосредственного автора.', true), 'jgrowl');

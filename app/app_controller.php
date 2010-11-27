@@ -1,6 +1,7 @@
 <?php
 class AppController extends Controller {
 	var $components = array('RequestHandler', 'Auth');
+	var $helpers = array('Html', 'Form', 'Javascript', 'Ajax');
 	var $paginate = array(
 		'Project' => array(
 			'order' => 'Project.reportnumber ASC',

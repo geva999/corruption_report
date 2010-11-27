@@ -1,9 +1,6 @@
 <?php
 class ProjectsController extends AppController {
-
 	var $name = 'Projects';
-	var $helpers = array('Html', 'Form', 'Javascript', 'Ajax');
-	var $components = array('RequestHandler');
 
 	function isAuthorized() {
 		$adminrights = array('admin_index', 'admin_index_expert', 'admin_add', 'admin_edit', 'admin_delete');
@@ -59,7 +56,7 @@ class ProjectsController extends AppController {
 
 	function admin_index($action = null) {
 		$conditions = array();
-		$viewtext = 'Proiecte';
+		$viewtext = 'Проекты';
 		switch ($action) {
 			case 'рассмотрение':
 				$conditions = array('Project.projectstate'=>1);

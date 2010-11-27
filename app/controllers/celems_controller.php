@@ -1,10 +1,7 @@
 <?php
 class CelemsController extends AppController {
-
 	var $name = 'Celems';
-	var $helpers = array('Html', 'Form', 'Javascript', 'Ajax');
-	var $components = array('RequestHandler');
-	
+
 	function isAuthorized() {
 		$adminrights = array('admin_index', 'admin_add', 'admin_edit', 'admin_delete');
 		if ($this->Auth->user('isadmin') == 1 && in_array($this->action, $adminrights)) return true;
@@ -13,7 +10,7 @@ class CelemsController extends AppController {
 
 	function index() {
 	}
-	
+
 	function admin_index() {
 		$this->Celem->recursive = -1;
 		$countcelems = $this->Celem->find('count');
