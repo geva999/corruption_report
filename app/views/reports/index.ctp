@@ -1,23 +1,23 @@
-<?php echo $this->element('top_menu', array('top_menu_title'=>'Rapoarte online'));?>
+<?php echo $this->element('top_menu', array('top_menu_title'=>'Он-лайн заключения'));?>
 
 <div id="line">
-	<?php if ($countprojects > 0) echo '<div id="info">Proiecte spre acceptare - '.$countprojects.'.</div>';?>
+	<?php if ($countprojects > 0) echo '<div id="info">Проекты для одобрения - '.$countprojects.'.</div>';?>
 	<?php echo $this->element('expert_menu');?>
 </div>
 
 <div id="listcontent">
 
-	<div id="caption" class="red">Rapoarte respinse - <?php echo $countrejected;?></div>
+	<div id="caption" class="red">Отклоненные заключения - <?php echo $countrejected;?></div>
 
 	<table width="100%" border="0" cellspacing="1" cellpadding="5" id="red">
 		<tr>
-			<th width="5">Nr.</th>
-			<th width="50">Numărul raportului</th>
-			<th align="left">Denumirea raportului</th>
-			<th width="50">Vizualizare</th>
+			<th width="5">№</th>
+			<th width="50">Номер заключения</th>
+			<th align="left">Название заключения</th>
+			<th width="50">Визуализация</th>
 			<th width="50">PDF</th>
-			<th width="50">Statut</th>
-			<th width="50">Acţiune</th>
+			<th width="50">Статус</th>
+			<th width="50">Действие</th>
 		</tr>
 		<?php
 		$i = 1;
@@ -28,32 +28,32 @@
 			<td>
 				<?php
 					$projectname = $report['Project']['name'];
-					echo 'Raport de expertiză la '.$projectname;
-					if (substr($projectname, 0, 9) == 'proiectul') $projectname = substr($projectname, 9, strlen($projectname)-9);
+					echo 'Экспертное заключение по '.$projectname;
+					if (substr($projectname, 0, 9) == 'проект') $projectname = substr($projectname, 9, strlen($projectname)-9);
 					if ($report['Project']['projecttype'] == 'по запросу')
-						echo ', la solicitarea '.nl2br($report['Project']['namesolicitare']);
+						echo ', по запросу '.nl2br($report['Project']['namesolicitare']);
 				?>
 			</td>
 			<td align="center"><?php echo $this->element('viewlink', array('viewlink'=>'/reports/view/'.$report['Report']['id']));?></td>
-			<td align="center"><a href="/reports/view/<?php echo $report['Report']['id'];?>/pdf"><img src="/images/pdf.png" border="0" title="Trage PDF"/></a></td>
+			<td align="center"><a href="/reports/view/<?php echo $report['Report']['id'];?>/pdf"><img src="/images/pdf.png" border="0" title="Скачать PDF"/></a></td>
 			<td align="center"><img src="/images/returned.png"/></td>
-			<td align="center"><a href="/reports/edit/<?php echo $report['Report']['id'];?>"><img src="/images/edit.png" border="0" title="Editează"/></a></td>
+			<td align="center"><a href="/reports/edit/<?php echo $report['Report']['id'];?>"><img src="/images/edit.png" border="0" title="Редактировать"/></a></td>
 		</tr>
 		<?php }?>
 	</table>
 
 
-	<div id="caption" class="red">Rapoarte spre aprobare - <?php echo $countsenttoadmin;?></div>
+	<div id="caption" class="red">Заключения на одобрение - <?php echo $countsenttoadmin;?></div>
 
 	<table width="100%" border="0" cellspacing="1" cellpadding="5" id="red">
 		<tr>
-			<th width="5">Nr.</th>
-			<th width="50">Numărul raportului</th>
-			<th align="left">Denumirea raportului</th>
-			<th width="50">Vizualizare</th>
+			<th width="5">№</th>
+			<th width="50">Номер заключения</th>
+			<th align="left">Название заключения</th>
+			<th width="50">Визуализация</th>
 			<th width="50">PDF</th>
-			<th width="50">Statut</th>
-			<th width="50">Acţiune</th>
+			<th width="50">Статус</th>
+			<th width="50">Действие</th>
 		</tr>
 		<?php
 		$i = 1;
@@ -64,30 +64,30 @@
 			<td>
 				<?php
 					$projectname = $report['Project']['name'];
-					echo 'Raport de expertiză la '.$projectname;
-					if (substr($projectname, 0, 9) == 'proiectul') $projectname = substr($projectname, 9, strlen($projectname)-9);
+					echo 'Экспертное заключение по '.$projectname;
+					if (substr($projectname, 0, 9) == 'проект') $projectname = substr($projectname, 9, strlen($projectname)-9);
 					if ($report['Project']['projecttype'] == 'по запросу')
-						echo ', la solicitarea '.nl2br($report['Project']['namesolicitare']);
+						echo ', по запросу '.nl2br($report['Project']['namesolicitare']);
 				?>
 			</td>
 			<td align="center"><?php echo $this->element('viewlink', array('viewlink'=>'/reports/view/'.$report['Report']['id']));?></td>
-			<td align="center"><a href="/reports/view/<?php echo $report['Report']['id'];?>/pdf"><img src="/images/pdf.png" border="0" title="Trage PDF"/></a></td>
+			<td align="center"><a href="/reports/view/<?php echo $report['Report']['id'];?>/pdf"><img src="/images/pdf.png" border="0" title="Скачать PDF"/></a></td>
 			<td align="center"><img src="/images/gone.png"/></td>
 			<td align="center"><img src="/images/locked.png"/></td>
 		</tr>
 		<?php }?>
 	</table>
 
-	<div id="caption" class="red">Rapoarte cu posibilitatea editării de către mai mulţi experţi - <?php echo $countmultipleedit;?></div>
+	<div id="caption" class="red">Заключения с возможностью редактирования несколькими экспертами - <?php echo $countmultipleedit;?></div>
 
 	<table width="100%" border="0" cellspacing="1" cellpadding="5" id="red">
 		<tr>
-			<th width="5">Nr.</th>
-			<th width="50">Numărul raportului</th>
-			<th align="left">Denumirea raportului</th>
-			<th width="50">Vizualizare</th>
+			<th width="5">№</th>
+			<th width="50">Номер заключения</th>
+			<th align="left">Название заключения</th>
+			<th width="50">Визуализация</th>
 			<th width="50">PDF</th>
-			<th width="50">Editare</th>
+			<th width="50">Редактировать</th>
 		</tr>
 		<?php
 		$i = 1;
@@ -98,29 +98,29 @@
 			<td>
 				<?php
 					$projectname = $report['Project']['name'];
-					echo 'Raport de expertiză la '.$projectname;
-					if (substr($projectname, 0, 9) == 'proiectul') $projectname = substr($projectname, 9, strlen($projectname)-9);
+					echo 'Экспертное заключение по '.$projectname;
+					if (substr($projectname, 0, 9) == 'проект') $projectname = substr($projectname, 9, strlen($projectname)-9);
 					if ($report['Project']['projecttype'] == 'по запросу')
-						echo ', la solicitarea '.nl2br($report['Project']['namesolicitare']);
+						echo ', по запросу '.nl2br($report['Project']['namesolicitare']);
 				?>
 			</td>
 			<td align="center"><?php echo $this->element('viewlink', array('viewlink'=>'/reports/view/'.$report['Report']['id']));?></td>
-			<td align="center"><a href="/reports/view/<?php echo $report['Report']['id'];?>/pdf"><img src="/images/pdf.png" border="0" title="Trage PDF"/></a></td>
-			<td align="center"><a href="/reports/edit/<?php echo $report['Report']['id'];?>"><img src="/images/edit.png" border="0" title="Editează"/></a></td>
+			<td align="center"><a href="/reports/view/<?php echo $report['Report']['id'];?>/pdf"><img src="/images/pdf.png" border="0" title="Скачать PDF"/></a></td>
+			<td align="center"><a href="/reports/edit/<?php echo $report['Report']['id'];?>"><img src="/images/edit.png" border="0" title="Редактировать"/></a></td>
 		</tr>
 		<?php }?>
 	</table>
 
-	<div id="caption" class="green">Rapoarte salvate - <?php echo $countsaved;?></div>
+	<div id="caption" class="green">Сохраненные заключения - <?php echo $countsaved;?></div>
 
 	<table width="100%" border="0" cellspacing="1" cellpadding="5" id="green">
 		<tr>
-			<th width="5">Nr.</th>
-			<th width="50">Numărul raportului</th>
-			<th align="left">Denumirea raportului</th>
-			<th width="50">Vizualizare</th>
+			<th width="5">№</th>
+			<th width="50">Номер заключения</th>
+			<th align="left">Название заключения</th>
+			<th width="50">Визуализация</th>
 			<th width="50">PDF</th>
-			<th width="50">Editare</th>
+			<th width="50">Редактировать</th>
 		</tr>
 		<?php
 		$i = 1;
@@ -131,28 +131,28 @@
 			<td>
 				<?php
 					$projectname = $report['Project']['name'];
-					echo 'Raport de expertiză la '.$projectname;
-					if (substr($projectname, 0, 9) == 'proiectul') $projectname = substr($projectname, 9, strlen($projectname)-9);
+					echo 'Экспертное заключение по '.$projectname;
+					if (substr($projectname, 0, 9) == 'проект') $projectname = substr($projectname, 9, strlen($projectname)-9);
 					if ($report['Project']['projecttype'] == 'по запросу')
-						echo ', la solicitarea '.nl2br($report['Project']['namesolicitare']);
+						echo ', по запросу '.nl2br($report['Project']['namesolicitare']);
 				?>
 			</td>
 			<td align="center"><?php echo $this->element('viewlink', array('viewlink'=>'/reports/view/'.$report['Report']['id']));?></td>
-			<td align="center"><a href="/reports/view/<?php echo $report['Report']['id'];?>/pdf"><img src="/images/pdf.png" border="0" title="Trage PDF"/></a></td>
-			<td align="center"><a href="/reports/edit/<?php echo $report['Report']['id'];?>"><img src="/images/edit.png" border="0" title="Editează"/></a></td>
+			<td align="center"><a href="/reports/view/<?php echo $report['Report']['id'];?>/pdf"><img src="/images/pdf.png" border="0" title="Скачать PDF"/></a></td>
+			<td align="center"><a href="/reports/edit/<?php echo $report['Report']['id'];?>"><img src="/images/edit.png" border="0" title="Редактировать"/></a></td>
 		</tr>
 		<?php }?>
 	</table>
 
-	<div id="caption" class="orange">Rapoarte publicate - <?php echo $countpublished;?></div>
+	<div id="caption" class="orange">Опубликованные заключения - <?php echo $countpublished;?></div>
 
 	<table width="100%" border="0" cellspacing="1" cellpadding="5" id="orange">
 		<tr>
-			<th width="5">Nr.</th>
-			<th width="50"><?php echo $paginator->sort('Număr raport', 'Project.reportnumber', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'sortare după Număr raport'));?></th>
-			<th width="70"><?php echo $paginator->sort('Data raport', 'Report.reportdate', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'sortare după Data raport'));?></th>
-			<th align="left"><?php echo $paginator->sort('Denumirea raportului', 'Project.name', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'sortare după Denumirea raportului'));?></th>
-			<th width="50">Vizualizare</th>
+			<th width="5">№</th>
+			<th width="50"><?php echo $paginator->sort('Номер заключения', 'Project.reportnumber', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка по Номеру заключения'));?></th>
+			<th width="70"><?php echo $paginator->sort('Дата заключения', 'Report.reportdate', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка по Дате заключения'));?></th>
+			<th align="left"><?php echo $paginator->sort('Название заключения', 'Project.name', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка по Названию заключения'));?></th>
+			<th width="50">Визуализация</th>
 			<th width="50">PDF</th>
 		</tr>
 		<?php
@@ -165,14 +165,14 @@
 			<td>
 				<?php
 					$projectname = $report['Project']['name'];
-					echo 'Raport de expertiză la '.$projectname;
-					if (substr($projectname, 0, 9) == 'proiectul') $projectname = substr($projectname, 9, strlen($projectname)-9);
+					echo 'Экспертное заключение по '.$projectname;
+					if (substr($projectname, 0, 9) == 'проект') $projectname = substr($projectname, 9, strlen($projectname)-9);
 					if ($report['Project']['projecttype'] == 'по запросу')
-						echo ', la solicitarea '.nl2br($report['Project']['namesolicitare']);
+						echo ', по запросу '.nl2br($report['Project']['namesolicitare']);
 				?>
 			</td>
 			<td align="center"><?php echo $this->element('viewlink', array('viewlink'=>'/reports/view/'.$report['Report']['id']));?></td>
-			<td align="center"><a href="/reports/view/<?php echo $report['Report']['id'];?>/pdf"><img src="/images/pdf.png" border="0" title="Trage PDF"/></a></td>
+			<td align="center"><a href="/reports/view/<?php echo $report['Report']['id'];?>/pdf"><img src="/images/pdf.png" border="0" title="Скачать PDF"/></a></td>
 		</tr>
 		<?php }?>
 	</table>

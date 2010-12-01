@@ -1,4 +1,4 @@
-<?php echo $this->element('top_menu', array('top_menu_title'=>'Administrare rapoarte'));?>
+<?php echo $this->element('top_menu', array('top_menu_title'=>'Администрирование заключений'));?>
 
 <div id="line">
 	<?php echo $this->element('admin_menu');?>
@@ -17,7 +17,7 @@
 								'опубликованные с размещением на сайте'=>'опубликованные',
 								'по принятым проекта'=>'принятые',
 								'редактированные несколькими экспертами'=>'несколькоэкспертов');
-              echo '<tr><td>Rapoarte:</td>';
+							echo '<tr><td>Заключения:</td>';
 							foreach ($links as $linktitle=>$linkaction)
 								echo '<td>'.$this->element('ajaxlink', array('link'=>'/admin/reports/index/'.$linkaction, 'linktitle'=>$linktitle)).'</td>';
 							echo '</tr>';
@@ -27,9 +27,9 @@
 				<td align="right" valign="top">
 					<?php
 						echo $form->create('Report', array('action'=>'index')).
-							$form->input('Project.searchtype', array('label'=>'Criteriu de căutare: ', 'div'=>false, 'options'=>array(1=>'nr. raport', 2=>'nr. proiect', 3=>'nume proiect'))).
+							$form->input('Project.searchtype', array('label'=>'Критерии поиска: ', 'div'=>false, 'options'=>array(1=>'№ заключения', 2=>'№ проекта', 3=>'название проекта'))).
 							$form->input('Project.search', array('label'=>false, 'div'=>false)).
-							$ajax->submit('Caută', array('update'=>'content', 'indicator'=>'spinner', 'div'=>false)).
+							$ajax->submit('Поиск', array('update'=>'content', 'indicator'=>'spinner', 'div'=>false)).
 							$form->end();
 					?>
 				</td>
@@ -43,14 +43,14 @@
 
 	<table width="100%" border="0" cellspacing="1" cellpadding="5" id="orange">
 		<tr>
-			<th width="5">Nr.</th>
-			<th width="50"><?php echo $paginator->sort('Număr raport', 'Project.reportnumber', array('title'=>'sortare după Număr raport'));?></th>
-			<th width="70"><?php echo $paginator->sort('Data raport', 'Report.reportdate', array('title'=>'sortare după Data raport'));?></th>
-			<th align="left"><?php echo $paginator->sort('Denumirea raportului', 'Project.name', array('title'=>'sortare după Denumirea raportului'));?></th>
-			<th width="200">Expert</th>
-			<th width="50">Vizualizare</th>
+			<th width="5">№</th>
+			<th width="50"><?php echo $paginator->sort('Номер заключения', 'Project.reportnumber', array('title'=>'сортировка по Номеру заключения'));?></th>
+			<th width="70"><?php echo $paginator->sort('Дата заключения', 'Report.reportdate', array('title'=>'сортировка по Дате заключения'));?></th>
+			<th align="left"><?php echo $paginator->sort('Название заключения', 'Project.name', array('title'=>'сортировка по Названию заключения'));?></th>
+			<th width="200">Эксперт</th>
+			<th width="50">Визуализация</th>
 			<th width="50">PDF</th>
-			<th width="50">Editare</th>
+			<th width="50">Редактирование</th>
 		</tr>
 		<?php
 		$i = intval($paginator->counter(array('format'=>'%start%')));
@@ -62,16 +62,16 @@
 			<td>
 				<?php
 					$projectname = $report['Project']['name'];
-					echo 'Raport de expertiză la '.$projectname;
-					if (substr($projectname, 0, 9) == 'proiectul') $projectname = substr($projectname, 9, strlen($projectname)-9);
+					echo 'Экспертное заключение по '.$projectname;
+					if (substr($projectname, 0, 9) == 'проект') $projectname = substr($projectname, 9, strlen($projectname)-9);
 					if ($report['Project']['projecttype'] == 'по запросу')
-						echo ', la solicitarea '.nl2br($report['Project']['namesolicitare']);
+						echo ', по запросу '.nl2br($report['Project']['namesolicitare']);
 				?>
 			</td>
 			<td><?php echo $experts[$report['Project']['expert_id']];?></td>
 			<td align="center"><?php echo $this->element('viewlink', array('viewlink'=>'/reports/view/'.$report['Report']['id']));?></td>
-			<td align="center"><a href="/reports/view/<?php echo $report['Report']['id'];?>/pdf"><img src="/images/pdf.png" border="0" title="Trage PDF"/></a></td>
-			<td align="center"><a href="/reports/edit/<?php echo $report['Report']['id'];?>"><img src="/images/edit.png" border="0" title="Editează"/></a></td>
+			<td align="center"><a href="/reports/view/<?php echo $report['Report']['id'];?>/pdf"><img src="/images/pdf.png" border="0" title="Скачать PDF"/></a></td>
+			<td align="center"><a href="/reports/edit/<?php echo $report['Report']['id'];?>"><img src="/images/edit.png" border="0" title="Редактировать"/></a></td>
 		</tr>
 		<?php }?>
 	</table>
