@@ -1,6 +1,6 @@
 <?php 
 /* SVN FILE: $Id$ */
-/* App schema generated on: 2010-12-01 22:12:04 : 1291236064*/
+/* App schema generated on: 2010-12-01 23:12:01 : 1291237261*/
 class AppSchema extends CakeSchema {
 	var $name = 'App';
 
@@ -159,14 +159,16 @@ class AppSchema extends CakeSchema {
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1))
 	);
 	var $subreports_celems = array(
-		'subreport_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
-		'celem_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
-		'indexes' => array('PRIMARY' => array('column' => array('subreport_id', 'celem_id'), 'unique' => 1))
+		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
+		'subreport_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10),
+		'celem_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1))
 	);
 	var $subreports_pelems = array(
-		'subreport_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
-		'pelem_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
-		'indexes' => array('PRIMARY' => array('column' => array('subreport_id', 'pelem_id'), 'unique' => 1))
+		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
+		'subreport_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10),
+		'pelem_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1))
 	);
 	var $templates = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),

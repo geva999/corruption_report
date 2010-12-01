@@ -1,4 +1,4 @@
-#App sql generated on: 2010-12-01 22:45:19 : 1291236319
+#App sql generated on: 2010-12-01 23:01:42 : 1291237302
 
 DROP TABLE IF EXISTS `attachments`;
 DROP TABLE IF EXISTS `authors`;
@@ -157,12 +157,14 @@ CREATE TABLE `subreports` (
 	`modified` date DEFAULT NULL,	PRIMARY KEY  (`id`));
 
 CREATE TABLE `subreports_celems` (
-	`subreport_id` int(10) NOT NULL AUTO_INCREMENT,
-	`celem_id` int(10) NOT NULL AUTO_INCREMENT,	PRIMARY KEY  (`subreport_id`, `celem_id`));
+	`id` int(10) NOT NULL AUTO_INCREMENT,
+	`subreport_id` int(10) NOT NULL,
+	`celem_id` int(10) NOT NULL,	PRIMARY KEY  (`id`));
 
 CREATE TABLE `subreports_pelems` (
-	`subreport_id` int(10) NOT NULL AUTO_INCREMENT,
-	`pelem_id` int(10) NOT NULL AUTO_INCREMENT,	PRIMARY KEY  (`subreport_id`, `pelem_id`));
+	`id` int(10) NOT NULL AUTO_INCREMENT,
+	`subreport_id` int(10) NOT NULL,
+	`pelem_id` int(10) NOT NULL,	PRIMARY KEY  (`id`));
 
 CREATE TABLE `templates` (
 	`id` int(10) NOT NULL AUTO_INCREMENT,

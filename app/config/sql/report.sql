@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 01, 2010 at 10:48 PM
+-- Generation Time: Dec 01, 2010 at 11:02 PM
 -- Server version: 5.1.51
 -- PHP Version: 5.3.3
 
@@ -253,10 +253,11 @@ CREATE TABLE IF NOT EXISTS `subreports` (
 --
 
 CREATE TABLE IF NOT EXISTS `subreports_celems` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `subreport_id` int(10) NOT NULL,
   `celem_id` int(10) NOT NULL,
-  PRIMARY KEY (`subreport_id`,`celem_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5095 ;
 
 -- --------------------------------------------------------
 
@@ -265,10 +266,11 @@ CREATE TABLE IF NOT EXISTS `subreports_celems` (
 --
 
 CREATE TABLE IF NOT EXISTS `subreports_pelems` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `subreport_id` int(10) NOT NULL,
   `pelem_id` int(10) NOT NULL,
-  PRIMARY KEY (`subreport_id`,`pelem_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1774 ;
 
 -- --------------------------------------------------------
 
