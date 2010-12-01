@@ -1,4 +1,4 @@
-#App sql generated on: 2010-12-01 22:40:59 : 1291236059
+#App sql generated on: 2010-12-01 22:45:19 : 1291236319
 
 DROP TABLE IF EXISTS `attachments`;
 DROP TABLE IF EXISTS `authors`;
