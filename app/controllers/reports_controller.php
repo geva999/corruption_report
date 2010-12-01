@@ -234,7 +234,7 @@ class ReportsController extends AppController {
 
 	function admin_index($action = null) {
 		$conditions = array('Report.reportstate'=>array(1, 3));
-		$viewtext = 'Rapoarte';
+		$viewtext = 'Заключения';
 		if ($action == 'рассмотрение') {
 			$conditions = array('Report.reportstate'=>1);
 			$viewtext = 'Заключения в процессе рассмотрения администратором';
