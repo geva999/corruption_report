@@ -13,11 +13,11 @@
 					<table border="0" cellpadding="5" cellspacing="0">
 						<?php
 							$links = array(
-							echo '<tr><td>Rapoarte:</td>';
 								'в процессе расмотрения администратором'=>'рассмотрение',
 								'опубликованные с размещением на сайте'=>'опубликованные',
 								'по принятым проекта'=>'принятые',
 								'редактированные несколькими экспертами'=>'несколькоэкспертов');
+              echo '<tr><td>Rapoarte:</td>';
 							foreach ($links as $linktitle=>$linkaction)
 								echo '<td>'.$this->element('ajaxlink', array('link'=>'/admin/reports/index/'.$linkaction, 'linktitle'=>$linktitle)).'</td>';
 							echo '</tr>';
