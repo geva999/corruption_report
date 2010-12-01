@@ -10,38 +10,47 @@
 		<?php echo $form->create('Report', array('id'=>'ReportStatisticForm', 'action'=>'statistic'));?>
 		<table cellpadding="5" cellspacing="0" border="0">
 			<tr>
-				<td rowspan="4">Criterii de filtrare a statisticii :</td>
+				<td rowspan="4">Критерии фильтрирования статистики :</td>
 				<?php
-					echo '<td>'.$form->input('Project.projectstate', array(
-								'label'=>'Statutul proiectului: ',
+					echo '<td>'
+						.$form->input('Project.projectstate', array(
+								'label'=>'Статус проекта: ',
 								'div'=>false,
-								'empty'=>'toate',
-								'options'=>array(2=>'Adoptat', 3=>'Retras'))).'</td>'.
-						'<td>'.$form->input('Project.projecttype', array(
-								'label'=>'Tipul proiectului: ',
+								'empty'=>'все',
+								'options'=>array(2=>'Принятый', 3=>'Отозванный'))).
+						'</td>'.'<td>'.
+						$form->input('Project.projecttype', array(
+								'label'=>'Вид проекта: ',
 								'div'=>false,
-								'empty'=>'toate',
-								'options'=>array('проект закона'=>'проект закона', 'по запросу'=>'по запросу'))).'</td>'.
-						'<td rowspan="4">'.$ajax->submit('Filtrare', array('div'=>false, 'update'=>'content', 'indicator'=>'spinner')).'</td>'.
-						'<tr><td colspan="2">Perioada de afişare - '.$form->input('Report.date1text', array('label'=>'&nbsp;&nbsp;&nbsp;de la: ', 'div'=>false, 'size'=>'17', 'maxlength'=>'18', 'readonly'=>'readonly')).
+								'empty'=>'все',
+								'options'=>array('проект закона'=>'проект закона', 'по запросу'=>'по запросу'))).
+						'</td>'.'<td rowspan="4">'.
+						$ajax->submit('Фильтрирование', array('div'=>false, 'update'=>'content', 'indicator'=>'spinner')).
+						'</td>'.'<tr><td colspan="2">Период афиширования - '.
+						$form->input('Report.date1text', array('label'=>'&nbsp;&nbsp;&nbsp;от: ', 'div'=>false, 'size'=>'17', 'maxlength'=>'18', 'readonly'=>'readonly')).
 						$form->hidden('Report.date1').
-						$form->input('Report.date2text', array('label'=>'&nbsp;&nbsp;&nbsp;pînă la: ', 'div'=>false, 'size'=>'17', 'maxlength'=>'18', 'readonly'=>'readonly')).
-						$form->hidden('Report.date2').'</td></tr>'.
-						'<tr><td>'.$form->input('Project.expert_id', array('empty'=>'toţi', 'label'=>'Nume expert: ', 'div'=>false)).'</td>'.
-						'<td>'.$form->input('Report.p06radio1', array(
-								'label'=>'Respectarea termenului de cooperare cu societatea civilă: ',
+						$form->input('Report.date2text', array('label'=>'&nbsp;&nbsp;&nbsp;до: ', 'div'=>false, 'size'=>'17', 'maxlength'=>'18', 'readonly'=>'readonly')).
+						$form->hidden('Report.date2').
+						'</td></tr>'.'<tr><td>'.
+						$form->input('Project.expert_id', array('empty'=>'все', 'label'=>'Имя эксперта: ', 'div'=>false)).
+						'</td>'.'<td>'.
+						$form->input('Report.p06radio1', array(
+								'label'=>'Соблюдение срока сотрудничества с гражданским обществом: ',
 								'div'=>false,
-								'empty'=>'toate',
-								'options'=>array(1=>'da', 2=>'nu'))).
-						'</td></tr><tr><td>'.$form->input('Project.initiative', array(
-								'label'=>'Iniţiativa legislativă: ',
+								'empty'=>'все',
+								'options'=>array(1=>'да', 2=>'нет'))).
+						'</td></tr><tr><td>'.
+						$form->input('Project.initiative', array(
+								'label'=>'Законодательная инициатива: ',
 								'div'=>false,
-								'empty'=>'toţi',
-								'options'=>array(	'Правительство'=>'Правительство',
-													'deputaţi în Parlament'=>'deputaţi în Parlament',
-													'Preşedintele RM'=>'Preşedintele RM',
-													'Adunarea Populară a UTA Gagauzia'=>'Adunarea Populară a UTA Gagauzia'))).
-						'</td><td>'.$form->input('Project.author_id', array('empty'=>'toţi', 'label'=>'Autor nemijlocit al proiectului: ', 'div'=>false)).'</td></tr>';
+								'empty'=>'все',
+								'options'=>array(
+									'Правительство'=>'Правительство',
+									'депутаты Парламента'=>'депутаты Парламента',
+									'Президент'=>'Президент'))).
+						'</td><td>'.
+						$form->input('Project.author_id', array('empty'=>'все', 'label'=>'Непосредственный автор проекта: ', 'div'=>false)).
+						'</td></tr>';
 				?>
 			</tr>
 		</table>
@@ -50,49 +59,49 @@
 	<div id="spinner" style="display: none; text-align: center;"><br/><img src="/img/loadinganimation.gif"/><br/></div>
 
 	<br/>
-	<div id="caption" class="red" align="center">Statutul proiectelor expertizate</div>
+	<div id="caption" class="red" align="center">Статус проектов</div>
 	<?php
 		echo $this->element('admin_statistic_projects', array('statistic'=>$statisticprojectsall));
 	?>
 	<br/><br/>
 
-	<div id="caption" class="red" align="center">Volum de lucru experţi</div>
+	<div id="caption" class="red" align="center">Объем работы экспертов</div>
 	<?php
 		echo $this->element('admin_statistic_experts', array('statistic'=>$statisticexpertsauthors, 'experts'=>$experts));
 	?>
 	<br/><br/>
 
-	<div id="caption" class="red" align="center">Autori ai iniţiativelor legislative ai proiectelor supuse expertizei anticorupţie</div>
+	<div id="caption" class="red" align="center">Авторы законодательных проектов, подвергнутых экспертизе коррупциогенности</div>
 	<?php
 		echo $this->element('admin_statistic_initiative_bydomain', array('statistic'=>$statisticexpertsauthors['проект закона']));
 	?>
 	<br/><br/>
 
-	<div id="caption" class="red" align="center">Autori nemijlociţi ai proiectelor supuse expertizei anticorupţie</div>
+	<div id="caption" class="red" align="center">Непосредственные авторы проектов, подвергнутых экспертизе коррупциогенности</div>
 	<?php
 		echo $this->element('admin_statistic_authors', array('statistic'=>$statisticexpertsauthors, 'authors'=>$authors));
 	?>
 	<br/><br/>
 
-	<div id="caption" class="red" align="center">Evaluarea generală, fundamentarea şi evaluarea de fond a coruptibilităţii (toate rapoartele)</div>
+	<div id="caption" class="red" align="center">Общая оценка, обоснование и оценка коррупциогенности по существу (все заключения)</div>
 	<?php
 		echo $this->element('admin_statistic_reports', array('statistic'=>$statisticreportsall));
 	?>
 	<br/><br/>
 
-	<div id="caption" class="red" align="center">Răspîndirea elementelor de coruptibilitate în proiecte – ponderea, frecvenţa elementelor de coruptibilitate în proiecte, ponderea fiecărui element în categoria sa (toate proiectele expertizate - <?php echo $statisticelementsall['total_reports'];?>)</div>
+	<div id="caption" class="red" align="center">Распространение элементов коррупциогенности в тексте проектов – уровень распространения, частота коррупциогенных элементов в проектах, уровень распространения каждого элемента в своей категории (все проекты, подвергнутые экспертизе - <?php echo $statisticelementsall['total_reports'];?>)</div>
 	<?php
 		echo $this->element('admin_statistic_elements_all', array('statistic'=>$statisticelementsall, 'elemgroups'=>$celemgroups, 'elems'=>$celems));
 	?>
 	<br/><br/>
 
-	<div id="caption" class="red" align="center">Eficienţa obiecţiilor referitoare la coruptiblilitate pe domenii de expertiză (din rapoartele la proiectele adoptate sau retrase - <?php echo $statisticelementsefficiency['total_reports'];?>)</div>
+	<div id="caption" class="red" align="center">Эффективность замечаний относительно коррупциогенности по областям экспертизы (из заключений по принятым или отозванным проектам - <?php echo $statisticelementsefficiency['total_reports'];?>)</div>
 	<?php
 		echo $this->element('admin_statistic_elements_efficiency', array('statistic'=>$statisticelementsefficiency, 'elemgroups'=>$celemgroups, 'elems'=>$celems));
 	?>
 	<br/><br/>
 
-	<div id="caption" class="red" align="center">Lista rapoartelor la proiectele adoptate în care au fost acceptate elemente de coruptibilitate</div>
+	<div id="caption" class="red" align="center">Список заключений по принятым проектам в которых замечания коррупциогенности были приняты</div>
 	<?php
 		echo $this->element('admin_statistic_pelems', array('statistic'=>$statisticpelems, 'elemgroups'=>$celemgroups, 'elems'=>$celems));
 	?>
