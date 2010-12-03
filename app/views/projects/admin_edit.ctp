@@ -86,8 +86,8 @@
 				<br/><br/><br/><br/>
 				<li><label>Необходимость проверки экспертом соблюдения сроков сотрудничества с гражданским обществом</label><?php echo $form->input('Project.reportrespectaretermen', array('label'=>false, 'div'=>false));?></li>
 				<br/><br/><br/>
-				<li><label>Необходимость проверки экспертом анализа последствий регулирования проекта</label><?php echo $form->input('Project.reportimpact', array('label'=>false, 'div'=>false));?></li>
-				<br/><br/><br/>
+				<li><label>Необходимость проверки согласования проекта затрагивающего интересы субъектов частного предпринимательства с аккредитованными объединениями этих субъектов</label><?php echo $form->input('Project.reportimpact', array('label'=>false, 'div'=>false));?></li>
+				<br/><br/><br/><br/><br/>
 				<li><?php echo $form->input('Project.numberpages', array('label'=>'Число страниц'));?></li>
 				<li><?php echo $form->input('Project.numberprojectsstandard', array('label'=>'Число стандартных проектов'));?></li>
 				<li>
