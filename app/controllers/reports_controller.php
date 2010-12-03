@@ -194,7 +194,6 @@ class ReportsController extends AppController {
 		$this->set(compact('subreports', 'author', 'template', 'backlink'));
 
 		if ($type == 'pdf') $this->layout = 'pdf';
-		if ($type == 'ajax') $this->layout='ajaxlayout';
 		$this->render('view'.$type);
 	}
 
