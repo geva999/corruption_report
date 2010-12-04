@@ -47,13 +47,13 @@
     <td>
       <br/><br/>
       <h1>ЭКСПЕРТНОЕ ЗАКЛЮЧЕНИЕ</h1>
-      <h1>к <?php echo $projectname;?></h1>
+      <h1>по <?php echo $projectname;?></h1>
       <h3>
         <?php
           if (substr($projectname, 0, 7) == 'проекту')
 						$projectname = substr($projectname, 7, strlen($projectname)-7);
           if ($projecttype == 'проект закона')
-            echo '<p align="center" class="evidentiat">(регистрированный в Парламенте под номером '.
+            echo '<p align="center" class="evidentiat">(зарегистрированный в Парламенте под номером '.
 							$this->data['Project']['projectnumber'].
               ' от '.$this->data['Project']['projectdatetext'].')</p>';
           else
@@ -74,7 +74,7 @@
             </tr>
             <?php
               if ($projecttype == 'проект закона') {
-                echo '<tr><td valign="top" width="390">Регистрированный в Парламенте под №. '.
+                echo '<tr><td valign="top" width="390">Зарегистрированный в Парламенте под №. '.
 									$this->data['Project']['projectnumber'].'</td>'.
                   '<td valign="top">от: '.$this->data['Project']['projectdatetext'].'</td></tr>';
               }

@@ -3,9 +3,9 @@
 	$pointdigit = 1;
 	$projectname = $this->data['Project']['name'];
 ?>
-<?php echo $this->element('top_menu', array('top_menu_title'=>'Rapoarte online'));?>
+<?php echo $this->element('top_menu', array('top_menu_title'=>'Администрирование заключений'));?>
 <div id="line">
-	<?php echo $this->element('backlink_menu', array('backlink'=>$backlink, 'backlinktitle'=>'Înapoi la listă rapoarte'));?>
+	<?php echo $this->element('backlink_menu', array('backlink'=>$backlink, 'backlinktitle'=>'Назад к списку заключений'));?>
 </div>
 
 <div id="listcontent" style="color: black;">
@@ -20,134 +20,153 @@
 	</tr>
 	<tr>
 		<td>
-			<span><?php echo $this->data['Report']['reportdatetext'];?>, nr. <?php echo $this->data['Project']['reportnumber'];?></span>
-			<h1 align="center">RAPORT DE EXPERTIZĂ</h1>
-			<h3 align="center">la <?php echo $projectname;?></h3>
+			<span><?php echo $this->data['Report']['reportdatetext'];?>, №. <?php echo $this->data['Project']['reportnumber'];?></span>
+			<h1 align="center">ЭКСПЕРТНОЕ ЗАКЛЮЧЕНИЕ</h1>
+			<h3 align="center">по <?php echo $projectname;?></h3>
 			<?php
-				if (substr($projectname, 0, 9) == 'proiectul') $projectname = substr($projectname, 9, strlen($projectname)-9);
+				if (substr($projectname, 0, 7) == 'проекту') $projectname = substr($projectname, 7, strlen($projectname)-7);
 				if ($projecttype == 'проект закона')
-					echo	'<p align="center" class="evidentiat">(înregistrat în Parlament cu numărul '.$this->data['Project']['projectnumber'].
-							' din '.$this->data['Project']['projectdatetext'].')</p>'.
-							'<p>În temeiul Concepţiei de cooperare dintre Parlament şi societatea civilă, '.
-							'aprobată prin Hotărîrea Parlamentului nr.373-XVI din 29 decembrie 2005, '.
-							'Centrul de Analiză şi Prevenire a Corupţiei prezintă raportul de expertiză a coruptibilităţii proiectului '.
-							nl2br($projectname).'.</p>';
-				else echo	'<p align="center">La solicitarea '.nl2br($this->data['Project']['namesolicitare']).'</p>';
+					echo '<p align="center" class="evidentiat">(зарегистрированный в Парламенте под номером '.
+            $this->data['Project']['projectnumber'].
+						' от '.$this->data['Project']['projectdatetext'].')</p>'.
+						'<p>В соответствии с Концепцией сотрудничества между Парламентом и гражданским обществом, '.
+						'утвержденной Постановлением Парламента №373-XVI от 29 декабря 2005 г., '.
+						'Центр по Анализу и Предупреждению Коррупции представляет экспертное заключение о коррупциогенности проекта '.
+						nl2br($projectname).'.</p>';
+				else
+          echo '<p align="center">По запросу '.nl2br($this->data['Project']['namesolicitare']).'</p>';
 			?>
 
 			<br/><br/>
-			<h2>Evaluarea generală</h2>
+			<h2>Общая оценка</h2>
 			<?php
 				if ($projecttype == 'проект закона') {
-					echo	'<br/><p><span class="h3">1. Autor al iniţiativei legislative</span> este '.$this->data['Project']['initiative'];
-					if ($this->data['Project']['initiative'] == 'Правительство') echo ', autor nemijlocit - '.$author;
-					echo ', ceea ce corespunde art. 73 din Constituţie şi art. 44 din Regulamentul Parlamentului.</p>'.
-							'<br/><p><span class="h3">2. Categoria actului legislativ</span> propus este '.
-							$this->data['Report']['p02list1'].', ceea ce '.$this->data['Report']['p02list2'].
-							' art.72 din Constituţie şi art. 6-11, 27, 35 şi 39 din Legea privind actele legislative, nr.780-XV din 27.12.2001. '.
-							nl2br($this->data['Report']['p02text1']).'</p>';
+					echo '<br/><p><span class="h3">1. Автором законодательной инициативы</span> является '.
+            $this->data['Project']['initiative'];
+					if ($this->data['Project']['initiative'] == 'Правительство')
+            echo ', непосредственный автор - '.$author;
+					echo ', что соответствует ст. 73 Конституции и ст. 44 Регламента Парламента.</p>'.
+						'<br/><p><span class="h3">2. Категория предложенного законодательного акта</span> является '.
+						$this->data['Report']['p02list1'].', что '.$this->data['Report']['p02list2'].
+						' ст. 72 Конституции и ст. 6-11, 27, 35 и 39 Закона о законодательных актах, №780-XV от 27.12.2001. '.
+						nl2br($this->data['Report']['p02text1']).'</p>';
 					$pointdigit = 3;
 				}
 			?>
 
 			<?php
 				if ($this->data['Project']['reporttrasnparenta'] == 1) {
-					echo '<br/><p><span class="h3">'.$pointdigit.'. Transparenţa decizională</span> '.nl2br($this->data['Report']['p03text1']).'</p>';
+					echo '<br/><p><span class="h3">'.$pointdigit.'. Прозрачность принятия решений</span> '.
+            nl2br($this->data['Report']['p03text1']).'</p>';
 					$pointdigit++;
 				}
 			?>
 
 			<br/>
 			<p>
-				<span class="h3"><?php echo $pointdigit.'. '; $pointdigit++;?>Scopul promovării proiectului</span> <?php echo nl2br($this->data['Report']['p04text1']);?>
+				<span class="h3"><?php echo $pointdigit.'. '; $pointdigit++;?>Цель продвижения проекта</span>
+        <?php echo nl2br($this->data['Report']['p04text1']);?>
 			</p>
 
 			<br/><br/>
-			<h2>Fundamentarea proiectului</h2>
+			<h2>Обоснование проекта</h2>
 
 			<?php
 				if ($projecttype == 'проект закона') {
 					echo '<p><span class="h3">'.$pointdigit.'. '.
-						'Nota informativă</span> a proiectului de act legislativ supus expertizei '.$this->data['Report']['p05list1'].'.</p>'.
-						'<p>Considerăm că în acest fel Parlamentul ';
-					if ($this->data['Report']['p05list1'] == 'опубликована на сайте Парламента') echo 'respectă';
-						elseif ($this->data['Report']['p05list1'] == 'не опубликована на сайте Парламента') echo 'nu respectă';
-					echo ' principiul transparenţei procesului legislativ şi principiile de cooperare cu societatea civilă.</p>'.
-					'<p>'.nl2br($this->data['Report']['p05text1']).'</p>';
+						'Пояснительная записка</span> проекта законодательного акта, подвергнутого экспертизе '.
+            $this->data['Report']['p05list1'].'.</p>'.
+						'<p>Считаем, что таким образом Парламент ';
+					if ($this->data['Report']['p05list1'] == 'опубликована на сайте Парламента')
+            echo 'соблюдает';
+					elseif ($this->data['Report']['p05list1'] == 'не опубликована на сайте Парламента')
+            echo 'не соблюдает';
+					echo ' принцип прозрачности законодательного процесса и принципы сотрудничества с гражданским обществом.</p>'.
+            '<p>'.nl2br($this->data['Report']['p05text1']).'</p>';
 					$pointdigit++;
 				}
 
 				if ($this->data['Project']['reportrespectaretermen'] == 1) {
-					echo '<br/><p><span class="h3">'.$pointdigit.'. Respectarea termenului de cooperare cu societatea civilă</span> '.nl2br($this->data['Report']['p06text1']).'</p>';
+					echo '<br/><p><span class="h3">'.$pointdigit.'. Соблюдение сроков сотрудничества с гражданским обществом</span> '.
+            nl2br($this->data['Report']['p06text1']).'</p>';
 					$pointdigit++;
 				}
 			?>
 
 			<br/>
 			<p>
-				<span class="h3"><?php echo $pointdigit.'. '; $pointdigit++;?>Suficienţa argumentării.</span> <?php echo nl2br($this->data['Report']['p07text1']);?>
+				<span class="h3"><?php echo $pointdigit.'. '; $pointdigit++;?>Достаточность обоснования.</span>
+        <?php echo nl2br($this->data['Report']['p07text1']);?>
 			</p>
 
 			<br/>
 			<p>
-				<span class="h3"><?php echo $pointdigit.'. '; $pointdigit++;?>Compatibilitatea cu legislaţia comunitară şi alte standarde internaţionale.</span> <?php echo nl2br($this->data['Report']['p08text1']);?>
+				<span class="h3"><?php echo $pointdigit.'. '; $pointdigit++;?>Соответствие законодательству Сообщества и другим международным стандартам.</span>
+        <?php echo nl2br($this->data['Report']['p08text1']);?>
 			</p>
 
 			<br/>
 			<p>
-				<span class="h3"><?php echo $pointdigit.'. '; $pointdigit++;?>Fundamentarea economico-financiară.</span> <?php echo nl2br($this->data['Report']['p09text1']);?>
+				<span class="h3"><?php echo $pointdigit.'. '; $pointdigit++;?>Финансово-экономическое обоснование.</span>
+        <?php echo nl2br($this->data['Report']['p09text1']);?>
 			</p>
 
 			<?php
 				if ($this->data['Project']['reportimpact'] == 1) {
-					echo '<br/><p><span class="h3">'.$pointdigit.'. Analiza impactului de reglementare a proiectului.</span> '.nl2br($this->data['Report']['p10text1']).'</p>';
+					echo '<br/><p><span class="h3">'.$pointdigit.'. Анализ последствий регулирования проекта.</span> '.
+            nl2br($this->data['Report']['p10text1']).'</p>';
 					$pointdigit++;
 				}
 			?>
 
 			<br/><br/>
-			<h2>Evaluarea de fond a coruptibilităţii</h2>
+			<h2>Оценка коррупциогенности по существу</h2>
 
 			<br/>
 			<p>
-				<span class="h3"><?php echo $pointdigit.'. '; $pointdigit++;?>Stabilirea şi promovarea unor interese/beneficii.</span> <?php echo nl2br($this->data['Report']['p11text1']);?>
+				<span class="h3"><?php echo $pointdigit.'. '; $pointdigit++;?>Установление и продвижение интересов/выгод.</span>
+        <?php echo nl2br($this->data['Report']['p11text1']);?>
 			</p>
 
 			<br/>
 			<p>
-				<span class="h3"><?php echo $pointdigit.'. '; $pointdigit++;?>Prejudicii aduse prin aplicarea actului.</span> <?php echo nl2br($this->data['Report']['p12text1']);?>
+				<span class="h3"><?php echo $pointdigit.'. '; $pointdigit++;?>Ущерб, нанесенный применением акта.</span>
+        <?php echo nl2br($this->data['Report']['p12text1']);?>
 			</p>
 
 			<br/>
 			<p>
-				<span class="h3"><?php echo $pointdigit.'. '; $pointdigit++;?>Compatibilitatea proiectului cu prevederile legislaţiei naţionale.</span> <?php echo nl2br($this->data['Report']['p13text1']);?>
+				<span class="h3"><?php echo $pointdigit.'. '; $pointdigit++;?>Соответствие проекта положениям национального законодательства.</span>
+        <?php echo nl2br($this->data['Report']['p13text1']);?>
 			</p>
 
 			<br/>
 			<p>
-				<span class="h3"><?php echo $pointdigit.'. '; $pointdigit++;?>Formularea lingvistică a prevederilor proiectului.</span> <?php echo nl2br($this->data['Report']['p14text1']);?>
+				<span class="h3"><?php echo $pointdigit.'. '; $pointdigit++;?>Лингвистические формулировки положений проекта.</span>
+        <?php echo nl2br($this->data['Report']['p14text1']);?>
 			</p>
 
 			<br/>
 			<p>
-				<span class="h3"><?php echo $pointdigit.'. '; $pointdigit++;?>Reglementarea activităţii autorităţilor publice.</span> <?php echo nl2br($this->data['Report']['p15text1']);?>
+				<span class="h3"><?php echo $pointdigit.'. '; $pointdigit++;?>Регулирование деятельности государственных органов.</span>
+        <?php echo nl2br($this->data['Report']['p15text1']);?>
 			</p>
 
 			<br/>
 			<?php
 				if (!empty($subreports)) {
 			?>
-					<p class="h3"><?php echo $pointdigit.'. ';?>Analiza detaliată a prevederilor potenţial coruptibile.</p>
+					<p class="h3"><?php echo $pointdigit.'. ';?>Подробный анализ потенциально коррупциогенных положений проекта.</p>
 					<div id="rowsdiv">
 						<br/>
 						<table align="center" bgcolor="#d4d0c8" border="1" bordercolor="#ffffff" cellpadding="5" cellspacing="0">
 							<tr valign="top">
-								<td bgcolor="#c0c0c0" width="30" align="center"><strong>Nr.</strong></td>
-								<td bgcolor="#dfdfdf" width="60" align="center"><strong>Articol</strong></td>
-								<td bgcolor="#c0c0c0" width="120" align="center"><strong>Text</strong></td>
-								<td bgcolor="#dfdfdf" width="220" align="center"><strong>Obiecţia</strong></td>
-								<td bgcolor="#c0c0c0" width="180" align="center"><strong>Elemente de coruptibilitate şi alte riscuri</strong></td>
-								<td bgcolor="#dfdfdf" width="120" align="center"><strong>Recomandarea</strong></td>
+								<td bgcolor="#c0c0c0" width="30" align="center"><strong>№</strong></td>
+								<td bgcolor="#dfdfdf" width="60" align="center"><strong>Статья</strong></td>
+								<td bgcolor="#c0c0c0" width="120" align="center"><strong>Текст</strong></td>
+								<td bgcolor="#dfdfdf" width="220" align="center"><strong>Замечание</strong></td>
+								<td bgcolor="#c0c0c0" width="180" align="center"><strong>Элементы коррупциогенности и другие риски</strong></td>
+								<td bgcolor="#dfdfdf" width="120" align="center"><strong>Рекомендация</strong></td>
 							</tr>
 							<?php
 								$rowid=1;
@@ -158,7 +177,7 @@
 										'<td bgcolor="#dfdfdf"><p>'.$tempsubreportvalue['Subreport']['obiectia'].'</p></td>'.
 										'<td bgcolor="#c0c0c0"><p>';
 											if (!empty($tempsubreportvalue['Celem']) || !empty($tempsubreportvalue['Subreport']['alteelemente'])) {
-												echo '<strong><em>Coruptibilitate</em></strong><br/>';
+												echo '<strong><em>Коррупциогенность</em></strong><br/>';
 												foreach ($tempsubreportvalue['Celem'] as $tempcelemkey => $tempcelemvalue) {
 													echo $tempcelemvalue['name'].'<br/>';
 												}
@@ -167,7 +186,7 @@
 												echo '<br/>';
 											}
 											if (!empty($tempsubreportvalue['Subreport']['alteriscuri']))
-												echo '<strong>Alte riscuri</strong><br/>'.nl2br($tempsubreportvalue['Subreport']['alteriscuri']);
+												echo '<strong>Другие риски</strong><br/>'.nl2br($tempsubreportvalue['Subreport']['alteriscuri']);
 										echo '</p></td>'.
 										'<td bgcolor="#dfdfdf"><p>'.nl2br($tempsubreportvalue['Subreport']['recomandarea']).'</p></td></tr>';
 									$rowid++;
@@ -182,17 +201,17 @@
 			?>
 
 			<br/><br/>
-			<h2>Concluzii</h2>
+			<h2>Выводы</h2>
 			<p><?php echo nl2br($this->data['Report']['concluzii']);?></p>
 
 			<br/><br/>
-			<p align="right"><font size=2><b>Centrul de Analiză şi Prevenire a Corupţiei</b></font></p>
+			<p align="right"><font size=2><b>Центр по Анализу и Предупреждению Коррупции</b></font></p>
 
 			<?php
 				if (!empty($this->data['Attachment'])) {
 			?>
 					<br/><br/>
-					<h2>Anexe</h2>
+					<h2>Приложения</h2>
 					<p>
 						<table cellpadding="5" cellspacing="0" border="0" width="100%">
 						<?php
@@ -201,7 +220,8 @@
 								if ($attachment['filename'] != '')
 									echo $html->link($attachment['name'], '/uploaded/annexes/'.$attachment['filename']).' - '.
 									$html->link($attachment['filename'], '/uploaded/annexes/'.$attachment['filename']);
-								else echo $attachment['name'].' - Nu exista fişier pentru această anexă';
+								else
+                  echo $attachment['name'].' - Не существует файла для данного приложения';
 								echo '</td></tr>';
 							}
 						?>
@@ -218,6 +238,6 @@
 	</tr>
 </table>
 <br/>
-<div align="center"><?php echo $this->element('backlink', array('backlink'=>$backlink, 'backlinktitle'=>'Înapoi la listă rapoarte'));?></div>
+<div align="center"><?php echo $this->element('backlink', array('backlink'=>$backlink, 'backlinktitle'=>'Назад к списку заключений'));?></div>
 <br/>
 </div>

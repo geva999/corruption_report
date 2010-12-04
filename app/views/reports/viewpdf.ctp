@@ -10,8 +10,8 @@
 
 	// set document information
 	$pdf->SetCreator(PDF_CREATOR);
-	$pdf->SetAuthor("www.capc.md");
-	$pdf->SetTitle("www.capc.md");
+	$pdf->SetAuthor(".kz");
+	$pdf->SetTitle(".kz");
 
 	// set header and footer fonts
 	$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
@@ -60,90 +60,109 @@
 	$pointdigit = 1;
 	$projectname = $this->data['Project']['name'];
 
-	$htmlcontent = ''.$this->data['Report']['reportdatetext'].', nr. '.$this->data['Project']['reportnumber'].'<br/>';
-	$htmlcontent = $htmlcontent.'<h1 style="color: #CC0000; text-align: center;">RAPORT DE EXPERTIZĂ</h1>';
-	$htmlcontent = $htmlcontent.'<h3 align="center">la '.nl2br($projectname).'</h3>';
-	if (substr($projectname, 0, 9) == 'proiectul') $projectname = substr($projectname, 9, strlen($projectname)-9);
+	$htmlcontent = ''.$this->data['Report']['reportdatetext'].', № '.$this->data['Project']['reportnumber'].'<br/>';
+	$htmlcontent = $htmlcontent.'<h1 style="color: #CC0000; text-align: center;">ЭКСПЕРТНОЕ ЗАКЛЮЧЕНИЕ</h1>';
+	$htmlcontent = $htmlcontent.'<h3 align="center">по '.nl2br($projectname).'</h3>';
+	if (substr($projectname, 0, 7) == 'проекту') $projectname = substr($projectname, 7, strlen($projectname)-7);
 	if ($projecttype == 'проект закона')
-		$htmlcontent = $htmlcontent.'<p align="center">(înregistrat în Parlament cu numărul '.$this->data['Project']['projectnumber'].
-			' din '.$this->data['Project']['projectdatetext'].')</p>'.
-			'<p>În temeiul Concepţiei de cooperare dintre Parlament şi societatea civilă, '.
-			'aprobată prin Hotărîrea Parlamentului nr.373-XVI din 29 decembrie 2005, '.
-			'Centrul de Analiză şi Prevenire a Corupţiei prezintă raportul de expertiză a coruptibilităţii proiectului '.
+		$htmlcontent = $htmlcontent.'<p align="center">(зарегистрированный в Парламенте под номером '.$this->data['Project']['projectnumber'].
+			' от '.$this->data['Project']['projectdatetext'].')</p>'.
+			'<p>В соответствии с Концепцией сотрудничества между Парламентом и гражданским обществом, '.
+			'утвержденной Постановлением Парламента №373-XVI от 29 декабря 2005 г., '.
+			'Центр по Анализу и Предупреждению Коррупции представляет экспертное заключение о коррупциогенности проекта  '.
 			nl2br($projectname).'.</p>';
-	else $htmlcontent = $htmlcontent.'<p align="center">La solicitarea '.nl2br($this->data['Project']['namesolicitare']).'</p>';
+	else $htmlcontent = $htmlcontent.'<p align="center">По запросу '.nl2br($this->data['Project']['namesolicitare']).'</p>';
 
 	$pdf->writeHTML($htmlcontent, true, 0, true, 0);
 
-	$htmlcontent = '<br><h2 align="center" color="#ff6600">Evaluarea generală</h2>';
+	$htmlcontent = '<br><h2 align="center" color="#ff6600">Общая оценка</h2>';
 	if ($projecttype == 'проект закона') {
-		$htmlcontent = $htmlcontent.'<p><strong>1. Autor al iniţiativei legislative </strong> este '.$this->data['Project']['initiative'];
-		if ($this->data['Project']['initiative'] == 'Правительство') $htmlcontent = $htmlcontent.', autor nemijlocit - '.$author;
-		$htmlcontent = $htmlcontent.', ceea ce corespunde art. 73 din Constituţie şi art. 44 din Regulamentul Parlamentului.</p>'.
-			'<p><strong>2. Categoria actului legislativ</strong> propus este '.$this->data['Report']['p02list1'].
-			', ceea ce '.$this->data['Report']['p02list2'].' art.72 din Constituţie şi art. 6-11, 27, 35 şi 39 din Legea privind actele legislative, nr.780-XV din 27.12.2001. '.
+		$htmlcontent = $htmlcontent.'<p><strong>1. Автором законодательной инициативы </strong> является '.
+      $this->data['Project']['initiative'];
+		if ($this->data['Project']['initiative'] == 'Правительство')
+      $htmlcontent = $htmlcontent.', непосредственный автор - '.$author;
+		$htmlcontent = $htmlcontent.', что соответствует ст. 73 Конституции и ст. 44 Регламента Парламента.</p>'.
+			'<p><strong>2. Категория предложенного законодательного акта</strong> является '.
+      $this->data['Report']['p02list1'].', что '.$this->data['Report']['p02list2'].
+      ' ст. 72 Конституции и ст. 6-11, 27, 35 и 39 Закона о законодательных актах, №780-XV от 27.12.2001. '.
 			nl2br($this->data['Report']['p02text1']).'</p>';
 		$pointdigit = 3;
 	}
 
 	if ($this->data['Project']['reporttrasnparenta'] == 1) {
-		$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Transparenţa decizională</strong> '.nl2br($this->data['Report']['p03text1']).'</p>';
+		$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Прозрачность принятия решений</strong> '.
+      nl2br($this->data['Report']['p03text1']).'</p>';
 		$pointdigit++;
 	}
 
-	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Scopul promovării proiectului.</strong> '.nl2br($this->data['Report']['p04text1']).'</p>';
+	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Цель продвижения проекта. </strong> '.
+    nl2br($this->data['Report']['p04text1']).'</p>';
 	$pointdigit++;
 
 	$pdf->writeHTML($htmlcontent, true, 0, true, 0);
 
-	$htmlcontent = '<br><h2 align="center" color="#ff6600">Fundamentarea proiectului</h2>';
+	$htmlcontent = '<br><h2 align="center" color="#ff6600">Обоснование проекта</h2>';
 
 	if ($projecttype == 'проект закона') {
-		$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Nota informativă</strong> a proiectului de act legislativ supus expertizei '.$this->data['Report']['p05list1'].'.</p>'.
-			'<p>Considerăm că în acest fel Parlamentul ';
-		if ($this->data['Report']['p05list1'] == 'опубликована на сайте Парламента') $htmlcontent = $htmlcontent.'respectă';
-			elseif ($this->data['Report']['p05list1'] == 'не опубликована на сайте Парламента') $htmlcontent = $htmlcontent.'nu respectă';
-		$htmlcontent = $htmlcontent.' principiul transparenţei procesului legislativ şi principiile de cooperare cu societatea civilă.</p>'.
+		$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.
+      '. Пояснительная записка</strong> проекта законодательного акта, подвергнутого экспертизе '.
+      $this->data['Report']['p05list1'].'.</p>'.
+			'<p>Считаем, что таким образом Парламент ';
+		if ($this->data['Report']['p05list1'] == 'опубликована на сайте Парламента')
+      $htmlcontent = $htmlcontent.'соблюдает';
+		elseif ($this->data['Report']['p05list1'] == 'не опубликована на сайте Парламента')
+      $htmlcontent = $htmlcontent.'не соблюдает';
+		$htmlcontent = $htmlcontent.' принцип прозрачности законодательного процесса и принципы сотрудничества с гражданским обществом.</p>'.
 			'<p>'.nl2br($this->data['Report']['p05text1']).'</p>';
 		$pointdigit++;
 	}
 
 	if ($this->data['Project']['reportrespectaretermen'] == 1) {
-		$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Respectarea termenului de cooperare cu societatea civilă</strong> '.nl2br($this->data['Report']['p06text1']).'</p>';
+		$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Соблюдение сроков сотрудничества с гражданским обществом</strong> '.
+      nl2br($this->data['Report']['p06text1']).'</p>';
 		$pointdigit++;
 	}
 
-	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Suficienţa argumentării.</strong> '.nl2br($this->data['Report']['p07text1']).'</p>';
+	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Достаточность обоснования.</strong> '.
+    nl2br($this->data['Report']['p07text1']).'</p>';
 	$pointdigit++;
 
-	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Compatibilitatea cu legislaţia comunitară şi alte standarde internaţionale.</strong> '.nl2br($this->data['Report']['p08text1']).'</p>';
+	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Соответствие законодательству Сообщества и другим международным стандартам.</strong> '.
+    nl2br($this->data['Report']['p08text1']).'</p>';
 	$pointdigit++;
 
-	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Fundamentarea economico-financiară.</strong> '.nl2br($this->data['Report']['p09text1']).'</p>';
+	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Финансово-экономическое обоснование.</strong> '.
+    nl2br($this->data['Report']['p09text1']).'</p>';
 	$pointdigit++;
 
 	if ($this->data['Project']['reportimpact'] == 1) {
-		$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Analiza impactului de reglementare a proiectului.</strong> '.nl2br($this->data['Report']['p10text1']).'</p>';
+		$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Анализ последствий регулирования проекта.</strong> '.
+    nl2br($this->data['Report']['p10text1']).'</p>';
 		$pointdigit++;
 	}
 
 	$pdf->writeHTML($htmlcontent, true, 0, true, 0);
 
-	$htmlcontent = '<br><h2 align="center" color="#ff6600">Evaluarea de fond a coruptibilităţii</h2>';
+	$htmlcontent = '<br><h2 align="center" color="#ff6600">Оценка коррупциогенности по существу</h2>';
 
-	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Stabilirea şi promovarea unor interese/beneficii.</strong> '.nl2br($this->data['Report']['p11text1']).'</p>';
+	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Установление и продвижение интересов/выгод.</strong> '.
+    nl2br($this->data['Report']['p11text1']).'</p>';
 	$pointdigit++;
 
-	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Prejudicii aduse prin aplicarea actului.</strong> '.nl2br($this->data['Report']['p12text1']).'</p>';
+	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Ущерб, нанесенный применением акта.</strong> '.
+    nl2br($this->data['Report']['p12text1']).'</p>';
 	$pointdigit++;
 
-	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Compatibilitatea proiectului cu prevederile legislaţiei naţionale.</strong> '.nl2br($this->data['Report']['p13text1']).'</p>';
+	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Соответствие проекта положениям национального законодательства.</strong> '.
+    nl2br($this->data['Report']['p13text1']).'</p>';
 	$pointdigit++;
 
-	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Formularea lingvistică a prevederilor proiectului.</strong> '.nl2br($this->data['Report']['p14text1']).'</p>';
+	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Лингвистические формулировки положений проекта.</strong> '.
+    nl2br($this->data['Report']['p14text1']).'</p>';
 	$pointdigit++;
 
-	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Reglementarea activităţii autorităţilor publice.</strong> '.nl2br($this->data['Report']['p15text1']).'</p>';
+	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Регулирование деятельности государственных органов.</strong> '.
+    nl2br($this->data['Report']['p15text1']).'</p>';
 	$pointdigit++;
 
 	$pdf->writeHTML($htmlcontent, true, 0, true, 0);
@@ -151,18 +170,18 @@
 	$htmlcontent = '<p></p>';
 
 	if (!empty($subreports)) {
-		$htmlcontent = '<p></p><p><strong>'.$pointdigit.'. Analiza detaliată a prevederilor potenţial coruptibile.</strong></p>';
+		$htmlcontent = '<p></p><p><strong>'.$pointdigit.'. Подробный анализ потенциально коррупциогенных положений проекта.</strong></p>';
 
 		$pdf->writeHTML($htmlcontent, true, 0, true, 0);
 
 		$htmlcontent = '<br/><table align="center" border="0" cellpadding="5" cellspacing="1">'.
 				'<tr valign="top">
-				 <td bgcolor="#dadada" width="15" align="center"><strong>Nr.</strong></td>'.
-				'<td bgcolor="#e4e4e4" width="50" align="center"><strong>Articol</strong></td>'.
-				'<td bgcolor="#dadada" width="85" align="center"><strong>Text</strong></td>'.
-				'<td bgcolor="#e4e4e4" width="140" align="center"><strong>Obiecţia</strong></td>'.
-				'<td bgcolor="#dadada" width="140" align="center"><strong>Elemente de coruptibilitate şi alte riscuri</strong></td>'.
-				'<td bgcolor="#e4e4e4" width="85" align="center"><strong>Recomandarea</strong></td></tr>';
+				 <td bgcolor="#dadada" width="15" align="center"><strong>№</strong></td>'.
+				'<td bgcolor="#e4e4e4" width="50" align="center"><strong>Статья</strong></td>'.
+				'<td bgcolor="#dadada" width="85" align="center"><strong>Текст</strong></td>'.
+				'<td bgcolor="#e4e4e4" width="140" align="center"><strong>Замечание</strong></td>'.
+				'<td bgcolor="#dadada" width="140" align="center"><strong>Элементы коррупциогенности и другие риски</strong></td>'.
+				'<td bgcolor="#e4e4e4" width="85" align="center"><strong>Рекомендация</strong></td></tr>';
 		$rowid=1;
 		foreach ($subreports as $tempsubreportkey => $tempsubreportvalue) {
 			$htmlcontent = $htmlcontent.'<tr align="left">
@@ -172,7 +191,7 @@
 					'<td bgcolor="#ececec" width="140" valign="top">'.$tempsubreportvalue['Subreport']['obiectia'].'</td>'.
 					'<td bgcolor="#e2e2e2" width="140" valign="top"><p>';
 			if (!empty($tempsubreportvalue['Celem']) || !empty($tempsubreportvalue['Subreport']['alteelemente'])) {
-				$htmlcontent = $htmlcontent.'<strong><em>Coruptibilitate</em></strong><br/>';
+				$htmlcontent = $htmlcontent.'<strong><em>Коррупциогенность</em></strong><br/>';
 				foreach ($tempsubreportvalue['Celem'] as $tempcelemkey => $tempcelemvalue) {
 					$htmlcontent = $htmlcontent.$tempcelemvalue['name'].'<br/>';
 				}
@@ -181,7 +200,7 @@
 				$htmlcontent = $htmlcontent.'<br/>';
 			}
 			if (!empty($tempsubreportvalue['Subreport']['alteriscuri']))
-				$htmlcontent = $htmlcontent.'<strong>Alte riscuri</strong><br/>'.nl2br($tempsubreportvalue['Subreport']['alteriscuri']);
+				$htmlcontent = $htmlcontent.'<strong>Другие риски</strong><br/>'.nl2br($tempsubreportvalue['Subreport']['alteriscuri']);
 			$htmlcontent = $htmlcontent.'</p></td>'.
 				'<td bgcolor="#ececec" width="85" valign="top"><p>'.nl2br($tempsubreportvalue['Subreport']['recomandarea']).'</p></td></tr>';
 			$rowid++;
@@ -196,8 +215,8 @@
 	$pdf->SetFont('arial', '', 11);
 	$pdf->writeHTML($htmlcontent, true, 0, true, 0);
 
-	$htmlcontent = '<br/><h2 align="center" color="#ff6600">Concluzii</h2><p>'.nl2br($this->data['Report']['concluzii']).'</p>'.
-		'<br/><p align="right"><b>Centrul de Analiză şi Prevenire a Corupţiei</b></p>';
+	$htmlcontent = '<br/><h2 align="center" color="#ff6600">Выводы</h2><p>'.nl2br($this->data['Report']['concluzii']).'</p>'.
+		'<br/><p align="right"><b>Центр по Анализу и Предупреждению Коррупции</b></p>';
 
 	$pdf->writeHTML($htmlcontent, true, 0, true, 0);
 
