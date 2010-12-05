@@ -209,7 +209,7 @@
 	$pdf->writeHTML($htmlcontent, true, 0, true, 0);
 
 	//Close and output PDF document
-	$filename = 'raport-nr.-'.$this->data['Project']['reportnumber'].'.pdf';
+	$filename = 'report-number-'.$this->data['Project']['reportnumber'].'.pdf';
 	$pdf->Output($filename, "D");
 
 	//============================================================+

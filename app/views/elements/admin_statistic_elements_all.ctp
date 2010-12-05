@@ -16,7 +16,7 @@
 	<tr align="center" bgcolor="#BBBBBB" class="statistic_table_head">
 		<?php
 			for ($i = 1; $i <= 13; $i++) {
-				echo '<td>nr.</td><td>%</td>';
+				echo '<td>№</td><td>%</td>';
 			}
 		?>
 	</tr>
