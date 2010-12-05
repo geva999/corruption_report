@@ -69,7 +69,7 @@
 			' от '.$this->data['Project']['projectdatetext'].')</p>'.
 			'<p>В соответствии с Концепцией сотрудничества между Парламентом и гражданским обществом, '.
 			'утвержденной Постановлением Парламента №373-XVI от 29 декабря 2005 г., '.
-			'Центр по Анализу и Предупреждению Коррупции представляет экспертное заключение о коррупциогенности проекта  '.
+			'Фонд Евразия Центральной Азии представляет экспертное заключение о коррупциогенности проекта  '.
 			nl2br($projectname).'.</p>';
 	else $htmlcontent = $htmlcontent.'<p align="center">По запросу '.nl2br($this->data['Project']['namesolicitare']).'</p>';
 
@@ -204,7 +204,7 @@
 	$pdf->writeHTML($htmlcontent, true, 0, true, 0);
 
 	$htmlcontent = '<br/><h2 align="center" color="#ff6600">Выводы</h2><p>'.nl2br($this->data['Report']['concluzii']).'</p>'.
-		'<br/><p align="right"><b>Центр по Анализу и Предупреждению Коррупции</b></p>';
+		'<br/><p align="right"><b>Фонд Евразия Центральной Азии</b></p>';
 
 	$pdf->writeHTML($htmlcontent, true, 0, true, 0);
 
