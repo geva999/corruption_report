@@ -10,8 +10,8 @@
 
 	// set document information
 	$pdf->SetCreator(PDF_CREATOR);
-	$pdf->SetAuthor(".kz");
-	$pdf->SetTitle(".kz");
+	$pdf->SetAuthor("www.ef-ca.org");
+	$pdf->SetTitle("www.ef-ca.org");
 
 	// set header and footer fonts
 	$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
