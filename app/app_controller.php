@@ -38,7 +38,6 @@ class AppController extends Controller {
 		$this->Auth->userModel = 'Expert';
 		$this->Auth->autoRedirect = false;
 		$this->Auth->loginAction = array('admin' => false, 'controller' => 'experts', 'action' => 'login');
-		//$this->Auth->logoutRedirect = array('admin' => false, 'controller' => 'reports', 'action' => 'indexall');
 		$this->Auth->authorize = 'controller';
 		$this->Auth->ajaxLogin = null;
 		$this->Auth->loginError = 'Авторизация не произведена! Неправильные имя пользователя или пароль!';

@@ -55,7 +55,6 @@ class ReportsController extends AppController {
 			$this->redirect($backlink);
 		}
 		if (!empty($this->data)) {
-			//if ($this->data['Report']['reportstate'] == 1) $this->data['Report']['admincoments'] = '';
 			$savecontrol1 = false;
 			$savecontrol2 = false;
 			if ($this->Report->save($this->data)) {
@@ -73,7 +72,6 @@ class ReportsController extends AppController {
 							$this->data['subraport'][$tempsubraportkey]['Subreport']['expert_id'] = $loginedexpertid;
 						$this->data['subraport'][$tempsubraportkey]['Subreport']['text'] = str_replace(chr(194).chr(160), ' ', $this->data['subraport'][$tempsubraportkey]['Subreport']['text']);
 						$this->data['subraport'][$tempsubraportkey]['Subreport']['obiectia'] = str_replace(chr(194).chr(160), ' ', $this->data['subraport'][$tempsubraportkey]['Subreport']['obiectia']);
-						//if ($isadmin != 1 || !($this->data['subraport'][$tempsubraportkey]['Subreport']['subreportorder']))
 						if ($multipleedit == 0 || $isadmin == 1) {
 							if ($this->data['subraport'][$tempsubraportkey]['Subreport']['todelete'] != 1) {
 								$this->data['subraport'][$tempsubraportkey]['Subreport']['subreportorder'] = $tempcount;
@@ -126,8 +124,6 @@ class ReportsController extends AppController {
 			$subreports = $this->Report->Subreport->find('all', array(
 					'conditions'=>$conditions,
 					'order'=>array('Subreport.subreportorder')));
-			//Example of parsing an table
-			//$userArray['Subreport'] = Set::extract($subreports, '{n}.Subreport');
 			foreach ($subreports as $tempsubraportkey => $tempsubraportvalue) {
 				unset($subreports[$tempsubraportkey]['Report']);
 				foreach ($subreports[$tempsubraportkey]['Celem'] as $tempcelemkey => $tempcelemvalue) {
@@ -289,25 +285,19 @@ class ReportsController extends AppController {
 			if ($this->data['Project']['initiative'] == 'депутаты Парламента')
 				$filter = array_merge($filter, array('Project.initiative'=>array('депутат', 'группа депутатов')));
 			else $filter = array_merge($filter, array('Project.initiative'=>$this->data['Project']['initiative']));
-		#$filterprojects = $filter;
 		$filterreports = $filter;
 		if ($this->data['Report']['date1'] != '') {
 			$filterreports = array_merge($filterreports, array('Report.reportdate >= '=>$this->data['Report']['date1']));
-			#$filterprojects = array_merge($filterprojects, array('Project.projectdate >= '=>$this->data['Report']['date1']));
 		}
 		if ($this->data['Report']['date2'] != '') {
 			$filterreports = array_merge($filterreports, array('Report.reportdate <= '=>$this->data['Report']['date2']));
-			#$filterprojects = array_merge($filterprojects, array('Project.projectdate <= '=>$this->data['Report']['date2']));
 		}
 		$filterreports = array_merge(array('Report.reportstate'=>3), $filterreports);
 
 		$this->Report->Project->recursive = 0;
 		$statisticprojectsall = array();
 		$fields = array('COUNT(projectnumber) AS countproject', 'SUM(numberpages) AS numberpages', 'SUM(numberprojectsstandard) AS numberprojectsstandard');
-		#$statisticprojectsall['examinare'] = $this->Report->Project->find('all', array('fields'=>$fields, 'conditions'=>array_merge($filterprojects, array('Project.projectstate'=>1))));
-		#$statisticprojectsall['adoptate'] = $this->Report->Project->find('all', array('fields'=>$fields, 'conditions'=>array_merge($filterprojects, array('Project.projectstate'=>2))));
-		#$statisticprojectsall['retrase'] = $this->Report->Project->find('all', array('fields'=>$fields, 'conditions'=>array_merge($filterprojects, array('Project.projectstate'=>3))));
-    $statisticprojectsall['examinare'] = $this->Report->Project->find('all', array('fields'=>$fields, 'conditions'=>array_merge($filterreports, array('Project.projectstate'=>1))));
+		$statisticprojectsall['examinare'] = $this->Report->Project->find('all', array('fields'=>$fields, 'conditions'=>array_merge($filterreports, array('Project.projectstate'=>1))));
 		$statisticprojectsall['adoptate'] = $this->Report->Project->find('all', array('fields'=>$fields, 'conditions'=>array_merge($filterreports, array('Project.projectstate'=>2))));
 		$statisticprojectsall['retrase'] = $this->Report->Project->find('all', array('fields'=>$fields, 'conditions'=>array_merge($filterreports, array('Project.projectstate'=>3))));
 

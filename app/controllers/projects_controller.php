@@ -176,7 +176,6 @@ class ProjectsController extends AppController {
 			$this->Project->Projectexpert->recursive = -1;
 			$projectexperts = $this->Project->Projectexpert->find('all', array('conditions'=>array('Projectexpert.project_id'=>$id), 'order'=>'Projectexpert.id ASC'));
 			$this->data['Projectexpert'] = Set::extract($projectexperts, '{n}.Projectexpert');
-			//     Example of parsing an table                $userArray['Subreport'] = Set::extract($subreports, '{n}.Subreport');
 		}
 		$this->Project->Expert->recursive = -1;
 		$this->Project->Author->recursive = -1;
