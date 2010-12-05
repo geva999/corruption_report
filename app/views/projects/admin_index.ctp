@@ -30,7 +30,7 @@
 				<td align="right" valign="top" width="25%">
 					<?php
 						echo $form->create('Project', array('action'=>'index')).
-							$form->input('Project.searchtype', array('label'=>'Критерий поиска: ', 'div'=>false,
+							$form->input('Project.searchtype', array('label'=>'Критерии поиска: ', 'div'=>false,
 								'options'=>array(1=>'№ заключения', 2=>'№ проекта', 3=>'название проекта', 4=>'имя эксперта'))).
 							$form->input('Project.search', array('label'=>false, 'div'=>false)).
 							$ajax->submit('Поиск', array('update'=>'content', 'indicator'=>'spinner', 'div'=>false)).
