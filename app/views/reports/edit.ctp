@@ -98,42 +98,6 @@
                 'headtext'=>'Автор законодательной инициативы',
                 'headcontent'=>$headcontent.'.'));
             $pointdigit++;
-
-            //<!-- Пункт 2 -->
-            echo $this->element('report_edit_pointhead', array(
-                'letter'=>$pointdigit,
-                'headtext'=>'Категория законодательного акта',
-                'headcontent'=>' предложенного: <span>'.
-                  $form->input('Report.p02list1', array(
-                    'class' => 'required_dependent',
-                    'label' => false,
-                    'div' => false,
-                    'empty' => 'выберите',
-                    'options' => array(
-											'органический закон'=>'органический закон',
-                      'ординарный закон'=>'ординарный закон',
-                      'конституционный закон'=>'конституционный закон',
-                      'постановление Парламента'=>'постановление Парламента',
-                      'не указана'=>'не указана'))).
-                  '</span><span class="green"></span>, что <span>'.
-                  $form->input('Report.p02list2', array(
-                    'class' => 'required_dependent',
-                    'label' => false,
-                    'div' => false,
-                    'empty' => 'выберите',
-                    'options' => array(
-											'соответствует'=>'соответствует',
-                      'не соответствует'=>'не соответствует'))).
-                  '</span><span class="green"></span> статье 72 Конституции и ст. ст. 6-11, 27, 35 и 39 Закона о законодательных актах, №780-XV от 27.12.2001.',
-                'headsmalltext'=>'Впишите ниже текст, разъясняющий в чем конкретно состоит несоответствие или для высказывания других идей в связи с этой проблемой.',
-                'textareanotrequired'=>true,
-                'textareaname'=>'p02text1'));
-            $pointdigit++;
-            echo '<div class="blue">';
-            echo $form->input('Report.p02option1', array('type'=>'checkbox', 'label'=>' У эксперта есть замечания относительно категории законодательного акта'));
-            if ($isadmin == 1)
-							echo $form->input('Report.p02option2', array('type' => 'checkbox', 'label'=>' Замечание принято'));
-            echo '</div>';
           }
         ?>
 
@@ -155,35 +119,11 @@
       <div class="gri">
           <h2>Обоснование проекта</h2>
 
-          <?php
-            if ($projecttype == 'проект закона') {
-              //<!-- Пункт 5 -->
-              echo $this->element('report_edit_pointhead', array(
-                'letter'=>$pointdigit,
-                'headtext'=>'Пояснительная записка',
-                'headcontent'=>' проекта, подвергнутого экспертизе <span>'.
-                  $form->input('Report.p05list1', array(
-                    'class' => 'required_dependent',
-                    'label' => false,
-                    'div' => false,
-                    'empty' => 'выберите',
-                    'options' => array(
-											'опубликована на сайте Парламента'=>'опубликована на сайте Парламента',
-                      'не опубликована на сайте Парламента'=>'не опубликована на сайте Парламента'))).
-                  '</span><span class="green"></span>'.
-                  '<br/>Считаем, что таким образом Парламент <b><span id="ReportP05list2">...</span></b> принцип прозрачности законодательного процесса и принципы сотрудничества с гражданским обществом.',
-                'headsmalltext'=>'Укажите и другие идеи / мнения.',
-                'textareanotrequired'=>true,
-                'textareaname'=>'p05text1'));
-              $pointdigit++;
-            }
-          ?>
-
           <!-- Пункт 7 -->
           <?php
             echo $this->element('report_edit_pointhead', array(
               'letter'=>$pointdigit,
-              'headtext'=>'Достаточность обоснования.',
+              'headtext'=>'Пояснительная записка и достаточность обоснования.',
               'headsmalltext'=>'Укажите ваше мнение если пояснительная записка содержит достаточное обоснование для продвижения проекта законодательного акта.',
               'textareaname'=>'p07text1'));
             $pointdigit++;

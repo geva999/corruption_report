@@ -97,21 +97,9 @@
 
 	$htmlcontent = '<br><h2 align="center" color="#ff6600">Обоснование проекта</h2>';
 
-	if ($projecttype == 'проект закона') {
-		$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.
-      '. Пояснительная записка</strong> проекта законодательного акта, подвергнутого экспертизе '.
-      $this->data['Report']['p05list1'].'.</p>'.
-			'<p>Считаем, что таким образом Парламент ';
-		if ($this->data['Report']['p05list1'] == 'опубликована на сайте Парламента')
-      $htmlcontent = $htmlcontent.'соблюдает';
-		elseif ($this->data['Report']['p05list1'] == 'не опубликована на сайте Парламента')
-      $htmlcontent = $htmlcontent.'не соблюдает';
-		$htmlcontent = $htmlcontent.' принцип прозрачности законодательного процесса и принципы сотрудничества с гражданским обществом.</p>'.
-			'<p>'.nl2br($this->data['Report']['p05text1']).'</p>';
-		$pointdigit++;
-	}
+	
 
-	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Достаточность обоснования.</strong> '.
+	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Пояснительная записка и достаточность обоснования.</strong> '.
     nl2br($this->data['Report']['p07text1']).'</p>';
 	$pointdigit++;
 

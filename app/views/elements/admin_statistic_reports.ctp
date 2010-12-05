@@ -15,30 +15,6 @@
 			'element_name'=>'projecttypevizat',
 			'bgcolor'=>'#DDDDDD'
 		));
-		//02
-		$criterias = array('органический закон', 'ординарный закон', 'конституционный закон', 'постановление Парламента', 'не указана');
-		echo $this->element('admin_statistic_reports_advanced_rows', array(
-			'title'=>'Категория законодательного акта установлена правильно',
-			'criterias'=>$criterias,
-			'criteria_by'=>'соответствует',
-			'statistic'=>$statistic,
-			'element_name'=>'p02list'
-		));
-		echo $this->element('admin_statistic_reports_advanced_rows', array(
-			'title'=>'Категория законодательного акта установлена неправильно',
-			'criterias'=>$criterias,
-			'criteria_by'=>'не соответствует',
-			'statistic'=>$statistic,
-			'element_name'=>'p02list'
-		));
-		//05
-		$criterias = array('опубликована на сайте Парламента', 'не опубликована на сайте Парламента');
-		echo $this->element('admin_statistic_reports_rows', array(
-			'title'=>'Пояснительная записка',
-			'criterias'=>$criterias,
-			'statistic'=>$statistic,
-			'element_name'=>'p05list'
-		));
 		//07
 		$criterias = array(
 			'Обоснование достаточное',
