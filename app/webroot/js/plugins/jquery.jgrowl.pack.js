@@ -22,7 +22,7 @@ $(this).data("jGrowl.instance").create(m,o);
 });
 }
 };
-$.extend($.fn.jGrowl.prototype,{defaults:{pool:0,header:"",sticky:false,position:"top-right",glue:"after",theme:"default",corners:"10px",check:250,life:3000,speed:"normal",easing:"swing",closer:true,closeTemplate:"&times;",closerTemplate:"<div>[ închide toate ]</div>",log:function(e,m,o){
+$.extend($.fn.jGrowl.prototype,{defaults:{pool:0,header:"",sticky:false,position:"top-right",glue:"after",theme:"default",corners:"10px",check:250,life:3000,speed:"normal",easing:"swing",closer:true,closeTemplate:"&times;",closerTemplate:"<div>[ закрыть все ]</div>",log:function(e,m,o){
 },beforeOpen:function(e,m,o){
 },open:function(e,m,o){
 },beforeClose:function(e,m,o){
