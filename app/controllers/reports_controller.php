@@ -289,8 +289,6 @@ class ReportsController extends AppController {
 			if ($this->data['Project']['initiative'] == 'депутаты Парламента')
 				$filter = array_merge($filter, array('Project.initiative'=>array('депутат', 'группа депутатов')));
 			else $filter = array_merge($filter, array('Project.initiative'=>$this->data['Project']['initiative']));
-		if ($this->data['Report']['p06radio1'] != '')
-			$filter = array_merge($filter, array('Report.p06radio1'=>$this->data['Report']['p06radio1']));
 		#$filterprojects = $filter;
 		$filterreports = $filter;
 		if ($this->data['Report']['date1'] != '') {
@@ -319,7 +317,7 @@ class ReportsController extends AppController {
 
 		$this->Report->recursive = 0;
 		$fields = array('Report.id', 'Project.projecttype', 'Project.projecttypevizat', 'Project.projectdomain',
-						'Report.p02list1', 'Report.p02list2', 'Report.p03radio1', 'Report.p05list1', 'Report.p06radio1',
+						'Report.p02list1', 'Report.p02list2', 'Report.p05list1',
 						'Report.p07radio1', 'Report.p08radio1', 'Report.p08radio2', 'Report.p09radio1', 'Report.p09radio2',
 						'Report.p10radio1', 'Report.p11radio1', 'Report.p11radio2', 'Report.p12radio1', 'Report.p12radio2',
 						'Report.p13radio1', 'Report.p14radio1', 'Report.p15radio1', 'Report.p15radio2');
@@ -498,16 +496,10 @@ class ReportsController extends AppController {
 			//02
 			$criterias = array('органический закон', 'ординарный закон', 'конституционный закон', 'постановление Парламента', 'не указана');
 			$result = $this->__statistic_reports_total_list($domain, $result, $criterias, $report['p02list2'], 'p02list', $report['p02list1']);
-			//03
-			$criterias = array(1, 2);
-			$result = $this->__statistic_reports_total_list($domain, $result, $criterias, null, 'p03radio', $report['p03radio1']);
 			//05
 			$criterias = array('опубликована на сайте Парламента', 'не опубликована на сайте Парламента');
 			$result = $this->__statistic_reports_total_list($domain, $result, $criterias, null, 'p05list', $report['p05list1']);
-			//06
-			$criterias = array(1, 2);
-			$result = $this->__statistic_reports_total_list($domain, $result, $criterias, null, 'p06radio', $report['p06radio1']);
-			//07
+      //07
 			$result = $this->__statistic_reports_total_list($domain, $result, $criterias, null, 'p07radio', $report['p07radio1']);
 			//08
 			$result = $this->__statistic_reports_total_radio($domain, $result, 'p08radio', $report['p08radio1'], $report['p08radio2']);

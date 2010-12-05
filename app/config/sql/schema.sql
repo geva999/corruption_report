@@ -1,4 +1,4 @@
-#App sql generated on: 2010-12-01 23:01:42 : 1291237302
+#App sql generated on: 2010-12-05 16:13:42 : 1291558422
 
 DROP TABLE IF EXISTS `attachments`;
 DROP TABLE IF EXISTS `authors`;
@@ -75,8 +75,6 @@ CREATE TABLE `projects` (
 	`projectdatetext` varchar(20) DEFAULT NULL,
 	`initiative` varchar(255) DEFAULT NULL,
 	`reportnumber` int(10) NOT NULL,
-	`reporttrasnparenta` tinyint(1) DEFAULT 0 NOT NULL,
-	`reportrespectaretermen` tinyint(1) DEFAULT 0 NOT NULL,
 	`reportimpact` tinyint(1) DEFAULT 0 NOT NULL,
 	`numberpages` int(10) DEFAULT 0 NOT NULL,
 	`numberprojectsstandard` int(10) DEFAULT 0 NOT NULL,
@@ -102,13 +100,9 @@ CREATE TABLE `reports` (
 	`p02text1` text DEFAULT NULL,
 	`p02option1` int(1) DEFAULT 0,
 	`p02option2` int(1) DEFAULT 0,
-	`p03text1` text DEFAULT NULL,
-	`p03radio1` int(2) DEFAULT 0 NOT NULL,
 	`p04text1` text DEFAULT NULL,
 	`p05list1` varchar(50) DEFAULT NULL,
 	`p05text1` text DEFAULT NULL,
-	`p06text1` text DEFAULT NULL,
-	`p06radio1` int(2) DEFAULT 0 NOT NULL,
 	`p07text1` text DEFAULT NULL,
 	`p07radio1` int(2) DEFAULT 0 NOT NULL,
 	`p08text1` text DEFAULT NULL,

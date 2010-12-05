@@ -13,8 +13,6 @@
     echo $form->hidden('Project.projectnumber');
     echo $form->hidden('Project.projectdatetext');
     echo $form->hidden('Project.initiative');
-    echo $form->hidden('Project.reporttrasnparenta');
-    echo $form->hidden('Project.reportrespectaretermen');
     echo $form->hidden('Project.reportimpact');
     echo $form->hidden('Project.projectstate');
     $projecttype = $this->data['Project']['projecttype'];
@@ -139,24 +137,6 @@
           }
         ?>
 
-        <!-- Пункт 3 -->
-        <?php
-          if ($this->data['Project']['reporttrasnparenta'] == 1) {
-            echo $this->element('report_edit_pointhead', array(
-              'letter'=>$pointdigit,
-              'headtext'=>'Прозрачность принятия решений.',
-              'textareaname'=>'p03text1'));
-            $pointdigit++;
-        ?>
-        		<table width="100%" border="0" cellpadding="3" cellspacing="0" class="blue">
-              <?php
-								echo $this->element('report_edit_radio', array(
-									'tdtext'=>'Принцип прозрачности принятия решения был соблюден?',
-									'radioname'=>'p03radio1'));
-							?>
-            </table>
-        <?php }?>
-
         <!-- Пункт 4 -->
         <?php
           echo $this->element('report_edit_pointhead', array(
@@ -198,25 +178,6 @@
               $pointdigit++;
             }
           ?>
-
-          <!-- Пункт 6 -->
-          <?php
-            if ($this->data['Project']['reportrespectaretermen'] == 1) {
-              echo $this->element('report_edit_pointhead', array(
-                'letter'=>$pointdigit,
-                'headtext'=>'Соблюдение сроков сотрудничества с гражданским обществом.',
-                'textareanotrequired'=>true,
-                'textareaname'=>'p06text1'));
-              $pointdigit++;
-          ?>
-              <table width="100%" border="0" cellpadding="3" cellspacing="0" class="blue">
-                <?php
-									echo $this->element('report_edit_radio', array(
-										'tdtext'=>'Сроки сотрудничества с гражданским обществом были соблюдены?',
-										'radioname'=>'p06radio1'));
-								?>
-              </table>
-          <?php }?>
 
           <!-- Пункт 7 -->
           <?php

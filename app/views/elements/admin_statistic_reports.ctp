@@ -31,18 +31,6 @@
 			'statistic'=>$statistic,
 			'element_name'=>'p02list'
 		));
-		//03
-		$criterias = array(
-			'Принцип прозрачности принятия решений был соблюден',
-			'Принцип прозрачности принятия решений не был соблюден'
-		);
-		echo $this->element('admin_statistic_reports_rows', array(
-			'title'=>'Прозрачность принятия решений',
-			'criterias'=>$criterias,
-			'statistic'=>$statistic,
-			'element_name'=>'p03radio',
-			'bgcolor'=>'#DDDDDD'
-		));
 		//05
 		$criterias = array('опубликована на сайте Парламента', 'не опубликована на сайте Парламента');
 		echo $this->element('admin_statistic_reports_rows', array(
@@ -50,18 +38,6 @@
 			'criterias'=>$criterias,
 			'statistic'=>$statistic,
 			'element_name'=>'p05list'
-		));
-		//06
-		$criterias = array(
-			'Срок сотрудничества с гражданским обществом был соблюден',
-			'Срок сотрудничества с гражданским обществом не был соблюден'
-		);
-		echo $this->element('admin_statistic_reports_rows', array(
-			'title'=>'Соблюдение срока сотрудничества с гражданским обществом',
-			'criterias'=>$criterias,
-			'statistic'=>$statistic,
-			'element_name'=>'p06radio',
-			'bgcolor'=>'#DDDDDD'
 		));
 		//07
 		$criterias = array(

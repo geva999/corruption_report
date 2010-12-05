@@ -155,10 +155,6 @@ class ProjectsController extends AppController {
 					if ($this->data['Project']['projecttype'] == 'по запросу')
 						$reportupdate = array('Report.p02list1'=>NULL, 'Report.p02list2'=>NULL, 'Report.p02text1'=>NULL, 'Report.p02option1'=>0, 'Report.p02option2'=>0, 'Report.p05list1'=>NULL, 'Report.p05text1'=>NULL);
 					else $reportupdate = array();
-					if ($this->data['Project']['reporttrasnparenta'] != 1)
-						$reportupdate = array_merge($reportupdate, array('Report.p03text1'=>NULL, 'Report.p03radio1'=>0));
-					if ($this->data['Project']['reportrespectaretermen'] != 1)
-						$reportupdate = array_merge($reportupdate, array('Report.p06text1'=>NULL, 'Report.p06radio1'=>0));
 					if ($this->data['Project']['reportimpact'] != 1)
 						$reportupdate = array_merge($reportupdate, array('Report.p10text1'=>NULL, 'Report.p10radio1'=>0));
 					$this->Project->Report->updateAll($reportupdate, array('Report.project_id'=>$id));

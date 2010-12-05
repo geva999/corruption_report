@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.5.1
+-- version 3.3.7deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 01, 2010 at 11:02 PM
--- Server version: 5.1.51
--- PHP Version: 5.3.3
+-- Generation Time: Dec 05, 2010 at 04:14 PM
+-- Server version: 5.1.49
+-- PHP Version: 5.3.3-1ubuntu9.1
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -16,7 +16,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `php_raport_capc_md_rus`
+-- Database: `php_report`
 --
 
 -- --------------------------------------------------------
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `attachments` (
   `created` date DEFAULT NULL,
   `modified` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -48,20 +48,7 @@ CREATE TABLE IF NOT EXISTS `authors` (
   `created` date DEFAULT NULL,
   `modified` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=45 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cake_sessions`
---
-
-CREATE TABLE IF NOT EXISTS `cake_sessions` (
-  `id` varchar(255) NOT NULL DEFAULT '',
-  `data` text,
-  `expires` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -79,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `celems` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   UNIQUE KEY `number` (`number`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=36 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -97,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `experts` (
   `modified` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT AUTO_INCREMENT=27 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -110,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `pelems` (
   `celem_id` int(10) unsigned NOT NULL,
   `number` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=36 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -125,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `projectexperts` (
   `created` date DEFAULT NULL,
   `modified` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -147,8 +134,6 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `projectdatetext` varchar(20) DEFAULT NULL,
   `initiative` varchar(255) DEFAULT NULL,
   `reportnumber` int(10) unsigned NOT NULL,
-  `reporttrasnparenta` tinyint(1) NOT NULL DEFAULT '0',
-  `reportrespectaretermen` tinyint(1) NOT NULL DEFAULT '0',
   `reportimpact` tinyint(1) NOT NULL DEFAULT '0',
   `numberpages` int(10) unsigned NOT NULL DEFAULT '0',
   `numberprojectsstandard` int(10) unsigned NOT NULL DEFAULT '0',
@@ -164,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `modified` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `reportnumber` (`reportnumber`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=404 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -182,13 +167,9 @@ CREATE TABLE IF NOT EXISTS `reports` (
   `p02text1` text,
   `p02option1` smallint(1) DEFAULT '0',
   `p02option2` smallint(1) DEFAULT '0',
-  `p03text1` text,
-  `p03radio1` tinyint(2) NOT NULL DEFAULT '0',
   `p04text1` text,
   `p05list1` varchar(50) DEFAULT NULL,
   `p05text1` text,
-  `p06text1` text,
-  `p06radio1` tinyint(2) NOT NULL DEFAULT '0',
   `p07text1` text,
   `p07radio1` tinyint(2) NOT NULL DEFAULT '0',
   `p08text1` text,
@@ -219,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `reports` (
   `created` date DEFAULT NULL,
   `modified` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT AUTO_INCREMENT=406 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -244,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `subreports` (
   `created` date DEFAULT NULL,
   `modified` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3043 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -257,7 +238,7 @@ CREATE TABLE IF NOT EXISTS `subreports_celems` (
   `subreport_id` int(10) NOT NULL,
   `celem_id` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5095 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -270,7 +251,7 @@ CREATE TABLE IF NOT EXISTS `subreports_pelems` (
   `subreport_id` int(10) NOT NULL,
   `pelem_id` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1774 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -291,4 +272,4 @@ CREATE TABLE IF NOT EXISTS `templates` (
   `modified` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1 ;

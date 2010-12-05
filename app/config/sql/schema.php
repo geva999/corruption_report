@@ -1,6 +1,6 @@
 <?php 
 /* SVN FILE: $Id$ */
-/* App schema generated on: 2010-12-01 23:12:01 : 1291237261*/
+/* App schema generated on: 2010-12-05 16:12:40 : 1291558420*/
 class AppSchema extends CakeSchema {
 	var $name = 'App';
 
@@ -75,8 +75,6 @@ class AppSchema extends CakeSchema {
 		'projectdatetext' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 20),
 		'initiative' => array('type' => 'string', 'null' => true, 'default' => NULL),
 		'reportnumber' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'unique'),
-		'reporttrasnparenta' => array('type' => 'boolean', 'null' => false, 'default' => '0'),
-		'reportrespectaretermen' => array('type' => 'boolean', 'null' => false, 'default' => '0'),
 		'reportimpact' => array('type' => 'boolean', 'null' => false, 'default' => '0'),
 		'numberpages' => array('type' => 'integer', 'null' => false, 'default' => '0', 'length' => 10),
 		'numberprojectsstandard' => array('type' => 'integer', 'null' => false, 'default' => '0', 'length' => 10),
@@ -102,13 +100,9 @@ class AppSchema extends CakeSchema {
 		'p02text1' => array('type' => 'text', 'null' => true, 'default' => NULL),
 		'p02option1' => array('type' => 'integer', 'null' => true, 'default' => '0', 'length' => 1),
 		'p02option2' => array('type' => 'integer', 'null' => true, 'default' => '0', 'length' => 1),
-		'p03text1' => array('type' => 'text', 'null' => true, 'default' => NULL),
-		'p03radio1' => array('type' => 'integer', 'null' => false, 'default' => '0', 'length' => 2),
 		'p04text1' => array('type' => 'text', 'null' => true, 'default' => NULL),
 		'p05list1' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 50),
 		'p05text1' => array('type' => 'text', 'null' => true, 'default' => NULL),
-		'p06text1' => array('type' => 'text', 'null' => true, 'default' => NULL),
-		'p06radio1' => array('type' => 'integer', 'null' => false, 'default' => '0', 'length' => 2),
 		'p07text1' => array('type' => 'text', 'null' => true, 'default' => NULL),
 		'p07radio1' => array('type' => 'integer', 'null' => false, 'default' => '0', 'length' => 2),
 		'p08text1' => array('type' => 'text', 'null' => true, 'default' => NULL),

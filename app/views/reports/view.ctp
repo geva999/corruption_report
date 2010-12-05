@@ -54,14 +54,6 @@
 				}
 			?>
 
-			<?php
-				if ($this->data['Project']['reporttrasnparenta'] == 1) {
-					echo '<br/><p><span class="h3">'.$pointdigit.'. Прозрачность принятия решений</span> '.
-            nl2br($this->data['Report']['p03text1']).'</p>';
-					$pointdigit++;
-				}
-			?>
-
 			<br/>
 			<p>
 				<span class="h3"><?php echo $pointdigit.'. '; $pointdigit++;?>Цель продвижения проекта</span>
@@ -83,12 +75,6 @@
             echo 'не соблюдает';
 					echo ' принцип прозрачности законодательного процесса и принципы сотрудничества с гражданским обществом.</p>'.
             '<p>'.nl2br($this->data['Report']['p05text1']).'</p>';
-					$pointdigit++;
-				}
-
-				if ($this->data['Project']['reportrespectaretermen'] == 1) {
-					echo '<br/><p><span class="h3">'.$pointdigit.'. Соблюдение сроков сотрудничества с гражданским обществом</span> '.
-            nl2br($this->data['Report']['p06text1']).'</p>';
 					$pointdigit++;
 				}
 			?>

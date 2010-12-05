@@ -82,10 +82,6 @@
 					<?php echo $form->input('Project.author_id', array('label'=>'Непосредственный автор'));?>
 				</li>
 				<li><?php echo $form->input('Project.reportnumber', array('label'=>'Номер заключения'));?></li>
-				<li><label>Необходимость проверки экспертом соблюдения проектом критерия прозрачности принятия решений</label><?php echo $form->input('Project.reporttrasnparenta', array('label'=>false, 'div'=>false));?></li>
-				<br/><br/><br/><br/>
-				<li><label>Необходимость проверки экспертом соблюдения сроков сотрудничества с гражданским обществом</label><?php echo $form->input('Project.reportrespectaretermen', array('label'=>false, 'div'=>false));?></li>
-				<br/><br/><br/>
 				<li><label>Необходимость проверки согласования проекта затрагивающего интересы субъектов частного предпринимательства с аккредитованными объединениями этих субъектов</label><?php echo $form->input('Project.reportimpact', array('label'=>false, 'div'=>false));?></li>
 				<br/><br/><br/><br/><br/><br/>
 				<li><?php echo $form->input('Project.numberpages', array('label'=>'Число страниц'));?></li>

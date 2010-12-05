@@ -33,13 +33,7 @@
 						$form->hidden('Report.date2').
 						'</td></tr>'.'<tr><td>'.
 						$form->input('Project.expert_id', array('empty'=>'все', 'label'=>'Имя эксперта: ', 'div'=>false)).
-						'</td>'.'<td>'.
-						$form->input('Report.p06radio1', array(
-								'label'=>'Соблюдение срока сотрудничества с гражданским обществом: ',
-								'div'=>false,
-								'empty'=>'все',
-								'options'=>array(1=>'да', 2=>'нет'))).
-						'</td></tr><tr><td>'.
+						'</td>'.'<td>&nbsp;</td></tr><tr><td>'.
 						$form->input('Project.initiative', array(
 								'label'=>'Законодательная инициатива: ',
 								'div'=>false,
