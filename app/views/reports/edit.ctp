@@ -92,7 +92,7 @@
         <?php
           if ($projecttype == 'проект закона') {
             //<!-- Пункт 1 -->
-            $headcontent = ' este '.$this->data['Project']['initiative'];
+            $headcontent = ' является '.$this->data['Project']['initiative'];
             if ($this->data['Project']['initiative'] == 'Правительство')
 							$headcontent = $headcontent.', непосредственный автор - '.$author;
             echo $this->element('report_edit_pointhead', array(
