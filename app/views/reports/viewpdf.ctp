@@ -136,7 +136,7 @@
 	$pointdigit++;
 
 	if ($this->data['Project']['reportimpact'] == 1) {
-		$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Анализ последствий регулирования проекта.</strong> '.
+		$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Согласование с аккредитованными объединениями субъектов частного предпринимательства.</strong> '.
     nl2br($this->data['Report']['p10text1']).'</p>';
 		$pointdigit++;
 	}

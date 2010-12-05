@@ -113,7 +113,7 @@
 
 			<?php
 				if ($this->data['Project']['reportimpact'] == 1) {
-					echo '<br/><p><span class="h3">'.$pointdigit.'. Анализ последствий регулирования проекта.</span> '.
+					echo '<br/><p><span class="h3">'.$pointdigit.'. Согласование с аккредитованными объединениями субъектов частного предпринимательства.</span> '.
             nl2br($this->data['Report']['p10text1']).'</p>';
 					$pointdigit++;
 				}

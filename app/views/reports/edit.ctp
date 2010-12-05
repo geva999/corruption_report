@@ -285,14 +285,14 @@
             if ($this->data['Project']['reportimpact'] == 1) {
               echo $this->element('report_edit_pointhead', array(
                 'letter'=>$pointdigit,
-                'headtext'=>'Анализ последствий регулирования проекта.',
+                'headtext'=>'Согласование с аккредитованными объединениями субъектов частного предпринимательства.',
                 'textareaname'=>'p10text1'));
               $pointdigit++;
           ?>
             <table width="100%" border="0" cellpadding="3" cellspacing="0" class="blue">
               <?php
 								echo $this->element('report_edit_radio', array(
-									'tdtext'=>'Проект был подвергнут анализу последствий регулирования?',
+									'tdtext'=>'Проект был согласован с аккредитованными субъектами частного предпринимательства?',
 									'radioname'=>'p10radio1'));
 							?>
             </table>
