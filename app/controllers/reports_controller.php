@@ -492,7 +492,7 @@ class ReportsController extends AppController {
       //07
 			$result = $this->__statistic_reports_total_list($domain, $result, $criterias, null, 'p07radio', $report['p07radio1']);
 			//08
-			$result = $this->__statistic_reports_total_radio($domain, $result, 'p08radio', $report['p08radio1'], $report['p08radio2']);
+			$result = $this->__statistic_reports_total_list($domain, $result, $criterias, null, 'p08radio', $report['p08radio1']);
 			//09
 			$result = $this->__statistic_reports_total_advanced_radio($domain, $result, 'p09radio', $report['p09radio1'], $report['p09radio2']);
 			//10
