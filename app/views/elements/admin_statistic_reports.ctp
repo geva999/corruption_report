@@ -21,7 +21,7 @@
 			'Обоснование недостаточное'
 		);
 		echo $this->element('admin_statistic_reports_rows', array(
-			'title'=>'Обоснование достаточное',
+			'title'=>'Пояснительная записка и достаточность обоснования',
 			'criterias'=>$criterias,
 			'statistic'=>$statistic,
 			'element_name'=>'p07radio'
