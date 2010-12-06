@@ -1,0 +1,87 @@
+﻿Системные требования приложения «Система заключений»:
+
+- Операционная система: любая, предпочтительно Linux (Ubuntu)
+- Web-сервер Apache 2.x
+- PHP 5.x
+- Сервер баз данных MySQL 5.x
+- Git (опционально)
+
+
+Конфигурирование Web-сервера Apache 2.x:
+
+- Активируем mod_rewrite (на некоторых системах — разкоментированием строки LoadModule mod_rewrite.so, на других — при помощи команды a2enmod rewrite)
+- откравем конфигурационный файл (httpd.conf, apache.conf или apache2.conf — имя файла зависит от операционной системы)
+- находим в конфигурационном файле раздел который описывает директорию где находится приложение (пример: <Directory /var/www/html>)
+- Внутри раздела прописываем данные строки (или заменяем если сущевствуют):
+	Options Includes Indexes FollowSymLinks
+	AllowOverride All
+	Order allow,deny
+	Allow from all
+- Пример виртуального хоста (VirtualHost), если Web-сервер Apache 2.x использует виртуальные хосты:
+	<VirtualHost *:80>
+		# Путь директории где находится приложение
+		DocumentRoot /var/www/vhosts/test
+		# Имя виртуального хоста
+		ServerName test.local
+		<Directory /var/www/vhosts/test>
+			Options Includes Indexes FollowSymLinks
+			AllowOverride All
+			Order allow,deny
+			Allow from all
+			DirectoryIndex index.html index.htm index.php
+		</Directory>
+</VirtualHost>
+
+
+Установка приложения «Система заключений»:
+
+- Приложение можно скачать с помощю Git с ресурса http://github.com/neosoft/corruption_report :
+	- Переходим в папку описанной в разделе <Directory> из Apache 2.x (пример: /var/www/html)
+	- Клонируем приложение с ресурса github.com:
+		git clone git://github.com/neosoft/corruption_report.git
+	- Копируем все содержимое папки corruption_report на один уровень выше (пример: из /var/www/html/corruption_report в /var/www/html)
+
+
+Создание базы данных приложения «Система заключений»:
+
+Примечание: все дальнейщие операции с папками будут проводится относительно папки описанной в разделе <Directory> из Apache 2.x (пример: /var/www/html).
+Пример:
+	/app означает /var/www/html/app
+	/app/config означает /var/www/html/app/config
+
+- Создаем в сервере баз данных MySQL 5.x базу данных (пример: report)
+
+- В созданной базе данных создаем таблицы при помощью скрипта /app/config/sql/schema.sql 
+
+
+Конфигурация приложения «Система заключений»:
+
+- Даем всем пользователям доступ на запись папкам (подпапакам и файлам рекурсивно тоже, если папки не сущевствуют – создаем их):
+	/app/tmp
+	/app/webroot/files
+	/app/webroot/uploads
+
+- Переходим в папку /app/config. Переименовываем файлы:
+	condfig.php.default в config.php
+	database.php.default в database.php
+
+- Редактируем файл database.php и провисываем в нем данные созданной базы данных: хост, логин, пароль, имя базы данных
+
+- Редактируем файл config.php
+	изменяем Configure::write('debug', 2); в Configure::write('debug', 0);
+	разкоментироваем Configure::write('Routing.admin', 'admin');
+	изменяем define('LOG_ERROR', 2); в define('LOG_ERROR', 0);
+	изменяем Configure::write('Session.timeout', '120'); в Configure::write('Session.timeout', '864');. 864 равно = 60 секунд * 60 минут * 24 часа / 100. Данное значение можно менять в зависимости от того сколько времени должна быть активной сессия пользователей
+	изменяем Configure::write('Security.level', 'hight'); в Configure::write('Security.level', 'medium');
+	изменяем Configure::write('Security.salt') в другое значение (любая комбинация цифр и букв, желательно подлинее)
+
+
+Создание пользователя с правами администратора в приложении «Система заключений»:
+
+- Разкоментируем в файле /app/app_controller.php строку $this->Auth->allow('*');
+- В web-браузере вводим адрес: http://report/admin/experts/add (где report это доменное имя или IP-адрес Web-сервера на котором установленно приложение, пример: http://report/...... , http://report.ef-ca.org/......)
+- Вводим полное имя, логин и пароль пользователя (пример: Администратор/admin/1). Выбираем галочку «Пользователь является администратором». Нажимаем «Сохранить».
+- Коментируем в файле /app/app_controller.php строку $this->Auth->allow('*');
+
+
+Приложения «Система заключений» готова к эксплуатации.
