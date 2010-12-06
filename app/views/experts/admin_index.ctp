@@ -24,7 +24,7 @@
 			<td align="center"><?php echo $i.'.'; $i++;?></td>
 			<td><?php echo $expert['Expert']['fullname'];?></td>
 			<td><?php echo $expert['Expert']['username'];?></td>
-			<td align="center"><?php if ($expert['Expert']['isadmin'] == 1) {echo 'Da';} else {echo 'Nu';};?></td>
+			<td align="center"><?php if ($expert['Expert']['isadmin'] == 1) {echo 'Да';} else {echo 'Нет';};?></td>
 			<td align="center"><?php echo $this->element('editlink', array('editlink'=>'/admin/experts/edit/'.$expert['Expert']['id']));?></td>
 			<td align="center"><?php echo $this->element('deletelink', array('deletelink'=>'/admin/experts/delete/'.$expert['Expert']['id'], 'deletelinkquestion'=>'expert'));?></td>
 		</tr>
