@@ -296,7 +296,7 @@ class ReportsController extends AppController {
 
 		$this->Report->Project->recursive = 0;
 		$statisticprojectsall = array();
-		$fields = array('COUNT(projectnumber) AS countproject', 'SUM(numberpages) AS numberpages', 'SUM(numberprojectsstandard) AS numberprojectsstandard');
+		$fields = array('COUNT(projectnumber) AS countproject', 'SUM(numberpages) AS numberpages');
 		$statisticprojectsall['examinare'] = $this->Report->Project->find('all', array('fields'=>$fields, 'conditions'=>array_merge($filterreports, array('Project.projectstate'=>1))));
 		$statisticprojectsall['adoptate'] = $this->Report->Project->find('all', array('fields'=>$fields, 'conditions'=>array_merge($filterreports, array('Project.projectstate'=>2))));
 		$statisticprojectsall['retrase'] = $this->Report->Project->find('all', array('fields'=>$fields, 'conditions'=>array_merge($filterreports, array('Project.projectstate'=>3))));

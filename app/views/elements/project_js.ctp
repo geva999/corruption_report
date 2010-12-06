@@ -29,7 +29,7 @@
 			}
 		});
 
-		$('#ProjectReportnumber, #ProjectNumberpages, #ProjectNumberprojectsstandard').numeric();
+		$('#ProjectReportnumber, #ProjectNumberpages').numeric();
 
 		$('#ProjectProjectdatetext').datepicker({
 			altField: '#ProjectProjectdate',

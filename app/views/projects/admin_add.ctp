@@ -85,7 +85,6 @@
 				<li><label>Необходимость проверки согласования проекта затрагивающего интересы субъектов частного предпринимательства с аккредитованными объединениями этих субъектов</label><?php echo $form->input('Project.reportimpact', array('label'=>false, 'div'=>false));?></li>
 				<br/><br/><br/><br/><br/><br/>
 				<li><?php echo $form->input('Project.numberpages', array('label'=>'Число страниц'));?></li>
-				<li><?php echo $form->input('Project.numberprojectsstandard', array('label'=>'Число стандартных проектов'));?></li>
 				<li>
 					<?php
 						echo $form->input('Project.datelimitexperttext', array('label'=>'Предельный срок для эксперта', 'readonly'=>'readonly'));

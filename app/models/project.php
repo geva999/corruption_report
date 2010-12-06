@@ -7,7 +7,6 @@ class Project extends AppModel {
 		'reportnumber' => array('rule' => 'numeric', 'message' => 'Номер не может быть пустым или уже существует заключение под тем же номером'),
 		'projectdatetext' => array('rule' => 'notempty', 'message' => 'Дата не может быть пустой'),
 		'numberpages' => array('rule' => 'numeric', 'message' => 'Число страниц не может быть пустым'),
-		'numberprojectsstandard' => array('rule' => 'numeric', 'message' => 'Номер стандартных проектов не может быть пустым'),
 		'datelimitexperttext' => array('rule' => 'notempty', 'message' => 'Предельный срок для эксперта не может быть пустым'),
 		'datelimitparlamenttext' => array('rule' => 'notempty', 'message' => 'Предельный срок для Парламента не может быть пустым')
 	);

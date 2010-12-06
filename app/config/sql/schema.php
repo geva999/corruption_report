@@ -1,6 +1,6 @@
 <?php 
 /* SVN FILE: $Id$ */
-/* App schema generated on: 2010-12-05 16:12:40 : 1291558420*/
+/* App schema generated on: 2010-12-06 15:12:50 : 1291626410*/
 class AppSchema extends CakeSchema {
 	var $name = 'App';
 
@@ -77,7 +77,6 @@ class AppSchema extends CakeSchema {
 		'reportnumber' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'unique'),
 		'reportimpact' => array('type' => 'boolean', 'null' => false, 'default' => '0'),
 		'numberpages' => array('type' => 'integer', 'null' => false, 'default' => '0', 'length' => 10),
-		'numberprojectsstandard' => array('type' => 'integer', 'null' => false, 'default' => '0', 'length' => 10),
 		'datelimitparlament' => array('type' => 'date', 'null' => false, 'default' => NULL),
 		'datelimitparlamenttext' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 20),
 		'datelimitexpert' => array('type' => 'date', 'null' => false, 'default' => NULL),

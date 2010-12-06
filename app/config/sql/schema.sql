@@ -1,4 +1,4 @@
-#App sql generated on: 2010-12-05 16:13:42 : 1291558422
+#App sql generated on: 2010-12-06 15:06:58 : 1291626418
 
 DROP TABLE IF EXISTS `attachments`;
 DROP TABLE IF EXISTS `authors`;
@@ -77,7 +77,6 @@ CREATE TABLE `projects` (
 	`reportnumber` int(10) NOT NULL,
 	`reportimpact` tinyint(1) DEFAULT 0 NOT NULL,
 	`numberpages` int(10) DEFAULT 0 NOT NULL,
-	`numberprojectsstandard` int(10) DEFAULT 0 NOT NULL,
 	`datelimitparlament` date NOT NULL,
 	`datelimitparlamenttext` varchar(20) NOT NULL,
 	`datelimitexpert` date NOT NULL,
