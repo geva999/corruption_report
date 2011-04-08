@@ -1,10 +1,10 @@
 <table border="1" cellpadding="0" cellspacing="0" align="center" width="100%" class="statistic_table">
 	<!-- Список областей -->
 	<tr align="center" bgcolor="#BBBBBB" class="statistic_table_head">
-		<td rowspan="3">Категории элементов</td>
+		<td rowspan="3">Категории факторов</td>
 		<?php foreach ($domains as $domainvalue) echo '<td width="148" colspan="4">Область: '.$domainvalue.'</td>';?>
 		<td width="148" colspan="4">Итого</td>
-		<td width="74" rowspan="2" colspan="2">Уровень распространения элемента в категории в которую он включен</td>
+		<td width="74" rowspan="2" colspan="2">Уровень распространения фактора в категории в которую он включен</td>
 	</tr>
 	<tr align="center" bgcolor="#BBBBBB" class="statistic_table_head">
 		<?php
@@ -21,7 +21,7 @@
 		?>
 	</tr>
 	<?php
-		//элементы
+		//факторы
 		foreach ($elemgroups as $elemgroupkey => $elemgroupvalue) {
 
 			//отображение группы
@@ -50,7 +50,7 @@
 			echo '<td>'.$total_group_elems.'</td><td>100%</td>';
 			echo '</tr>';
 
-			//отображение элементов из группы
+			//отображение факторов из группы
 			foreach ($elems as $elemkey => $elemvalue) {
 				$bgcolor = '#DDDDDD';
 				if ($elemgroupvalue == $elemvalue['celemgroup']) {
@@ -82,10 +82,10 @@
 				}
 			}
 		}
-		//другие элементы
+		//другие факторы
 		$total_other_elements = 0;
 		$total_other_elements_fenomen = 0;
-		echo '<tr align="center" bgcolor="'.$bgcolor.'"><td align="left" class="statistic_table_head">Другие элементы коррупциогенности</td>';
+		echo '<tr align="center" bgcolor="'.$bgcolor.'"><td align="left" class="statistic_table_head">Другие факторы коррупционности</td>';
 		foreach ($domains as $domain) {
 			if (isset($statistic[$domain]['total_other_elements_bydomain'])) {
 				echo '<td>'.$statistic[$domain]['total_other_elements_bydomain'].'</td><td>'
@@ -107,9 +107,9 @@
 		echo '<td class="statistic_table_head">'.$total_other_elements.'</td><td class="statistic_table_head">100%</td>';
 		echo '</tr>';
 
-		//всего элементов
+		//всего факторов
 		$bgcolor = '#BBBBBB';
-		echo '<tr align="center" class="statistic_table_td"'.(isset($bgcolor)?' bgcolor="'.$bgcolor.'"':'').'><td align="left">Итого элементов согласно областям</td>';
+		echo '<tr align="center" class="statistic_table_td"'.(isset($bgcolor)?' bgcolor="'.$bgcolor.'"':'').'><td align="left">Итого факторов согласно областям</td>';
 		foreach ($domains as $domain) {
 			if (isset($statistic[$domain]['total_celems_bydomain']))
 				echo '<td width="37">'.$statistic[$domain]['total_celems_bydomain'].'</td><td>'

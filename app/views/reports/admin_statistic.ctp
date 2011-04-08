@@ -65,37 +65,37 @@
 	?>
 	<br/><br/>
 
-	<div id="caption" class="red" align="center">Авторы законодательных проектов, подвергнутых экспертизе коррупциогенности</div>
+	<div id="caption" class="red" align="center">Авторы законодательных проектов, подвергнутых экспертизе коррупционности</div>
 	<?php
 		echo $this->element('admin_statistic_initiative_bydomain', array('statistic'=>$statisticexpertsauthors['проект закона']));
 	?>
 	<br/><br/>
 
-	<div id="caption" class="red" align="center">Непосредственные авторы проектов, подвергнутых экспертизе коррупциогенности</div>
+	<div id="caption" class="red" align="center">Непосредственные авторы проектов, подвергнутых экспертизе коррупционности</div>
 	<?php
 		echo $this->element('admin_statistic_authors', array('statistic'=>$statisticexpertsauthors, 'authors'=>$authors));
 	?>
 	<br/><br/>
 
-	<div id="caption" class="red" align="center">Общая оценка, обоснование и оценка коррупциогенности по существу (все заключения)</div>
+	<div id="caption" class="red" align="center">Общая оценка, обоснование и оценка коррупционности по существу (все заключения)</div>
 	<?php
 		echo $this->element('admin_statistic_reports', array('statistic'=>$statisticreportsall));
 	?>
 	<br/><br/>
 
-	<div id="caption" class="red" align="center">Распространение элементов коррупциогенности в тексте проектов – уровень распространения, частота коррупциогенных элементов в проектах, уровень распространения каждого элемента в своей категории (все проекты, подвергнутые экспертизе - <?php echo $statisticelementsall['total_reports'];?>)</div>
+	<div id="caption" class="red" align="center">Распространение факторов коррупционности в тексте проектов – уровень распространения, частота коррупционных факторов в проектах, уровень распространения каждого фактора в своей категории (все проекты, подвергнутые экспертизе - <?php echo $statisticelementsall['total_reports'];?>)</div>
 	<?php
 		echo $this->element('admin_statistic_elements_all', array('statistic'=>$statisticelementsall, 'elemgroups'=>$celemgroups, 'elems'=>$celems));
 	?>
 	<br/><br/>
 
-	<div id="caption" class="red" align="center">Эффективность замечаний относительно коррупциогенности по областям экспертизы (из заключений по принятым или отозванным проектам - <?php echo $statisticelementsefficiency['total_reports'];?>)</div>
+	<div id="caption" class="red" align="center">Эффективность замечаний относительно коррупционности по областям экспертизы (из заключений по принятым или отозванным проектам - <?php echo $statisticelementsefficiency['total_reports'];?>)</div>
 	<?php
 		echo $this->element('admin_statistic_elements_efficiency', array('statistic'=>$statisticelementsefficiency, 'elemgroups'=>$celemgroups, 'elems'=>$celems));
 	?>
 	<br/><br/>
 
-	<div id="caption" class="red" align="center">Список заключений по принятым проектам в которых замечания коррупциогенности были приняты</div>
+	<div id="caption" class="red" align="center">Список заключений по принятым проектам в которых замечания коррупционности были приняты</div>
 	<?php
 		echo $this->element('admin_statistic_pelems', array('statistic'=>$statisticpelems, 'elemgroups'=>$celemgroups, 'elems'=>$celems));
 	?>

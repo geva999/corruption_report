@@ -69,7 +69,7 @@
 			' от '.$this->data['Project']['projectdatetext'].')</p>'.
 			'<p>В соответствии с Концепцией сотрудничества между Парламентом и гражданским обществом, '.
 			'утвержденной Постановлением Парламента №373-XVI от 29 декабря 2005 г., '.
-			'Фонд Евразия Центральной Азии представляет экспертное заключение о коррупциогенности проекта  '.
+			'Фонд Евразия Центральной Азии представляет экспертное заключение о коррупционности проекта  '.
 			nl2br($projectname).'.</p>';
 	else $htmlcontent = $htmlcontent.'<p align="center">По запросу '.nl2br($this->data['Project']['namesolicitare']).'</p>';
 
@@ -97,7 +97,7 @@
 
 	$htmlcontent = '<br><h2 align="center" color="#ff6600">Обоснование проекта</h2>';
 
-	
+
 
 	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Пояснительная записка и достаточность обоснования.</strong> '.
     nl2br($this->data['Report']['p07text1']).'</p>';
@@ -119,7 +119,7 @@
 
 	$pdf->writeHTML($htmlcontent, true, 0, true, 0);
 
-	$htmlcontent = '<br><h2 align="center" color="#ff6600">Оценка коррупциогенности по существу</h2>';
+	$htmlcontent = '<br><h2 align="center" color="#ff6600">Оценка коррупционности по существу</h2>';
 
 	$htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Установление и продвижение интересов/выгод.</strong> '.
     nl2br($this->data['Report']['p11text1']).'</p>';
@@ -146,7 +146,7 @@
 	$htmlcontent = '<p></p>';
 
 	if (!empty($subreports)) {
-		$htmlcontent = '<p></p><p><strong>'.$pointdigit.'. Подробный анализ потенциально коррупциогенных положений проекта.</strong></p>';
+		$htmlcontent = '<p></p><p><strong>'.$pointdigit.'. Подробный анализ потенциально коррупционных положений проекта.</strong></p>';
 
 		$pdf->writeHTML($htmlcontent, true, 0, true, 0);
 
@@ -156,7 +156,7 @@
 				'<td bgcolor="#e4e4e4" width="50" align="center"><strong>Статья</strong></td>'.
 				'<td bgcolor="#dadada" width="85" align="center"><strong>Текст</strong></td>'.
 				'<td bgcolor="#e4e4e4" width="140" align="center"><strong>Замечание</strong></td>'.
-				'<td bgcolor="#dadada" width="140" align="center"><strong>Элементы коррупциогенности и другие риски</strong></td>'.
+				'<td bgcolor="#dadada" width="140" align="center"><strong>Факторы коррупционности и другие риски</strong></td>'.
 				'<td bgcolor="#e4e4e4" width="85" align="center"><strong>Рекомендация</strong></td></tr>';
 		$rowid=1;
 		foreach ($subreports as $tempsubreportkey => $tempsubreportvalue) {
@@ -167,7 +167,7 @@
 					'<td bgcolor="#ececec" width="140" valign="top">'.$tempsubreportvalue['Subreport']['obiectia'].'</td>'.
 					'<td bgcolor="#e2e2e2" width="140" valign="top"><p>';
 			if (!empty($tempsubreportvalue['Celem']) || !empty($tempsubreportvalue['Subreport']['alteelemente'])) {
-				$htmlcontent = $htmlcontent.'<strong><em>Коррупциогенность</em></strong><br/>';
+				$htmlcontent = $htmlcontent.'<strong><em>Коррупционность</em></strong><br/>';
 				foreach ($tempsubreportvalue['Celem'] as $tempcelemkey => $tempcelemvalue) {
 					$htmlcontent = $htmlcontent.$tempcelemvalue['name'].'<br/>';
 				}

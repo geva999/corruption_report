@@ -1,12 +1,12 @@
 <table border="1" cellpadding="0" cellspacing="0" align="center" width="100%" class="statistic_table">
 	<!-- Список областей -->
 	<tr align="center" bgcolor="#BBBBBB" class="statistic_table_head">
-		<td width="300">Категории элементов</td>
+		<td width="300">Категории факторов</td>
 		<?php foreach ($domains as $domainvalue) echo '<td width="110" colspan="3">Область: '.$domainvalue.'</td>';?>
-		<td width="110" colspan="3">Итого<br/>Принятые замечания согласно категориям элементов и конкретных элементов</td>
+		<td width="110" colspan="3">Итого<br/>Принятые замечания согласно категориям факторов и конкретных факторов</td>
 	</tr>
 	<?php
-		//элементы
+		//факторы
 		foreach ($elemgroups as $elemgroupkey => $elemgroupvalue) {
 
 			//отображение группы
@@ -31,7 +31,7 @@
 			echo '<td>'.$total_group_celems.'</td>';
 			echo '<td>'.number_format($total_group_pelems/$total_group_celems*100, 2).'%</td>';
 
-			//отображение элементов из группы
+			//отображение факторов из группы
 			foreach ($elems as $elemkey => $elemvalue) {
 				$bgcolor = '#DDDDDD';
 				if ($elemgroupvalue == $elemvalue['celemgroup']) {
@@ -59,10 +59,10 @@
 				}
 			}
 		}
-		//другие элементы
+		//другие факторы
 		$total_other_elements = 0;
 		$total_other_pelements = 0;
-		echo '<tr align="center" bgcolor="'.$bgcolor.'"><td align="left" class="statistic_table_head">Другие элементы коррупциогенности</td>';
+		echo '<tr align="center" bgcolor="'.$bgcolor.'"><td align="left" class="statistic_table_head">Другие факторы коррупционности</td>';
 		foreach ($domains as $domain) {
 			if (isset($statistic[$domain]['total_other_elements_bydomain'])) {
 				echo '<td>';
@@ -79,7 +79,7 @@
 		echo '<td>'.$total_other_pelements.'</td><td>'.$total_other_elements.'</td><td class="statistic_table_head">'.number_format($total_other_pelements/$total_other_elements*100, 2).'%</td>';
 		echo '</tr>';
 
-		//всего элементов
+		//всего факторов
 		$bgcolor = '#BBBBBB';
 		echo '<tr align="center" class="statistic_table_td"'.(isset($bgcolor)?' bgcolor="'.$bgcolor.'"':'').'><td align="left">Итого принятых замечаний согласно областям</td>';
 		foreach ($domains as $domain) {

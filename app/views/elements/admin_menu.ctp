@@ -14,7 +14,7 @@
 				<?php echo $ajax->link('Пользователи', '/admin/experts', array('update'=>'content', 'indicator' => 'spinner'), null, false);?>
 			</td>
 			<td>
-				<?php echo $ajax->link('Элементы коррупциогенности', '/admin/celems', array('update'=>'content', 'indicator' => 'spinner'), null, false);?>
+				<?php echo $ajax->link('Факторы коррупционности', '/admin/celems', array('update'=>'content', 'indicator' => 'spinner'), null, false);?>
 			</td>
 			<td>
 				<?php echo $ajax->link('Непосредственные авторы', '/admin/authors', array('update'=>'content', 'indicator' => 'spinner'), null, false);?>

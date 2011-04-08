@@ -2,7 +2,7 @@
 	<table align="center" id="elementehover" width="100%" border="0" cellspacing="1" cellpadding="4">
 		<tr style="font-weight:bold;font-size:120%;background-color:#c4c4c4;">
 			<td>Группа</td>
-			<td>Элемент коррупциогенности</td>
+			<td>Фактор коррупционности</td>
 		</tr>
 		<?php
 			foreach ($celemgroups as $celemgroup)

@@ -31,7 +31,7 @@
 						' от '.$this->data['Project']['projectdatetext'].')</p>'.
 						'<p>В соответствии с Концепцией сотрудничества между Парламентом и гражданским обществом, '.
 						'утвержденной Постановлением Парламента №373-XVI от 29 декабря 2005 г., '.
-						'Фонд Евразия Центральной Азии представляет экспертное заключение о коррупциогенности проекта '.
+						'Фонд Евразия Центральной Азии представляет экспертное заключение о коррупционности проекта '.
 						nl2br($projectname).'.</p>';
 				else
           echo '<p align="center">По запросу '.nl2br($this->data['Project']['namesolicitare']).'</p>';
@@ -63,7 +63,7 @@
 			<br/><br/>
 			<h2>Обоснование проекта</h2>
 
-			
+
 
 			<br/>
 			<p>
@@ -92,7 +92,7 @@
 			?>
 
 			<br/><br/>
-			<h2>Оценка коррупциогенности по существу</h2>
+			<h2>Оценка коррупционности по существу</h2>
 
 			<br/>
 			<p>
@@ -128,7 +128,7 @@
 			<?php
 				if (!empty($subreports)) {
 			?>
-					<p class="h3"><?php echo $pointdigit.'. ';?>Подробный анализ потенциально коррупциогенных положений проекта.</p>
+					<p class="h3"><?php echo $pointdigit.'. ';?>Подробный анализ потенциально коррупционных положений проекта.</p>
 					<div id="rowsdiv">
 						<br/>
 						<table align="center" bgcolor="#d4d0c8" border="1" bordercolor="#ffffff" cellpadding="5" cellspacing="0">
@@ -137,7 +137,7 @@
 								<td bgcolor="#dfdfdf" width="60" align="center"><strong>Статья</strong></td>
 								<td bgcolor="#c0c0c0" width="120" align="center"><strong>Текст</strong></td>
 								<td bgcolor="#dfdfdf" width="220" align="center"><strong>Замечание</strong></td>
-								<td bgcolor="#c0c0c0" width="180" align="center"><strong>Элементы коррупциогенности и другие риски</strong></td>
+								<td bgcolor="#c0c0c0" width="180" align="center"><strong>Факторы коррупционности и другие риски</strong></td>
 								<td bgcolor="#dfdfdf" width="120" align="center"><strong>Рекомендация</strong></td>
 							</tr>
 							<?php
@@ -149,7 +149,7 @@
 										'<td bgcolor="#dfdfdf"><p>'.$tempsubreportvalue['Subreport']['obiectia'].'</p></td>'.
 										'<td bgcolor="#c0c0c0"><p>';
 											if (!empty($tempsubreportvalue['Celem']) || !empty($tempsubreportvalue['Subreport']['alteelemente'])) {
-												echo '<strong><em>Коррупциогенность</em></strong><br/>';
+												echo '<strong><em>Коррупционность</em></strong><br/>';
 												foreach ($tempsubreportvalue['Celem'] as $tempcelemkey => $tempcelemvalue) {
 													echo $tempcelemvalue['name'].'<br/>';
 												}

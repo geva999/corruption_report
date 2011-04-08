@@ -1,7 +1,7 @@
 <div style="padding:20px;">
 	<table align="center" id="elementehover" width="100%" border="0" cellspacing="1" cellpadding="4" style="font-weight:bold;font-size:100%;text-align:center;">
 		<tr style="background-color:#c4c4c4;">
-			<td>Элемент коррупциогенности</td>
+			<td>Фактор коррупционности</td>
 			<td>Сколько раз был установлен</td>
 		</tr>
 		<?php

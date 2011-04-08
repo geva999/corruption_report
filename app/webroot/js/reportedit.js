@@ -42,9 +42,9 @@ function hideelements(rowid) {
 
 function showdivelementecoruptibilitate(control) {
 	if (control == 2)
-		tb_show('Подробный список элементов коррупциогенности установленных экспертами', '/reports/viewotherelements?KeepThis=true&TB_iframe=true&height=500&width=520', false);
+		tb_show('Подробный список факторов коррупционности установленных экспертами', '/reports/viewotherelements?KeepThis=true&TB_iframe=true&height=500&width=520', false);
 	else
-		tb_show('Подробный список элементов коррупциогенности', '/reports/viewelements?KeepThis=true&TB_iframe=true&height=550&width=950', false);
+		tb_show('Подробный список факторов коррупционности', '/reports/viewelements?KeepThis=true&TB_iframe=true&height=550&width=950', false);
 	return false;
 }
 

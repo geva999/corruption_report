@@ -1,16 +1,16 @@
 <table border="1" cellpadding="0" cellspacing="0" align="center" width="100%" class="statistic_table">
 	<!-- Список областей -->
 	<tr align="center" bgcolor="#BBBBBB" class="statistic_table_head">
-		<td>Категории элементов</td>
+		<td>Категории факторов</td>
 		<td>Список заключений</td>
 	</tr>
 	<?php
-		//элементы
+		//факторы
 		foreach ($elemgroups as $elemgroupkey => $elemgroupvalue) {
 			//отображение группы
 			$bgcolor = '#BBBBBB';
 			echo '<tr align="center" class="statistic_table_head" bgcolor="'.$bgcolor.'"><td align="left" width="30%">'.$elemgroupvalue.'</td><td>&nbsp;</td>';
-			//отображение элементов из группы
+			//отображение факторов из группы
 			foreach ($elems as $elemkey => $elemvalue) {
 				$bgcolor = '#DDDDDD';
 				if ($elemgroupvalue == $elemvalue['celemgroup']) {
