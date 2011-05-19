@@ -154,24 +154,25 @@
 
 		$htmlcontent = '<br/><table align="center" border="0" cellpadding="5" cellspacing="1">'.
 				'<tr valign="top">
-				 <td bgcolor="#dadada" width="15" align="center"><strong>№</strong></td>'.
-				'<td bgcolor="#e4e4e4" width="50" align="center"><strong>Статья</strong></td>'.
-				'<td bgcolor="#dadada" width="85" align="center"><strong>Текст</strong></td>'.
-				'<td bgcolor="#e4e4e4" width="140" align="center"><strong>Замечание</strong></td>'.
-				'<td bgcolor="#dadada" width="140" align="center"><strong>Факторы коррупционности и другие риски</strong></td>'.
-				'<td bgcolor="#e4e4e4" width="85" align="center"><strong>Рекомендация</strong></td></tr>';
+           <td bgcolor="#dadada" width="20" align="center"><strong>№</strong></td>'.
+          '<td bgcolor="#e4e4e4" width="90" align="center"><strong>Статья</strong></td>'.
+          '<td bgcolor="#dadada" width="105" align="center"><strong>Текст</strong></td>'.
+          '<td bgcolor="#e4e4e4" width="107" align="center"><strong>Замечание</strong></td>'.
+          '<td bgcolor="#dadada" width="107" align="center"><strong>Факторы коррупционности и другие риски</strong></td>'.
+          '<td bgcolor="#e4e4e4" width="90" align="center"><strong>Рекомендация</strong></td>'.
+        '</tr>';
 		$rowid=1;
 		foreach ($subreports as $tempsubreportkey => $tempsubreportvalue) {
-			$htmlcontent = $htmlcontent.'<tr align="left">
-					 <td bgcolor="#e2e2e2" width="15" valign="top"><p>'.$rowid.'</p></td>'.
-					'<td bgcolor="#ececec" width="50" valign="top"><p>'.$tempsubreportvalue['Subreport']['articol'].'</p></td>'.
-					'<td bgcolor="#e2e2e2" width="85" valign="top">'.$tempsubreportvalue['Subreport']['text'].'</td>'.
-					'<td bgcolor="#ececec" width="140" valign="top">'.$tempsubreportvalue['Subreport']['obiectia'].'</td>'.
-					'<td bgcolor="#e2e2e2" width="140" valign="top"><p>';
+			$htmlcontent = $htmlcontent.'<tr align="left">'.
+					'<td bgcolor="#e2e2e2" width="20" valign="top"><p>'.$rowid.'</p></td>'.
+					'<td bgcolor="#ececec" width="90" valign="top"><p>'.nl2br($tempsubreportvalue['Subreport']['articol']).'</p></td>'.
+					'<td bgcolor="#e2e2e2" width="105" valign="top">'.nl2br($tempsubreportvalue['Subreport']['text']).'</td>'.
+					'<td bgcolor="#ececec" width="107" valign="top">'.nl2br($tempsubreportvalue['Subreport']['obiectia']).'</td>'.
+					'<td bgcolor="#e2e2e2" width="107" valign="top"><p>';
 			if (!empty($tempsubreportvalue['Celem']) || !empty($tempsubreportvalue['Subreport']['alteelemente'])) {
 				$htmlcontent = $htmlcontent.'<strong><em>Коррупционность</em></strong><br/>';
 				foreach ($tempsubreportvalue['Celem'] as $tempcelemkey => $tempcelemvalue) {
-					$htmlcontent = $htmlcontent.$tempcelemvalue['name'].'<br/>';
+					$htmlcontent = $htmlcontent.nl2br($tempcelemvalue['name']).'<br/>';
 				}
 				if (!empty($tempsubreportvalue['Subreport']['alteelemente']))
 					$htmlcontent = $htmlcontent.nl2br($tempsubreportvalue['Subreport']['alteelemente']).'<br/>';
@@ -180,7 +181,8 @@
 			if (!empty($tempsubreportvalue['Subreport']['alteriscuri']))
 				$htmlcontent = $htmlcontent.'<strong>Другие риски</strong><br/>'.nl2br($tempsubreportvalue['Subreport']['alteriscuri']);
 			$htmlcontent = $htmlcontent.'</p></td>'.
-				'<td bgcolor="#ececec" width="85" valign="top"><p>'.nl2br($tempsubreportvalue['Subreport']['recomandarea']).'</p></td></tr>';
+				'<td bgcolor="#ececec" width="90" valign="top"><p>'.nl2br($tempsubreportvalue['Subreport']['recomandarea']).'</p></td>'.
+      '</tr>';
 			$rowid++;
 		}
 		$htmlcontent = $htmlcontent.'</table>';
