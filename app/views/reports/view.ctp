@@ -20,7 +20,7 @@
 	</tr>
 	<tr>
 		<td>
-			<span><?php echo $this->data['Report']['reportdatetext'];?>, №. <?php echo $this->data['Project']['reportnumber'];?></span>
+			<span><?php if ($this->data['Report']['reportdatetext'] != '') echo $this->data['Report']['reportdatetext'].', ';?><?php if ($this->data['Project']['reportnumber'] != '') echo '№. '.$this->data['Project']['reportnumber'];?></span>
 			<h1 align="center">ЭКСПЕРТНОЕ ЗАКЛЮЧЕНИЕ</h1>
 			<h3 align="center">по <?php echo $projectname;?></h3>
 			<?php

@@ -59,8 +59,10 @@
 	$projecttype = $this->data['Project']['projecttype'];
 	$pointdigit = 1;
 	$projectname = $this->data['Project']['name'];
-
-	$htmlcontent = ''.$this->data['Report']['reportdatetext'].', № '.$this->data['Project']['reportnumber'].'<br/>';
+  $htmlcontent = '';
+  if ($this->data['Report']['reportdatetext'] != '') $htmlcontent = $htmlcontent.$this->data['Report']['reportdatetext'].', ';
+  if ($this->data['Project']['reportnumber'] != '') $htmlcontent = $htmlcontent.'№. '.$this->data['Project']['reportnumber'];
+	$htmlcontent = $htmlcontent = $htmlcontent.'<br/>';
 	$htmlcontent = $htmlcontent.'<h1 style="color: #CC0000; text-align: center;">ЭКСПЕРТНОЕ ЗАКЛЮЧЕНИЕ</h1>';
 	$htmlcontent = $htmlcontent.'<h3 align="center">по '.nl2br($projectname).'</h3>';
 	if (substr($projectname, 0, 7) == 'проекту') $projectname = substr($projectname, 7, strlen($projectname)-7);
