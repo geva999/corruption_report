@@ -59,7 +59,7 @@
 		<tr valign="top">
 			<td align="center"><?php echo $i.'.'; $i++;?></td>
 			<td align="center"><?php echo $report['Project']['reportnumber'];?></td>
-			<td><?php if ($report['Report']['reportdate'] != '') echo date('d-m-Y', strtotime($report['Report']['reportdate']));?></td>
+			<td><?php if ($report['Report']['reportdate'] != '0000-00-00') echo date('d-m-Y', strtotime($report['Report']['reportdate']));?></td>
 			<td>
 				<?php
 					$projectname = $report['Project']['name'];
