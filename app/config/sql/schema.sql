@@ -1,4 +1,4 @@
-#App sql generated on: 2010-12-06 15:06:58 : 1291626418
+#App sql generated on: 2012-05-23 01:57:09 : 1337727429
 
 DROP TABLE IF EXISTS `attachments`;
 DROP TABLE IF EXISTS `authors`;
@@ -21,7 +21,8 @@ CREATE TABLE `attachments` (
 	`filename` varchar(255) DEFAULT NULL,
 	`todelete` tinyint(1) DEFAULT 0,
 	`created` date DEFAULT NULL,
-	`modified` date DEFAULT NULL,	PRIMARY KEY  (`id`));
+	`modified` date DEFAULT NULL,	PRIMARY KEY  (`id`),
+	KEY `report_id` (`report_id`));
 
 CREATE TABLE `authors` (
 	`id` int(10) NOT NULL AUTO_INCREMENT,
@@ -52,14 +53,17 @@ CREATE TABLE `experts` (
 CREATE TABLE `pelems` (
 	`id` int(10) NOT NULL AUTO_INCREMENT,
 	`celem_id` int(10) NOT NULL,
-	`number` int(10) NOT NULL,	PRIMARY KEY  (`id`));
+	`number` int(10) NOT NULL,	PRIMARY KEY  (`id`),
+	KEY `celem_id` (`celem_id`));
 
 CREATE TABLE `projectexperts` (
 	`id` int(10) NOT NULL AUTO_INCREMENT,
 	`project_id` int(10) NOT NULL,
 	`expert_id` int(10) NOT NULL,
 	`created` date DEFAULT NULL,
-	`modified` date DEFAULT NULL,	PRIMARY KEY  (`id`));
+	`modified` date DEFAULT NULL,	PRIMARY KEY  (`id`),
+	KEY `project_id` (`project_id`),
+	KEY `expert_id` (`expert_id`));
 
 CREATE TABLE `projects` (
 	`id` int(10) NOT NULL AUTO_INCREMENT,
@@ -87,7 +91,11 @@ CREATE TABLE `projects` (
 	`reportmultipleedit` tinyint(1) DEFAULT 0 NOT NULL,
 	`created` date DEFAULT NULL,
 	`modified` date DEFAULT NULL,	PRIMARY KEY  (`id`),
-	UNIQUE KEY `reportnumber` (`reportnumber`));
+	UNIQUE KEY `reportnumber` (`reportnumber`),
+	KEY `expert_id` (`expert_id`),
+	KEY `author_id` (`author_id`),
+	KEY `projectnumber` (`projectnumber`),
+	KEY `projectdomain` (`projectdomain`));
 
 CREATE TABLE `reports` (
 	`id` int(10) NOT NULL AUTO_INCREMENT,
@@ -130,7 +138,8 @@ CREATE TABLE `reports` (
 	`admincoments` text DEFAULT NULL,
 	`reportstate` int(2) DEFAULT 0 NOT NULL,
 	`created` date DEFAULT NULL,
-	`modified` date DEFAULT NULL,	PRIMARY KEY  (`id`));
+	`modified` date DEFAULT NULL,	PRIMARY KEY  (`id`),
+	KEY `project_id` (`project_id`));
 
 CREATE TABLE `subreports` (
 	`id` int(10) NOT NULL AUTO_INCREMENT,
@@ -147,17 +156,23 @@ CREATE TABLE `subreports` (
 	`recomandarea` text DEFAULT NULL,
 	`todelete` tinyint(1) DEFAULT 0,
 	`created` date DEFAULT NULL,
-	`modified` date DEFAULT NULL,	PRIMARY KEY  (`id`));
+	`modified` date DEFAULT NULL,	PRIMARY KEY  (`id`),
+	KEY `report_id` (`report_id`),
+	KEY `expert_id` (`expert_id`));
 
 CREATE TABLE `subreports_celems` (
 	`id` int(10) NOT NULL AUTO_INCREMENT,
 	`subreport_id` int(10) NOT NULL,
-	`celem_id` int(10) NOT NULL,	PRIMARY KEY  (`id`));
+	`celem_id` int(10) NOT NULL,	PRIMARY KEY  (`id`),
+	KEY `subreport_id` (`subreport_id`),
+	KEY `celem_id` (`celem_id`));
 
 CREATE TABLE `subreports_pelems` (
 	`id` int(10) NOT NULL AUTO_INCREMENT,
 	`subreport_id` int(10) NOT NULL,
-	`pelem_id` int(10) NOT NULL,	PRIMARY KEY  (`id`));
+	`pelem_id` int(10) NOT NULL,	PRIMARY KEY  (`id`),
+	KEY `subreport_id` (`subreport_id`),
+	KEY `pelem_id` (`pelem_id`));
 
 CREATE TABLE `templates` (
 	`id` int(10) NOT NULL AUTO_INCREMENT,

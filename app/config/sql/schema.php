@@ -1,6 +1,6 @@
 <?php 
 /* SVN FILE: $Id$ */
-/* App schema generated on: 2010-12-06 15:12:50 : 1291626410*/
+/* App schema generated on: 2012-05-23 01:05:29 : 1337727389*/
 class AppSchema extends CakeSchema {
 	var $name = 'App';
 
@@ -13,13 +13,13 @@ class AppSchema extends CakeSchema {
 
 	var $attachments = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
-		'report_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10),
+		'report_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'index'),
 		'name' => array('type' => 'string', 'null' => true, 'default' => NULL),
 		'filename' => array('type' => 'string', 'null' => true, 'default' => NULL),
 		'todelete' => array('type' => 'boolean', 'null' => true, 'default' => '0'),
 		'created' => array('type' => 'date', 'null' => true, 'default' => NULL),
 		'modified' => array('type' => 'date', 'null' => true, 'default' => NULL),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1))
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'report_id' => array('column' => 'report_id', 'unique' => 0))
 	);
 	var $authors = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
@@ -49,28 +49,28 @@ class AppSchema extends CakeSchema {
 	);
 	var $pelems = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
-		'celem_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10),
+		'celem_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'index'),
 		'number' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1))
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'celem_id' => array('column' => 'celem_id', 'unique' => 0))
 	);
 	var $projectexperts = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
-		'project_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10),
-		'expert_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10),
+		'project_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'index'),
+		'expert_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'index'),
 		'created' => array('type' => 'date', 'null' => true, 'default' => NULL),
 		'modified' => array('type' => 'date', 'null' => true, 'default' => NULL),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1))
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'project_id' => array('column' => 'project_id', 'unique' => 0), 'expert_id' => array('column' => 'expert_id', 'unique' => 0))
 	);
 	var $projects = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
-		'expert_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10),
-		'author_id' => array('type' => 'integer', 'null' => false, 'default' => '0', 'length' => 10),
+		'expert_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'index'),
+		'author_id' => array('type' => 'integer', 'null' => false, 'default' => '0', 'length' => 10, 'key' => 'index'),
 		'name' => array('type' => 'text', 'null' => false, 'default' => NULL),
 		'namesolicitare' => array('type' => 'text', 'null' => true, 'default' => NULL),
 		'projecttype' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 100),
 		'projecttypevizat' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 100),
-		'projectdomain' => array('type' => 'string', 'null' => false, 'default' => NULL),
-		'projectnumber' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 15),
+		'projectdomain' => array('type' => 'string', 'null' => false, 'default' => NULL, 'key' => 'index'),
+		'projectnumber' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 15, 'key' => 'index'),
 		'projectdate' => array('type' => 'date', 'null' => true, 'default' => NULL),
 		'projectdatetext' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 20),
 		'initiative' => array('type' => 'string', 'null' => true, 'default' => NULL),
@@ -87,11 +87,11 @@ class AppSchema extends CakeSchema {
 		'reportmultipleedit' => array('type' => 'boolean', 'null' => false, 'default' => '0'),
 		'created' => array('type' => 'date', 'null' => true, 'default' => NULL),
 		'modified' => array('type' => 'date', 'null' => true, 'default' => NULL),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'reportnumber' => array('column' => 'reportnumber', 'unique' => 1))
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'reportnumber' => array('column' => 'reportnumber', 'unique' => 1), 'expert_id' => array('column' => 'expert_id', 'unique' => 0), 'author_id' => array('column' => 'author_id', 'unique' => 0), 'projectnumber' => array('column' => 'projectnumber', 'unique' => 0), 'projectdomain' => array('column' => 'projectdomain', 'unique' => 0))
 	);
 	var $reports = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
-		'project_id' => array('type' => 'integer', 'null' => true, 'default' => NULL, 'length' => 10),
+		'project_id' => array('type' => 'integer', 'null' => true, 'default' => NULL, 'length' => 10, 'key' => 'index'),
 		'reportdate' => array('type' => 'date', 'null' => false, 'default' => NULL),
 		'reportdatetext' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 20),
 		'p02list1' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 50),
@@ -131,12 +131,12 @@ class AppSchema extends CakeSchema {
 		'reportstate' => array('type' => 'integer', 'null' => false, 'default' => '0', 'length' => 2),
 		'created' => array('type' => 'date', 'null' => true, 'default' => NULL),
 		'modified' => array('type' => 'date', 'null' => true, 'default' => NULL),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1))
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'project_id' => array('column' => 'project_id', 'unique' => 0))
 	);
 	var $subreports = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
-		'report_id' => array('type' => 'integer', 'null' => true, 'default' => NULL, 'length' => 10),
-		'expert_id' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 10),
+		'report_id' => array('type' => 'integer', 'null' => true, 'default' => NULL, 'length' => 10, 'key' => 'index'),
+		'expert_id' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 10, 'key' => 'index'),
 		'subreportorder' => array('type' => 'integer', 'null' => true, 'default' => '0', 'length' => 10),
 		'articol' => array('type' => 'string', 'null' => true, 'default' => NULL),
 		'text' => array('type' => 'text', 'null' => true, 'default' => NULL),
@@ -149,19 +149,19 @@ class AppSchema extends CakeSchema {
 		'todelete' => array('type' => 'boolean', 'null' => true, 'default' => '0'),
 		'created' => array('type' => 'date', 'null' => true, 'default' => NULL),
 		'modified' => array('type' => 'date', 'null' => true, 'default' => NULL),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1))
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'report_id' => array('column' => 'report_id', 'unique' => 0), 'expert_id' => array('column' => 'expert_id', 'unique' => 0))
 	);
 	var $subreports_celems = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
-		'subreport_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10),
-		'celem_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1))
+		'subreport_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'index'),
+		'celem_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'index'),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'subreport_id' => array('column' => 'subreport_id', 'unique' => 0), 'celem_id' => array('column' => 'celem_id', 'unique' => 0))
 	);
 	var $subreports_pelems = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
-		'subreport_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10),
-		'pelem_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1))
+		'subreport_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'index'),
+		'pelem_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'index'),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'subreport_id' => array('column' => 'subreport_id', 'unique' => 0), 'pelem_id' => array('column' => 'pelem_id', 'unique' => 0))
 	);
 	var $templates = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
