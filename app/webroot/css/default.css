@@ -424,6 +424,8 @@ ul{list-style:none}
 	background-color:#eee;
 }
 .sortableitems {
+  background: url(/images/draggable.png) no-repeat left top;
+  padding-left: 15px;
 	height:1.5em;
 	line-height:1.2em;
 }
