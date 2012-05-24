@@ -155,7 +155,6 @@ class ReportsController extends AppController {
 	}
 
 	function view($id = null, $type = null) {
-		Configure::write('debug',0);
 		$isadmin = $this->Auth->user('isadmin');
 		if ($isadmin == 1) $backlink = '/admin/reports/index';
 			else $backlink = '/reports/index';
@@ -189,7 +188,10 @@ class ReportsController extends AppController {
 		$author = $author[$this->data['Project']['author_id']];
 		$this->set(compact('subreports', 'author', 'template', 'backlink'));
 
-		if ($type == 'pdf') $this->layout = 'pdf';
+		if ($type == 'pdf') {
+      Configure::write('debug', 0);
+      $this->layout = 'pdf';
+    }
 		$this->render('view'.$type);
 	}
 

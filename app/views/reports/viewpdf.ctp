@@ -3,6 +3,7 @@
 	if ( $safeMode === FALSE ) {
 		set_time_limit(300); // Sets maximum execution time to 5 minutes (300 seconds)
 		ini_set("max_execution_time", "300"); // this does the same as "set_time_limit(300)"
+		ini_set("memory_limit", "64M"); // this does the same as "set_time_limit(300)"
 	}
 
 	App::import('Vendor','mytcpdf');
