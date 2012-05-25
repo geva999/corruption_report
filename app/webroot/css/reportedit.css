@@ -227,7 +227,7 @@ a:hover {
 	padding: 0px;
 	width: 98%;
 }
-.ui-state-highlight { height: 60px; }
+div#rowsdiv .ui-state-highlight { height: 60px; }
 #avizHead {
 	font-family:Arial;
 	background-color:#ededed;
