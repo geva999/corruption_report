@@ -3,13 +3,25 @@ class TemplatesController extends AppController {
 	var $name = 'Templates';
 
 	function isAuthorized() {
-		$adminrights = array('admin_index', 'admin_add', 'admin_edit', 'admin_delete');
-		if ($this->Auth->user('isadmin') == 1 && in_array($this->action, $adminrights)) return true;
-		else return false;
+    $adminrights = array('admin_index', 'admin_add', 'admin_edit', 'admin_delete', 'about');
+    $expertrights = array('about');
+    if ($this->Auth->user('isadmin') == 1 && in_array($this->action, $adminrights))
+      return true;
+    elseif ($this->Auth->user('isadmin') == 0 && in_array($this->action, $expertrights))
+      return true;
+    else
+      return false;
     }
 
 	function index() {
 	}
+
+  function about() {
+  }
+
+  function admin_about() {
+    $this->render("about");
+  }
 
 	function admin_index() {
 		$this->Template->recursive = -1;

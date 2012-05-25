@@ -124,7 +124,8 @@ a:hover {
   color: #CC0000;
 }
 
-#avizHead {
+.avizHead {
+  text-align: left;
   font-family: Arial;
   background-color: #ededed;
   padding: 10px;
@@ -133,5 +134,5 @@ a:hover {
   line-height: 14px;
   border-bottom: solid 2px #dedede;
   margin-bottom: 15px;
-  height: 50px;
+  min-height: 55px;
 }
