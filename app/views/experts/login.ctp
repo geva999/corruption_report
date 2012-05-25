@@ -1,5 +1,12 @@
 <div class="SiteContainer SignIn">
-	<h1>Система он-лайн заключений</h1>
+  <div class="title">
+    <h1>
+      Система он-лайн заключений
+      <br/>
+      "САРАПТАМА"
+    </h1>
+  </div>
+
 	<div id="Form" class="SignInForm">
 		<fieldset>
 			<?php echo $form->create('Expert', array('action' => 'login')); ?>

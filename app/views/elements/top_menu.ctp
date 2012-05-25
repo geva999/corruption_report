@@ -1,5 +1,5 @@
 <div id="top">
-	<div id="logo"><?php echo $top_menu_title;?></div>
+	<div id="logo">"САРАПТАМА" - <?php echo $top_menu_title;?></div>
 </div>
 <div id="Session">
 	<?php
