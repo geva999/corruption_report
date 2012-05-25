@@ -23,7 +23,7 @@
 							);
 							echo '<tr><td>Проекты:</td>';
 							foreach ($links as $linktitle=>$linkaction)
-								echo '<td>'.$this->element('ajaxlink', array('link'=>'/admin/projects/index/'.$linkaction, 'linktitle'=>$linktitle)).'</td>';
+								echo '<td>'.$html->link($linktitle, '/admin/projects/index/'.$linkaction).'</td>';
 							echo '</tr>';
 						?>
 					</table>
@@ -34,7 +34,7 @@
 							$form->input('Project.searchtype', array('label'=>'Критерии поиска: ', 'div'=>false,
 								'options'=>array(1=>'№ заключения', 2=>'№ проекта', 3=>'название проекта', 4=>'имя эксперта'))).
 							$form->input('Project.search', array('label'=>false, 'div'=>false)).
-							$ajax->submit('Поиск', array('update'=>'content', 'indicator'=>'spinner', 'div'=>false)).
+							$form->submit('Поиск', array('div'=>false)).
 							$form->end();
 					?>
 				</td>
@@ -44,7 +44,7 @@
 
 	<div id="caption" class="green"><?php echo $viewtext.' - '.$countprojects;?></div>
 
-	<?php $paginator->options(array('url'=>$action, 'update'=>'content', 'indicator'=>'spinner'));?>
+	<?php $paginator->options(array('url'=>$action));?>
 
 	<table width="100%" border="0" cellspacing="1" cellpadding="5" id="green">
 		<tr>

@@ -25,7 +25,7 @@
 								'empty'=>'все',
 								'options'=>array('проект закона'=>'проект закона', 'по запросу'=>'по запросу'))).
 						'</td>'.'<td rowspan="4">'.
-						$ajax->submit('Фильтрирование', array('div'=>false, 'update'=>'content', 'indicator'=>'spinner')).
+						$form->submit('Фильтрирование', array('div'=>false)).
 						'</td>'.'<tr><td colspan="2">Период афиширования - '.
 						$form->input('Report.date1text', array('label'=>'&nbsp;&nbsp;&nbsp;от: ', 'div'=>false, 'size'=>'17', 'maxlength'=>'18', 'readonly'=>'readonly')).
 						$form->hidden('Report.date1').

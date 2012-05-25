@@ -5,13 +5,13 @@
 </div>
 
 <div id="listcontent">
-	
+
 	<div id="caption" class="green">Список непосредственных авторов - <?php echo $countauthors;?></div>
-	
+
 	<table width="100%" border="0" cellspacing="1" cellpadding="5" id="green">
 		<tr>
 			<th width="5">№</th>
-			<th><?php echo $paginator->sort('Непосредственный автор', 'Author.name', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка согласно непосредственному автору'));?></th>
+			<th><?php echo $paginator->sort('Непосредственный автор', 'Author.name', array('title' => 'сортировка согласно непосредственному автору'));?></th>
 			<th width="50">Редактирование</th>
 			<th width="50">Удаление</th>
 		</tr>
@@ -26,7 +26,7 @@
 		</tr>
 		<?php }?>
 	</table>
-		
+
 	<?php
 		echo $this->element('paginator');
 		echo $this->element('addlink', array('addlink'=>'/admin/authors/add', 'addtitle'=>' Добавить непосредственного автора'));
@@ -34,5 +34,5 @@
 		echo $this->element('error_messages');
 		echo $this->element('sponsor');
 	?>
-	
+
 </div>

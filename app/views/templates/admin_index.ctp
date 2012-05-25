@@ -11,8 +11,8 @@
 	<table width="100%" border="0" cellspacing="1" cellpadding="5" id="green">
 	<tr>
 		<th width="5">№</th>
-		<th><?php echo $paginator->sort('Имя', 'Template.name', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка по Имени'));?></th>
-		<th><?php echo $paginator->sort('Дата', 'Template.date', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка по Дате'));?></th>
+		<th><?php echo $paginator->sort('Имя', 'Template.name', array('title' => 'сортировка по Имени'));?></th>
+		<th><?php echo $paginator->sort('Дата', 'Template.date', array('title' => 'сортировка по Дате'));?></th>
 		<th width="60">Редактирование</th>
 		<th width="60">Удаление</th>
 	</tr>

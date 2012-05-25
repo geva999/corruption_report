@@ -57,11 +57,11 @@
 	<table width="100%" border="0" cellspacing="1" cellpadding="5" id="orange">
 		<tr>
 			<th width="5">№</th>
-			<th width="80"><?php echo $paginator->sort('Номер заключения', 'Project.reportnumber', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка по Номеру заключения'));?></th>
-			<th><?php echo $paginator->sort('Название проекта', 'Project.name', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка по Названию проекта'));?></th>
-			<th width="80"><?php echo $paginator->sort('Номер проекта', 'Project.projectnumber', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка по Номеру проекта'));?></th>
-			<th width="70"><?php echo $paginator->sort('Предельный срок для эксперта', 'Project.datelimitexpert', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка по Предельному сроку для эксперта'));?></th>
-			<th width="70"><?php echo $paginator->sort('Предельный срок для государственного органа', 'Project.datelimitparlament', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка по Предельному сроку для государственного органа'));?></th>
+			<th width="80"><?php echo $paginator->sort('Номер заключения', 'Project.reportnumber', array('title' => 'сортировка по Номеру заключения'));?></th>
+			<th><?php echo $paginator->sort('Название проекта', 'Project.name', array('title' => 'сортировка по Названию проекта'));?></th>
+			<th width="80"><?php echo $paginator->sort('Номер проекта', 'Project.projectnumber', array('title' => 'сортировка по Номеру проекта'));?></th>
+			<th width="70"><?php echo $paginator->sort('Предельный срок для эксперта', 'Project.datelimitexpert', array('title' => 'сортировка по Предельному сроку для эксперта'));?></th>
+			<th width="70"><?php echo $paginator->sort('Предельный срок для государственного органа', 'Project.datelimitparlament', array('title' => 'сортировка по Предельному сроку для государственного органа'));?></th>
 			<th width="100">Имя файла</th>
 		</tr>
 		<?php

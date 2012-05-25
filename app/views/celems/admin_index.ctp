@@ -10,10 +10,10 @@
 
 	<table width="100%" border="0" cellspacing="1" cellpadding="5" id="green">
 	<tr>
-		<th width="5"><?php echo $paginator->sort('№', 'Celem.number', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка согласно Номеру'));?></th>
-		<th width="200"><?php echo $paginator->sort('Имя', 'Celem.name', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка согласно Имени'));?></th>
-		<th width="200"><?php echo $paginator->sort('Группа', 'Celem.celemgroup', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка согласно Группе'));?></th>
-		<th><?php echo $paginator->sort('Описание', 'Celem.description', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка согласно Описанию'));?></th>
+		<th width="5"><?php echo $paginator->sort('№', 'Celem.number', array('title' => 'сортировка согласно Номеру'));?></th>
+		<th width="200"><?php echo $paginator->sort('Имя', 'Celem.name', array('title' => 'сортировка согласно Имени'));?></th>
+		<th width="200"><?php echo $paginator->sort('Группа', 'Celem.celemgroup', array('title' => 'сортировка согласно Группе'));?></th>
+		<th><?php echo $paginator->sort('Описание', 'Celem.description', array('title' => 'сортировка согласно Описанию'));?></th>
 		<th width="60">Редактирование</th>
 		<th width="60">Удаление</th>
 	</tr>

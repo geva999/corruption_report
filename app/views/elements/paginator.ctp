@@ -1,6 +1,4 @@
 <?php
-	//Sets the update and indicator elements by DOM ID
-	$paginator->options(array('update'=>'content', 'indicator'=>'spinner'));
 	echo $paginator->counter(array('format'=>__('Страница %page% из %pages%, показываются %current% строк из общего числа %count%, начиная с %start%, до %end%', true)));
 ?>
 <table border="0" cellspacing="5" cellpadding="0">

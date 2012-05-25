@@ -149,9 +149,9 @@
 	<table width="100%" border="0" cellspacing="1" cellpadding="5" id="orange">
 		<tr>
 			<th width="5">№</th>
-			<th width="50"><?php echo $paginator->sort('Номер заключения', 'Project.reportnumber', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка по Номеру заключения'));?></th>
-			<th width="70"><?php echo $paginator->sort('Дата заключения', 'Report.reportdate', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка по Дате заключения'));?></th>
-			<th align="left"><?php echo $paginator->sort('Название заключения', 'Project.name', array('update' => 'content', 'indicator' => 'spinner', 'title' => 'сортировка по Названию заключения'));?></th>
+			<th width="50"><?php echo $paginator->sort('Номер заключения', 'Project.reportnumber', array('title' => 'сортировка по Номеру заключения'));?></th>
+			<th width="70"><?php echo $paginator->sort('Дата заключения', 'Report.reportdate', array('title' => 'сортировка по Дате заключения'));?></th>
+			<th align="left"><?php echo $paginator->sort('Название заключения', 'Project.name', array('title' => 'сортировка по Названию заключения'));?></th>
 			<th width="50">Визуализация</th>
 			<th width="50">PDF</th>
 		</tr>
