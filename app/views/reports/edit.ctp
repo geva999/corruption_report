@@ -420,7 +420,7 @@
 					<tr>
 						<td align="center" valign="center">
 							<br/>
-              <input name="savebutton" id="savebutton" style="width: 100px; font-size:18px;" value="Сохранить" type="submit"/>
+              <input name="savebutton" id="savebutton" style="width: 150px; font-size:18px;" value="Сохранить" type="submit"/>
             </td>
           </tr>
           <tr>

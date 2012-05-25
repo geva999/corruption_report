@@ -4,7 +4,7 @@ class ReportsController extends AppController {
 
 	function isAuthorized() {
 		$adminrights = array('admin_index', 'admin_statistic', 'edit', 'save', 'view', 'viewpdf', 'viewelements', 'viewotherelements', 'generatesubreportcode');
-		$expertrights = array('index', 'edit', 'save', 'view', 'viewpdf', 'viewelements', 'viewotherelements', 'generatesubreportcode');
+		$expertrights = array('index', 'edit', 'save', 'view', 'viewpdf', 'statistic', 'viewelements', 'viewotherelements', 'generatesubreportcode');
 		if ($this->Auth->user('isadmin') == 1 && in_array($this->action, $adminrights)) return true;
 		elseif ($this->Auth->user('isadmin') == 0 && in_array($this->action, $expertrights)) return true;
 		else return false;
@@ -194,6 +194,11 @@ class ReportsController extends AppController {
     }
 		$this->render('view'.$type);
 	}
+
+  function statistic() {
+    $this->admin_statistic();
+    $this->render('admin_statistic');
+  }
 
 	function viewelements() {
 		Configure::write('debug', '0');

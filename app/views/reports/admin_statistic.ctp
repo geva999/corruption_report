@@ -1,7 +1,12 @@
 <?php echo $this->element('top_menu', array('top_menu_title'=>'Статистика'));?>
 
 <div id="line">
-	<?php echo $this->element('admin_menu');?>
+  <?php
+    if ($isadmin == 1)
+      echo $this->element('admin_menu');
+    else
+      echo $this->element('expert_menu');
+  ?>
 </div>
 
 <div id="listcontent" style="color: black;">

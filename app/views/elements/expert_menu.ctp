@@ -7,6 +7,9 @@
       <td>
         <?php echo $html->link('Заключения', '/reports');?>
       </td>
+      <td>
+        <?php echo $html->link('Статистика', '/reports/statistic');?>
+      </td>
     </tr>
   </table>
 </div>
