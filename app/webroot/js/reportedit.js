@@ -131,8 +131,10 @@ function processResponse(data)
 
 jQuery(document).ready(function($){
 
-  //$().ajaxStart($.blockUI).
-  //ajaxStop($.unblockUI).
+  $().ajaxStart(function(){
+    $.blockUI({ message: '<h1>Автосохранение документа<br/><br/><img src="/img/loading.gif"></h1>' });
+  });
+  $().ajaxStop($.unblockUI);
   $().ajaxError(function(a, b, e) {
     throw e;
     alert('Ошибка соединения! Проверьте подключение к серверу!');
