@@ -1,10 +1,6 @@
+.idea/*
+app/.idea/*
 app/config/core.php
 app/config/database.php
-app/tmp/cache/models/cake_*
-app/tmp/cache/persistent/cake_*
-app/tmp/cache/views/cake_*
-app/tmp/logs/*.log
-app/tmp/sessions/cake_*
-app/.idea/*
-.idea/*
-nbproject
+app/tmp
+.DS_Store
