@@ -42,7 +42,7 @@
             <td>
                 <?php
                     if (isset($projectsaved['Project']['filename']) && $projectsaved['Project']['filename'] != '')
-                        echo $html->link($projectsaved['Project']['filename'], '/uploaded/projects/'.$projectsaved['Project']['filename']);
+                        echo $this->Html->link($projectsaved['Project']['filename'], '/uploaded/projects/'.$projectsaved['Project']['filename']);
                     else echo 'Не существует';
                 ?>
             </td>
@@ -86,7 +86,7 @@
             <td>
                 <?php
                     if (isset($projectaccepted['Project']['filename']) && $projectaccepted['Project']['filename'] != '')
-                        echo $html->link($projectaccepted['Project']['filename'], '/uploaded/projects/'.$projectaccepted['Project']['filename']);
+                        echo $this->Html->link($projectaccepted['Project']['filename'], '/uploaded/projects/'.$projectaccepted['Project']['filename']);
                     else echo 'Не существует';
                 ?>
             </td>

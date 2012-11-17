@@ -67,7 +67,7 @@ class CelemsController extends AppController {
       $this->Session->setFlash(__('Неверный ID для фактора коррупционности.', true), 'jgrowl');
       $this->redirect('/admin/celems');
     }
-    if ($this->Celem->del($id)) {
+    if ($this->Celem->delete($id)) {
       $this->Session->setFlash(__('Фактор коррупционности был удален.', true), 'jgrowl');
       $this->redirect('/admin/celems');
     }

@@ -273,9 +273,7 @@ a img {
 
 #line {
   background: url(reportsimages/line_bg.gif) repeat-x;
-  height: 55px;
-  position: absolute;
-  top: 80px;
+  height: 50px;
   width: 100%;
 }
 
@@ -321,7 +319,7 @@ a img {
 
 #top {
   background-color: #f5c978;
-  height: 85px;
+  height: 75px;
 }
 
 #logo {
@@ -359,11 +357,8 @@ a img {
 }
 
 #listcontent {
-  top: 140px;
-  position: absolute;
   width: 96%;
-  margin-right: 2%;
-  margin-left: 2%;
+  margin: 10px 2% 10px 2%;
   color: #666666;
   font-size: 12px;
 }

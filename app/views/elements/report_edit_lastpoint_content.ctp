@@ -7,12 +7,12 @@
 <div id="<?php echo$rowidtext;?>" class="subreportrow">
     <?php
         if (isset($subreportid))
-            echo $form->input('subraport.'.$rowid.'.Subreport.id', array('type'=>'hidden', 'value'=>$subreportid));
+            echo $this->Form->input('subraport.'.$rowid.'.Subreport.id', array('type'=>'hidden', 'value'=>$subreportid));
         else
-            echo $form->input('subraport.'.$rowid.'.Subreport.id', array('type'=>'hidden'));
-        echo $form->input('subraport.'.$rowid.'.Subreport.report_id', array('type'=>'hidden'));
-        echo $form->input('subraport.'.$rowid.'.Subreport.expert_id', array('type'=>'hidden'));
-        echo $form->input('subraport.'.$rowid.'.Subreport.todelete', array('type'=>'hidden', 'value'=>0));
+            echo $this->Form->input('subraport.'.$rowid.'.Subreport.id', array('type'=>'hidden'));
+        echo $this->Form->input('subraport.'.$rowid.'.Subreport.report_id', array('type'=>'hidden'));
+        echo $this->Form->input('subraport.'.$rowid.'.Subreport.expert_id', array('type'=>'hidden'));
+        echo $this->Form->input('subraport.'.$rowid.'.Subreport.todelete', array('type'=>'hidden', 'value'=>0));
     ?>
     <table width="100%" border="0" cellspacing="0" cellpadding="2">
         <tr <?php echo $rowstyle;?>>
@@ -29,14 +29,14 @@
                         </div>
                     </ul>
                     <div id="<?php echo $rowidtext;?>body1">
-                        <?php echo $form->input('subraport.'.$rowid.'.Subreport.articol', array('type'=>'text', 'label'=>false, 'size'=>'150'));?>
+                        <?php echo $this->Form->input('subraport.'.$rowid.'.Subreport.articol', array('type'=>'text', 'label'=>false, 'size'=>'150'));?>
                     </div>
                     <div id="<?php echo $rowidtext;?>body2">
                         <br/>Текст<br/>
-                        <?php echo $form->textarea('subraport.'.$rowid.'.Subreport.text', array('class'=>'tinymceeditor'));?>
+                        <?php echo $this->Form->textarea('subraport.'.$rowid.'.Subreport.text', array('class'=>'tinymceeditor'));?>
                         <a href="javascript:void(0);" onclick="return toogletinymce('subraport<?php echo $rowid;?>SubreportText');">включить/выключить редактор</a>
                         <br/><br/>Замечание<br/>
-                        <?php echo $form->textarea('subraport.'.$rowid.'.Subreport.obiectia', array('class'=>'tinymceeditor'));?>
+                        <?php echo $this->Form->textarea('subraport.'.$rowid.'.Subreport.obiectia', array('class'=>'tinymceeditor'));?>
                         <a href="javascript:void(0);" onclick="return toogletinymce('subraport<?php echo $rowid;?>SubreportObiectia');">включить/выключить редактор</a>
                         <br/><br/>
                         <?php if ($celemsacceptance != 1) echo '<br/>Факторы коррупционности<br/><br/>';?>
@@ -45,7 +45,7 @@
                             <tr class="divcheckboxtohide">
                                 <td valign="top">
                                     <?php
-                                        echo $form->input('subraport.'.$rowid.'.Celem.Celem', array(
+                                        echo $this->Form->input('subraport.'.$rowid.'.Celem.Celem', array(
                                                     'type'=>'select',
                                                     'multiple'=>'checkbox',
                                                     'options'=>$celems,
@@ -55,7 +55,7 @@
                                 </td>
                                 <?php
                                     if ($celemsacceptance == 1 & $pelems)
-                                        echo '<td valign="top" width="40">'.$form->input('subraport.'.$rowid.'.Pelem.Pelem', array(
+                                        echo '<td valign="top" width="40">'.$this->Form->input('subraport.'.$rowid.'.Pelem.Pelem', array(
                                                     'type'=>'select',
                                                     'multiple'=>'checkbox',
                                                     'options'=>$pelems,
@@ -77,16 +77,16 @@
                         </table>
                         <br/><br/>Другие факторы<br/>
                         <?php
-                            echo $form->textarea('subraport.'.$rowid.'.Subreport.alteelemente');
-                            if ($celemsacceptance == 1) echo $form->input('subraport.'.$rowid.'.Subreport.alteelementeacceptate', array('type'=>'checkbox', 'label'=>' принять другие факторы'));
+                            echo $this->Form->textarea('subraport.'.$rowid.'.Subreport.alteelemente');
+                            if ($celemsacceptance == 1) echo $this->Form->input('subraport.'.$rowid.'.Subreport.alteelementeacceptate', array('type'=>'checkbox', 'label'=>' принять другие факторы'));
                         ?>
                         <br/>Другие риски<br/>
                         <?php
-                            echo $form->textarea('subraport.'.$rowid.'.Subreport.alteriscuri');
-                            if ($celemsacceptance == 1) echo $form->input('subraport.'.$rowid.'.Subreport.alteriscuriacceptate', array('type'=>'checkbox', 'label'=>' принять другие риски'));
+                            echo $this->Form->textarea('subraport.'.$rowid.'.Subreport.alteriscuri');
+                            if ($celemsacceptance == 1) echo $this->Form->input('subraport.'.$rowid.'.Subreport.alteriscuriacceptate', array('type'=>'checkbox', 'label'=>' принять другие риски'));
                         ?>
                         <br/>Рекомендация<br/>
-                        <?php echo $form->textarea('subraport.'.$rowid.'.Subreport.recomandarea');?>
+                        <?php echo $this->Form->textarea('subraport.'.$rowid.'.Subreport.recomandarea');?>
                     </div>
                 </div>
             </td>

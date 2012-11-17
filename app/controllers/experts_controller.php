@@ -69,7 +69,7 @@ class ExpertsController extends AppController {
       $this->Session->setFlash(__('Неверный ID для эксперта.', true), 'jgrowl');
       $this->redirect('/admin/experts');
     }
-    if ($this->Expert->del($id)) {
+    if ($this->Expert->delete($id)) {
       $this->Session->setFlash(__('Эксперт был удален.', true), 'jgrowl');
       $this->redirect('/admin/experts');
     }

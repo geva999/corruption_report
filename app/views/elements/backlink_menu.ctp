@@ -3,10 +3,10 @@
     <tr height="50">
       <td>
         <?php
-          echo $html->link(
+          echo $this->Html->link(
             $backlinktitle,
             $backlink,
-            null, null, false);
+            array('escape' => false));
         ?>
       </td>
     </tr>

@@ -12,5 +12,5 @@
     if (isset($textareanotrequired)) $textareaclass = NULL;
     else $textareaclass = 'required_dependent';
     if (isset($textareaname))
-        echo '<span class="green" style="float:right;margin-bottom:-10px;"></span>'.$form->input($textareaname, array('type'=>'textarea', 'class'=>$textareaclass, 'label'=>false));
+        echo '<span class="green" style="float:right;margin-bottom:-10px;"></span>'.$this->Form->input($textareaname, array('type'=>'textarea', 'class'=>$textareaclass, 'label'=>false));
 ?>

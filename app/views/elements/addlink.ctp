@@ -1,10 +1,10 @@
 <br/>
 <div style="text-align: center;">
   <?php
-    echo $html->link(
-      $html->image('/images/add.png').$addtitle,
+    echo $this->Html->link(
+      $this->Html->image('/images/add.png').$addtitle,
       $addlink,
-      null, null, false);
+      array('escape' => false));
   ?>
 </div>
 <br/>

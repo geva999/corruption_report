@@ -1,6 +1,1 @@
-<?php
-  echo $html->link(
-    $html->image('/images/view.png', array('title' => 'Смотри')),
-    $viewlink,
-    null, null, false);
-?>
+<?php echo $this->Html->image('/images/view.png', array('title' => 'Смотри', 'url' => $viewlink)); ?>

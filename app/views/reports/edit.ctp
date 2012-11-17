@@ -1,20 +1,20 @@
 <div id="div-report-edit">
   <?php
-    echo $form->create('Report', array('id'=>'ReportEditForm', 'enctype'=>'multipart/form-data'));
-    echo $form->hidden('Report.id');
-    echo $form->hidden('Report.project_id');
-    echo $form->hidden('Project.projecttype');
-    echo $form->hidden('Project.reportmultipleedit');
-    echo $form->hidden('Project.name');
-    //echo $form->hidden('Project.Author.name');
-    echo $form->hidden('Project.namesolicitare');
-    echo $form->hidden('Project.projecttypevizat');
-    echo $form->hidden('Project.projectdomain');
-    echo $form->hidden('Project.projectnumber');
-    echo $form->hidden('Project.projectdatetext');
-    echo $form->hidden('Project.initiative');
-    echo $form->hidden('Project.reportimpact');
-    echo $form->hidden('Project.projectstate');
+    echo $this->Form->create('Report', array('id'=>'ReportEditForm', 'enctype'=>'multipart/form-data'));
+    echo $this->Form->hidden('Report.id');
+    echo $this->Form->hidden('Report.project_id');
+    echo $this->Form->hidden('Project.projecttype');
+    echo $this->Form->hidden('Project.reportmultipleedit');
+    echo $this->Form->hidden('Project.name');
+    //echo $this->Form->hidden('Project.Author.name');
+    echo $this->Form->hidden('Project.namesolicitare');
+    echo $this->Form->hidden('Project.projecttypevizat');
+    echo $this->Form->hidden('Project.projectdomain');
+    echo $this->Form->hidden('Project.projectnumber');
+    echo $this->Form->hidden('Project.projectdatetext');
+    echo $this->Form->hidden('Project.initiative');
+    echo $this->Form->hidden('Project.reportimpact');
+    echo $this->Form->hidden('Project.projectstate');
     $projecttype = $this->data['Project']['projecttype'];
     $pointdigit = 1;
     $this->countattachment = 0;
@@ -31,9 +31,9 @@
           <td valign="top" width="220">
             <?php
               if ($isadmin == 1)
-                echo $form->input('Report.reportdatetext', array('label'=>false, 'size'=>'17', 'maxlength'=>'18', 'readonly'=>'readonly')).
+                echo $this->Form->input('Report.reportdatetext', array('label'=>false, 'size'=>'17', 'maxlength'=>'18', 'readonly'=>'readonly')).
                   '<span class="green"></span>'.
-                  $form->hidden('Report.reportdate');
+                  $this->Form->hidden('Report.reportdate');
             ?>
           </td>
           <td valign="top" align="right" width="752"><a href="<?php echo $backlink;?>">назад к списку заключений</a></td>
@@ -325,7 +325,7 @@
             </div>
             <div align="center"><br/><input type="button" onclick="addrow();" value="Добавь строку"></div>
             <br/><br/>
-            <?php echo $form->input('Report.simplesubreport', array('type'=>'textarea', 'label'=>false, 'style'=>"height: 150px;"));?>
+            <?php echo $this->Form->input('Report.simplesubreport', array('type'=>'textarea', 'label'=>false, 'style'=>"height: 150px;"));?>
           </div>
 
       </div>
@@ -338,7 +338,7 @@
           <!-- Выводы -->
           <h2>Выводы</h2>
           <span class="green" style="float:right;margin-bottom:-10px;"></span>
-          <?php echo $form->input('Report.concluzii', array('type'=>'textarea', 'class'=>'required_dependent', 'label'=>false));?>
+          <?php echo $this->Form->input('Report.concluzii', array('type'=>'textarea', 'class'=>'required_dependent', 'label'=>false));?>
       </div>
     </td>
   </tr>
@@ -369,9 +369,9 @@
               <h2>Замечания администратора к эксперту</h2>
               <?php
                 if ($isadmin == 1)
-                                    echo $form->input('Report.admincoments', array('type'=>'textarea', 'label'=>false));
+                                    echo $this->Form->input('Report.admincoments', array('type'=>'textarea', 'label'=>false));
                 else
-                                    echo $form->input('Report.admincoments', array('type'=>'textarea', 'label'=>false, 'readonly'=>'readonly'));
+                                    echo $this->Form->input('Report.admincoments', array('type'=>'textarea', 'label'=>false, 'readonly'=>'readonly'));
               ?>
           </div>
           <br/><br/>
@@ -391,7 +391,7 @@
               if ($isadmin == 1)
               {
                 echo '<td align="center" valign="center">';
-                echo $form->input('Report.reportstate', array(
+                echo $this->Form->input('Report.reportstate', array(
                     'legend' => false,
                     'label' => ' статус заключения: ',
                     'div' => false,
@@ -406,7 +406,7 @@
               elseif ($multipleeditcontrol)
               {
                 echo '<td align="center" valign="center">';
-                echo $form->input('Report.reportstate', array(
+                echo $this->Form->input('Report.reportstate', array(
                     'legend' => false,
                     'label' => false,
                     'div' => false,
@@ -440,12 +440,12 @@
   </tr>
   </table>
 
-  <?php echo $form->end();?>
+  <?php echo $this->Form->end();?>
 </div>
 <br/><br/>
 <div name="savebutton2" id="savebutton2"></div>
 <?php
     echo $this->element('sponsor');
-    echo $javascript->codeBlock('var isadmin = '.$isadmin.'; var celemsacceptance = '.$celemsacceptance.'; var countattachment = '.$this->countattachment.';');
-    echo $javascript->link('reportedit');
+    echo $this->Html->scriptBlock('var isadmin = '.$isadmin.'; var celemsacceptance = '.$celemsacceptance.'; var countattachment = '.$this->countattachment.';');
+    echo $this->Html->script('reportedit');
 ?>

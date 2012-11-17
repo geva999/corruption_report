@@ -1,5 +1,4 @@
 <?php
-/* SVN FILE: $Id$ */
 /**
  * Case Folding Properties.
  *
@@ -12,21 +11,19 @@
  * PHP versions 4 and 5
  *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.config.unicode.casefolding
  * @since         CakePHP(tm) v 1.2.0.5691
- * @version       $Revision$
- * @modifiedby    $LastChangedBy$
- * @lastmodified  $Date$
- * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
+ * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
+
 /**
  * The upper field is the decimal value of the upper case character
  *
@@ -170,4 +167,3 @@ $config['1e00_1eff'][] = array('upper' => 7922, 'status' => 'C', 'lower' => arra
 $config['1e00_1eff'][] = array('upper' => 7924, 'status' => 'C', 'lower' => array(7925)); /* LATIN CAPITAL LETTER Y WITH DOT BELOW */
 $config['1e00_1eff'][] = array('upper' => 7926, 'status' => 'C', 'lower' => array(7927)); /* LATIN CAPITAL LETTER Y WITH HOOK ABOVE */
 $config['1e00_1eff'][] = array('upper' => 7928, 'status' => 'C', 'lower' => array(7929)); /* LATIN CAPITAL LETTER Y WITH TILDE */
-?>

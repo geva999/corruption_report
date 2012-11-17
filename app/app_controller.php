@@ -1,7 +1,8 @@
 <?php
 class AppController extends Controller {
-  var $components = array('RequestHandler', 'Auth');
-  var $helpers = array('Html', 'Form', 'Javascript', 'Ajax');
+  var $components = array('RequestHandler', 'Session', 'Auth');
+  var $helpers = array('Html', 'Form', 'Js', 'Session');
+
   var $paginate = array(
     'Project' => array(
       'order' => 'Project.reportnumber ASC',
@@ -34,6 +35,7 @@ class AppController extends Controller {
       'order'=>'Template.date DESC',
       'limit' => 20)
   );
+
   function beforeFilter() {
     $this->Auth->userModel = 'Expert';
     $this->Auth->autoRedirect = false;

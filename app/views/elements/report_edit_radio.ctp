@@ -9,7 +9,7 @@
         <?php
             if ($this->data['Report'][$radioname] >0 ) $pvalue = $this->data['Report'][$radioname];
             else $pvalue = 0;
-            echo $form->input('Report.'.$radioname, array(
+            echo $this->Form->input('Report.'.$radioname, array(
                         'class'=>'required_dependent',
                         'legend' => false,
                         'label' => false,

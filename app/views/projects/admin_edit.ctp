@@ -10,8 +10,8 @@
 
     <div id="Form">
         <?php
-            echo $form->create('Project', array('enctype'=>'multipart/form-data'));
-            echo $form->input('Project.id');
+            echo $this->Form->create('Project', array('enctype'=>'multipart/form-data'));
+            echo $this->Form->input('Project.id');
         ?>
             <ul>
                 <li>
@@ -20,21 +20,21 @@
                             $projecttype = $this->data['Project']['projecttype'];
                         else
                             $projecttype = 'проект закона';
-                        echo $form->input('Project.projecttype', array(
+                        echo $this->Form->input('Project.projecttype', array(
                                 'label' => 'Вид проекта',
                                 'options' => array(
                                     'проект закона'=>'проект закона',
                                     'по запросу'=>'по запросу')));
                     ?>
                 </li>
-                <li><?php echo $form->input('Project.expert_id', array('label'=>'Имя эксперта'));?></li>
-                <li><?php echo $form->input('Project.name', array('label'=>'Название проекта', 'type'=>'textarea', 'style'=>'width: 65%;'));?></li>
+                <li><?php echo $this->Form->input('Project.expert_id', array('label'=>'Имя эксперта'));?></li>
+                <li><?php echo $this->Form->input('Project.name', array('label'=>'Название проекта', 'type'=>'textarea', 'style'=>'width: 65%;'));?></li>
                 <li class="option2"<?php if ($projecttype != 'по запросу') echo ' style="display:none;"';?>>
-                    <?php echo $form->input('Project.namesolicitare', array('label'=>'По запросу', 'type'=>'textarea', 'style'=>'width: 65%;'));?>
+                    <?php echo $this->Form->input('Project.namesolicitare', array('label'=>'По запросу', 'type'=>'textarea', 'style'=>'width: 65%;'));?>
                 </li>
                 <li>
                     <?php
-                        echo $form->input('Project.projecttypevizat', array(
+                        echo $this->Form->input('Project.projecttypevizat', array(
                                 'label' => 'Вид акта, предусмотренного проектом',
                                 'options' => array(	'общий'=>'общий',
                                                     'о внесении изменений'=>'о внесении изменений',
@@ -46,27 +46,27 @@
                 <br/>
                 <li>
                     <?php
-                        echo $form->input('Project.projectdomain', array(
+                        echo $this->Form->input('Project.projectdomain', array(
                                 'label' => 'Область',
                                 'options' => $domainsforselect));
                     ?>
                 </li>
                 <li class="option1"<?php if ($projecttype != 'проект закона') echo ' style="display:none;"';?>>
-                    <?php echo $form->input('Project.projectnumber', array('label'=>'Номер регистрации в Парламенте'));?>
+                    <?php echo $this->Form->input('Project.projectnumber', array('label'=>'Номер регистрации в Парламенте'));?>
                 </li>
                 <br/>
                 <li>
                     <label class="option1"<?php if ($projecttype != 'проект закона') echo ' style="display:none;"';?>>Дата регистрации в Парламенте</label>
                     <label class="option2"<?php if ($projecttype != 'по запросу') echo ' style="display:none;"';?>>Дата запроса</label>
                     <?php
-                        echo $form->input('Project.projectdatetext', array('label'=>false, 'readonly'=>'readonly'));
-                        echo $form->hidden('Project.projectdate');
+                        echo $this->Form->input('Project.projectdatetext', array('label'=>false, 'readonly'=>'readonly'));
+                        echo $this->Form->hidden('Project.projectdate');
                     ?>
                 </li>
                 <li class="option1"<?php if ($projecttype != 'проект закона') echo ' style="display:none;"';?>>
                     <br/>
                     <?php
-                        echo $form->input('Project.initiative', array(
+                        echo $this->Form->input('Project.initiative', array(
                                 'label' => 'Законодательная инициатива',
                                 'div' => false,
                                 'empty' => 'выберите',
@@ -79,43 +79,43 @@
                 </li>
                 <br/>
                 <li class="option3"<?php if ($this->data['Project']['initiative'] != 'Правительство' && $projecttype == 'проект закона') echo ' style="display:none;"';?>>
-                    <?php echo $form->input('Project.author_id', array('label'=>'Непосредственный автор'));?>
+                    <?php echo $this->Form->input('Project.author_id', array('label'=>'Непосредственный автор'));?>
                 </li>
-                <li><?php echo $form->input('Project.reportnumber', array('label'=>'Номер заключения'));?></li>
-                <li><label>Необходимость проверки согласования проекта затрагивающего интересы субъектов частного предпринимательства с аккредитованными объединениями этих субъектов</label><?php echo $form->input('Project.reportimpact', array('label'=>false, 'div'=>false));?></li>
+                <li><?php echo $this->Form->input('Project.reportnumber', array('label'=>'Номер заключения'));?></li>
+                <li><label>Необходимость проверки согласования проекта затрагивающего интересы субъектов частного предпринимательства с аккредитованными объединениями этих субъектов</label><?php echo $this->Form->input('Project.reportimpact', array('label'=>false, 'div'=>false));?></li>
                 <br/><br/><br/><br/><br/><br/>
-                <li><?php echo $form->input('Project.numberpages', array('label'=>'Число страниц'));?></li>
+                <li><?php echo $this->Form->input('Project.numberpages', array('label'=>'Число страниц'));?></li>
                 <li>
                     <?php
-                        echo $form->input('Project.datelimitexperttext', array('label'=>'Предельный срок для эксперта', 'readonly'=>'readonly'));
-                        echo $form->hidden('Project.datelimitexpert');
+                        echo $this->Form->input('Project.datelimitexperttext', array('label'=>'Предельный срок для эксперта', 'readonly'=>'readonly'));
+                        echo $this->Form->hidden('Project.datelimitexpert');
                     ?>
                 </li>
                 <li>
                     <?php
-                        echo $form->input('Project.datelimitparlamenttext', array('label'=>'Предельный срок для государственного органа', 'readonly'=>'readonly'));
-                        echo $form->hidden('Project.datelimitparlament');
+                        echo $this->Form->input('Project.datelimitparlamenttext', array('label'=>'Предельный срок для государственного органа', 'readonly'=>'readonly'));
+                        echo $this->Form->hidden('Project.datelimitparlament');
                     ?>
                 </li>
                 <br/>
                 <li>
                     <?php
-                        echo $form->label('Project.filename', 'Имя файла');
+                        echo $this->Form->label('Project.filename', 'Имя файла');
                         if (isset($this->data['Project']['filename']) && $this->data['Project']['filename'] != '')
-                            echo $html->link($this->data['Project']['filename'], '/uploaded/projects/'.$this->data['Project']['filename']);
+                            echo $this->Html->link($this->data['Project']['filename'], '/uploaded/projects/'.$this->data['Project']['filename']);
                         else echo 'Для этого проекта не существует файла.';
                     ?>
                 </li>
                 <li>
                     <?php
-                        echo $form->input('Project.file', array('type'=>'file', 'label'=>'Выберите файл', 'style'=>'width: 50%;'));
+                        echo $this->Form->input('Project.file', array('type'=>'file', 'label'=>'Выберите файл', 'style'=>'width: 50%;'));
                     ?>
                 </li>
                 <li>
                     <?php
                         $options = array(1=>'сохранен', 2=>'отправлен эксперту', 3=>'одобрен экспертом', 4=>'отклонен экспертом');
                         //la edit cind e accepat - attr disabled
-                        echo $form->input('Project.projectreportstate', array(
+                        echo $this->Form->input('Project.projectreportstate', array(
                                     'legend' => false,
                                     'label' => 'проект:',
                                     'div' => false,
@@ -125,7 +125,7 @@
                 </li>
                 <li>
                     <?php
-                        echo $form->input('Project.projectstate', array(
+                        echo $this->Form->input('Project.projectstate', array(
                                     'legend' => false,
                                     'label' => 'Статус проекта',
                                     'div' => false,
@@ -133,15 +133,15 @@
                                     'options' => array(1=>'В процессе рассмотрения', 2=>'Принят', 3=>'Отозван')));
                     ?>
                 </li>
-                <li><label>Заключение с возможностью редактирования несколькими экспертами</label><?php echo $form->input('Project.reportmultipleedit', array('label'=>false, 'div'=>false));?></li>
+                <li><label>Заключение с возможностью редактирования несколькими экспертами</label><?php echo $this->Form->input('Project.reportmultipleedit', array('label'=>false, 'div'=>false));?></li>
             </ul>
             <br/><br/>
             <?php echo $this->element('project_sortables_destination');?>
             <br/>
             <div class="Submit" style="padding-left:10%">
                 <?php
-                    echo $form->submit('Сохранить');
-                    echo $form->end();
+                    echo $this->Form->submit('Сохранить');
+                    echo $this->Form->end();
                 ?>
             </div>
             <?php echo $this->element('project_sortables_source');?>

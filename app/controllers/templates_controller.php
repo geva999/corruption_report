@@ -64,7 +64,7 @@ class TemplatesController extends AppController {
       $this->Session->setFlash(__('Неверный ID для шаблона.', true), 'jgrowl');
       $this->redirect('/admin/templates');
     }
-    if ($this->Template->del($id)) {
+    if ($this->Template->delete($id)) {
       $this->Session->setFlash(__('Шаблон был удален.', true), 'jgrowl');
       $this->redirect('/admin/templates');
     }

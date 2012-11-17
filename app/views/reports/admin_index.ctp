@@ -20,18 +20,18 @@
                                 'редактированные несколькими экспертами'=>'несколькоэкспертов');
                             echo '<tr><td>Заключения:</td>';
                             foreach ($links as $linktitle=>$linkaction)
-                                echo '<td>'.$html->link($linktitle, '/admin/reports/index/'.$linkaction).'</td>';
+                                echo '<td>'.$this->Html->link($linktitle, '/admin/reports/index/'.$linkaction).'</td>';
                             echo '</tr>';
                         ?>
                     </table>
                 </td>
-                <td align="right" valign="top">
+                <td align="right" valign="top" width="28%">
                     <?php
-                        echo $form->create('Report', array('action'=>'index')).
-                            $form->input('Project.searchtype', array('label'=>'Критерии поиска: ', 'div'=>false, 'options'=>array(1=>'№ заключения', 2=>'№ проекта', 3=>'название проекта'))).
-                            $form->input('Project.search', array('label'=>false, 'div'=>false)).
-                            $form->submit('Поиск', array('div'=>false)).
-                            $form->end();
+                        echo $this->Form->create('Report', array('action'=>'index')).
+                            $this->Form->input('Project.searchtype', array('label'=>'Критерии поиска: ', 'div'=>false, 'options'=>array(1=>'№ заключения', 2=>'№ проекта', 3=>'название проекта'))).
+                            $this->Form->input('Project.search', array('label'=>false, 'div'=>false)).
+                            $this->Form->submit('Поиск', array('div'=>false)).
+                            $this->Form->end();
                     ?>
                 </td>
             </tr>

@@ -13,7 +13,7 @@
                     <table border="0" cellpadding="5" cellspacing="0">
                         <?php
                             $links = array(
-                'все'=>'',
+                                'все'=>'',
                                 'в процессе рассмотрения'=>'рассмотрение',
                                 'принятые'=>'принятые',
                                 'отозванные'=>'отозванные',
@@ -23,19 +23,19 @@
                             );
                             echo '<tr><td>Проекты:</td>';
                             foreach ($links as $linktitle=>$linkaction)
-                                echo '<td>'.$html->link($linktitle, '/admin/projects/index/'.$linkaction).'</td>';
+                                echo '<td>'.$this->Html->link($linktitle, '/admin/projects/index/'.$linkaction).'</td>';
                             echo '</tr>';
                         ?>
                     </table>
                 </td>
-                <td align="right" valign="top" width="25%">
+                <td align="right" valign="top" width="28%">
                     <?php
-                        echo $form->create('Project', array('action'=>'index')).
-                            $form->input('Project.searchtype', array('label'=>'Критерии поиска: ', 'div'=>false,
+                        echo $this->Form->create('Project', array('action'=>'index')).
+                            $this->Form->input('Project.searchtype', array('label'=>'Критерии поиска: ', 'div'=>false,
                                 'options'=>array(1=>'№ заключения', 2=>'№ проекта', 3=>'название проекта', 4=>'имя эксперта'))).
-                            $form->input('Project.search', array('label'=>false, 'div'=>false)).
-                            $form->submit('Поиск', array('div'=>false)).
-                            $form->end();
+                            $this->Form->input('Project.search', array('label'=>false, 'div'=>false)).
+                            $this->Form->submit('Поиск', array('div'=>false)).
+                            $this->Form->end();
                     ?>
                 </td>
             </tr>
@@ -82,7 +82,7 @@
             <td align="left">
                 <?php
                     if (isset($project['Project']['filename']) && $project['Project']['filename'] != '')
-                        echo $html->link($project['Project']['filename'], '/uploaded/projects/'.$project['Project']['filename']);
+                        echo $this->Html->link($project['Project']['filename'], '/uploaded/projects/'.$project['Project']['filename']);
                     else echo 'Не существует';
                 ?>
             </td>

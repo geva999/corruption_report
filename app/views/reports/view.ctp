@@ -190,8 +190,8 @@
                             foreach ($this->data['Attachment'] as $attachment) {
                                 echo '<tr><td>';
                                 if ($attachment['filename'] != '')
-                                    echo $html->link($attachment['name'], '/uploaded/annexes/'.$attachment['filename']).' - '.
-                                    $html->link($attachment['filename'], '/uploaded/annexes/'.$attachment['filename']);
+                                    echo $this->Html->link($attachment['name'], '/uploaded/annexes/'.$attachment['filename']).' - '.
+                                    $this->Html->link($attachment['filename'], '/uploaded/annexes/'.$attachment['filename']);
                                 else
                   echo $attachment['name'].' - Не существует файла для данного приложения';
                                 echo '</td></tr>';

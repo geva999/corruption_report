@@ -10,16 +10,16 @@
 
     <div id="Form">
         <?php
-            echo $form->create('Celem');
-            echo $form->input('Celem.id');
+            echo $this->Form->create('Celem');
+            echo $this->Form->input('Celem.id');
         ?>
             <ul>
-                <li><?php echo $form->input('Celem.number', array('label'=>'№', 'size'=>4));?></li>
-                <li><?php echo $form->input('Celem.name', array('label'=>'Имя', 'size'=>85));?></li>
+                <li><?php echo $this->Form->input('Celem.number', array('label'=>'№', 'size'=>4));?></li>
+                <li><?php echo $this->Form->input('Celem.name', array('label'=>'Имя', 'size'=>85));?></li>
                 <li>
                     <?php
-                        //echo $form->input('Celem.celemgroup', array('label'=>'Grup', 'size'=>85));
-                        echo $form->input('Celem.celemgroup', array(
+                        //echo $this->Form->input('Celem.celemgroup', array('label'=>'Grup', 'size'=>85));
+                        echo $this->Form->input('Celem.celemgroup', array(
                                 'label' => 'Группа: ',
                                 'options' => array(
                   'I. Коррупционные факторы, связанные с реализацией дискреционных полномочий'=>'I. Коррупционные факторы, связанные с реализацией дискреционных полномочий',
@@ -29,7 +29,7 @@
                                 ));
                     ?>
                 </li>
-                <li><?php echo $form->input('Celem.description', array('label'=>'Описание', 'type'=>'textarea', 'style'=>'width: 65%;'));?></li>
+                <li><?php echo $this->Form->input('Celem.description', array('label'=>'Описание', 'type'=>'textarea', 'style'=>'width: 65%;'));?></li>
             </ul>
             <?php echo $this->element('submit_button');?>
     </div>

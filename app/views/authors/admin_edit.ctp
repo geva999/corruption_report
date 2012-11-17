@@ -10,12 +10,12 @@
 
     <div id="Form">
         <?php
-            echo $form->create('Author');
-            echo $form->input('Author.id');
+            echo $this->Form->create('Author');
+            echo $this->Form->input('Author.id');
 
         ?>
             <ul>
-                <li><?php echo $form->input('Author.name', array('label'=>'Название', 'size'=>'70'));?></li>
+                <li><?php echo $this->Form->input('Author.name', array('label'=>'Название', 'size'=>'70'));?></li>
             </ul>
             <?php echo $this->element('submit_button');?>
     </div>

@@ -54,7 +54,7 @@ class AuthorsController extends AppController {
       $this->Session->setFlash(__('Неверный ID для непосредственного автора.', true), 'jgrowl');
       $this->redirect('/admin/authors');
     }
-    if ($this->Author->del($id)) {
+    if ($this->Author->delete($id)) {
       $this->Session->setFlash(__('Непосредственный автор был удален.', true), 'jgrowl');
       $this->redirect('/admin/authors');
     }

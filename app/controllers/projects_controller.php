@@ -192,7 +192,7 @@ class ProjectsController extends AppController {
       $this->Session->setFlash(__('Неверный ID для проекта.', true), 'jgrowl');
       $this->redirect('/admin/projects');
     }
-    if ($this->Project->del($id)) {
+    if ($this->Project->delete($id)) {
       $this->Session->setFlash(__('Проект был удален.', true), 'jgrowl');
       $this->redirect('/admin/projects');
     }

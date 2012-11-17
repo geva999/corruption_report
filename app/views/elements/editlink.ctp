@@ -1,6 +1,1 @@
-<?php
-  echo $html->link(
-    $html->image('/images/edit.png', array('title' => 'Редактировать')),
-    $editlink,
-    null, null, false);
-?>
+<?php echo $this->Html->image('/images/edit.png', array('title' => 'Редактировать', 'url' => $editlink)); ?>

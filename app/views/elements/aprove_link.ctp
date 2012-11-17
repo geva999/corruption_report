@@ -1,6 +1,1 @@
-<?php
-  echo $html->link(
-    $html->image('/images/aproved.png', array('title' => 'Утверждение')),
-    $aprovelink,
-    null, null, false);
-?>
+<?php echo $this->Html->image('/images/aproved.png', array('title' => 'Утверждение', 'url' => $aprovelink)); ?>

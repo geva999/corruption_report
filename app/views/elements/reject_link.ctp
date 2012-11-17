@@ -1,6 +1,1 @@
-<?php
-  echo $html->link(
-    $html->image('/images/returned.png', array('title' => 'Отклонение')),
-    $rejectlink,
-    null, null, false);
-?>
+<?php echo $this->Html->image('/images/returned.png', array('title' => 'Отклонение', 'url' => $rejectlink)); ?>

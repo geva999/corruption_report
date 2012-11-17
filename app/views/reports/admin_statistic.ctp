@@ -12,34 +12,34 @@
 <div id="listcontent" style="color: black;">
 
     <div align="center">
-        <?php echo $form->create('Report', array('id'=>'ReportStatisticForm', 'action'=>'statistic'));?>
+        <?php echo $this->Form->create('Report', array('id'=>'ReportStatisticForm', 'action'=>'statistic'));?>
         <table cellpadding="5" cellspacing="0" border="0">
             <tr>
                 <td rowspan="4">Критерии фильтрирования статистики :</td>
                 <?php
                     echo '<td>'
-                        .$form->input('Project.projectstate', array(
+                        .$this->Form->input('Project.projectstate', array(
                                 'label'=>'Статус проекта: ',
                                 'div'=>false,
                                 'empty'=>'все',
                                 'options'=>array(2=>'Принятый', 3=>'Отозванный'))).
                         '</td>'.'<td>'.
-                        $form->input('Project.projecttype', array(
+                        $this->Form->input('Project.projecttype', array(
                                 'label'=>'Вид проекта: ',
                                 'div'=>false,
                                 'empty'=>'все',
                                 'options'=>array('проект закона'=>'проект закона', 'по запросу'=>'по запросу'))).
                         '</td>'.'<td rowspan="4">'.
-                        $form->submit('Фильтрирование', array('div'=>false)).
+                        $this->Form->submit('Фильтрирование', array('div'=>false)).
                         '</td>'.'<tr><td colspan="2">Период афиширования - '.
-                        $form->input('Report.date1text', array('label'=>'&nbsp;&nbsp;&nbsp;от: ', 'div'=>false, 'size'=>'17', 'maxlength'=>'18', 'readonly'=>'readonly')).
-                        $form->hidden('Report.date1').
-                        $form->input('Report.date2text', array('label'=>'&nbsp;&nbsp;&nbsp;до: ', 'div'=>false, 'size'=>'17', 'maxlength'=>'18', 'readonly'=>'readonly')).
-                        $form->hidden('Report.date2').
+                        $this->Form->input('Report.date1text', array('label'=>'&nbsp;&nbsp;&nbsp;от: ', 'div'=>false, 'size'=>'17', 'maxlength'=>'18', 'readonly'=>'readonly')).
+                        $this->Form->hidden('Report.date1').
+                        $this->Form->input('Report.date2text', array('label'=>'&nbsp;&nbsp;&nbsp;до: ', 'div'=>false, 'size'=>'17', 'maxlength'=>'18', 'readonly'=>'readonly')).
+                        $this->Form->hidden('Report.date2').
                         '</td></tr>'.'<tr><td>'.
-                        $form->input('Project.expert_id', array('empty'=>'все', 'label'=>'Имя эксперта: ', 'div'=>false)).
+                        $this->Form->input('Project.expert_id', array('empty'=>'все', 'label'=>'Имя эксперта: ', 'div'=>false)).
                         '</td>'.'<td>&nbsp;</td></tr><tr><td>'.
-                        $form->input('Project.initiative', array(
+                        $this->Form->input('Project.initiative', array(
                                 'label'=>'Законодательная инициатива: ',
                                 'div'=>false,
                                 'empty'=>'все',
@@ -48,12 +48,12 @@
                                     'депутаты Парламента'=>'депутаты Парламента',
                                     'Президент'=>'Президент'))).
                         '</td><td>'.
-                        $form->input('Project.author_id', array('empty'=>'все', 'label'=>'Непосредственный автор проекта: ', 'div'=>false)).
+                        $this->Form->input('Project.author_id', array('empty'=>'все', 'label'=>'Непосредственный автор проекта: ', 'div'=>false)).
                         '</td></tr>';
                 ?>
             </tr>
         </table>
-        <?php echo $form->end();?>
+        <?php echo $this->Form->end();?>
     </div>
     <div id="spinner" style="display: none; text-align: center;"><br/><img src="/img/loadinganimation.gif"/><br/></div>
 
