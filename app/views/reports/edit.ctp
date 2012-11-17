@@ -49,13 +49,13 @@
       <h3>
         <?php
           if (substr($projectname, 0, 7) == 'проекту')
-						$projectname = substr($projectname, 7, strlen($projectname)-7);
+                        $projectname = substr($projectname, 7, strlen($projectname)-7);
           if ($projecttype == 'проект закона')
             echo '<p align="center" class="evidentiat">(зарегистрированный в Парламенте под номером '.
-							$this->data['Project']['projectnumber'].
+                            $this->data['Project']['projectnumber'].
               ' от '.$this->data['Project']['projectdatetext'].')</p>';
           else
-						echo '<p align="center">По запросу '.nl2br($this->data['Project']['namesolicitare']).'</p>';
+                        echo '<p align="center">По запросу '.nl2br($this->data['Project']['namesolicitare']).'</p>';
         ?>
       </h3>
     </td>
@@ -73,7 +73,7 @@
             <?php
               if ($projecttype == 'проект закона') {
                 echo '<tr><td valign="top" width="390">Зарегистрированный в Парламенте под №. '.
-									$this->data['Project']['projectnumber'].'</td>'.
+                                    $this->data['Project']['projectnumber'].'</td>'.
                   '<td valign="top">от: '.$this->data['Project']['projectdatetext'].'</td></tr>';
               }
             ?>
@@ -92,7 +92,7 @@
             //<!-- Пункт 1 -->
             $headcontent = ' является '.$this->data['Project']['initiative'];
             if ($this->data['Project']['initiative'] == 'Правительство')
-							$headcontent = $headcontent.', непосредственный автор - '.$author;
+                            $headcontent = $headcontent.', непосредственный автор - '.$author;
             echo $this->element('report_edit_pointhead', array(
                 'letter'=>$pointdigit,
                 'headtext'=>'Автор законодательной инициативы',
@@ -130,10 +130,10 @@
           ?>
           <table width="100%" border="0" cellpadding="3" cellspacing="0" class="blue">
             <?php
-							echo $this->element('report_edit_radio', array(
-								'tdtext'=>'Обоснование достаточное?',
-								'radioname'=>'p07radio1'));
-						?>
+                            echo $this->element('report_edit_radio', array(
+                                'tdtext'=>'Обоснование достаточное?',
+                                'radioname'=>'p07radio1'));
+                        ?>
           </table>
 
           <!-- Пункт 8 -->
@@ -147,10 +147,10 @@
           ?>
           <table border="0" cellpadding="3" cellspacing="0" width="100%" class="blue">
             <?php
-            	echo $this->element('report_edit_radio', array(
-								'tdtext'=>'Записка / проект содержит ссылки на другие релевантные международные стандарты?',
-								'radioname'=>'p08radio2'));
-						?>
+                echo $this->element('report_edit_radio', array(
+                                'tdtext'=>'Записка / проект содержит ссылки на другие релевантные международные стандарты?',
+                                'radioname'=>'p08radio2'));
+                        ?>
           </table>
 
           <!-- Пункт 9 -->
@@ -165,15 +165,15 @@
           ?>
           <table border="0" cellpadding="3" cellspacing="0" width="100%" class="blue">
             <?php
-							echo $this->element('report_edit_radio', array(
-								'tdtext'=>'Применение проекта предполагает финансовые затраты?',
-								'radioname'=>'p09radio1'));
+                            echo $this->element('report_edit_radio', array(
+                                'tdtext'=>'Применение проекта предполагает финансовые затраты?',
+                                'radioname'=>'p09radio1'));
               $trstyle = ($this->data['Report']['p09radio1'] == 2) ? $trstyle = 'display: none;' : null;
               echo $this->element('report_edit_radio', array(
-								'tdtext'=>'Пояснительная записка содержит финансово-экономическое обоснование?',
-								'radioname'=>'p09radio2',
-								'trclass'=>'divtohidep09radio1',
-								'trstyle'=>$trstyle));
+                                'tdtext'=>'Пояснительная записка содержит финансово-экономическое обоснование?',
+                                'radioname'=>'p09radio2',
+                                'trclass'=>'divtohidep09radio1',
+                                'trstyle'=>$trstyle));
             ?>
             </tr>
           </table>
@@ -189,10 +189,10 @@
           ?>
             <table width="100%" border="0" cellpadding="3" cellspacing="0" class="blue">
               <?php
-								echo $this->element('report_edit_radio', array(
-									'tdtext'=>'Проект был согласован с аккредитованными субъектами частного предпринимательства?',
-									'radioname'=>'p10radio1'));
-							?>
+                                echo $this->element('report_edit_radio', array(
+                                    'tdtext'=>'Проект был согласован с аккредитованными субъектами частного предпринимательства?',
+                                    'radioname'=>'p10radio1'));
+                            ?>
             </table>
         <?php }?>
       </div>
@@ -217,15 +217,15 @@
           ?>
           <table border="0" cellpadding="3" cellspacing="0" width="100%" class="blue">
             <?php
-							echo $this->element('report_edit_radio', array(
-								'tdtext'=>'Проект продвигает интересы, выгоды?',
-								'radioname'=>'p11radio1'));
-							$trstyle = ($this->data['Report']['p11radio1'] == 2) ? $trstyle = 'display: none;' : null;
+                            echo $this->element('report_edit_radio', array(
+                                'tdtext'=>'Проект продвигает интересы, выгоды?',
+                                'radioname'=>'p11radio1'));
+                            $trstyle = ($this->data['Report']['p11radio1'] == 2) ? $trstyle = 'display: none;' : null;
               echo $this->element('report_edit_radio', array(
-								'tdtext'=>'Продвижение соответствует общему интересу общества?',
-								'radioname'=>'p11radio2',
-								'trclass'=>'divtohidep11radio1',
-								'trstyle'=>$trstyle));
+                                'tdtext'=>'Продвижение соответствует общему интересу общества?',
+                                'radioname'=>'p11radio2',
+                                'trclass'=>'divtohidep11radio1',
+                                'trstyle'=>$trstyle));
             ?>
           </table>
 
@@ -240,15 +240,15 @@
           ?>
           <table border="0" cellpadding="3" cellspacing="0" width="100%" class="blue">
             <?php
-							echo $this->element('report_edit_radio', array(
-								'tdtext'=>'При применении, проект нанесит ущерб?',
-								'radioname'=>'p12radio1'));
-							$trstyle = ($this->data['Report']['p12radio1'] == 2) ? $trstyle = 'display: none;' : null;
+                            echo $this->element('report_edit_radio', array(
+                                'tdtext'=>'При применении, проект нанесит ущерб?',
+                                'radioname'=>'p12radio1'));
+                            $trstyle = ($this->data['Report']['p12radio1'] == 2) ? $trstyle = 'display: none;' : null;
               echo $this->element('report_edit_radio', array(
-								'tdtext'=>'Ущерб соответствует общему интересу общества?',
-								'radioname'=>'p12radio2',
-								'trclass'=>'divtohidep12radio1',
-								'trstyle'=>$trstyle));
+                                'tdtext'=>'Ущерб соответствует общему интересу общества?',
+                                'radioname'=>'p12radio2',
+                                'trclass'=>'divtohidep12radio1',
+                                'trstyle'=>$trstyle));
             ?>
           </table>
 
@@ -262,10 +262,10 @@
           ?>
           <table border="0" cellpadding="3" cellspacing="0" width="100%" class="blue">
             <?php
-							echo $this->element('report_edit_radio', array(
-								'tdtext'=>'Проект соответствует национальному законодательству?',
-								'radioname'=>'p13radio1'));
-						?>
+                            echo $this->element('report_edit_radio', array(
+                                'tdtext'=>'Проект соответствует национальному законодательству?',
+                                'radioname'=>'p13radio1'));
+                        ?>
           </table>
 
           <!-- Пункт 14 -->
@@ -278,10 +278,10 @@
           ?>
           <table border="0" cellpadding="3" cellspacing="0" width="100%" class="blue">
             <?php
-							echo $this->element('report_edit_radio', array(
-								'tdtext'=>'У эксперта есть существенные замечания относительно лингвистических формулировок?',
-								'radioname'=>'p14radio1'));
-						?>
+                            echo $this->element('report_edit_radio', array(
+                                'tdtext'=>'У эксперта есть существенные замечания относительно лингвистических формулировок?',
+                                'radioname'=>'p14radio1'));
+                        ?>
           </table>
 
           <!-- Пункт 15 -->
@@ -295,15 +295,15 @@
           ?>
           <table border="0" cellpadding="3" cellspacing="0" width="100%" class="blue">
             <?php
-							echo $this->element('report_edit_radio', array(
-								'tdtext'=>'Проект регулирует деятельность государственных органов?',
-								'radioname'=>'p15radio1'));
-							$trstyle = ($this->data['Report']['p15radio1'] == 2) ? $trstyle = 'display: none;' : null;
+                            echo $this->element('report_edit_radio', array(
+                                'tdtext'=>'Проект регулирует деятельность государственных органов?',
+                                'radioname'=>'p15radio1'));
+                            $trstyle = ($this->data['Report']['p15radio1'] == 2) ? $trstyle = 'display: none;' : null;
               echo $this->element('report_edit_radio', array(
-								'tdtext'=>'У эксперта есть замечания?',
-								'radioname'=>'p15radio2',
-								'trclass'=>'divtohidep15radio1',
-								'trstyle'=>$trstyle));
+                                'tdtext'=>'У эксперта есть замечания?',
+                                'radioname'=>'p15radio2',
+                                'trclass'=>'divtohidep15radio1',
+                                'trstyle'=>$trstyle));
             ?>
           </table>
 
@@ -369,9 +369,9 @@
               <h2>Замечания администратора к эксперту</h2>
               <?php
                 if ($isadmin == 1)
-									echo $form->input('Report.admincoments', array('type'=>'textarea', 'label'=>false));
+                                    echo $form->input('Report.admincoments', array('type'=>'textarea', 'label'=>false));
                 else
-									echo $form->input('Report.admincoments', array('type'=>'textarea', 'label'=>false, 'readonly'=>'readonly'));
+                                    echo $form->input('Report.admincoments', array('type'=>'textarea', 'label'=>false, 'readonly'=>'readonly'));
               ?>
           </div>
           <br/><br/>
@@ -416,10 +416,10 @@
                 echo '<font size="+0" color="#CC0000"><strong>&nbsp;&nbsp;Отправить для одобрения</strong></font></td>';
               }
             ?>
-				  </tr>
-					<tr>
-						<td align="center" valign="center">
-							<br/>
+                  </tr>
+                    <tr>
+                        <td align="center" valign="center">
+                            <br/>
               <input name="savebutton" id="savebutton" style="width: 150px; font-size:18px;" value="Сохранить" type="submit"/>
             </td>
           </tr>
@@ -428,12 +428,12 @@
               <div id="submit-message-append" class="error-message"></div>
             </td>
           </tr>
-					<tr>
-					  <td align="center" colspan="2">
-					    <br/><br/>
-					    <a href="<?php echo $backlink;?>">назад к списку заключений</a>
-					  </td>
-					</tr>
+                    <tr>
+                      <td align="center" colspan="2">
+                        <br/><br/>
+                        <a href="<?php echo $backlink;?>">назад к списку заключений</a>
+                      </td>
+                    </tr>
         </table>
       </div>
     </td>
@@ -445,7 +445,7 @@
 <br/><br/>
 <div name="savebutton2" id="savebutton2"></div>
 <?php
-	echo $this->element('sponsor');
-	echo $javascript->codeBlock('var isadmin = '.$isadmin.'; var celemsacceptance = '.$celemsacceptance.'; var countattachment = '.$this->countattachment.';');
-	echo $javascript->link('reportedit');
+    echo $this->element('sponsor');
+    echo $javascript->codeBlock('var isadmin = '.$isadmin.'; var celemsacceptance = '.$celemsacceptance.'; var countattachment = '.$this->countattachment.';');
+    echo $javascript->link('reportedit');
 ?>

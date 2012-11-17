@@ -8,11 +8,11 @@
 .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a { cursor: text; }
 .ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
 .ui-tabs .ui-tabs-panel {
-	font-family: Verdana, Arial, sans-serif;
-	font-size: 11px;
-	border: 1px solid #d3d3d3;
-	background: none;
-	padding: 0.2em 1.0em 0.2em 1.0em;	
-	display: block;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 11px;
+  border: 1px solid #d3d3d3;
+  background: none;
+  padding: 0.2em 1.0em 0.2em 1.0em;
+  display: block;
 }
 .ui-tabs .ui-tabs-hide { display: none !important; }

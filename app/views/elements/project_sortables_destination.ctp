@@ -4,11 +4,11 @@
 <?php echo $html->image("/images/draggable.png"); ?>
 &nbsp;слева от имени пользователей)
 <div id="expertslist">
-	<div id="sortabledestination" class="connectedsortable">
-		<?php
-			if (isset($this->data['Projectexpert']))
-				foreach ($this->data['Projectexpert'] as $projectexpert)
-					echo '<div class="sortableitems">'.$form->hidden('Projectexpert.][expert_id', array('value'=>$projectexpert['expert_id'])).$projectexpertslist[$projectexpert['expert_id']].'</div>';
-		?>
-	</div>
+    <div id="sortabledestination" class="connectedsortable">
+        <?php
+            if (isset($this->data['Projectexpert']))
+                foreach ($this->data['Projectexpert'] as $projectexpert)
+                    echo '<div class="sortableitems">'.$form->hidden('Projectexpert.][expert_id', array('value'=>$projectexpert['expert_id'])).$projectexpertslist[$projectexpert['expert_id']].'</div>';
+        ?>
+    </div>
 </div>
