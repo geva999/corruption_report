@@ -10,14 +10,16 @@
 
       echo $this->Html->css('reportedit');
 
-      echo $scripts_for_layout;
+      echo $this->fetch('meta');
+      echo $this->fetch('css');
+      echo $this->fetch('script');
     ?>
   </head>$this->Form
 
   <body>
     <div id="container">
       <div id="content">
-        <?php echo $content_for_layout;?>
+        <?php echo $this->fetch('content');?>
       </div>
     </div>
 

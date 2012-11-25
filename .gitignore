@@ -3,5 +3,8 @@ app/.idea/*
 app/config/core.php
 app/config/database.php
 app/tmp
+/build
+/dist
 /lib/Cake/Console/Templates/skel/tmp/
+/tags
 .DS_Store

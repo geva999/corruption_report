@@ -15,7 +15,7 @@
   <body>
     <div id="container">
       <div id="content">
-        <?php echo $content_for_layout;?>
+        <?php echo $this->fetch('content');?>
       </div>
     </div>
 
