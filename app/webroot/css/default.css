@@ -297,14 +297,13 @@ a img {
 }
 
 #info {
-  background: url(reportsimages/info.png) no-repeat;
+  background: url(reportsimages/info.png) no-repeat scroll 0 5px;
   font-family: "Lucida Grande", Arial;
   color: #FFFFFF;
   font-size: 14px;
-  position: absolute;
-  left: 2%;
-  padding: 10px 0px 14px 50px;
-  top: 6px;
+  padding: 15px 0px 14px 50px;
+  margin-left: 2%;
+  float: left;
 }
 
 #add {
@@ -493,8 +492,8 @@ a img {
 }
 
 #menulink {
-  position: absolute;
-  right: 2%;
+  float: right;
+  margin-right: 2%;
 }
 
 #menulink a {
