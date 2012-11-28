@@ -166,23 +166,23 @@
         foreach ($subreports as $tempsubreportkey => $tempsubreportvalue) {
             $htmlcontent = $htmlcontent.'<tr align="left">'.
                     '<td bgcolor="#e2e2e2" width="20" valign="top"><p>'.$rowid.'</p></td>'.
-                    '<td bgcolor="#ececec" width="90" valign="top"><p>'.nl2br($tempsubreportvalue['Subreport']['articol']).'</p></td>'.
-                    '<td bgcolor="#e2e2e2" width="105" valign="top">'.nl2br($tempsubreportvalue['Subreport']['text']).'</td>'.
-                    '<td bgcolor="#ececec" width="107" valign="top">'.nl2br($tempsubreportvalue['Subreport']['obiectia']).'</td>'.
+                    '<td bgcolor="#ececec" width="90" valign="top"><p>'.$this->App->content_for_pdf($tempsubreportvalue['Subreport']['articol']).'</p></td>'.
+                    '<td bgcolor="#e2e2e2" width="105" valign="top">'.$this->App->content_for_pdf($tempsubreportvalue['Subreport']['text']).'</td>'.
+                    '<td bgcolor="#ececec" width="107" valign="top">'.$this->App->content_for_pdf($tempsubreportvalue['Subreport']['obiectia']).'</td>'.
                     '<td bgcolor="#e2e2e2" width="107" valign="top"><p>';
             if (!empty($tempsubreportvalue['Celem']) || !empty($tempsubreportvalue['Subreport']['alteelemente'])) {
                 $htmlcontent = $htmlcontent.'<strong><em>Коррупционность</em></strong><br/>';
                 foreach ($tempsubreportvalue['Celem'] as $tempcelemkey => $tempcelemvalue) {
-                    $htmlcontent = $htmlcontent.nl2br($tempcelemvalue['name']).'<br/>';
+                    $htmlcontent = $htmlcontent.$this->App->content_for_pdf($tempcelemvalue['name']).'<br/>';
                 }
                 if (!empty($tempsubreportvalue['Subreport']['alteelemente']))
-                    $htmlcontent = $htmlcontent.nl2br($tempsubreportvalue['Subreport']['alteelemente']).'<br/>';
+                    $htmlcontent = $htmlcontent.$this->App->content_for_pdf($tempsubreportvalue['Subreport']['alteelemente']).'<br/>';
                 $htmlcontent = $htmlcontent.'<br/>';
             }
             if (!empty($tempsubreportvalue['Subreport']['alteriscuri']))
-                $htmlcontent = $htmlcontent.'<strong>Другие риски</strong><br/>'.nl2br($tempsubreportvalue['Subreport']['alteriscuri']);
+                $htmlcontent = $htmlcontent.'<strong>Другие риски</strong><br/>'.$this->App->content_for_pdf($tempsubreportvalue['Subreport']['alteriscuri']);
             $htmlcontent = $htmlcontent.'</p></td>'.
-                '<td bgcolor="#ececec" width="90" valign="top"><p>'.nl2br($tempsubreportvalue['Subreport']['recomandarea']).'</p></td>'.
+                '<td bgcolor="#ececec" width="90" valign="top"><p>'.$this->App->content_for_pdf($tempsubreportvalue['Subreport']['recomandarea']).'</p></td>'.
       '</tr>';
             $rowid++;
         }

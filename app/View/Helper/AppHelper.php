@@ -31,4 +31,11 @@ App::uses('Helper', 'View');
  * @package       app.View.Helper
  */
 class AppHelper extends Helper {
+
+  public function content_for_pdf($content = null) {
+    $content = preg_replace("/(\S)(-)(\S)/i", "$1<span class=\"zero-space\">-</span>$3", $content);
+
+    return nl2br($content);
+  }
+
 }
