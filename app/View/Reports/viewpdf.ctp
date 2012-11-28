@@ -83,8 +83,10 @@
     $pdf->writeHTML($htmlcontent, true, 0, true, 0);
 
     $htmlcontent = '<br><h2 align="center" color="#ff6600">Общая оценка</h2>';
+    $htmlcontent .= '<div style="text-align: justify;">';
+
     if ($projecttype == 'проект закона') {
-        $htmlcontent = $htmlcontent.'<p><strong>1. Автором законодательной инициативы </strong> является '.
+        $htmlcontent = $htmlcontent.'<p><strong>1. Автором законодательной инициативы</strong> является '.
       $this->request->data['Project']['initiative'];
         if ($this->request->data['Project']['initiative'] == 'Правительство')
       $htmlcontent = $htmlcontent.', непосредственный автор - '.$author;
@@ -100,11 +102,12 @@
     nl2br($this->request->data['Report']['p04text1']).'</p>';
     $pointdigit++;
 
+    $htmlcontent .= '</div>';
+
     $pdf->writeHTML($htmlcontent, true, 0, true, 0);
 
-    $htmlcontent = '<br><h2 align="center" color="#ff6600">Обоснование проекта</h2>';
-
-
+    $htmlcontent = '<div style="text-align: justify;">';
+    $htmlcontent .= '<h2 align="center" color="#ff6600">Обоснование проекта</h2>';
 
     $htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Пояснительная записка и достаточность обоснования.</strong> '.
     nl2br($this->request->data['Report']['p07text1']).'</p>';
@@ -124,9 +127,13 @@
         $pointdigit++;
     }
 
+    $htmlcontent .= '</div>';
+
     $pdf->writeHTML($htmlcontent, true, 0, true, 0);
 
-    $htmlcontent = '<br><h2 align="center" color="#ff6600">Оценка коррупционности по существу</h2>';
+    $htmlcontent = '<div style="text-align: justify;">';
+
+    $htmlcontent .= '<h2 align="center" color="#ff6600">Оценка коррупционности по существу</h2>';
 
     $htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Установление и продвижение интересов/выгод.</strong> '.
     nl2br($this->request->data['Report']['p11text1']).'</p>';
@@ -147,6 +154,8 @@
     $htmlcontent = $htmlcontent.'<p><strong>'.$pointdigit.'. Регулирование деятельности государственных органов.</strong> '.
     nl2br($this->request->data['Report']['p15text1']).'</p>';
     $pointdigit++;
+
+    $htmlcontent .= '</div>';
 
     $pdf->writeHTML($htmlcontent, true, 0, true, 0);
 
@@ -195,13 +204,18 @@
         $pdf->SetFont('arial', '', 8);
         $pdf->writeHTML($htmlcontent, true, 0, true, 0);
     }
-    $htmlcontent = '<p>'.nl2br($this->request->data['Report']['simplesubreport']).'</p>';
+
+    $htmlcontent = '<div style="text-align: justify;">';
+    $htmlcontent .= '<p>'.nl2br($this->request->data['Report']['simplesubreport']).'</p>';
+    $htmlcontent .= '</div>';
 
     $pdf->SetFont('arial', '', 11);
     $pdf->writeHTML($htmlcontent, true, 0, true, 0);
 
-    $htmlcontent = '<br/><h2 align="center" color="#ff6600">Выводы</h2><p>'.nl2br($this->request->data['Report']['concluzii']).'</p>'.
+    $htmlcontent = '<div style="text-align: justify;">';
+    $htmlcontent .= '<h2 align="center" color="#ff6600">Выводы</h2><p>'.nl2br($this->request->data['Report']['concluzii']).'</p>'.
         '<br/><p align="right"><b>Фонд Евразия Центральной Азии</b></p>';
+    $htmlcontent .= '</div';
 
     $pdf->writeHTML($htmlcontent, true, 0, true, 0);
 
