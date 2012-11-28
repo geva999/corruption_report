@@ -33,13 +33,17 @@
     $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 
     //set some language-dependent strings
+    global $l;
     $l = Array();
+
     // PAGE META DESCRIPTORS --------------------------------------
-    $l['a_meta_charset'] = "UTF-8";
-    $l['a_meta_dir'] = "ltr";
-    $l['a_meta_language'] = "en";
+
+    $l['a_meta_charset'] = 'UTF-8';
+    $l['a_meta_dir'] = 'ltr';
+    $l['a_meta_language'] = 'ru';
+
     // TRANSLATIONS --------------------------------------
-    $l['w_page'] = "page";
+    $l['w_page'] = 'страница';
     $pdf->setLanguageArray($l);
 
     $pdf->xfootertext = $template['Template']['footerpdf'];
