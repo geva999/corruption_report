@@ -73,8 +73,7 @@ class AppController extends Controller {
         'Form' => array('userModel' => 'Expert'),
     );
     $this->Auth->authorize = array('Controller');
-    $this->Auth->allow('view');
-    //$this->Auth->allow('*');
+    $this->Auth->allow('view', 'display');
     //$this->Auth->allow();
 
     $this->Auth->authError = 'Вы не авторизированны чтобы войти в систему!';

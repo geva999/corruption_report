@@ -4,8 +4,8 @@ App::uses('AppController', 'Controller');
 class TemplatesController extends AppController {
 
   function isAuthorized() {
-    $adminrights = array('admin_index', 'admin_add', 'admin_edit', 'admin_delete', 'about');
-    $expertrights = array('about');
+    $adminrights = array('admin_index', 'admin_add', 'admin_edit', 'admin_delete');
+    $expertrights = array();
     if ($this->Auth->user('isadmin') == 1 && in_array($this->request->action, $adminrights))
       return true;
     elseif ($this->Auth->user('isadmin') == 0 && in_array($this->request->action, $expertrights))
@@ -15,13 +15,6 @@ class TemplatesController extends AppController {
   }
 
   function index() {
-  }
-
-  function about() {
-  }
-
-  function admin_about() {
-    $this->render("about");
   }
 
   function admin_index() {
