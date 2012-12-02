@@ -93,7 +93,7 @@
             }
             else echo '<td>0</td><td>0</td><td>0%</td>';
         }
-        echo '<td>'.$statistic['total_pelems'].'</td><td>'.$statistic['total_celems'].'</td><td>'.number_format($statistic['total_pelems']/$statistic['total_celems']*100, 2).'%</td>';
+        echo '<td>'.$this->App->number_or_zero($statistic['total_pelems']).'</td><td>'.$this->App->number_or_zero($statistic['total_celems']).'</td><td>'.$this->App->number_to_percent($statistic['total_pelems'], $statistic['total_celems']).'%</td>';
         echo '</tr>';
     ?>
 </table>

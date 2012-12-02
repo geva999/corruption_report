@@ -12,21 +12,21 @@
   ?>
     <tr align="center">
         <td align="left" width="200"> - проекты в процессе рассмотрения</td>
-        <td><?php echo $statistic['examinare'][0][0]['countproject'];?></td>
-        <td><?php echo number_format($statistic['examinare'][0][0]['countproject']/$total*100, 2);?></td>
-        <td><?php echo isset($statistic['examinare'][0][0]['numberpages'])?$statistic['examinare'][0][0]['numberpages']:0;?></td>
+        <td><?php echo $this->App->number_or_zero($statistic['examinare'][0][0]['countproject']);?></td>
+        <td><?php echo $this->App->number_to_percent($statistic['examinare'][0][0]['countproject'], $total);?></td>
+        <td><?php echo $this->App->number_or_zero($statistic['examinare'][0][0]['numberpages']);?></td>
     </tr>
     <tr align="center">
         <td align="left"> - принятые проекты</td>
-        <td><?php echo $statistic['adoptate'][0][0]['countproject'];?></td>
-        <td><?php echo number_format($statistic['adoptate'][0][0]['countproject']/$total*100, 2);?></td>
-        <td><?php echo isset($statistic['adoptate'][0][0]['numberpages'])?$statistic['adoptate'][0][0]['numberpages']:0;?></td>
+        <td><?php echo $this->App->number_or_zero($statistic['adoptate'][0][0]['countproject']);?></td>
+        <td><?php echo $this->App->number_to_percent($statistic['adoptate'][0][0]['countproject'], $total);?></td>
+        <td><?php echo $this->App->number_or_zero($statistic['adoptate'][0][0]['numberpages']);?></td>
     </tr>
     <tr align="center">
         <td align="left"> - отозванные проекты</td>
-        <td><?php echo $statistic['retrase'][0][0]['countproject'];?></td>
-        <td><?php echo number_format($statistic['retrase'][0][0]['countproject']/$total*100, 2);?></td>
-        <td><?php echo isset($statistic['retrase'][0][0]['numberpages'])?$statistic['retrase'][0][0]['numberpages']:0;?></td>
+        <td><?php echo $this->App->number_or_zero($statistic['retrase'][0][0]['countproject']);?></td>
+        <td><?php echo $this->App->number_to_percent($statistic['retrase'][0][0]['countproject'], $total);?></td>
+        <td><?php echo $this->App->number_or_zero($statistic['retrase'][0][0]['numberpages']);?></td>
     </tr>
     <tr align="center" bgcolor="#BBBBBB" class="statistic_table_head">
         <td align="left">Итого</td>

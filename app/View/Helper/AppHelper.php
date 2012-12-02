@@ -32,6 +32,19 @@ App::uses('Helper', 'View');
  */
 class AppHelper extends Helper {
 
+  public function number_or_zero($number = 0) {
+    return (isset($number) ? $number : 0);
+  }
+
+  public function number_to_percent($number, $total) {
+    if (!isset($number)) $number = 0;
+    if (!isset($total) || $total == 0) {
+      $number = 0;
+      $total = 1;
+    }
+    return number_format($number / $total * 100, 2);
+  }
+
   public function content_for_pdf($content = null) {
     //$content = preg_replace("/(\S)(-)(\S)/i", "$1<span class=\"zero-space\">-</span>$3", $content);
 
