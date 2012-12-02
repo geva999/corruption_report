@@ -305,9 +305,9 @@ class ReportsController extends AppController {
     $this->Report->Project->recursive = 0;
     $statisticprojectsall = array();
     $fields = array('COUNT(projectnumber) AS countproject', 'SUM(numberpages) AS numberpages');
-    $statisticprojectsall['examinare'] = $this->Report->Project->find('all', array('fields'=>$fields, 'conditions'=>array_merge($filterreports, array('Project.projectstate'=>1))));
-    $statisticprojectsall['adoptate'] = $this->Report->Project->find('all', array('fields'=>$fields, 'conditions'=>array_merge($filterreports, array('Project.projectstate'=>2))));
-    $statisticprojectsall['retrase'] = $this->Report->Project->find('all', array('fields'=>$fields, 'conditions'=>array_merge($filterreports, array('Project.projectstate'=>3))));
+    $statisticprojectsall['examinare'] = $this->Report->Project->find('all', array('fields'=>$fields, 'conditions'=>array_merge($filterreports, array('Project.projectstate'=>1)), 'group'=> array('projectnumber')));
+    $statisticprojectsall['adoptate'] = $this->Report->Project->find('all', array('fields'=>$fields, 'conditions'=>array_merge($filterreports, array('Project.projectstate'=>2)), 'group'=> array('projectnumber')));
+    $statisticprojectsall['retrase'] = $this->Report->Project->find('all', array('fields'=>$fields, 'conditions'=>array_merge($filterreports, array('Project.projectstate'=>3)), 'group'=> array('projectnumber')));
 
     $fields = array('Project.expert_id', 'Project.author_id', 'Project.initiative', 'Project.projecttype', 'Project.projectdomain', 'Project.numberpages');
     $statisticexpertsauthors = $this->Report->Project->find('all', array('fields'=>$fields, 'conditions'=>$filterprojects));
