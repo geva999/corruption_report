@@ -321,7 +321,7 @@ div#rowsdiv .ui-state-highlight {
   height: 60px;
 }
 
-#avizHead {
+.avizHead {
   font-family: Arial;
   background-color: #ededed;
   padding: 10px;
@@ -329,6 +329,6 @@ div#rowsdiv .ui-state-highlight {
   font-size: 10px;
   line-height: 14px;
   border-bottom: solid 2px #dedede;
-  margin-bottom: 15px;
-  height: 50px;
+  margin-top: 15px;
+  min-height: 55px;
 }
