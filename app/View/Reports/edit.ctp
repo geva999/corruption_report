@@ -338,7 +338,8 @@
           <!-- Выводы -->
           <h2>Выводы</h2>
           <span class="green" style="float:right;margin-bottom:-10px;"></span>
-          <?php echo $this->Form->input('Report.concluzii', array('type'=>'textarea', 'class'=>'required_dependent', 'label'=>false));?>
+          <?php echo $this->Form->input('Report.concluzii', array('type'=>'textarea', 'class'=>'required_dependent tinymceeditor', 'label'=>false));?>
+          <a href="javascript:void(0);" onclick="return toogletinymce('ReportConcluzii');">включить/выключить редактор</a>
       </div>
     </td>
   </tr>

@@ -52,6 +52,9 @@ function confirmDelete(delobj) {
   if (confirm('Хотите удалить ?')) {
     tinyMCE.execCommand('mceRemoveControl', false, 'subraport'+delobj+'SubreportText');
     tinyMCE.execCommand('mceRemoveControl', false, 'subraport'+delobj+'SubreportObiectia');
+    tinyMCE.execCommand('mceRemoveControl', false, 'subraport'+delobj+'SubreportAlteelemente');
+    tinyMCE.execCommand('mceRemoveControl', false, 'subraport'+delobj+'SubreportAlteriscuri');
+    tinyMCE.execCommand('mceRemoveControl', false, 'subraport'+delobj+'SubreportRecomandarea');
     jQuery('#subraport'+delobj+'SubreportTodelete').val(1);
     jQuery('#row'+delobj).hide();
   }
@@ -72,6 +75,9 @@ function initrows() {
     jQuery('#row'+rowid+'list').tabs();
     //tinyMCE.execCommand('mceAddControl', false, 'subraport'+rowid+'SubreportText');
     //tinyMCE.execCommand('mceAddControl', false, 'subraport'+rowid+'SubreportObiectia');
+    //tinyMCE.execCommand('mceAddControl', false, 'subraport'+rowid+'SubreportAlteelemente');
+    //tinyMCE.execCommand('mceAddControl', false, 'subraport'+rowid+'SubreportAlteriscuri');
+    //tinyMCE.execCommand('mceAddControl', false, 'subraport'+rowid+'SubreportRecomandarea');
     i++;
   });
 }
@@ -87,6 +93,9 @@ function addrow()
     jQuery('#row'+rowid+'list').tabs();
     //tinyMCE.execCommand('mceAddControl', false, 'subraport'+rowid+'SubreportText');
     //tinyMCE.execCommand('mceAddControl', false, 'subraport'+rowid+'SubreportObiectia');
+    //tinyMCE.execCommand('mceAddControl', false, 'subraport'+rowid+'SubreportAlteelemente');
+    //tinyMCE.execCommand('mceAddControl', false, 'subraport'+rowid+'SubreportAlteriscuri');
+    //tinyMCE.execCommand('mceAddControl', false, 'subraport'+rowid+'SubreportRecomandarea');
   });
   i++;
   return false;
@@ -208,6 +217,9 @@ jQuery(document).ready(function($){
       tinymcedisable = tinymcedisable.replace(/row/, '');
       tinyMCE.execCommand('mceRemoveControl', false, 'subraport'+tinymcedisable+'SubreportText');
       tinyMCE.execCommand('mceRemoveControl', false, 'subraport'+tinymcedisable+'SubreportObiectia');
+      tinyMCE.execCommand('mceRemoveControl', false, 'subraport'+tinymcedisable+'SubreportAlteelemente');
+      tinyMCE.execCommand('mceRemoveControl', false, 'subraport'+tinymcedisable+'SubreportAlteriscuri');
+      tinyMCE.execCommand('mceRemoveControl', false, 'subraport'+tinymcedisable+'SubreportRecomandarea');
     },
     helper: function() {
       var myHelper = document.createElement('div');
@@ -288,5 +300,7 @@ jQuery(document).ready(function($){
   $('#ReportP05list1').trigger('change');
 
   initrows();
+
+  toogletinymce('ReportConcluzii');
 
 });

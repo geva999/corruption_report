@@ -76,17 +76,18 @@
                             </tr>
                         </table>
                         <br/><br/>Другие факторы<br/>
-                        <?php
-                            echo $this->Form->textarea('subraport.'.$rowid.'.Subreport.alteelemente');
-                            if ($celemsacceptance == 1) echo $this->Form->input('subraport.'.$rowid.'.Subreport.alteelementeacceptate', array('type'=>'checkbox', 'label'=>' принять другие факторы'));
-                        ?>
+                        <?php echo $this->Form->textarea('subraport.'.$rowid.'.Subreport.alteelemente', array('class'=>'tinymceeditor'));?>
+                        <a href="javascript:void(0);" onclick="return toogletinymce('subraport<?php echo $rowid;?>SubreportAlteelemente');">включить/выключить редактор</a>
+                        <br/>
+                        <?php if ($celemsacceptance == 1) echo $this->Form->input('subraport.'.$rowid.'.Subreport.alteelementeacceptate', array('type'=>'checkbox', 'label'=>' принять другие факторы'));?>
                         <br/>Другие риски<br/>
-                        <?php
-                            echo $this->Form->textarea('subraport.'.$rowid.'.Subreport.alteriscuri');
-                            if ($celemsacceptance == 1) echo $this->Form->input('subraport.'.$rowid.'.Subreport.alteriscuriacceptate', array('type'=>'checkbox', 'label'=>' принять другие риски'));
-                        ?>
+                        <?php echo $this->Form->textarea('subraport.'.$rowid.'.Subreport.alteriscuri', array('class'=>'tinymceeditor'));?>
+                        <a href="javascript:void(0);" onclick="return toogletinymce('subraport<?php echo $rowid;?>SubreportAlteriscuri');">включить/выключить редактор</a>
+                        <br/>
+                        <?php if ($celemsacceptance == 1) echo $this->Form->input('subraport.'.$rowid.'.Subreport.alteriscuriacceptate', array('type'=>'checkbox', 'label'=>' принять другие риски'));?>
                         <br/>Рекомендация<br/>
-                        <?php echo $this->Form->textarea('subraport.'.$rowid.'.Subreport.recomandarea');?>
+                        <?php echo $this->Form->textarea('subraport.'.$rowid.'.Subreport.recomandarea', array('class'=>'tinymceeditor'));?>
+                        <a href="javascript:void(0);" onclick="return toogletinymce('subraport<?php echo $rowid;?>SubreportRecomandarea');">включить/выключить редактор</a>
                     </div>
                 </div>
             </td>

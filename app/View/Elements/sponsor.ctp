@@ -7,8 +7,6 @@
   <strong>Шведского Агенства по Сотрудничеству и Международному Развитию и Совета Европы</strong>.
 </div>
 
-<br/>
-
 <div class="avizHead">
   <img hspace="5" align="left" src="/images/sponsor2.png" />
   <img hspace="5" align="left" src="/images/sponsor3.png" />
