@@ -214,7 +214,7 @@
 
     $htmlcontent = '<div style="text-align: justify;">';
     $htmlcontent .= '<h2 align="center" color="#ff6600">Выводы</h2><p>'.nl2br($this->request->data['Report']['concluzii']).'</p>'.
-        '<br/><p align="right"><b>'.$expert['Expert']['fullname'].'<br/>Фонд Евразия Центральной Азии</b></p>';
+        '<br/><p align="right">'.$expert['Expert']['fullname'].'<br/><strong>Фонд Евразия Центральной Азии</strong></p>';
     $htmlcontent .= '</div';
 
     $pdf->writeHTML($htmlcontent, true, 0, true, 0);

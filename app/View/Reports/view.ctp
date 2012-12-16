@@ -178,10 +178,10 @@
 
             <br/><br/>
             <p align="right">
-              <font size=2><b>
+              <font size=2>
                 <?php echo $expert['Expert']['fullname'];?><br/>
-                Фонд Евразия Центральной Азии
-              </b></font>
+                <strong>Фонд Евразия Центральной Азии</strong>
+              </font>
             </p>
 
             <?php
