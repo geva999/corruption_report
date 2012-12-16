@@ -87,8 +87,8 @@
 
     if ($projecttype == 'проект закона') {
         $htmlcontent = $htmlcontent.'<p><strong>1. Автором законодательной инициативы</strong> является '.
-      $this->request->data['Project']['initiative'];
-        if ($this->request->data['Project']['initiative'] == 'Правительство')
+    $author_groups[$this->request->data['Project']['initiative']];
+        if (in_array($this->request->data['Project']['initiative'], $ag_with_authors))
       $htmlcontent = $htmlcontent.', непосредственный автор - '.$author;
         $htmlcontent = $htmlcontent.', что соответствует ст. 73 Конституции и ст. 44 Регламента Парламента.</p>'.
             '<p><strong>2. Категория предложенного законодательного акта</strong> является '.

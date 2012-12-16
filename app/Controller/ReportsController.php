@@ -290,9 +290,7 @@ class ReportsController extends AppController {
     if ($this->request->data['Project']['projectstate'] != '')
       $filter = array_merge($filter, array('Project.projectstate'=>$this->request->data['Project']['projectstate']));
     if ($this->request->data['Project']['initiative'] != '')
-      if ($this->request->data['Project']['initiative'] == 'депутаты Парламента')
-        $filter = array_merge($filter, array('Project.initiative'=>array('депутат', 'группа депутатов')));
-      else $filter = array_merge($filter, array('Project.initiative'=>$this->request->data['Project']['initiative']));
+      $filter = array_merge($filter, array('Project.initiative'=>$this->request->data['Project']['initiative']));
     $filterreports = $filter;
     if ($this->request->data['Report']['date1'] != '') {
       $filterreports = array_merge($filterreports, array('Report.reportdate >= '=>$this->request->data['Report']['date1']));
@@ -377,7 +375,7 @@ class ReportsController extends AppController {
       $result['Experts'][$project['expert_id']]['total_numberpages'] = $result['Experts'][$project['expert_id']]['total_numberpages'] + $project['numberpages'];
       $result[$project['projecttype']]['Experts'][$project['expert_id']]['projects']++;
       $result[$project['projecttype']]['Experts'][$project['expert_id']]['numberpages'] = $result[$project['projecttype']]['Experts'][$project['expert_id']]['numberpages'] + $project['numberpages'];
-      if ($project['initiative'] == 'Правительство' || $project['projecttype'] == 'по запросу') {
+      if (in_array($project['initiative'], $this->ag_with_authors) || $project['projecttype'] == 'по запросу') {
         $result['Authors']['total']++;
         $result['Authors'][$project['author_id']]['total']++;
         $result[$project['projecttype']]['Authors']['total']++;

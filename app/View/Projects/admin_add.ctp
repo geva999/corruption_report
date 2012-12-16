@@ -70,15 +70,12 @@
                                 'label' => 'Законодательная инициатива',
                                 'div' => false,
                                 'empty' => 'выберите',
-                                'options' => array(
-                                    'Правительство'=>'Правительство',
-                                    'депутат'=>'депутат',
-                                    'группа депутатов'=>'группа депутатов',
-                                    'Президент'=>'Президент')));
+                                'options' => $author_groups
+                             ));
                     ?>
                 </li>
                 <br/>
-                <li class="option3"<?php if ($this->request->data['Project']['initiative'] != 'Правительство' && $projecttype == 'проект закона') echo ' style="display:none;"';?>>
+                <li class="option3"<?php if (!in_array($this->request->data['Project']['initiative'], $ag_with_authors) && $projecttype == 'проект закона') echo ' style="display:none;"';?>>
                     <?php echo $this->Form->input('Project.author_id', array('label'=>'Непосредственный автор'));?>
                 </li>
                 <li><?php echo $this->Form->input('Project.reportnumber', array('label'=>'Номер заключения'));?></li>

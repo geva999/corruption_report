@@ -15,8 +15,10 @@
         });
 
         $('#ProjectInitiative').change(function () {
-            if ($(this).val() != 'Правительство') $('.option3').hide();
-            else $('.option3').show();
+            if ($(this).val() == 'ag_40' || $(this).val() == 'ag_50')
+              $('.option3').show();
+            else
+              $('.option3').hide();
         });
 
         $('#ProjectProjectdomain').change(function () {

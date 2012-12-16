@@ -16,15 +16,7 @@
             <ul>
                 <li><?php echo $this->Form->input('Celem.number', array('label'=>'№', 'size'=>4));?></li>
                 <li><?php echo $this->Form->input('Celem.name', array('label'=>'Имя', 'size'=>85));?></li>
-                <li>
-                    <?php
-                        //echo $this->Form->input('Celem.celemgroup', array('label'=>'Grup', 'size'=>85));
-                        echo $this->Form->input('Celem.celemgroup', array(
-                               'label' => 'Группа: ',
-                               'options' => $celem_groups_select
-                             ));
-                    ?>
-                </li>
+                <li><?php echo $this->Form->input('Celem.celemgroup', array('label' => 'Группа: ', 'options' => $celem_groups_select));?></li>
                 <li><?php echo $this->Form->input('Celem.description', array('label'=>'Описание', 'type'=>'textarea', 'style'=>'width: 65%;'));?></li>
             </ul>
             <?php echo $this->element('submit_button');?>

@@ -90,8 +90,8 @@
         <?php
           if ($projecttype == 'проект закона') {
             //<!-- Пункт 1 -->
-            $headcontent = ' является '.$this->request->data['Project']['initiative'];
-            if ($this->request->data['Project']['initiative'] == 'Правительство')
+            $headcontent = ' является '.$author_groups[$this->request->data['Project']['initiative']];
+            if (in_array($this->request->data['Project']['initiative'], $ag_with_authors))
                             $headcontent = $headcontent.', непосредственный автор - '.$author;
             echo $this->element('report_edit_pointhead', array(
                 'letter'=>$pointdigit,

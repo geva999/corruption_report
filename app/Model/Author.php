@@ -7,6 +7,7 @@ App::uses('AppModel', 'Model');
  */
 class Author extends AppModel {
   public $displayField = 'name';
+  public $order = array('Author.author_group_id', 'Author.name');
 
   public $validate = array(
     'name' => array(

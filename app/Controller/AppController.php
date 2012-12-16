@@ -58,7 +58,6 @@ class AppController extends Controller {
       'order' => 'Expert.fullname ASC',
       'limit' => 30),
     'Author' => array(
-      'order' => 'Author.name ASC',
       'limit' => 50),
     'Celem' => array(
       'order' => 'Celem.number ASC',
@@ -66,6 +65,28 @@ class AppController extends Controller {
     'Template' => array(
       'order'=>'Template.date DESC',
       'limit' => 20)
+  );
+
+  public $domains = array(
+    'I. Права и свободы гражданина',
+    'II. Экономика и финансы',
+    'III. Государственная администрация',
+    'IV. Юстиция, оборона и безопасность',
+    'V. Образование, здравоохранение и социальное обеспечение'
+  );
+  public $author_groups = array(
+    'ag_10'=>'Президент Республики Казахстан',
+    'ag_20'=>'Депутаты Парламента Республики Казахстан',
+    'ag_30'=>'Правительство Республики Казахстан',
+    'ag_40'=>'Министерства Республики Казахстан',
+    'ag_50'=>'Агентства Республики Казахстан'
+  );
+  public $ag_with_authors = array('ag_40', 'ag_50');
+  public $celem_groups = array(
+    'I. Коррупционные факторы, связанные с реализацией дискреционных полномочий',
+    'II. Коррупционные факторы, связанные с правовыми пробелами',
+    'III. Коррупционные факторы системного характера',
+    'IV. Другие коррупционные проявления'
   );
 
   public function beforeFilter() {
@@ -85,39 +106,26 @@ class AppController extends Controller {
     $this->Auth->ajaxLogin = null;
     $this->Auth->flash = array('element' => 'jgrowl', 'key' => 'auth', 'params' => array());
 
-    //if ($this->Auth->loggedIn())
-    if ($this->Auth->user()) {
+    if ($this->Auth->loggedIn()) {
       $loginedexpertid = $this->Auth->user('id');
       $logineduserfullname = $this->Auth->user('fullname');
       $isadmin = $this->Auth->user('isadmin');
       $this->set(compact('loginedexpertid', 'logineduserfullname', 'isadmin'));
     }
 
-    //set domains
-    $domains = array(
-      'I. Права и свободы гражданина',
-      'II. Экономика и финансы',
-      'III. Государственная администрация',
-      'IV. Юстиция, оборона и безопасность',
-      'V. Образование, здравоохранение и социальное обеспечение');
-    $domains_select = array(
-      $domains[0]=>$domains[0],
-      $domains[1]=>$domains[1],
-      $domains[2]=>$domains[2],
-      $domains[3]=>$domains[3],
-      $domains[4]=>$domains[4]);
-    $celem_groups = array(
-      'I. Коррупционные факторы, связанные с реализацией дискреционных полномочий',
-      'II. Коррупционные факторы, связанные с правовыми пробелами',
-      'III. Коррупционные факторы системного характера',
-      'IV. Другие коррупционные проявления'
-    );
-    $celem_groups_select = array(
-      $celem_groups[0]=>$celem_groups[0],
-      $celem_groups[1]=>$celem_groups[1],
-      $celem_groups[2]=>$celem_groups[2],
-      $celem_groups[3]=>$celem_groups[3]
-    );
-    $this->set(compact('domains', 'domains_select', 'celem_groups', 'celem_groups_select'));
+    $this->set('domains', $this->domains);
+    $this->set('domains_select', $this->__for_selector($this->domains));
+    $this->set('author_groups', $this->author_groups);
+    $this->set('ag_with_authors', $this->ag_with_authors);
+    $this->set('celem_groups', $this->celem_groups);
+    $this->set('celem_groups_select', $this->__for_selector($this->celem_groups));
+  }
+
+  public function __for_selector($obj) {
+    $res = array();
+    foreach($obj as $val)
+      $res[$val] = $val;
+
+    return $res;
   }
 }

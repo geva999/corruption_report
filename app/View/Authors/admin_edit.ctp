@@ -15,6 +15,7 @@
 
         ?>
             <ul>
+                <li><?php echo $this->Form->input('Author.author_group_id', array('label' => 'Группа: ', 'options' => $author_groups));?></li>
                 <li><?php echo $this->Form->input('Author.name', array('label'=>'Название', 'size'=>'70'));?></li>
             </ul>
             <?php echo $this->element('submit_button');?>

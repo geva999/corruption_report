@@ -115,7 +115,8 @@ class ProjectsController extends AppController {
         move_uploaded_file($this->request->data['Project']['file']['tmp_name'], 'uploaded/projects/'.$filename);
         $this->request->data['Project']['filename'] = $filename;
       }
-      if ($this->request->data['Project']['initiative'] != 'Правительство' && $this->request->data['Project']['projecttype'] == 'проект закона') $this->request->data['Project']['author_id'] = 0;
+      if (!in_array($this->request->data['Project']['initiative'], $this->ag_with_authors) && $this->request->data['Project']['projecttype'] == 'проект закона')
+        $this->request->data['Project']['author_id'] = 0;
       $this->Project->create();
       $this->Project->set($this->request->data);
       if ($this->Project->validates()) {
@@ -151,7 +152,8 @@ class ProjectsController extends AppController {
         move_uploaded_file($this->request->data['Project']['file']['tmp_name'], 'uploaded/projects/'.$filename);
         $this->request->data['Project']['filename'] = $filename;
       }
-      if ($this->request->data['Project']['initiative'] != 'Правительство' && $this->request->data['Project']['projecttype'] == 'проект закона') $this->request->data['Project']['author_id'] = 0;
+      if (!in_array($this->request->data['Project']['initiative'], $this->ag_with_authors) && $this->request->data['Project']['projecttype'] == 'проект закона')
+        $this->request->data['Project']['author_id'] = 0;
       $this->Project->set($this->request->data);
       if ($this->Project->validates()) {
         if ($this->Project->save($this->request->data, false)) {

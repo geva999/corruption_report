@@ -11,6 +11,7 @@
     <table width="100%" border="0" cellspacing="1" cellpadding="5" id="green">
         <tr>
             <th width="5">№</th>
+            <th width="210"><?php echo $this->Paginator->sort('Author.author_group_id', 'Группа', array('title' => 'сортировка согласно Группе'));?></th>
             <th><?php echo $this->Paginator->sort('Author.name', 'Непосредственный автор', array('title' => 'сортировка согласно непосредственному автору'));?></th>
             <th width="50">Редактирование</th>
             <th width="50">Удаление</th>
@@ -20,6 +21,7 @@
         foreach ($authors as $author) {?>
         <tr valign="top">
             <td align="center"><?php echo $i.'.'; $i++;?></td>
+            <td><?php echo $author_groups[$author['Author']['author_group_id']];?></td>
             <td><?php echo $author['Author']['name'];?></td>
             <td align="center"><?php echo $this->element('editlink', array('editlink'=>'/admin/authors/edit/'.$author['Author']['id']));?></td>
             <td align="center"><?php echo $this->element('deletelink', array('deletelink'=>'/admin/authors/delete/'.$author['Author']['id'], 'deletelinkquestion'=>'непосредственный автор'));?></td>
