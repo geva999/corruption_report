@@ -157,10 +157,12 @@ class ProjectsController extends AppController {
         if ($this->Project->save($this->request->data, false)) {
           if ($this->request->data['Project']['projecttype'] == 'по запросу')
             $reportupdate = array('Report.p02list1'=>NULL, 'Report.p02list2'=>NULL, 'Report.p02text1'=>NULL, 'Report.p02option1'=>0, 'Report.p02option2'=>0, 'Report.p05list1'=>NULL, 'Report.p05text1'=>NULL);
-          else $reportupdate = array();
+          else
+            $reportupdate = array();
           if ($this->request->data['Project']['reportimpact'] != 1)
             $reportupdate = array_merge($reportupdate, array('Report.p10text1'=>NULL, 'Report.p10radio1'=>0));
-          $this->Project->Report->updateAll($reportupdate, array('Report.project_id'=>$id));
+          if (!empty($reportupdate))
+            $this->Project->Report->updateAll($reportupdate, array('Report.project_id'=>$id));
           $this->Project->Projectexpert->deleteAll(array('Projectexpert.project_id'=>$this->Project->id));
           if (!empty($this->request->data['Projectexpert'])) {
             foreach ($this->request->data['Projectexpert'] as $projectexpertkey => $projectexpertvalue)
