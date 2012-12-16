@@ -7,7 +7,7 @@
         <?php
             foreach ($otherelements as $otherelement)
             {
-                echo '<tr><td class="sector" style="text-align:left; width:80%;"> - '.$otherelement['Subreport']['alteelemente'].'</td>';
+                echo '<tr><td class="sector" style="text-align:left; width:80%;"> - '.strip_tags($otherelement['Subreport']['alteelemente']).'</td>';
                 echo '<td align="center"><b>'.$otherelement[0]['countalteelemente'].'</b></td><tr>';
             }
         ?>

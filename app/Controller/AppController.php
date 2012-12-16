@@ -100,12 +100,24 @@ class AppController extends Controller {
       'III. Государственная администрация',
       'IV. Юстиция, оборона и безопасность',
       'V. Образование, здравоохранение и социальное обеспечение');
-    $domainsforselect = array(
+    $domains_select = array(
       $domains[0]=>$domains[0],
       $domains[1]=>$domains[1],
       $domains[2]=>$domains[2],
       $domains[3]=>$domains[3],
       $domains[4]=>$domains[4]);
-    $this->set(compact('domains', 'domainsforselect'));
+    $celem_groups = array(
+      'I. Коррупционные факторы, связанные с реализацией дискреционных полномочий',
+      'II. Коррупционные факторы, связанные с правовыми пробелами',
+      'III. Коррупционные факторы системного характера',
+      'IV. Другие коррупционные проявления'
+    );
+    $celem_groups_select = array(
+      $celem_groups[0]=>$celem_groups[0],
+      $celem_groups[1]=>$celem_groups[1],
+      $celem_groups[2]=>$celem_groups[2],
+      $celem_groups[3]=>$celem_groups[3]
+    );
+    $this->set(compact('domains', 'domains_select', 'celem_groups', 'celem_groups_select'));
   }
 }

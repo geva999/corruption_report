@@ -206,9 +206,8 @@ class ReportsController extends AppController {
     Configure::write('debug', '0');
     $this->layout='viewelements';
     $this->Report->Subreport->Celem->recursive = -1;
-    $celemgroups = $this->Report->Subreport->Celem->find('all', array('fields'=>array('DISTINCT Celem.celemgroup')));
     $celems = $this->Report->Subreport->Celem->find('all', array('order'=>'Celem.number ASC'));
-    $this->set(compact('celemgroups', 'celems'));
+    $this->set(compact('celems'));
     }
 
   function viewotherelements() {
@@ -217,7 +216,7 @@ class ReportsController extends AppController {
     $this->Report->Subreport->recursive = -1;
     $otherelements = $this->Report->Subreport->find('all', array(
       'fields'=>array('COUNT(Subreport.alteelemente) AS countalteelemente', 'Subreport.alteelemente'),
-      'conditions'=>array('Subreport.alteelemente <>'=>''), 'group'=>'Subreport.alteelemente', 'order'=>'countalteelemente DESC'));
+      'conditions'=>array('Subreport.alteelemente <>'=>''), 'group'=>'Subreport.alteelemente', 'order'=>'countalteelemente DESC, alteelemente ASC'));
     $this->set(compact('otherelements'));
     }
 
@@ -326,8 +325,6 @@ class ReportsController extends AppController {
 
     $this->Report->Subreport->Celem->recursive = -1;
     $this->Report->Subreport->Pelem->recursive = -1;
-    $celemgroups = $this->Report->Subreport->Celem->find('all', array('fields'=>array('DISTINCT Celem.celemgroup')));
-    $celemgroups = Set::extract('/Celem/celemgroup', $celemgroups);
     $celems = $this->Report->Subreport->Celem->find('all', array('order'=>'Celem.number ASC'));
     $celems = Set::combine($celems, '{n}.Celem.id', '{n}.Celem');
 
@@ -365,7 +362,7 @@ class ReportsController extends AppController {
     $authors = $this->Report->Project->Author->find('list', array('fields'=>array('Author.id', 'Author.name'), 'order'=>'Author.name ASC'));
 
     $this->set(compact('statisticprojectsall', 'statisticexpertsauthors', 'statisticreportsall', 'statisticelementsall',
-      'statisticelementsefficiency', 'statisticpelems', 'celems', 'celemgroups', 'experts', 'authors'));
+      'statisticelementsefficiency', 'statisticpelems', 'celems', 'experts', 'authors'));
   }
 
   function __statistic_experts_authors_total($table) {

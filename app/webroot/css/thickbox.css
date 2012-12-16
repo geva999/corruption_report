@@ -157,7 +157,6 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
 #TB_iframeContent{
   clear:both;
   border:none;
-  margin-bottom:-1px;
+  margin-bottom:10px;
   margin-top:1px;
-  _margin-bottom:1px;
 }

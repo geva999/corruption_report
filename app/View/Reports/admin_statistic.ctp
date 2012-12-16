@@ -90,19 +90,19 @@
 
     <div id="caption" class="red" align="center">Распространение факторов коррупционности в тексте проектов – уровень распространения, частота коррупционных факторов в проектах, уровень распространения каждого фактора в своей категории (все проекты, подвергнутые экспертизе - <?php echo $statisticelementsall['total_reports'];?>)</div>
     <?php
-        echo $this->element('admin_statistic_elements_all', array('statistic'=>$statisticelementsall, 'elemgroups'=>$celemgroups, 'elems'=>$celems));
+        echo $this->element('admin_statistic_elements_all', array('statistic'=>$statisticelementsall, 'elemgroups'=>$celem_groups, 'elems'=>$celems));
     ?>
     <br/><br/>
 
     <div id="caption" class="red" align="center">Эффективность замечаний относительно коррупционности по областям экспертизы (из заключений по принятым или отозванным проектам - <?php echo $statisticelementsefficiency['total_reports'];?>)</div>
     <?php
-        echo $this->element('admin_statistic_elements_efficiency', array('statistic'=>$statisticelementsefficiency, 'elemgroups'=>$celemgroups, 'elems'=>$celems));
+        echo $this->element('admin_statistic_elements_efficiency', array('statistic'=>$statisticelementsefficiency, 'elemgroups'=>$celem_groups, 'elems'=>$celems));
     ?>
     <br/><br/>
 
     <div id="caption" class="red" align="center">Список заключений по принятым проектам в которых замечания коррупционности были приняты</div>
     <?php
-        echo $this->element('admin_statistic_pelems', array('statistic'=>$statisticpelems, 'elemgroups'=>$celemgroups, 'elems'=>$celems));
+        echo $this->element('admin_statistic_pelems', array('statistic'=>$statisticpelems, 'elemgroups'=>$celem_groups, 'elems'=>$celems));
     ?>
     <br/><br/>
     <?php echo $this->element('sponsor');?>

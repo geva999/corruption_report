@@ -48,7 +48,7 @@
                     <?php
                         echo $this->Form->input('Project.projectdomain', array(
                                 'label' => 'Область',
-                                'options' => $domainsforselect));
+                                'options' => $domains_select));
                     ?>
                 </li>
                 <li class="option1"<?php if ($projecttype != 'проект закона') echo ' style="display:none;"';?>>

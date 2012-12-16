@@ -14,7 +14,7 @@
       echo $this->fetch('css');
       echo $this->fetch('script');
     ?>
-  </head>$this->Form
+  </head>
 
   <body>
     <div id="container">

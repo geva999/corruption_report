@@ -5,12 +5,12 @@
             <td>Фактор коррупционности</td>
         </tr>
         <?php
-            foreach ($celemgroups as $celemgroup)
+            foreach ($celem_groups as $celem_group)
             {
-                echo '<tr><td class="sector">'.$celemgroup['Celem']['celemgroup'].'</td><td>';
+                echo '<tr><td class="sector">'.$celem_group.'</td><td>';
                 foreach ($celems as $celem)
                 {
-                    if ($celem['Celem']['celemgroup'] == $celemgroup['Celem']['celemgroup'])
+                    if ($celem['Celem']['celemgroup'] == $celem_group)
                     {
                         echo '<div>';
                         echo '<label>'.$celem['Celem']['celem'].'</label>';

@@ -8,6 +8,7 @@ App::uses('AppModel', 'Model');
  */
 class Pelem extends AppModel {
   public $displayField = 'number';
+  public $order = array('Pelem.number');
 
   public $validate = array(
     'celem_id' => array(
