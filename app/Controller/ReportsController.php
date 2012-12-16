@@ -172,6 +172,7 @@ class ReportsController extends AppController {
     $this->Report->Project->Author->recursive = -1;
     $this->Report->Subreport->Celem->recursive = -1;
     $this->request->data = $this->Report->read(null, $id);
+    $expert = $this->Report->Project->Expert->read(null, $this->request->data['Project']['expert_id']);
     $subreports = $this->Report->Subreport->find('all', array('conditions'=>array('Subreport.report_id'=>$id), 'order'=>'Subreport.subreportorder'));
     $template = $templatemodel->find('first', array('conditions'=>array('Template.date <'=>$this->request->data['Report']['reportdate']),
                               'order'=>'Template.date DESC',
@@ -187,7 +188,7 @@ class ReportsController extends AppController {
     unset($this->request->data['Subreport']);
     $author = $this->Report->Project->Author->find('list');
     $author = $author[$this->request->data['Project']['author_id']];
-    $this->set(compact('subreports', 'author', 'template', 'backlink'));
+    $this->set(compact('expert', 'subreports', 'author', 'template', 'backlink'));
 
     if ($type == 'pdf') {
       Configure::write('debug', 0);

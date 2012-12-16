@@ -177,7 +177,12 @@
             <p><?php echo nl2br($this->request->data['Report']['concluzii']);?></p>
 
             <br/><br/>
-            <p align="right"><font size=2><b>Фонд Евразия Центральной Азии</b></font></p>
+            <p align="right">
+              <font size=2><b>
+                <?php echo $expert['Expert']['fullname'];?><br/>
+                Фонд Евразия Центральной Азии
+              </b></font>
+            </p>
 
             <?php
                 if (!empty($this->request->data['Attachment'])) {
